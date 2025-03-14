@@ -10,7 +10,7 @@ import (
 	"google.golang.org/grpc"
 
 	"github.com/hashicorp/go-plugin"
-	proto "github.com/thirdscam/chatanium-flexmodule/bidirectional/proto"
+	proto "github.com/thirdscam/chatanium-flexmodule/sample/proto"
 )
 
 // Handshake is a common handshake that is shared by plugin and host.

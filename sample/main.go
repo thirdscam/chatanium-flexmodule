@@ -11,7 +11,7 @@ import (
 	"os/exec"
 
 	"github.com/hashicorp/go-plugin"
-	"github.com/thirdscam/chatanium-flexmodule/bidirectional/shared"
+	"github.com/thirdscam/chatanium-flexmodule/sample/shared"
 
 	_ "github.com/joho/godotenv/autoload"
 )

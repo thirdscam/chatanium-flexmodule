@@ -4,7 +4,7 @@ import (
 	"context"
 
 	plugin "github.com/hashicorp/go-plugin"
-	"github.com/thirdscam/chatanium-flexmodule/bidirectional/proto"
+	"github.com/thirdscam/chatanium-flexmodule/sample/proto"
 )
 
 // GRPCClient is an implementation of KV that talks over RPC.

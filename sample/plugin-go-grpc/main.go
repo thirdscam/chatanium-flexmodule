@@ -5,7 +5,7 @@ package main
 
 import (
 	"github.com/hashicorp/go-plugin"
-	"github.com/thirdscam/chatanium-flexmodule/bidirectional/shared"
+	"github.com/thirdscam/chatanium-flexmodule/sample/shared"
 )
 
 type Core struct{}
