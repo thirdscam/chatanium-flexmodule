@@ -39,7 +39,7 @@ func main() {
 	}
 
 	// Request the plugin
-	raw, err := rpcClient.Dispense("Core")
+	raw, err := rpcClient.Dispense("core-v1")
 	if err != nil {
 		fmt.Println("Error:", err.Error())
 		os.Exit(1)
@@ -49,7 +49,7 @@ func main() {
 	// implementation but is in fact over an RPC connection.
 	core, ok := raw.(shared.ICore)
 	if !ok {
-		fmt.Println("Plugin has no 'Core' plugin symbol")
+		fmt.Println("Plugin has no 'core-v1' plugin symbol")
 		os.Exit(1)
 	}
 
@@ -58,5 +58,22 @@ func main() {
 		fmt.Println("Error:", err.Error())
 		os.Exit(1)
 	}
-	fmt.Printf("%+v\n", manifest)
+	fmt.Printf("MODULE_MANIFEST >> %+v\n", manifest)
+
+	status, err := core.GetStatus()
+	if err != nil {
+		fmt.Println("Error:", err.Error())
+		os.Exit(1)
+	}
+	fmt.Printf("MODULE_STATUS >> %+v\n", status)
+
+	core.OnStage("RUNTIME_STARTED")
+	fmt.Printf("MODULE_STAGE_DISPATCHED >> RUNTIME_STARTED\n")
+
+	status, err = core.GetStatus()
+	if err != nil {
+		fmt.Println("Error:", err.Error())
+		os.Exit(1)
+	}
+	fmt.Printf("MODULE_STATUS >> %+v\n", status)
 }

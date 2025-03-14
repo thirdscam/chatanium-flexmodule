@@ -20,11 +20,22 @@ func (m *GRPCClient) GetManifest() (Manifest, error) {
 	}
 
 	return Manifest{
-		Name:       resp.Name,
-		Backend:    resp.Backend,
-		Version:    resp.Version,
-		Author:     resp.Author,
-		Repository: resp.Repository,
+		Name:        resp.Name,
+		Version:     resp.Version,
+		Author:      resp.Author,
+		Repository:  resp.Repository,
+		Permissions: Permissions(resp.Permissions),
+	}, nil
+}
+
+func (m *GRPCClient) GetStatus() (Status, error) {
+	resp, err := m.client.GetStatus(context.Background(), &proto.Empty{})
+	if err != nil {
+		return Status{}, err
+	}
+
+	return Status{
+		IsReady: resp.IsReady,
 	}, nil
 }
 
@@ -47,11 +58,22 @@ func (m *GRPCServer) GetManifest(ctx context.Context, req *proto.Empty) (*proto.
 	}
 
 	return &proto.GetManifestResponse{
-		Name:       manifest.Name,
-		Backend:    manifest.Backend,
-		Version:    manifest.Version,
-		Author:     manifest.Author,
-		Repository: manifest.Repository,
+		Name:        manifest.Name,
+		Version:     manifest.Version,
+		Author:      manifest.Author,
+		Repository:  manifest.Repository,
+		Permissions: []string(manifest.Permissions),
+	}, nil
+}
+
+func (m *GRPCServer) GetStatus(ctx context.Context, req *proto.Empty) (*proto.GetStatusResponse, error) {
+	status, err := m.Impl.GetStatus()
+	if err != nil {
+		return nil, err
+	}
+
+	return &proto.GetStatusResponse{
+		IsReady: status.IsReady,
 	}, nil
 }
 

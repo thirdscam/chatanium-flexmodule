@@ -16,26 +16,33 @@ import (
 // Handshake is a common handshake that is shared by plugin and host.
 var Handshake = plugin.HandshakeConfig{
 	ProtocolVersion:  1,
-	MagicCookieKey:   "CHATANIUM",
-	MagicCookieValue: "hello",
+	MagicCookieKey:   "FLEXMODULE_PLUGIN",
+	MagicCookieValue: "CHATANIUM_FOREVER",
 }
 
 // PluginMap is the map of plugins we can dispense.
 var PluginMap = map[string]plugin.Plugin{
-	"Core": &CorePlugin{},
+	"core-v1": &CorePlugin{},
 }
 
 type Manifest struct {
-	Name       string
-	Backend    string
-	Version    string
-	Author     string
-	Repository string
+	Name        string
+	Version     string
+	Author      string
+	Repository  string
+	Permissions Permissions
 }
+
+type Status struct {
+	IsReady bool
+}
+
+type Permissions []string
 
 // KV is the interface that we're exposing as a plugin.
 type ICore interface {
 	GetManifest() (Manifest, error)
+	GetStatus() (Status, error)
 	OnStage(stage string)
 }
 

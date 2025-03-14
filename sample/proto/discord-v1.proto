@@ -1,0 +1,19 @@
+syntax = "proto3";
+package proto;
+option go_package = "./proto";
+
+import "google/protobuf/timestamp.proto";
+
+message DiscordChatMessage {
+    string id = 1;
+    string channel_id = 2;
+    string guild_id = 3;
+    string content = 4;
+    google.protobuf.Timestamp timestamp = 5;
+    optional google.protobuf.Timestamp edited_timestamp = 6;
+    repeated string mention_roles = 7;
+    bool tts = 8;
+    bool mention_everyone = 9;
+    int32 message_flags = 10;
+}
+
