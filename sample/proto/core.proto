@@ -1,0 +1,22 @@
+syntax = "proto3";
+package proto;
+option go_package = "./proto";
+
+message Empty {}
+
+message OnStageRequest {
+    string stage = 1;
+}
+
+message GetManifestResponse {
+    string name = 1;
+    string backend = 2;
+    string version = 3;
+    string author = 4;
+    string repository = 5;
+}
+
+service Core {
+    rpc GetManifest(Empty) returns (GetManifestResponse);
+    rpc OnStage(OnStageRequest) returns (Empty);
+}
