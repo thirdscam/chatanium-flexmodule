@@ -2,7 +2,7 @@ package discord
 
 import "time"
 
-type IDiscord interface {
+type Interface interface {
 	OnInit() error
 	OnCreateMessage(message Message) error
 	OnCreateInteraction(interaction string) error

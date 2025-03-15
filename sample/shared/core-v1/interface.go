@@ -19,7 +19,7 @@ type Status struct {
 type Permissions []string
 
 // KV is the interface that we're exposing as a plugin.
-type ICore interface {
+type Interface interface {
 	GetManifest() (Manifest, error)
 	GetStatus() (Status, error)
 	OnStage(stage string)

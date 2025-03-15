@@ -12,6 +12,7 @@ import (
 
 	"github.com/hashicorp/go-plugin"
 	"github.com/thirdscam/chatanium-flexmodule/sample/shared"
+	"github.com/thirdscam/chatanium-flexmodule/sample/shared/core-v1"
 
 	_ "github.com/joho/godotenv/autoload"
 )
@@ -47,7 +48,7 @@ func main() {
 
 	// We should have a Counter store now! This feels like a normal interface
 	// implementation but is in fact over an RPC connection.
-	core, ok := raw.(shared.ICore)
+	core, ok := raw.(core.Interface)
 	if !ok {
 		fmt.Println("Plugin has no 'core-v1' plugin symbol")
 		os.Exit(1)
