@@ -4,12 +4,12 @@ import "time"
 
 type Interface interface {
 	OnInit() error
-	OnCreateMessage(message Message) error
-	OnCreateInteraction(interaction string) error
+	OnCreateMessage(message ChatMessage) error
+	OnCreateInteraction(interaction Interaction) error
 	OnEvent(event string) error
 }
 
-type Message struct {
+type ChatMessage struct {
 	// The ID of the message.
 	ID string
 
@@ -45,4 +45,18 @@ type Message struct {
 	// This is a combination of bit masks; the presence of a certain permission can
 	// be checked by performing a bitwise AND between this int and the flag.
 	MessageFlags int
+}
+
+type Interaction struct {
+	// The ID of the interaction.
+	ID string
+
+	// The ID of where the interaction was triggered.
+	GuildID string
+
+	// The ID of the channel in which the interaction was triggered.
+	ChannelID string
+
+	// Message that triggered the interaction.
+	Message string
 }
