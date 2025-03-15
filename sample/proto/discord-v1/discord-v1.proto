@@ -1,0 +1,69 @@
+syntax = "proto3";
+package proto;
+option go_package = "./proto";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+// Only supported for Guilds
+message ChatMessage {
+    string id = 1;
+    string channelId = 2;
+    string guildId = 3;
+    string content = 4;
+    google.protobuf.Timestamp timestamp = 5;
+    optional google.protobuf.Timestamp edited_timestamp = 6;
+    repeated string MentionRoles = 7;
+    bool tts = 8;
+    bool mention_everyone = 9;
+    int32 message_flags = 10;
+}
+
+message InitResponse {
+    repeated string interactions = 1;
+}
+
+message ChatIdResponse {
+    string chatId = 1;
+}
+
+message ChatResponse {
+    string guildId = 1;
+    string channelId = 2;
+    string message = 3;
+}
+
+message OnCreateInteractionRequest {
+    string Id = 1;
+    string guildId = 2;
+    string channelId = 3;
+    string message = 4;
+}
+
+message ResponseInteractionRequest {
+    string guildId = 1;
+    string message = 2;
+}
+
+message EditInteractionRequest {
+    string interactionId = 1;
+    string message = 2;
+}
+
+message OnEventRequest {
+    string event = 1;
+}
+
+service Discord {
+    // Runtime -> Module
+    rpc OnInit(google.protobuf.Empty) returns (InitResponse);
+    rpc OnCreateMessage(ChatMessage) returns (google.protobuf.Empty);
+    rpc OnCreateInteraction(OnCreateInteractionRequest) returns (google.protobuf.Empty);
+    rpc OnEvent(OnEventRequest) returns (google.protobuf.Empty);
+
+    // Module -> Runtime
+    rpc ResponseMessage(ChatMessage) returns (ChatIdResponse);
+    rpc ResponseInteraction(ResponseInteractionRequest) returns (ChatIdResponse);
+    rpc EditMessage(ChatMessage) returns (google.protobuf.Empty);
+    rpc EditInteraction(EditInteractionRequest) returns (google.protobuf.Empty);
+}

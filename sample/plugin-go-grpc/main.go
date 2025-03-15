@@ -2,17 +2,18 @@ package main
 
 import (
 	"github.com/hashicorp/go-plugin"
-	"github.com/thirdscam/chatanium-flexmodule/sample/shared"
+	shared "github.com/thirdscam/chatanium-flexmodule/sample/shared"
+	core "github.com/thirdscam/chatanium-flexmodule/sample/shared/core-v1"
 )
 
-var PERMISSIONS = shared.Permissions{
+var PERMISSIONS = core.Permissions{
 	"DISCORD_V1_ON_CREATE_MESSAGE",
 	"DISCORD_V1_ON_CREATE_INTERACTION",
 	"DISCORD_V1_REQ_VOICE_STATE",
 	"DISCORD_V1_CREATE_VOICE_STREAM",
 }
 
-var MANIFEST = shared.Manifest{
+var MANIFEST = core.Manifest{
 	Name:        "TestModule",
 	Version:     "0.0.1",
 	Author:      "thirdscam",
@@ -20,23 +21,23 @@ var MANIFEST = shared.Manifest{
 	Permissions: PERMISSIONS,
 }
 
-var Ready bool
+type Core struct {
+	ready bool
+}
 
-type Core struct{}
-
-func (m *Core) GetManifest() (shared.Manifest, error) {
+func (m *Core) GetManifest() (core.Manifest, error) {
 	return MANIFEST, nil
 }
 
-func (m *Core) GetStatus() (shared.Status, error) {
-	return shared.Status{
-		IsReady: Ready,
+func (m *Core) GetStatus() (core.Status, error) {
+	return core.Status{
+		IsReady: m.ready,
 	}, nil
 }
 
 func (m *Core) OnStage(stage string) {
 	if stage == "RUNTIME_STARTED" {
-		Ready = true
+		m.ready = true
 	}
 }
 
@@ -50,7 +51,8 @@ func main() {
 	plugin.Serve(&plugin.ServeConfig{
 		HandshakeConfig: shared.Handshake,
 		Plugins: map[string]plugin.Plugin{
-			"core-v1": &shared.CorePlugin{Impl: &Core{}},
+			// if want to implement more plugins, you can add it here!
+			"core-v1": &core.Plugin{Impl: &Core{}},
 			// "discord-v1": &shared.CorePlugin{Impl: &Discord{}},
 		},
 		GRPCServer: plugin.DefaultGRPCServer,

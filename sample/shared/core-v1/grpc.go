@@ -1,10 +1,10 @@
-package shared
+package core
 
 import (
 	"context"
 
 	plugin "github.com/hashicorp/go-plugin"
-	"github.com/thirdscam/chatanium-flexmodule/sample/proto"
+	proto "github.com/thirdscam/chatanium-flexmodule/sample/proto/core-v1"
 )
 
 // GRPCClient is an implementation of KV that talks over RPC.
