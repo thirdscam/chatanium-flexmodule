@@ -1,0 +1,31 @@
+syntax = "proto3";
+package discord_v1;
+option go_package = "./proto";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+import "proto/discord-v1/helpers.proto";
+
+message OnCreateInteractionRequest {
+    string Id = 1;
+    string guildId = 2;
+    string channelId = 3;
+    string message = 4;
+}
+
+message OnEventRequest {
+    string event = 1;
+}
+
+message InitResponse {
+    repeated string interactions = 1;
+}
+
+service Hooks {
+    // Runtime -> Module
+    rpc OnInit(google.protobuf.Empty) returns (InitResponse);
+    rpc OnCreateMessage(ChatMessage) returns (google.protobuf.Empty);
+    rpc OnCreateInteraction(OnCreateInteractionRequest) returns (google.protobuf.Empty);
+    rpc OnEvent(OnEventRequest) returns (google.protobuf.Empty);
+}
+

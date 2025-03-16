@@ -1,5 +1,5 @@
 syntax = "proto3";
-package proto;
+package discord_v1;
 option go_package = "./proto";
 
 import "google/protobuf/timestamp.proto";
@@ -19,10 +19,6 @@ message ChatMessage {
     int32 message_flags = 10;
 }
 
-message InitResponse {
-    repeated string interactions = 1;
-}
-
 message ChatIdResponse {
     string chatId = 1;
 }
@@ -31,13 +27,6 @@ message ChatResponse {
     string guildId = 1;
     string channelId = 2;
     string message = 3;
-}
-
-message OnCreateInteractionRequest {
-    string Id = 1;
-    string guildId = 2;
-    string channelId = 3;
-    string message = 4;
 }
 
 message ResponseInteractionRequest {
@@ -50,23 +39,9 @@ message EditInteractionRequest {
     string message = 2;
 }
 
-message OnEventRequest {
-    string event = 1;
-}
-
-service DiscordHooks {
-    // Runtime -> Module
-    rpc OnInit(google.protobuf.Empty) returns (InitResponse);
-    rpc OnCreateMessage(ChatMessage) returns (google.protobuf.Empty);
-    rpc OnCreateInteraction(OnCreateInteractionRequest) returns (google.protobuf.Empty);
-    rpc OnEvent(OnEventRequest) returns (google.protobuf.Empty);
-}
-
-service DiscordHelper {
-    // Module -> Runtime
+service Helpers {
     rpc ResponseMessage(ChatMessage) returns (ChatIdResponse);
     rpc ResponseInteraction(ResponseInteractionRequest) returns (ChatIdResponse);
     rpc EditMessage(ChatMessage) returns (google.protobuf.Empty);
     rpc EditInteraction(EditInteractionRequest) returns (google.protobuf.Empty);
 }
-

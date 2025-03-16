@@ -1,5 +1,5 @@
 syntax = "proto3";
-package proto;
+package core_v1;
 option go_package = "./proto";
 
 import "google/protobuf/empty.proto";
@@ -22,7 +22,7 @@ message OnStageRequest {
     string stage = 1;
 }
 
-service Core {
+service Hooks {
     rpc GetManifest(Empty) returns (GetManifestResponse);
     rpc GetStatus(Empty) returns (GetStatusResponse);
     rpc OnStage(OnStageRequest) returns (Empty);
