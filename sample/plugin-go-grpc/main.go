@@ -53,7 +53,7 @@ func main() {
 		Plugins: map[string]plugin.Plugin{
 			// if want to implement more plugins, you can add it here!
 			"core-v1": &core.Plugin{Impl: &Core{}},
-			// "discord-v1": &shared.CorePlugin{Impl: &Discord{}},
+			// "discord-v1": &discord.CorePlugin{Impl: &Discord{}},
 		},
 		GRPCServer: plugin.DefaultGRPCServer,
 	})

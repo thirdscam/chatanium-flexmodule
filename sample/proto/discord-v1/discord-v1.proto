@@ -54,16 +54,19 @@ message OnEventRequest {
     string event = 1;
 }
 
-service Discord {
+service DiscordHooks {
     // Runtime -> Module
     rpc OnInit(google.protobuf.Empty) returns (InitResponse);
     rpc OnCreateMessage(ChatMessage) returns (google.protobuf.Empty);
     rpc OnCreateInteraction(OnCreateInteractionRequest) returns (google.protobuf.Empty);
     rpc OnEvent(OnEventRequest) returns (google.protobuf.Empty);
+}
 
+service DiscordHelper {
     // Module -> Runtime
     rpc ResponseMessage(ChatMessage) returns (ChatIdResponse);
     rpc ResponseInteraction(ResponseInteractionRequest) returns (ChatIdResponse);
     rpc EditMessage(ChatMessage) returns (google.protobuf.Empty);
     rpc EditInteraction(EditInteractionRequest) returns (google.protobuf.Empty);
 }
+
