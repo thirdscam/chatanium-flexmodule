@@ -39,7 +39,7 @@ message EditInteractionRequest {
     string message = 2;
 }
 
-service Helpers {
+service Helper {
     rpc ResponseMessage(ChatMessage) returns (ChatIdResponse);
     rpc ResponseInteraction(ResponseInteractionRequest) returns (ChatIdResponse);
     rpc EditMessage(ChatMessage) returns (google.protobuf.Empty);

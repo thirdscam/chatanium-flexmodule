@@ -5,5 +5,5 @@ run:
 	go build -o ./sample/module ./sample/plugin-go-grpc
 	./sample/runtime
 
-buf_generate:
-	cd sample && buf generate
+buf:
+	cd sample && rm -rf ./proto/**/*.pb.go && buf generate

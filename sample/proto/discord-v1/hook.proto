@@ -4,7 +4,7 @@ option go_package = "./proto";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
-import "proto/discord-v1/helpers.proto";
+import "proto/discord-v1/helper.proto";
 
 message OnCreateInteractionRequest {
     string Id = 1;
@@ -21,7 +21,7 @@ message InitResponse {
     repeated string interactions = 1;
 }
 
-service Hooks {
+service Hook {
     // Runtime -> Module
     rpc OnInit(google.protobuf.Empty) returns (InitResponse);
     rpc OnCreateMessage(ChatMessage) returns (google.protobuf.Empty);

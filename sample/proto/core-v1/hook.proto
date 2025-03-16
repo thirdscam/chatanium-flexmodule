@@ -22,7 +22,7 @@ message OnStageRequest {
     string stage = 1;
 }
 
-service Hooks {
+service Hook {
     rpc GetManifest(Empty) returns (GetManifestResponse);
     rpc GetStatus(Empty) returns (GetStatusResponse);
     rpc OnStage(OnStageRequest) returns (Empty);

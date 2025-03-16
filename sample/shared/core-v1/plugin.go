@@ -19,7 +19,7 @@ type Plugin struct {
 }
 
 func (p *Plugin) GRPCServer(broker *plugin.GRPCBroker, s *grpc.Server) error {
-	proto.RegisterCoreServer(s, &GRPCServer{
+	proto.RegisterHookServer(s, &GRPCServer{
 		Impl:   p.Impl,
 		broker: broker,
 	})
@@ -27,7 +27,7 @@ func (p *Plugin) GRPCServer(broker *plugin.GRPCBroker, s *grpc.Server) error {
 }
 
 func (p *Plugin) GRPCClient(ctx context.Context, broker *plugin.GRPCBroker, c *grpc.ClientConn) (interface{}, error) {
-	return &GRPCClient{client: proto.NewCoreClient(c), broker: broker}, nil
+	return &GRPCClient{client: proto.NewHookClient(c), broker: broker}, nil
 }
 
 var _ plugin.GRPCPlugin = &Plugin{}
