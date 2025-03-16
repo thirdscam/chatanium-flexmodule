@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/hashicorp/go-plugin"
-	shared "github.com/thirdscam/chatanium-flexmodule/sample/shared"
-	core "github.com/thirdscam/chatanium-flexmodule/sample/shared/core-v1"
+	shared "github.com/thirdscam/chatanium-flexmodule/shared"
+	core "github.com/thirdscam/chatanium-flexmodule/shared/core-v1"
 )
 
 var PERMISSIONS = core.Permissions{

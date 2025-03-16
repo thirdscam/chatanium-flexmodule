@@ -2,7 +2,7 @@ package shared
 
 import (
 	"github.com/hashicorp/go-plugin"
-	core "github.com/thirdscam/chatanium-flexmodule/sample/shared/core-v1"
+	core "github.com/thirdscam/chatanium-flexmodule/shared/core-v1"
 )
 
 // Handshake is a common handshake that is shared by plugin and host.

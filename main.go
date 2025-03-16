@@ -11,8 +11,8 @@ import (
 	"os/exec"
 
 	"github.com/hashicorp/go-plugin"
-	"github.com/thirdscam/chatanium-flexmodule/sample/shared"
-	"github.com/thirdscam/chatanium-flexmodule/sample/shared/core-v1"
+	"github.com/thirdscam/chatanium-flexmodule/shared"
+	"github.com/thirdscam/chatanium-flexmodule/shared/core-v1"
 
 	_ "github.com/joho/godotenv/autoload"
 )
@@ -20,6 +20,8 @@ import (
 func main() {
 	// We don't want to see the plugin logs.
 	log.SetOutput(io.Discard)
+
+	fmt.Printf("%s\n", os.Getenv("PLUGIN_PATH"))
 
 	// We're a host. Start by launching the plugin process.
 	client := plugin.NewClient(&plugin.ClientConfig{

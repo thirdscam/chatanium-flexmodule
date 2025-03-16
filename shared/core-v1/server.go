@@ -4,7 +4,7 @@ import (
 	"context"
 
 	plugin "github.com/hashicorp/go-plugin"
-	proto "github.com/thirdscam/chatanium-flexmodule/sample/proto/core-v1"
+	proto "github.com/thirdscam/chatanium-flexmodule/proto/core-v1"
 )
 
 // Here is the gRPC server that GRPCClient talks to.

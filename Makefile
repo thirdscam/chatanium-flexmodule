@@ -1,9 +1,8 @@
 run:
-	rm -rf ./sample/runtime
-	rm -rf ./sample/module
-	go build -o ./sample/runtime ./sample
-	go build -o ./sample/module ./sample/plugin-go-grpc
-	./sample/runtime
+	rm -rf ./bin/*
+	go build -o ./bin/test-module ./test-module
+	go build -o ./bin/runtime .
+	./bin/runtime
 
 buf:
-	cd sample && rm -rf ./proto/**/*.pb.go && buf generate
+	rm -rf ./proto/**/*.pb.go && buf generate
