@@ -2,11 +2,16 @@ package discord
 
 import "time"
 
-type Interface interface {
+type Hook interface {
 	OnInit() error
-	OnCreateMessage(message ChatMessage) error
+	OnCreateChatMessage(message ChatMessage) error
 	OnCreateInteraction(interaction Interaction) error
 	OnEvent(event string) error
+}
+
+type CreateChatMessageHelper interface {
+	SendMessage(message ChatMessage) error
+	SendMessageToChannel(channelID string, message ChatMessage) error
 }
 
 type ChatMessage struct {
@@ -59,4 +64,26 @@ type Interaction struct {
 
 	// Message that triggered the interaction.
 	Message string
+}
+
+// UsePartialHooks is a partial implementation of the hook Interface.
+//
+// It is useful for embedding in a struct that only needs to
+// implement a subset of the hook Interface.
+type UsePartialHooks struct{}
+
+func (u *UsePartialHooks) OnInit() error {
+	return nil
+}
+
+func (u *UsePartialHooks) OnCreateChatMessage(message ChatMessage) error {
+	return nil
+}
+
+func (u *UsePartialHooks) OnCreateInteraction(interaction Interaction) error {
+	return nil
+}
+
+func (u *UsePartialHooks) OnEvent(event string) error {
+	return nil
 }

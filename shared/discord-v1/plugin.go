@@ -11,7 +11,7 @@ type Plugin struct {
 	plugin.NetRPCUnsupportedPlugin
 	// Concrete implementation, written in Go. This is only used for plugins
 	// that are written in Go.
-	Impl Interface
+	Impl Hook
 }
 
 // func (p *Plugin) GRPCServer(broker *plugin.GRPCBroker, s *grpc.Server) error {
