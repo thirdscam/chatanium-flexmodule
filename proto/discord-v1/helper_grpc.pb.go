@@ -2,16 +2,16 @@
 // versions:
 // - protoc-gen-go-grpc v1.3.0
 // - protoc             (unknown)
-// source: proto/discord-v1/helper.proto
+// source: discord-v1/helper.proto
 
-package proto
+package discord_v1
 
 import (
 	context "context"
+	proto "github.com/thirdscam/chatanium-flexmodule/proto"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -32,8 +32,8 @@ const (
 type HelperClient interface {
 	ResponseMessage(ctx context.Context, in *ChatMessage, opts ...grpc.CallOption) (*ChatIdResponse, error)
 	ResponseInteraction(ctx context.Context, in *ResponseInteractionRequest, opts ...grpc.CallOption) (*ChatIdResponse, error)
-	EditMessage(ctx context.Context, in *ChatMessage, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	EditInteraction(ctx context.Context, in *EditInteractionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	EditMessage(ctx context.Context, in *ChatMessage, opts ...grpc.CallOption) (*proto.Empty, error)
+	EditInteraction(ctx context.Context, in *EditInteractionRequest, opts ...grpc.CallOption) (*proto.Empty, error)
 }
 
 type helperClient struct {
@@ -62,8 +62,8 @@ func (c *helperClient) ResponseInteraction(ctx context.Context, in *ResponseInte
 	return out, nil
 }
 
-func (c *helperClient) EditMessage(ctx context.Context, in *ChatMessage, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *helperClient) EditMessage(ctx context.Context, in *ChatMessage, opts ...grpc.CallOption) (*proto.Empty, error) {
+	out := new(proto.Empty)
 	err := c.cc.Invoke(ctx, Helper_EditMessage_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -71,8 +71,8 @@ func (c *helperClient) EditMessage(ctx context.Context, in *ChatMessage, opts ..
 	return out, nil
 }
 
-func (c *helperClient) EditInteraction(ctx context.Context, in *EditInteractionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *helperClient) EditInteraction(ctx context.Context, in *EditInteractionRequest, opts ...grpc.CallOption) (*proto.Empty, error) {
+	out := new(proto.Empty)
 	err := c.cc.Invoke(ctx, Helper_EditInteraction_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -86,8 +86,8 @@ func (c *helperClient) EditInteraction(ctx context.Context, in *EditInteractionR
 type HelperServer interface {
 	ResponseMessage(context.Context, *ChatMessage) (*ChatIdResponse, error)
 	ResponseInteraction(context.Context, *ResponseInteractionRequest) (*ChatIdResponse, error)
-	EditMessage(context.Context, *ChatMessage) (*emptypb.Empty, error)
-	EditInteraction(context.Context, *EditInteractionRequest) (*emptypb.Empty, error)
+	EditMessage(context.Context, *ChatMessage) (*proto.Empty, error)
+	EditInteraction(context.Context, *EditInteractionRequest) (*proto.Empty, error)
 }
 
 // UnimplementedHelperServer should be embedded to have forward compatible implementations.
@@ -100,10 +100,10 @@ func (UnimplementedHelperServer) ResponseMessage(context.Context, *ChatMessage) 
 func (UnimplementedHelperServer) ResponseInteraction(context.Context, *ResponseInteractionRequest) (*ChatIdResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ResponseInteraction not implemented")
 }
-func (UnimplementedHelperServer) EditMessage(context.Context, *ChatMessage) (*emptypb.Empty, error) {
+func (UnimplementedHelperServer) EditMessage(context.Context, *ChatMessage) (*proto.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method EditMessage not implemented")
 }
-func (UnimplementedHelperServer) EditInteraction(context.Context, *EditInteractionRequest) (*emptypb.Empty, error) {
+func (UnimplementedHelperServer) EditInteraction(context.Context, *EditInteractionRequest) (*proto.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method EditInteraction not implemented")
 }
 
@@ -215,5 +215,5 @@ var Helper_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/discord-v1/helper.proto",
+	Metadata: "discord-v1/helper.proto",
 }

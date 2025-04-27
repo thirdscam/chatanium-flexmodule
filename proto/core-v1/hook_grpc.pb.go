@@ -2,12 +2,13 @@
 // versions:
 // - protoc-gen-go-grpc v1.3.0
 // - protoc             (unknown)
-// source: proto/core-v1/hook.proto
+// source: core-v1/hook.proto
 
-package proto
+package core_v1
 
 import (
 	context "context"
+	proto "github.com/thirdscam/chatanium-flexmodule/proto"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -28,9 +29,9 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type HookClient interface {
-	GetManifest(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*GetManifestResponse, error)
-	GetStatus(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*GetStatusResponse, error)
-	OnStage(ctx context.Context, in *OnStageRequest, opts ...grpc.CallOption) (*Empty, error)
+	GetManifest(ctx context.Context, in *proto.Empty, opts ...grpc.CallOption) (*GetManifestResponse, error)
+	GetStatus(ctx context.Context, in *proto.Empty, opts ...grpc.CallOption) (*GetStatusResponse, error)
+	OnStage(ctx context.Context, in *OnStageRequest, opts ...grpc.CallOption) (*proto.Empty, error)
 }
 
 type hookClient struct {
@@ -41,7 +42,7 @@ func NewHookClient(cc grpc.ClientConnInterface) HookClient {
 	return &hookClient{cc}
 }
 
-func (c *hookClient) GetManifest(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*GetManifestResponse, error) {
+func (c *hookClient) GetManifest(ctx context.Context, in *proto.Empty, opts ...grpc.CallOption) (*GetManifestResponse, error) {
 	out := new(GetManifestResponse)
 	err := c.cc.Invoke(ctx, Hook_GetManifest_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -50,7 +51,7 @@ func (c *hookClient) GetManifest(ctx context.Context, in *Empty, opts ...grpc.Ca
 	return out, nil
 }
 
-func (c *hookClient) GetStatus(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*GetStatusResponse, error) {
+func (c *hookClient) GetStatus(ctx context.Context, in *proto.Empty, opts ...grpc.CallOption) (*GetStatusResponse, error) {
 	out := new(GetStatusResponse)
 	err := c.cc.Invoke(ctx, Hook_GetStatus_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -59,8 +60,8 @@ func (c *hookClient) GetStatus(ctx context.Context, in *Empty, opts ...grpc.Call
 	return out, nil
 }
 
-func (c *hookClient) OnStage(ctx context.Context, in *OnStageRequest, opts ...grpc.CallOption) (*Empty, error) {
-	out := new(Empty)
+func (c *hookClient) OnStage(ctx context.Context, in *OnStageRequest, opts ...grpc.CallOption) (*proto.Empty, error) {
+	out := new(proto.Empty)
 	err := c.cc.Invoke(ctx, Hook_OnStage_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -72,22 +73,22 @@ func (c *hookClient) OnStage(ctx context.Context, in *OnStageRequest, opts ...gr
 // All implementations should embed UnimplementedHookServer
 // for forward compatibility
 type HookServer interface {
-	GetManifest(context.Context, *Empty) (*GetManifestResponse, error)
-	GetStatus(context.Context, *Empty) (*GetStatusResponse, error)
-	OnStage(context.Context, *OnStageRequest) (*Empty, error)
+	GetManifest(context.Context, *proto.Empty) (*GetManifestResponse, error)
+	GetStatus(context.Context, *proto.Empty) (*GetStatusResponse, error)
+	OnStage(context.Context, *OnStageRequest) (*proto.Empty, error)
 }
 
 // UnimplementedHookServer should be embedded to have forward compatible implementations.
 type UnimplementedHookServer struct {
 }
 
-func (UnimplementedHookServer) GetManifest(context.Context, *Empty) (*GetManifestResponse, error) {
+func (UnimplementedHookServer) GetManifest(context.Context, *proto.Empty) (*GetManifestResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetManifest not implemented")
 }
-func (UnimplementedHookServer) GetStatus(context.Context, *Empty) (*GetStatusResponse, error) {
+func (UnimplementedHookServer) GetStatus(context.Context, *proto.Empty) (*GetStatusResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetStatus not implemented")
 }
-func (UnimplementedHookServer) OnStage(context.Context, *OnStageRequest) (*Empty, error) {
+func (UnimplementedHookServer) OnStage(context.Context, *OnStageRequest) (*proto.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method OnStage not implemented")
 }
 
@@ -103,7 +104,7 @@ func RegisterHookServer(s grpc.ServiceRegistrar, srv HookServer) {
 }
 
 func _Hook_GetManifest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Empty)
+	in := new(proto.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -115,13 +116,13 @@ func _Hook_GetManifest_Handler(srv interface{}, ctx context.Context, dec func(in
 		FullMethod: Hook_GetManifest_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HookServer).GetManifest(ctx, req.(*Empty))
+		return srv.(HookServer).GetManifest(ctx, req.(*proto.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _Hook_GetStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Empty)
+	in := new(proto.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -133,7 +134,7 @@ func _Hook_GetStatus_Handler(srv interface{}, ctx context.Context, dec func(inte
 		FullMethod: Hook_GetStatus_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HookServer).GetStatus(ctx, req.(*Empty))
+		return srv.(HookServer).GetStatus(ctx, req.(*proto.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -177,5 +178,5 @@ var Hook_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/core-v1/hook.proto",
+	Metadata: "core-v1/hook.proto",
 }

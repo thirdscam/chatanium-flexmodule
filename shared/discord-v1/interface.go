@@ -1,69 +1,19 @@
 package discord
 
-import "time"
+import (
+	"github.com/bwmarrin/discordgo"
+)
 
 type Hook interface {
 	OnInit() error
-	OnCreateChatMessage(message ChatMessage) error
-	OnCreateInteraction(interaction Interaction) error
+	OnCreateChatMessage(message discordgo.Message) error
+	OnCreateInteraction(interaction discordgo.Interaction) error
 	OnEvent(event string) error
 }
 
 type Helper interface {
-	SendMessage(message ChatMessage) error
-	SendMessageToChannel(channelID string, message ChatMessage) error
-}
-
-type ChatMessage struct {
-	// The ID of the message.
-	ID string
-
-	// The ID of the channel in which the message was sent.
-	ChannelID string
-
-	// The ID of the guild in which the message was sent.
-	GuildID string
-
-	// The content of the message.
-	Content string
-
-	// The time at which the messsage was sent.
-	// CAUTION: this field may be removed in a
-	// future API version; it is safer to calculate
-	// the creation time via the ID.
-	Timestamp time.Time
-
-	// The time at which the last edit of the message
-	// occurred, if it has been edited.
-	EditedTimestamp *time.Time
-
-	// The roles mentioned in the message.
-	MentionRoles []string
-
-	// Whether the message is text-to-speech.
-	TTS bool
-
-	// Whether the message mentions everyone.
-	MentionEveryone bool
-
-	// The flags of the message, which describe extra features of a message.
-	// This is a combination of bit masks; the presence of a certain permission can
-	// be checked by performing a bitwise AND between this int and the flag.
-	MessageFlags int
-}
-
-type Interaction struct {
-	// The ID of the interaction.
-	ID string
-
-	// The ID of where the interaction was triggered.
-	GuildID string
-
-	// The ID of the channel in which the interaction was triggered.
-	ChannelID string
-
-	// Message that triggered the interaction.
-	Message string
+	SendMessage(message discordgo.Message) error
+	SendMessageToChannel(channelID string, message discordgo.Message) error
 }
 
 // AbstractHooks is a partial implementation of the hook Interface.
@@ -77,11 +27,11 @@ func (u *AbstractHooks) OnInit() error {
 	return nil
 }
 
-func (u *AbstractHooks) OnCreateChatMessage(m ChatMessage) error {
+func (u *AbstractHooks) OnCreateChatMessage(m discordgo.Message) error {
 	return nil
 }
 
-func (u *AbstractHooks) OnCreateInteraction(i Interaction) error {
+func (u *AbstractHooks) OnCreateInteraction(i discordgo.Interaction) error {
 	return nil
 }
 

@@ -4,6 +4,7 @@ import (
 	"context"
 
 	plugin "github.com/hashicorp/go-plugin"
+	proto_common "github.com/thirdscam/chatanium-flexmodule/proto"
 	proto "github.com/thirdscam/chatanium-flexmodule/proto/core-v1"
 )
 
@@ -14,7 +15,7 @@ type GRPCServer struct {
 	broker *plugin.GRPCBroker
 }
 
-func (m *GRPCServer) GetManifest(ctx context.Context, req *proto.Empty) (*proto.GetManifestResponse, error) {
+func (m *GRPCServer) GetManifest(ctx context.Context, req *proto_common.Empty) (*proto.GetManifestResponse, error) {
 	manifest, err := m.Impl.GetManifest()
 	if err != nil {
 		return nil, err
@@ -29,7 +30,7 @@ func (m *GRPCServer) GetManifest(ctx context.Context, req *proto.Empty) (*proto.
 	}, nil
 }
 
-func (m *GRPCServer) GetStatus(ctx context.Context, req *proto.Empty) (*proto.GetStatusResponse, error) {
+func (m *GRPCServer) GetStatus(ctx context.Context, req *proto_common.Empty) (*proto.GetStatusResponse, error) {
 	status, err := m.Impl.GetStatus()
 	if err != nil {
 		return nil, err
@@ -40,8 +41,8 @@ func (m *GRPCServer) GetStatus(ctx context.Context, req *proto.Empty) (*proto.Ge
 	}, nil
 }
 
-func (m *GRPCServer) OnStage(ctx context.Context, req *proto.OnStageRequest) (*proto.Empty, error) {
+func (m *GRPCServer) OnStage(ctx context.Context, req *proto.OnStageRequest) (*proto_common.Empty, error) {
 	m.Impl.OnStage(req.Stage)
 
-	return &proto.Empty{}, nil
+	return &proto_common.Empty{}, nil
 }

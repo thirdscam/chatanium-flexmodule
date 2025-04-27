@@ -2,16 +2,16 @@
 // versions:
 // - protoc-gen-go-grpc v1.3.0
 // - protoc             (unknown)
-// source: proto/discord-v1/hook.proto
+// source: discord-v1/hook.proto
 
-package proto
+package discord_v1
 
 import (
 	context "context"
+	proto "github.com/thirdscam/chatanium-flexmodule/proto"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -31,10 +31,10 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type HookClient interface {
 	// Runtime -> Module
-	OnInit(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*InitResponse, error)
-	OnCreateMessage(ctx context.Context, in *ChatMessage, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	OnCreateInteraction(ctx context.Context, in *OnCreateInteractionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	OnEvent(ctx context.Context, in *OnEventRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	OnInit(ctx context.Context, in *proto.Empty, opts ...grpc.CallOption) (*InitResponse, error)
+	OnCreateMessage(ctx context.Context, in *ChatMessage, opts ...grpc.CallOption) (*proto.Empty, error)
+	OnCreateInteraction(ctx context.Context, in *OnCreateInteractionRequest, opts ...grpc.CallOption) (*proto.Empty, error)
+	OnEvent(ctx context.Context, in *OnEventRequest, opts ...grpc.CallOption) (*proto.Empty, error)
 }
 
 type hookClient struct {
@@ -45,7 +45,7 @@ func NewHookClient(cc grpc.ClientConnInterface) HookClient {
 	return &hookClient{cc}
 }
 
-func (c *hookClient) OnInit(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*InitResponse, error) {
+func (c *hookClient) OnInit(ctx context.Context, in *proto.Empty, opts ...grpc.CallOption) (*InitResponse, error) {
 	out := new(InitResponse)
 	err := c.cc.Invoke(ctx, Hook_OnInit_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -54,8 +54,8 @@ func (c *hookClient) OnInit(ctx context.Context, in *emptypb.Empty, opts ...grpc
 	return out, nil
 }
 
-func (c *hookClient) OnCreateMessage(ctx context.Context, in *ChatMessage, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *hookClient) OnCreateMessage(ctx context.Context, in *ChatMessage, opts ...grpc.CallOption) (*proto.Empty, error) {
+	out := new(proto.Empty)
 	err := c.cc.Invoke(ctx, Hook_OnCreateMessage_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -63,8 +63,8 @@ func (c *hookClient) OnCreateMessage(ctx context.Context, in *ChatMessage, opts 
 	return out, nil
 }
 
-func (c *hookClient) OnCreateInteraction(ctx context.Context, in *OnCreateInteractionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *hookClient) OnCreateInteraction(ctx context.Context, in *OnCreateInteractionRequest, opts ...grpc.CallOption) (*proto.Empty, error) {
+	out := new(proto.Empty)
 	err := c.cc.Invoke(ctx, Hook_OnCreateInteraction_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -72,8 +72,8 @@ func (c *hookClient) OnCreateInteraction(ctx context.Context, in *OnCreateIntera
 	return out, nil
 }
 
-func (c *hookClient) OnEvent(ctx context.Context, in *OnEventRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *hookClient) OnEvent(ctx context.Context, in *OnEventRequest, opts ...grpc.CallOption) (*proto.Empty, error) {
+	out := new(proto.Empty)
 	err := c.cc.Invoke(ctx, Hook_OnEvent_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -86,26 +86,26 @@ func (c *hookClient) OnEvent(ctx context.Context, in *OnEventRequest, opts ...gr
 // for forward compatibility
 type HookServer interface {
 	// Runtime -> Module
-	OnInit(context.Context, *emptypb.Empty) (*InitResponse, error)
-	OnCreateMessage(context.Context, *ChatMessage) (*emptypb.Empty, error)
-	OnCreateInteraction(context.Context, *OnCreateInteractionRequest) (*emptypb.Empty, error)
-	OnEvent(context.Context, *OnEventRequest) (*emptypb.Empty, error)
+	OnInit(context.Context, *proto.Empty) (*InitResponse, error)
+	OnCreateMessage(context.Context, *ChatMessage) (*proto.Empty, error)
+	OnCreateInteraction(context.Context, *OnCreateInteractionRequest) (*proto.Empty, error)
+	OnEvent(context.Context, *OnEventRequest) (*proto.Empty, error)
 }
 
 // UnimplementedHookServer should be embedded to have forward compatible implementations.
 type UnimplementedHookServer struct {
 }
 
-func (UnimplementedHookServer) OnInit(context.Context, *emptypb.Empty) (*InitResponse, error) {
+func (UnimplementedHookServer) OnInit(context.Context, *proto.Empty) (*InitResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method OnInit not implemented")
 }
-func (UnimplementedHookServer) OnCreateMessage(context.Context, *ChatMessage) (*emptypb.Empty, error) {
+func (UnimplementedHookServer) OnCreateMessage(context.Context, *ChatMessage) (*proto.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method OnCreateMessage not implemented")
 }
-func (UnimplementedHookServer) OnCreateInteraction(context.Context, *OnCreateInteractionRequest) (*emptypb.Empty, error) {
+func (UnimplementedHookServer) OnCreateInteraction(context.Context, *OnCreateInteractionRequest) (*proto.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method OnCreateInteraction not implemented")
 }
-func (UnimplementedHookServer) OnEvent(context.Context, *OnEventRequest) (*emptypb.Empty, error) {
+func (UnimplementedHookServer) OnEvent(context.Context, *OnEventRequest) (*proto.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method OnEvent not implemented")
 }
 
@@ -121,7 +121,7 @@ func RegisterHookServer(s grpc.ServiceRegistrar, srv HookServer) {
 }
 
 func _Hook_OnInit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(emptypb.Empty)
+	in := new(proto.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -133,7 +133,7 @@ func _Hook_OnInit_Handler(srv interface{}, ctx context.Context, dec func(interfa
 		FullMethod: Hook_OnInit_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HookServer).OnInit(ctx, req.(*emptypb.Empty))
+		return srv.(HookServer).OnInit(ctx, req.(*proto.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -217,5 +217,5 @@ var Hook_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/discord-v1/hook.proto",
+	Metadata: "discord-v1/hook.proto",
 }

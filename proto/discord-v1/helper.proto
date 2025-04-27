@@ -1,11 +1,10 @@
 syntax = "proto3";
 package discord_v1;
-option go_package = "./proto";
+option go_package = "github.com/thirdscam/chatanium-flexmodule/proto/discord-v1";
 
+import "common.proto";
 import "google/protobuf/timestamp.proto";
-import "google/protobuf/empty.proto";
 
-// Only supported for Guilds
 message ChatMessage {
     string id = 1;
     string channelId = 2;
@@ -42,6 +41,6 @@ message EditInteractionRequest {
 service Helper {
     rpc ResponseMessage(ChatMessage) returns (ChatIdResponse);
     rpc ResponseInteraction(ResponseInteractionRequest) returns (ChatIdResponse);
-    rpc EditMessage(ChatMessage) returns (google.protobuf.Empty);
-    rpc EditInteraction(EditInteractionRequest) returns (google.protobuf.Empty);
+    rpc EditMessage(ChatMessage) returns (common.Empty);
+    rpc EditInteraction(EditInteractionRequest) returns (common.Empty);
 }

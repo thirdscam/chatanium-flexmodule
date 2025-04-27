@@ -1,10 +1,8 @@
 syntax = "proto3";
 package core_v1;
-option go_package = "./proto";
+option go_package = "github.com/thirdscam/chatanium-flexmodule/proto/core-v1";
 
-import "google/protobuf/empty.proto";
-
-message Empty {}
+import "common.proto";
 
 message GetManifestResponse {
     string name = 1;
@@ -23,7 +21,7 @@ message OnStageRequest {
 }
 
 service Hook {
-    rpc GetManifest(Empty) returns (GetManifestResponse);
-    rpc GetStatus(Empty) returns (GetStatusResponse);
-    rpc OnStage(OnStageRequest) returns (Empty);
+    rpc GetManifest(common.Empty) returns (GetManifestResponse);
+    rpc GetStatus(common.Empty) returns (GetStatusResponse);
+    rpc OnStage(OnStageRequest) returns (common.Empty);
 }

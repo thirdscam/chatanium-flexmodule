@@ -4,6 +4,7 @@ import (
 	"context"
 
 	plugin "github.com/hashicorp/go-plugin"
+	proto_common "github.com/thirdscam/chatanium-flexmodule/proto"
 	proto "github.com/thirdscam/chatanium-flexmodule/proto/core-v1"
 )
 
@@ -14,7 +15,7 @@ type GRPCClient struct {
 }
 
 func (m *GRPCClient) GetManifest() (Manifest, error) {
-	resp, err := m.client.GetManifest(context.Background(), &proto.Empty{})
+	resp, err := m.client.GetManifest(context.Background(), &proto_common.Empty{})
 	if err != nil {
 		return Manifest{}, err
 	}
@@ -29,7 +30,7 @@ func (m *GRPCClient) GetManifest() (Manifest, error) {
 }
 
 func (m *GRPCClient) GetStatus() (Status, error) {
-	resp, err := m.client.GetStatus(context.Background(), &proto.Empty{})
+	resp, err := m.client.GetStatus(context.Background(), &proto_common.Empty{})
 	if err != nil {
 		return Status{}, err
 	}
