@@ -16,3 +16,11 @@ var Handshake = plugin.HandshakeConfig{
 var PluginMap = map[string]plugin.Plugin{
 	"core-v1": &core.Plugin{},
 }
+
+func ServeToRuntime(plugins map[string]plugin.Plugin) {
+	plugin.Serve(&plugin.ServeConfig{
+		HandshakeConfig: Handshake,
+		Plugins:         plugins,
+		GRPCServer:      plugin.DefaultGRPCServer,
+	})
+}

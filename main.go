@@ -14,10 +14,13 @@ import (
 	"github.com/thirdscam/chatanium-flexmodule/shared"
 	"github.com/thirdscam/chatanium-flexmodule/shared/core-v1"
 
+	"github.com/joho/godotenv"
 	_ "github.com/joho/godotenv/autoload"
 )
 
 func main() {
+	godotenv.Load("./private.env")
+
 	// We don't want to see the plugin logs.
 	log.SetOutput(io.Discard)
 
@@ -29,7 +32,7 @@ func main() {
 		Plugins:         shared.PluginMap,
 		Cmd:             exec.Command("sh", "-c", os.Getenv("PLUGIN_PATH")),
 		AllowedProtocols: []plugin.Protocol{
-			plugin.ProtocolNetRPC, plugin.ProtocolGRPC,
+			plugin.ProtocolGRPC,
 		},
 	})
 	defer client.Kill()
@@ -50,7 +53,7 @@ func main() {
 
 	// We should have a Counter store now! This feels like a normal interface
 	// implementation but is in fact over an RPC connection.
-	core, ok := raw.(core.Interface)
+	core, ok := raw.(core.Hook)
 	if !ok {
 		fmt.Println("Plugin has no 'core-v1' plugin symbol")
 		os.Exit(1)
@@ -70,8 +73,8 @@ func main() {
 	}
 	fmt.Printf("MODULE_STATUS >> %+v\n", status)
 
-	core.OnStage("RUNTIME_STARTED")
-	fmt.Printf("MODULE_STAGE_DISPATCHED >> RUNTIME_STARTED\n")
+	core.OnStage("MODULE_INIT")
+	fmt.Printf("MODULE_STAGE_DISPATCHED >> MODULE_INIT\n")
 
 	status, err = core.GetStatus()
 	if err != nil {

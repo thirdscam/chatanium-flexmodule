@@ -9,7 +9,7 @@ type Hook interface {
 	OnEvent(event string) error
 }
 
-type CreateChatMessageHelper interface {
+type Helper interface {
 	SendMessage(message ChatMessage) error
 	SendMessageToChannel(channelID string, message ChatMessage) error
 }
@@ -66,24 +66,25 @@ type Interaction struct {
 	Message string
 }
 
-// UsePartialHooks is a partial implementation of the hook Interface.
+// AbstractHooks is a partial implementation of the hook Interface.
 //
 // It is useful for embedding in a struct that only needs to
 // implement a subset of the hook Interface.
-type UsePartialHooks struct{}
+type AbstractHooks struct{}
 
-func (u *UsePartialHooks) OnInit() error {
+// asdasdasd
+func (u *AbstractHooks) OnInit() error {
 	return nil
 }
 
-func (u *UsePartialHooks) OnCreateChatMessage(message ChatMessage) error {
+func (u *AbstractHooks) OnCreateChatMessage(m ChatMessage) error {
 	return nil
 }
 
-func (u *UsePartialHooks) OnCreateInteraction(interaction Interaction) error {
+func (u *AbstractHooks) OnCreateInteraction(i Interaction) error {
 	return nil
 }
 
-func (u *UsePartialHooks) OnEvent(event string) error {
+func (u *AbstractHooks) OnEvent(e string) error {
 	return nil
 }

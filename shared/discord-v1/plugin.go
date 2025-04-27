@@ -9,8 +9,7 @@ import (
 // gRPC.
 type Plugin struct {
 	plugin.NetRPCUnsupportedPlugin
-	// Concrete implementation, written in Go. This is only used for plugins
-	// that are written in Go.
+
 	Impl Hook
 }
 

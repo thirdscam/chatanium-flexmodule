@@ -2,19 +2,19 @@ package main
 
 import (
 	"github.com/hashicorp/go-plugin"
-	shared "github.com/thirdscam/chatanium-flexmodule/shared"
-	core "github.com/thirdscam/chatanium-flexmodule/shared/core-v1"
-	discord "github.com/thirdscam/chatanium-flexmodule/shared/discord-v1"
+	broker "github.com/thirdscam/chatanium-flexmodule/shared"
+	Core "github.com/thirdscam/chatanium-flexmodule/shared/core-v1"
+	Discord "github.com/thirdscam/chatanium-flexmodule/shared/discord-v1"
 )
 
-var PERMISSIONS = core.Permissions{
+var PERMISSIONS = Core.Permissions{
 	"DISCORD_V1_ON_CREATE_MESSAGE",
 	"DISCORD_V1_ON_CREATE_INTERACTION",
 	"DISCORD_V1_REQ_VOICE_STATE",
 	"DISCORD_V1_CREATE_VOICE_STREAM",
 }
 
-var MANIFEST = core.Manifest{
+var MANIFEST = Core.Manifest{
 	Name:        "TestModule",
 	Version:     "0.0.1",
 	Author:      "thirdscam",
@@ -22,40 +22,58 @@ var MANIFEST = core.Manifest{
 	Permissions: PERMISSIONS,
 }
 
-type Core struct {
+type core struct {
 	ready bool
 }
 
-func (m *Core) GetManifest() (core.Manifest, error) {
+// GetManifest returns the manifest of the plugin.
+//
+// Identify modules at runtime, and proactively check for
+// required permissions.
+//
+// Note that out-of-permission features may be ignored
+// based on runtime preferences.
+func (m *core) GetManifest() (Core.Manifest, error) {
 	return MANIFEST, nil
 }
 
 // GetStatus returns the status of the plugin.
-func (m *Core) GetStatus() (core.Status, error) {
-	return core.Status{
+//
+// If IsReady is not true, no hooks will be called at
+// runtime for the backend extension.
+func (m *core) GetStatus() (Core.Status, error) {
+	return Core.Status{
 		IsReady: m.ready,
 	}, nil
 }
 
-// OnStage is called when the plugin is in a certain stage.
-func (m *Core) OnStage(stage string) {
-	if stage == "RUNTIME_STARTED" {
+// OnStage is a Hook that signals that the runtime has
+// entered a particular lifecycle stage.
+func (m *core) OnStage(stage string) {
+	switch stage {
+	case "    ":
 		m.ready = true
+	case "MODULE_START":
+		// do something
+	case "MODULE_SHUTDOWN":
+		// do something
+	default:
 	}
 }
 
-type Discord struct {
-	discord.UsePartialHooks
+type discord struct {
+	// If you don't want to use all the hooks,
+	// you can embed this struct, which is an empty set
+	// of hooks, and use it similarly to implementing
+	// an abstract class.
+	Discord.AbstractHooks
 }
 
 func main() {
-	plugin.Serve(&plugin.ServeConfig{
-		HandshakeConfig: shared.Handshake,
-		Plugins: map[string]plugin.Plugin{
-			// if want to implement more plugins, you can add it here!
-			"core-v1":    &core.Plugin{Impl: &Core{}},
-			"discord-v1": &discord.Plugin{Impl: &Discord{}},
-		},
-		GRPCServer: plugin.DefaultGRPCServer,
+	broker.ServeToRuntime(map[string]plugin.Plugin{
+		"core-v1": &Core.Plugin{Impl: &core{}},
+
+		// // if want to implement more plugins, you can add it here!
+		// "discord-v1": &Discord.Plugin{Impl: &discord{}},
 	})
 }
