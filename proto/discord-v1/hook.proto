@@ -10,7 +10,7 @@ message OnEventRequest {
 }
 
 message InitResponse {
-    repeated string interactions = 1;
+    repeated ApplicationCommand interactions = 1;
 }
 
 service Hook {

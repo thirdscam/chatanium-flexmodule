@@ -68,7 +68,7 @@ func (x *OnEventRequest) GetEvent() string {
 
 type InitResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Interactions  []string               `protobuf:"bytes,1,rep,name=interactions,proto3" json:"interactions,omitempty"`
+	Interactions  []*ApplicationCommand  `protobuf:"bytes,1,rep,name=interactions,proto3" json:"interactions,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -103,7 +103,7 @@ func (*InitResponse) Descriptor() ([]byte, []int) {
 	return file_discord_v1_hook_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *InitResponse) GetInteractions() []string {
+func (x *InitResponse) GetInteractions() []*ApplicationCommand {
 	if x != nil {
 		return x.Interactions
 	}
@@ -117,9 +117,9 @@ const file_discord_v1_hook_proto_rawDesc = "" +
 	"\x15discord-v1/hook.proto\x12\n" +
 	"discord_v1\x1a\fcommon.proto\x1a\x1adiscord-v1/discordgo.proto\"&\n" +
 	"\x0eOnEventRequest\x12\x14\n" +
-	"\x05event\x18\x01 \x01(\tR\x05event\"2\n" +
-	"\fInitResponse\x12\"\n" +
-	"\finteractions\x18\x01 \x03(\tR\finteractions2\xe5\x01\n" +
+	"\x05event\x18\x01 \x01(\tR\x05event\"R\n" +
+	"\fInitResponse\x12B\n" +
+	"\finteractions\x18\x01 \x03(\v2\x1e.discord_v1.ApplicationCommandR\finteractions2\xe5\x01\n" +
 	"\x04Hook\x121\n" +
 	"\x06OnInit\x12\r.common.Empty\x1a\x18.discord_v1.InitResponse\x125\n" +
 	"\x0fOnCreateMessage\x12\x13.discord_v1.Message\x1a\r.common.Empty\x12=\n" +
@@ -140,26 +140,28 @@ func file_discord_v1_hook_proto_rawDescGZIP() []byte {
 
 var file_discord_v1_hook_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_discord_v1_hook_proto_goTypes = []any{
-	(*OnEventRequest)(nil), // 0: discord_v1.OnEventRequest
-	(*InitResponse)(nil),   // 1: discord_v1.InitResponse
-	(*proto.Empty)(nil),    // 2: common.Empty
-	(*Message)(nil),        // 3: discord_v1.Message
-	(*Interaction)(nil),    // 4: discord_v1.Interaction
+	(*OnEventRequest)(nil),     // 0: discord_v1.OnEventRequest
+	(*InitResponse)(nil),       // 1: discord_v1.InitResponse
+	(*ApplicationCommand)(nil), // 2: discord_v1.ApplicationCommand
+	(*proto.Empty)(nil),        // 3: common.Empty
+	(*Message)(nil),            // 4: discord_v1.Message
+	(*Interaction)(nil),        // 5: discord_v1.Interaction
 }
 var file_discord_v1_hook_proto_depIdxs = []int32{
-	2, // 0: discord_v1.Hook.OnInit:input_type -> common.Empty
-	3, // 1: discord_v1.Hook.OnCreateMessage:input_type -> discord_v1.Message
-	4, // 2: discord_v1.Hook.OnCreateInteraction:input_type -> discord_v1.Interaction
-	0, // 3: discord_v1.Hook.OnEvent:input_type -> discord_v1.OnEventRequest
-	1, // 4: discord_v1.Hook.OnInit:output_type -> discord_v1.InitResponse
-	2, // 5: discord_v1.Hook.OnCreateMessage:output_type -> common.Empty
-	2, // 6: discord_v1.Hook.OnCreateInteraction:output_type -> common.Empty
-	2, // 7: discord_v1.Hook.OnEvent:output_type -> common.Empty
-	4, // [4:8] is the sub-list for method output_type
-	0, // [0:4] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	2, // 0: discord_v1.InitResponse.interactions:type_name -> discord_v1.ApplicationCommand
+	3, // 1: discord_v1.Hook.OnInit:input_type -> common.Empty
+	4, // 2: discord_v1.Hook.OnCreateMessage:input_type -> discord_v1.Message
+	5, // 3: discord_v1.Hook.OnCreateInteraction:input_type -> discord_v1.Interaction
+	0, // 4: discord_v1.Hook.OnEvent:input_type -> discord_v1.OnEventRequest
+	1, // 5: discord_v1.Hook.OnInit:output_type -> discord_v1.InitResponse
+	3, // 6: discord_v1.Hook.OnCreateMessage:output_type -> common.Empty
+	3, // 7: discord_v1.Hook.OnCreateInteraction:output_type -> common.Empty
+	3, // 8: discord_v1.Hook.OnEvent:output_type -> common.Empty
+	5, // [5:9] is the sub-list for method output_type
+	1, // [1:5] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_discord_v1_hook_proto_init() }
