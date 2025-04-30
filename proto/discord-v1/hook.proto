@@ -3,15 +3,7 @@ package discord_v1;
 option go_package = "github.com/thirdscam/chatanium-flexmodule/proto/discord-v1";
 
 import "common.proto";
-import "discord-v1/helper.proto";
-import "google/protobuf/timestamp.proto";
-
-message OnCreateInteractionRequest {
-    string Id = 1;
-    string guildId = 2;
-    string channelId = 3;
-    string message = 4;
-}
+import "discord-v1/discordgo.proto";
 
 message OnEventRequest {
     string event = 1;
@@ -24,8 +16,8 @@ message InitResponse {
 service Hook {
     // Runtime -> Module
     rpc OnInit(common.Empty) returns (InitResponse);
-    rpc OnCreateMessage(ChatMessage) returns (common.Empty);
-    rpc OnCreateInteraction(OnCreateInteractionRequest) returns (common.Empty);
+    rpc OnCreateMessage(Message) returns (common.Empty);
+    rpc OnCreateInteraction(Interaction) returns (common.Empty);
     rpc OnEvent(OnEventRequest) returns (common.Empty);
 }
 

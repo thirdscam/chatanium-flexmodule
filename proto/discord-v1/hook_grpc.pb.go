@@ -32,8 +32,8 @@ const (
 type HookClient interface {
 	// Runtime -> Module
 	OnInit(ctx context.Context, in *proto.Empty, opts ...grpc.CallOption) (*InitResponse, error)
-	OnCreateMessage(ctx context.Context, in *ChatMessage, opts ...grpc.CallOption) (*proto.Empty, error)
-	OnCreateInteraction(ctx context.Context, in *OnCreateInteractionRequest, opts ...grpc.CallOption) (*proto.Empty, error)
+	OnCreateMessage(ctx context.Context, in *Message, opts ...grpc.CallOption) (*proto.Empty, error)
+	OnCreateInteraction(ctx context.Context, in *Interaction, opts ...grpc.CallOption) (*proto.Empty, error)
 	OnEvent(ctx context.Context, in *OnEventRequest, opts ...grpc.CallOption) (*proto.Empty, error)
 }
 
@@ -54,7 +54,7 @@ func (c *hookClient) OnInit(ctx context.Context, in *proto.Empty, opts ...grpc.C
 	return out, nil
 }
 
-func (c *hookClient) OnCreateMessage(ctx context.Context, in *ChatMessage, opts ...grpc.CallOption) (*proto.Empty, error) {
+func (c *hookClient) OnCreateMessage(ctx context.Context, in *Message, opts ...grpc.CallOption) (*proto.Empty, error) {
 	out := new(proto.Empty)
 	err := c.cc.Invoke(ctx, Hook_OnCreateMessage_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -63,7 +63,7 @@ func (c *hookClient) OnCreateMessage(ctx context.Context, in *ChatMessage, opts 
 	return out, nil
 }
 
-func (c *hookClient) OnCreateInteraction(ctx context.Context, in *OnCreateInteractionRequest, opts ...grpc.CallOption) (*proto.Empty, error) {
+func (c *hookClient) OnCreateInteraction(ctx context.Context, in *Interaction, opts ...grpc.CallOption) (*proto.Empty, error) {
 	out := new(proto.Empty)
 	err := c.cc.Invoke(ctx, Hook_OnCreateInteraction_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -87,8 +87,8 @@ func (c *hookClient) OnEvent(ctx context.Context, in *OnEventRequest, opts ...gr
 type HookServer interface {
 	// Runtime -> Module
 	OnInit(context.Context, *proto.Empty) (*InitResponse, error)
-	OnCreateMessage(context.Context, *ChatMessage) (*proto.Empty, error)
-	OnCreateInteraction(context.Context, *OnCreateInteractionRequest) (*proto.Empty, error)
+	OnCreateMessage(context.Context, *Message) (*proto.Empty, error)
+	OnCreateInteraction(context.Context, *Interaction) (*proto.Empty, error)
 	OnEvent(context.Context, *OnEventRequest) (*proto.Empty, error)
 }
 
@@ -99,10 +99,10 @@ type UnimplementedHookServer struct {
 func (UnimplementedHookServer) OnInit(context.Context, *proto.Empty) (*InitResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method OnInit not implemented")
 }
-func (UnimplementedHookServer) OnCreateMessage(context.Context, *ChatMessage) (*proto.Empty, error) {
+func (UnimplementedHookServer) OnCreateMessage(context.Context, *Message) (*proto.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method OnCreateMessage not implemented")
 }
-func (UnimplementedHookServer) OnCreateInteraction(context.Context, *OnCreateInteractionRequest) (*proto.Empty, error) {
+func (UnimplementedHookServer) OnCreateInteraction(context.Context, *Interaction) (*proto.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method OnCreateInteraction not implemented")
 }
 func (UnimplementedHookServer) OnEvent(context.Context, *OnEventRequest) (*proto.Empty, error) {
@@ -139,7 +139,7 @@ func _Hook_OnInit_Handler(srv interface{}, ctx context.Context, dec func(interfa
 }
 
 func _Hook_OnCreateMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ChatMessage)
+	in := new(Message)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -151,13 +151,13 @@ func _Hook_OnCreateMessage_Handler(srv interface{}, ctx context.Context, dec fun
 		FullMethod: Hook_OnCreateMessage_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HookServer).OnCreateMessage(ctx, req.(*ChatMessage))
+		return srv.(HookServer).OnCreateMessage(ctx, req.(*Message))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _Hook_OnCreateInteraction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCreateInteractionRequest)
+	in := new(Interaction)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -169,7 +169,7 @@ func _Hook_OnCreateInteraction_Handler(srv interface{}, ctx context.Context, dec
 		FullMethod: Hook_OnCreateInteraction_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HookServer).OnCreateInteraction(ctx, req.(*OnCreateInteractionRequest))
+		return srv.(HookServer).OnCreateInteraction(ctx, req.(*Interaction))
 	}
 	return interceptor(ctx, in, info, handler)
 }

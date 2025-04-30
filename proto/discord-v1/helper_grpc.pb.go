@@ -7,11 +7,7 @@
 package discord_v1
 
 import (
-	context "context"
-	proto "github.com/thirdscam/chatanium-flexmodule/proto"
 	grpc "google.golang.org/grpc"
-	codes "google.golang.org/grpc/codes"
-	status "google.golang.org/grpc/status"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -19,21 +15,12 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-const (
-	Helper_ResponseMessage_FullMethodName     = "/discord_v1.Helper/ResponseMessage"
-	Helper_ResponseInteraction_FullMethodName = "/discord_v1.Helper/ResponseInteraction"
-	Helper_EditMessage_FullMethodName         = "/discord_v1.Helper/EditMessage"
-	Helper_EditInteraction_FullMethodName     = "/discord_v1.Helper/EditInteraction"
-)
+const ()
 
 // HelperClient is the client API for Helper service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type HelperClient interface {
-	ResponseMessage(ctx context.Context, in *ChatMessage, opts ...grpc.CallOption) (*ChatIdResponse, error)
-	ResponseInteraction(ctx context.Context, in *ResponseInteractionRequest, opts ...grpc.CallOption) (*ChatIdResponse, error)
-	EditMessage(ctx context.Context, in *ChatMessage, opts ...grpc.CallOption) (*proto.Empty, error)
-	EditInteraction(ctx context.Context, in *EditInteractionRequest, opts ...grpc.CallOption) (*proto.Empty, error)
 }
 
 type helperClient struct {
@@ -44,67 +31,14 @@ func NewHelperClient(cc grpc.ClientConnInterface) HelperClient {
 	return &helperClient{cc}
 }
 
-func (c *helperClient) ResponseMessage(ctx context.Context, in *ChatMessage, opts ...grpc.CallOption) (*ChatIdResponse, error) {
-	out := new(ChatIdResponse)
-	err := c.cc.Invoke(ctx, Helper_ResponseMessage_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *helperClient) ResponseInteraction(ctx context.Context, in *ResponseInteractionRequest, opts ...grpc.CallOption) (*ChatIdResponse, error) {
-	out := new(ChatIdResponse)
-	err := c.cc.Invoke(ctx, Helper_ResponseInteraction_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *helperClient) EditMessage(ctx context.Context, in *ChatMessage, opts ...grpc.CallOption) (*proto.Empty, error) {
-	out := new(proto.Empty)
-	err := c.cc.Invoke(ctx, Helper_EditMessage_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *helperClient) EditInteraction(ctx context.Context, in *EditInteractionRequest, opts ...grpc.CallOption) (*proto.Empty, error) {
-	out := new(proto.Empty)
-	err := c.cc.Invoke(ctx, Helper_EditInteraction_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // HelperServer is the server API for Helper service.
 // All implementations should embed UnimplementedHelperServer
 // for forward compatibility
 type HelperServer interface {
-	ResponseMessage(context.Context, *ChatMessage) (*ChatIdResponse, error)
-	ResponseInteraction(context.Context, *ResponseInteractionRequest) (*ChatIdResponse, error)
-	EditMessage(context.Context, *ChatMessage) (*proto.Empty, error)
-	EditInteraction(context.Context, *EditInteractionRequest) (*proto.Empty, error)
 }
 
 // UnimplementedHelperServer should be embedded to have forward compatible implementations.
 type UnimplementedHelperServer struct {
-}
-
-func (UnimplementedHelperServer) ResponseMessage(context.Context, *ChatMessage) (*ChatIdResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ResponseMessage not implemented")
-}
-func (UnimplementedHelperServer) ResponseInteraction(context.Context, *ResponseInteractionRequest) (*ChatIdResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ResponseInteraction not implemented")
-}
-func (UnimplementedHelperServer) EditMessage(context.Context, *ChatMessage) (*proto.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method EditMessage not implemented")
-}
-func (UnimplementedHelperServer) EditInteraction(context.Context, *EditInteractionRequest) (*proto.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method EditInteraction not implemented")
 }
 
 // UnsafeHelperServer may be embedded to opt out of forward compatibility for this service.
@@ -118,102 +52,13 @@ func RegisterHelperServer(s grpc.ServiceRegistrar, srv HelperServer) {
 	s.RegisterService(&Helper_ServiceDesc, srv)
 }
 
-func _Helper_ResponseMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ChatMessage)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HelperServer).ResponseMessage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Helper_ResponseMessage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HelperServer).ResponseMessage(ctx, req.(*ChatMessage))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Helper_ResponseInteraction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ResponseInteractionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HelperServer).ResponseInteraction(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Helper_ResponseInteraction_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HelperServer).ResponseInteraction(ctx, req.(*ResponseInteractionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Helper_EditMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ChatMessage)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HelperServer).EditMessage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Helper_EditMessage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HelperServer).EditMessage(ctx, req.(*ChatMessage))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Helper_EditInteraction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EditInteractionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HelperServer).EditInteraction(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Helper_EditInteraction_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HelperServer).EditInteraction(ctx, req.(*EditInteractionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // Helper_ServiceDesc is the grpc.ServiceDesc for Helper service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Helper_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "discord_v1.Helper",
 	HandlerType: (*HelperServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "ResponseMessage",
-			Handler:    _Helper_ResponseMessage_Handler,
-		},
-		{
-			MethodName: "ResponseInteraction",
-			Handler:    _Helper_ResponseInteraction_Handler,
-		},
-		{
-			MethodName: "EditMessage",
-			Handler:    _Helper_EditMessage_Handler,
-		},
-		{
-			MethodName: "EditInteraction",
-			Handler:    _Helper_EditInteraction_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "discord-v1/helper.proto",
+	Methods:     []grpc.MethodDesc{},
+	Streams:     []grpc.StreamDesc{},
+	Metadata:    "discord-v1/helper.proto",
 }

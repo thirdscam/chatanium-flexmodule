@@ -1456,3 +1456,375 @@ message ComponentEmoji {
     string id = 2;
     bool animated = 3;
 }
+
+// ChannelType represents the type of a channel. (Needs definition based on Discord API)
+enum ChannelType {
+    CHANNEL_TYPE_UNKNOWN = 0; // Default zero value
+    // Add specific channel types based on Discord API, e.g.:
+    CHANNEL_TYPE_GUILD_TEXT = 1;
+    CHANNEL_TYPE_DM = 3;
+    // ... other channel types ...
+}
+
+// ComponentType represents the type of a message component. (Needs definition based on Discord API)
+enum ComponentType {
+    COMPONENT_TYPE_UNKNOWN = 0; // Default zero value
+    // Add specific component types based on Discord API, e.g.:
+    COMPONENT_TYPE_ACTION_ROW = 1;
+    COMPONENT_TYPE_BUTTON = 2;
+    COMPONENT_TYPE_SELECT_MENU = 3;
+    COMPONENT_TYPE_TEXT_INPUT = 4;
+    // ... other component types ...
+}
+
+// ApplicationCommandType represents the type of application command.
+enum ApplicationCommandType {
+    APPLICATION_COMMAND_TYPE_UNKNOWN = 0; // Default zero value
+
+    // ChatApplicationCommand is default command type. They are slash commands (i.e. called directly from the chat).
+    CHAT_APPLICATION_COMMAND = 1;
+
+    // UserApplicationCommand adds command to user context menu.
+    USER_APPLICATION_COMMAND = 2;
+
+    // MessageApplicationCommand adds command to message context menu.
+    MESSAGE_APPLICATION_COMMAND = 3;
+}
+
+// InteractionContextType represents the context in which interaction can be used or was triggered from.
+enum InteractionContextType {
+    INTERACTION_CONTEXT_UNKNOWN = 0; // Default zero value
+
+    // InteractionContextGuild indicates that interaction can be used within guilds.
+    INTERACTION_CONTEXT_GUILD = 1;
+
+    // InteractionContextBotDM indicates that interaction can be used within DMs with the bot.
+    INTERACTION_CONTEXT_BOT_DM = 2;
+
+    // InteractionContextPrivateChannel indicates that interaction can be used within group DMs and DMs with other users.
+    INTERACTION_CONTEXT_PRIVATE_CHANNEL = 3;
+}
+
+// ApplicationIntegrationType represents the type of integration. (Needs definition based on Discord API)
+enum ApplicationIntegrationType {
+    APPLICATION_INTEGRATION_TYPE_UNKNOWN = 0; // Use a suitable unknown value
+
+    // Add specific integration types based on Discord API, e.g.:
+    APPLICATION_INTEGRATION_TYPE_GUILD_INSTALL = 1;
+    APPLICATION_INTEGRATION_TYPE_USER_INSTALL = 2;
+}
+
+// ApplicationCommand represents an application's slash command.
+message ApplicationCommand {
+    string id = 1;
+    string application_id = 2;
+    string guild_id = 3;
+    string version = 4;
+    ApplicationCommandType type = 5;
+    string name = 6;
+    map<string, string> name_localizations = 7; // Assuming Locale is stringable or maps to string
+
+    // NOTE: DefaultPermission will be soon deprecated. Use DefaultMemberPermissions and Contexts instead.
+    // DefaultPermission *bool `json:"default_permission,omitempty"` - Use optional bool for deprecation clarity? Or omit entirely as deprecated? Let's keep for now, marked as deprecated.
+    optional bool default_permission = 8 [deprecated = true];
+    int64 default_member_permissions = 9; // Use int64 for permissions bitfield
+    optional bool nsfw = 10;
+
+    // Deprecated: use Contexts instead.
+    // DMPermission *bool `json:"dm_permission,omitempty"` - Similar to DefaultPermission, mark deprecated or omit. Keep for now, marked.
+    optional bool dm_permission = 11 [deprecated = true];
+    repeated InteractionContextType contexts = 12;
+    repeated ApplicationIntegrationType integration_types = 13;
+
+    // NOTE: Chat commands only. Otherwise it mustn't be set.
+    string description = 14;
+    map<string, string> description_localizations = 15; // Assuming Locale is stringable or maps to string
+    repeated ApplicationCommandOption options = 16;
+}
+
+// ApplicationCommandOptionType indicates the type of a slash command's option.
+enum ApplicationCommandOptionType {
+    APPLICATION_COMMAND_OPTION_TYPE_UNKNOWN = 0; // Default zero value
+    APPLICATION_COMMAND_OPTION_SUB_COMMAND = 1;
+    APPLICATION_COMMAND_OPTION_SUB_COMMAND_GROUP = 2;
+    APPLICATION_COMMAND_OPTION_STRING = 3;
+    APPLICATION_COMMAND_OPTION_INTEGER = 4;
+    APPLICATION_COMMAND_OPTION_BOOLEAN = 5;
+    APPLICATION_COMMAND_OPTION_USER = 6;
+    APPLICATION_COMMAND_OPTION_CHANNEL = 7;
+    APPLICATION_COMMAND_OPTION_ROLE = 8;
+    APPLICATION_COMMAND_OPTION_MENTIONABLE = 9;
+    APPLICATION_COMMAND_OPTION_NUMBER = 10;
+    APPLICATION_COMMAND_OPTION_ATTACHMENT = 11;
+}
+
+// ApplicationCommandOption represents an option/subcommand/subcommands group.
+message ApplicationCommandOption {
+    ApplicationCommandOptionType type = 1;
+    string name = 2;
+    map<string, string> name_localizations = 3; // Assuming Locale is stringable or maps to string
+    string description = 4;
+    map<string, string> description_localizations = 5; // Assuming Locale is stringable or maps to string
+
+    // NOTE: This feature was on the API, but at some point developers decided to remove it.
+    // So I commented it, until it will be officially on the docs.
+    // bool default = 6; // Reserved field number if uncommented later
+
+    repeated ChannelType channel_types = 7;
+    bool required = 8;
+    repeated ApplicationCommandOption options = 9; // Recursive structure
+
+    // NOTE: mutually exclusive with Choices.
+    bool autocomplete = 10;
+    repeated ApplicationCommandOptionChoice choices = 11;
+
+    // Minimal value of number/integer option.
+    // Use optional for clarity on presence/absence
+    optional double min_value = 12; // Can apply to integer/number
+    // Maximum value of number/integer option.
+    optional double max_value = 13; // Can apply to integer/number
+    // Minimum length of string option.
+    optional int32 min_length = 14;
+    // Maximum length of string option.
+    optional int32 max_length = 15;
+}
+
+// ApplicationCommandOptionChoice represents a slash command option choice.
+message ApplicationCommandOptionChoice {
+    string name = 1;
+    map<string, string> name_localizations = 2; // Assuming Locale is stringable or maps to string
+
+    // NOTE: Contains the value specified by Type.
+    // Use oneof for the value, as it can be different types.
+    oneof value {
+        string string_value = 3;
+        int64 integer_value = 4;
+        double number_value = 5;
+        // Discord API docs also mention boolean might be possible for choices, check latest docs if needed.
+        // bool boolean_value = 6;
+    }
+}
+
+// ApplicationCommandPermissionType indicates whether a permission is user or role based.
+enum ApplicationCommandPermissionType {
+    APPLICATION_COMMAND_PERMISSION_TYPE_UNKNOWN = 0; // Default zero value
+    APPLICATION_COMMAND_PERMISSION_TYPE_ROLE = 1;
+    APPLICATION_COMMAND_PERMISSION_TYPE_USER = 2;
+    APPLICATION_COMMAND_PERMISSION_TYPE_CHANNEL = 3;
+}
+
+// ApplicationCommandPermissions represents a single user or role permission for a command.
+message ApplicationCommandPermissions {
+    string id = 1;
+    ApplicationCommandPermissionType type = 2;
+    bool permission = 3;
+}
+
+// ApplicationCommandPermissionsList represents a list of ApplicationCommandPermissions, needed for serializing to JSON.
+// This message might be useful if the API endpoint specifically wraps the list like this.
+message ApplicationCommandPermissionsList {
+    repeated ApplicationCommandPermissions permissions = 1;
+}
+
+// GuildApplicationCommandPermissions represents all permissions for a single guild command.
+message GuildApplicationCommandPermissions {
+    string id = 1;
+    string application_id = 2;
+    string guild_id = 3;
+    repeated ApplicationCommandPermissions permissions = 4;
+}
+
+
+// InteractionType indicates the type of an interaction event.
+enum InteractionType {
+    INTERACTION_TYPE_UNKNOWN = 0; // Default zero value
+    INTERACTION_PING = 1;
+    INTERACTION_APPLICATION_COMMAND = 2;
+    INTERACTION_MESSAGE_COMPONENT = 3;
+    INTERACTION_APPLICATION_COMMAND_AUTOCOMPLETE = 4;
+    INTERACTION_MODAL_SUBMIT = 5;
+}
+
+// Interaction represents data of an interaction.
+message Interaction {
+    string id = 1;
+    string app_id = 2;
+    InteractionType type = 3;
+
+    // The Data field is an interface in Go, representing different interaction data types.
+    // Use a oneof in protobuf to represent the possible data payloads.
+    oneof data {
+        ApplicationCommandInteractionData application_command_data = 4;
+        MessageComponentInteractionData message_component_data = 5;
+        ModalSubmitInteractionData modal_submit_data = 6;
+        // Autocomplete data often reuses ApplicationCommandInteractionData but with 'focused' set.
+        // If it has a distinct structure, add it here.
+        // ApplicationCommandAutocompleteInteractionData autocomplete_data = 7; // Example if separate
+    }
+
+    string guild_id = 8;
+    string channel_id = 9;
+
+    // The message on which interaction was used.
+    // NOTE: this field is only filled when a button click triggered the interaction. Otherwise it will be nil.
+    // Use optional for message presence.
+    optional Message message = 10;
+
+    // Bitwise set of permissions the app or bot has within the channel the interaction was sent from
+    int64 app_permissions = 11;
+
+    // The member who invoked this interaction.
+    // NOTE: this field is only filled when the slash command was invoked in a guild;
+    // if it was invoked in a DM, the `User` field will be filled instead.
+    // Make sure to check for `nil` before using this field. Use optional member.
+    optional Member member = 12;
+
+    // The user who invoked this interaction.
+    // NOTE: this field is only filled when the slash command was invoked in a DM;
+    // if it was invoked in a guild, the `Member` field will be filled instead.
+    // Make sure to check for `nil` before using this field. Use optional user.
+    optional User user = 13;
+
+    // The user's discord client locale.
+    string locale = 14;
+    // The guild's locale. This defaults to EnglishUS
+    // NOTE: this field is only filled when the interaction was invoked in a guild. Use optional locale.
+    optional string guild_locale = 15;
+
+    InteractionContextType context = 16;
+    // Map of integration type to owner ID (string)
+    map<int32, string> authorizing_integration_owners = 17; // Mapping enum int value to string
+
+    string token = 18;
+    int32 version = 19;
+
+    // Any entitlements for the invoking user, representing access to premium SKUs.
+    // NOTE: this field is only filled in monetized apps. Repeated entitlements.
+    repeated Entitlement entitlements = 20;
+}
+
+// ApplicationCommandInteractionData contains the data of application command interaction.
+message ApplicationCommandInteractionData {
+    string id = 1;
+    string name = 2;
+    ApplicationCommandType command_type = 3;
+    optional ApplicationCommandInteractionDataResolved resolved = 4;
+
+    // Slash command options. Repeated options.
+    repeated ApplicationCommandInteractionDataOption options = 5;
+
+    // Target (user/message) id on which context menu command was called.
+    // The details are stored in Resolved according to command type.
+    string target_id = 6;
+}
+
+// ApplicationCommandInteractionDataResolved contains resolved data of command execution.
+// Partial Member objects are missing user, deaf and mute fields.
+// Partial Channel objects only have id, name, type and permissions fields.
+message ApplicationCommandInteractionDataResolved {
+    map<string, User> users = 1;
+    map<string, Member> members = 2;
+    map<string, Role> roles = 3;
+    map<string, Channel> channels = 4;
+    map<string, Message> messages = 5;
+    map<string, MessageAttachment> attachments = 6;
+}
+
+// MessageComponentInteractionData contains the data of message component interaction.
+message MessageComponentInteractionData {
+    string custom_id = 1;
+    ComponentType component_type = 2;
+    // Resolved data (struct name differs slightly from Go, assuming this is correct)
+    optional MessageComponentInteractionDataResolved resolved = 3; // Go code had struct, not pointer
+
+    // NOTE: Only filled when ComponentType is SelectMenuComponent (3). Otherwise is nil.
+    repeated string values = 4;
+}
+
+// MessageComponentInteractionDataResolved contains the resolved data of selected option.
+message MessageComponentInteractionDataResolved {
+    map<string, User> users = 1;
+    map<string, Member> members = 2;
+    map<string, Role> roles = 3;
+    map<string, Channel> channels = 4;
+}
+
+// ModalSubmitInteractionData contains the data of modal submit interaction.
+message ModalSubmitInteractionData {
+    string custom_id = 1;
+    repeated google.protobuf.Any components = 2; // Go code had json:"-" but it's data
+}
+
+// ApplicationCommandInteractionDataOption represents an option of a slash command.
+message ApplicationCommandInteractionDataOption {
+    string name = 1;
+    ApplicationCommandOptionType type = 2;
+
+    // NOTE: Contains the value specified by Type. Use oneof based on option type.
+    oneof value {
+        string string_value = 3;
+        int64 integer_value = 4;
+        bool boolean_value = 5;
+        string user_value_id = 6; // User ID snowflake
+        string channel_value_id = 7; // Channel ID snowflake
+        string role_value_id = 8; // Role ID snowflake
+        string mentionable_value_id = 9; // Mentionable ID snowflake (user or role)
+        double number_value = 10;
+        string attachment_value_id = 11; // Attachment ID snowflake
+        // SubCommand and SubCommandGroup do not have a simple scalar value,
+        // their value is implicitly represented by the nested options field.
+    }
+
+    // Options for SubCommand or SubCommandGroup types.
+    repeated ApplicationCommandInteractionDataOption options = 12;
+
+    // NOTE: autocomplete interaction only.
+    bool focused = 13;
+}
+
+// InteractionResponseType is type of interaction response.
+enum InteractionResponseType {
+    INTERACTION_RESPONSE_TYPE_UNKNOWN = 0; // Default zero value
+    // InteractionResponsePong is for ACK ping event.
+    INTERACTION_RESPONSE_PONG = 1;
+    // InteractionResponseChannelMessageWithSource is for responding with a message, showing the user's input.
+    INTERACTION_RESPONSE_CHANNEL_MESSAGE_WITH_SOURCE = 4;
+    // InteractionResponseDeferredChannelMessageWithSource acknowledges that the event was received, and that a follow-up will come later.
+    INTERACTION_RESPONSE_DEFERRED_CHANNEL_MESSAGE_WITH_SOURCE = 5;
+    // InteractionResponseDeferredMessageUpdate acknowledges that the message component interaction event was received, and message will be updated later.
+    INTERACTION_RESPONSE_DEFERRED_MESSAGE_UPDATE = 6;
+    // InteractionResponseUpdateMessage is for updating the message to which message component was attached.
+    INTERACTION_RESPONSE_UPDATE_MESSAGE = 7;
+    // InteractionApplicationCommandAutocompleteResult shows autocompletion results. Autocomplete interaction only.
+    INTERACTION_APPLICATION_COMMAND_AUTOCOMPLETE_RESULT = 8;
+    // InteractionResponseModal is for responding to an interaction with a modal window.
+    INTERACTION_RESPONSE_MODAL = 9;
+}
+
+// InteractionResponse represents a response for an interaction event.
+message InteractionResponse {
+    InteractionResponseType type = 1;
+    optional InteractionResponseData data = 2;
+}
+
+// InteractionResponseData is response data for an interaction.
+message InteractionResponseData {
+    bool tts = 1;
+    string content = 2;
+    repeated google.protobuf.Any components = 3;
+    repeated MessageEmbed embeds = 4;
+    optional MessageAllowedMentions allowed_mentions = 5;
+    repeated File files = 6; // Go had json:"-" but it's data
+    repeated MessageAttachment attachments = 7; // Go had pointer to slice
+    optional Poll poll = 8;
+
+    // NOTE: only MessageFlagsSuppressEmbeds and MessageFlagsEphemeral can be set.
+    optional MessageFlags flags = 9; // Go had int64/uint64 directly
+
+    // NOTE: autocomplete interaction only. Repeated choices.
+    repeated ApplicationCommandOptionChoice choices = 10;
+
+    // NOTE: modal interaction only.
+    string custom_id = 11;
+    string title = 12;
+}

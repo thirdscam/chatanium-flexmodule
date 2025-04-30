@@ -10,7 +10,6 @@ import (
 	proto "github.com/thirdscam/chatanium-flexmodule/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -23,74 +22,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type OnCreateInteractionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=Id,proto3" json:"Id,omitempty"`
-	GuildId       string                 `protobuf:"bytes,2,opt,name=guildId,proto3" json:"guildId,omitempty"`
-	ChannelId     string                 `protobuf:"bytes,3,opt,name=channelId,proto3" json:"channelId,omitempty"`
-	Message       string                 `protobuf:"bytes,4,opt,name=message,proto3" json:"message,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCreateInteractionRequest) Reset() {
-	*x = OnCreateInteractionRequest{}
-	mi := &file_discord_v1_hook_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCreateInteractionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCreateInteractionRequest) ProtoMessage() {}
-
-func (x *OnCreateInteractionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_hook_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCreateInteractionRequest.ProtoReflect.Descriptor instead.
-func (*OnCreateInteractionRequest) Descriptor() ([]byte, []int) {
-	return file_discord_v1_hook_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *OnCreateInteractionRequest) GetId() string {
-	if x != nil {
-		return x.Id
-	}
-	return ""
-}
-
-func (x *OnCreateInteractionRequest) GetGuildId() string {
-	if x != nil {
-		return x.GuildId
-	}
-	return ""
-}
-
-func (x *OnCreateInteractionRequest) GetChannelId() string {
-	if x != nil {
-		return x.ChannelId
-	}
-	return ""
-}
-
-func (x *OnCreateInteractionRequest) GetMessage() string {
-	if x != nil {
-		return x.Message
-	}
-	return ""
-}
-
 type OnEventRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Event         string                 `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
@@ -100,7 +31,7 @@ type OnEventRequest struct {
 
 func (x *OnEventRequest) Reset() {
 	*x = OnEventRequest{}
-	mi := &file_discord_v1_hook_proto_msgTypes[1]
+	mi := &file_discord_v1_hook_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -112,7 +43,7 @@ func (x *OnEventRequest) String() string {
 func (*OnEventRequest) ProtoMessage() {}
 
 func (x *OnEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_hook_proto_msgTypes[1]
+	mi := &file_discord_v1_hook_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -125,7 +56,7 @@ func (x *OnEventRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnEventRequest.ProtoReflect.Descriptor instead.
 func (*OnEventRequest) Descriptor() ([]byte, []int) {
-	return file_discord_v1_hook_proto_rawDescGZIP(), []int{1}
+	return file_discord_v1_hook_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *OnEventRequest) GetEvent() string {
@@ -144,7 +75,7 @@ type InitResponse struct {
 
 func (x *InitResponse) Reset() {
 	*x = InitResponse{}
-	mi := &file_discord_v1_hook_proto_msgTypes[2]
+	mi := &file_discord_v1_hook_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -156,7 +87,7 @@ func (x *InitResponse) String() string {
 func (*InitResponse) ProtoMessage() {}
 
 func (x *InitResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_hook_proto_msgTypes[2]
+	mi := &file_discord_v1_hook_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -169,7 +100,7 @@ func (x *InitResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InitResponse.ProtoReflect.Descriptor instead.
 func (*InitResponse) Descriptor() ([]byte, []int) {
-	return file_discord_v1_hook_proto_rawDescGZIP(), []int{2}
+	return file_discord_v1_hook_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *InitResponse) GetInteractions() []string {
@@ -184,20 +115,15 @@ var File_discord_v1_hook_proto protoreflect.FileDescriptor
 const file_discord_v1_hook_proto_rawDesc = "" +
 	"\n" +
 	"\x15discord-v1/hook.proto\x12\n" +
-	"discord_v1\x1a\fcommon.proto\x1a\x17discord-v1/helper.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"~\n" +
-	"\x1aOnCreateInteractionRequest\x12\x0e\n" +
-	"\x02Id\x18\x01 \x01(\tR\x02Id\x12\x18\n" +
-	"\aguildId\x18\x02 \x01(\tR\aguildId\x12\x1c\n" +
-	"\tchannelId\x18\x03 \x01(\tR\tchannelId\x12\x18\n" +
-	"\amessage\x18\x04 \x01(\tR\amessage\"&\n" +
+	"discord_v1\x1a\fcommon.proto\x1a\x1adiscord-v1/discordgo.proto\"&\n" +
 	"\x0eOnEventRequest\x12\x14\n" +
 	"\x05event\x18\x01 \x01(\tR\x05event\"2\n" +
 	"\fInitResponse\x12\"\n" +
-	"\finteractions\x18\x01 \x03(\tR\finteractions2\xf8\x01\n" +
+	"\finteractions\x18\x01 \x03(\tR\finteractions2\xe5\x01\n" +
 	"\x04Hook\x121\n" +
-	"\x06OnInit\x12\r.common.Empty\x1a\x18.discord_v1.InitResponse\x129\n" +
-	"\x0fOnCreateMessage\x12\x17.discord_v1.ChatMessage\x1a\r.common.Empty\x12L\n" +
-	"\x13OnCreateInteraction\x12&.discord_v1.OnCreateInteractionRequest\x1a\r.common.Empty\x124\n" +
+	"\x06OnInit\x12\r.common.Empty\x1a\x18.discord_v1.InitResponse\x125\n" +
+	"\x0fOnCreateMessage\x12\x13.discord_v1.Message\x1a\r.common.Empty\x12=\n" +
+	"\x13OnCreateInteraction\x12\x17.discord_v1.Interaction\x1a\r.common.Empty\x124\n" +
 	"\aOnEvent\x12\x1a.discord_v1.OnEventRequest\x1a\r.common.EmptyB<Z:github.com/thirdscam/chatanium-flexmodule/proto/discord-v1b\x06proto3"
 
 var (
@@ -212,23 +138,23 @@ func file_discord_v1_hook_proto_rawDescGZIP() []byte {
 	return file_discord_v1_hook_proto_rawDescData
 }
 
-var file_discord_v1_hook_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_discord_v1_hook_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_discord_v1_hook_proto_goTypes = []any{
-	(*OnCreateInteractionRequest)(nil), // 0: discord_v1.OnCreateInteractionRequest
-	(*OnEventRequest)(nil),             // 1: discord_v1.OnEventRequest
-	(*InitResponse)(nil),               // 2: discord_v1.InitResponse
-	(*proto.Empty)(nil),                // 3: common.Empty
-	(*ChatMessage)(nil),                // 4: discord_v1.ChatMessage
+	(*OnEventRequest)(nil), // 0: discord_v1.OnEventRequest
+	(*InitResponse)(nil),   // 1: discord_v1.InitResponse
+	(*proto.Empty)(nil),    // 2: common.Empty
+	(*Message)(nil),        // 3: discord_v1.Message
+	(*Interaction)(nil),    // 4: discord_v1.Interaction
 }
 var file_discord_v1_hook_proto_depIdxs = []int32{
-	3, // 0: discord_v1.Hook.OnInit:input_type -> common.Empty
-	4, // 1: discord_v1.Hook.OnCreateMessage:input_type -> discord_v1.ChatMessage
-	0, // 2: discord_v1.Hook.OnCreateInteraction:input_type -> discord_v1.OnCreateInteractionRequest
-	1, // 3: discord_v1.Hook.OnEvent:input_type -> discord_v1.OnEventRequest
-	2, // 4: discord_v1.Hook.OnInit:output_type -> discord_v1.InitResponse
-	3, // 5: discord_v1.Hook.OnCreateMessage:output_type -> common.Empty
-	3, // 6: discord_v1.Hook.OnCreateInteraction:output_type -> common.Empty
-	3, // 7: discord_v1.Hook.OnEvent:output_type -> common.Empty
+	2, // 0: discord_v1.Hook.OnInit:input_type -> common.Empty
+	3, // 1: discord_v1.Hook.OnCreateMessage:input_type -> discord_v1.Message
+	4, // 2: discord_v1.Hook.OnCreateInteraction:input_type -> discord_v1.Interaction
+	0, // 3: discord_v1.Hook.OnEvent:input_type -> discord_v1.OnEventRequest
+	1, // 4: discord_v1.Hook.OnInit:output_type -> discord_v1.InitResponse
+	2, // 5: discord_v1.Hook.OnCreateMessage:output_type -> common.Empty
+	2, // 6: discord_v1.Hook.OnCreateInteraction:output_type -> common.Empty
+	2, // 7: discord_v1.Hook.OnEvent:output_type -> common.Empty
 	4, // [4:8] is the sub-list for method output_type
 	0, // [0:4] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -241,14 +167,14 @@ func file_discord_v1_hook_proto_init() {
 	if File_discord_v1_hook_proto != nil {
 		return
 	}
-	file_discord_v1_helper_proto_init()
+	file_discord_v1_discordgo_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_discord_v1_hook_proto_rawDesc), len(file_discord_v1_hook_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

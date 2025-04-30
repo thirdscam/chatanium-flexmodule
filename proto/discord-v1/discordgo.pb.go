@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        (unknown)
-// source: discord-v1/message.proto
+// source: discord-v1/discordgo.proto
 
 package discord_v1
 
@@ -110,11 +110,11 @@ func (x MessageType) String() string {
 }
 
 func (MessageType) Descriptor() protoreflect.EnumDescriptor {
-	return file_discord_v1_message_proto_enumTypes[0].Descriptor()
+	return file_discord_v1_discordgo_proto_enumTypes[0].Descriptor()
 }
 
 func (MessageType) Type() protoreflect.EnumType {
-	return &file_discord_v1_message_proto_enumTypes[0]
+	return &file_discord_v1_discordgo_proto_enumTypes[0]
 }
 
 func (x MessageType) Number() protoreflect.EnumNumber {
@@ -123,7 +123,7 @@ func (x MessageType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MessageType.Descriptor instead.
 func (MessageType) EnumDescriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{0}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{0}
 }
 
 // MessageFlags is the flags of "message" (see MessageFlags* consts)
@@ -185,11 +185,11 @@ func (x MessageFlags) String() string {
 }
 
 func (MessageFlags) Descriptor() protoreflect.EnumDescriptor {
-	return file_discord_v1_message_proto_enumTypes[1].Descriptor()
+	return file_discord_v1_discordgo_proto_enumTypes[1].Descriptor()
 }
 
 func (MessageFlags) Type() protoreflect.EnumType {
-	return &file_discord_v1_message_proto_enumTypes[1]
+	return &file_discord_v1_discordgo_proto_enumTypes[1]
 }
 
 func (x MessageFlags) Number() protoreflect.EnumNumber {
@@ -198,7 +198,7 @@ func (x MessageFlags) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MessageFlags.Descriptor instead.
 func (MessageFlags) EnumDescriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{1}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{1}
 }
 
 // AllowedMentionType describes the types of mentions used
@@ -236,11 +236,11 @@ func (x AllowedMentionType) String() string {
 }
 
 func (AllowedMentionType) Descriptor() protoreflect.EnumDescriptor {
-	return file_discord_v1_message_proto_enumTypes[2].Descriptor()
+	return file_discord_v1_discordgo_proto_enumTypes[2].Descriptor()
 }
 
 func (AllowedMentionType) Type() protoreflect.EnumType {
-	return &file_discord_v1_message_proto_enumTypes[2]
+	return &file_discord_v1_discordgo_proto_enumTypes[2]
 }
 
 func (x AllowedMentionType) Number() protoreflect.EnumNumber {
@@ -249,7 +249,7 @@ func (x AllowedMentionType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AllowedMentionType.Descriptor instead.
 func (AllowedMentionType) EnumDescriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{2}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{2}
 }
 
 // EmbedType is the type of embed
@@ -296,11 +296,11 @@ func (x EmbedType) String() string {
 }
 
 func (EmbedType) Descriptor() protoreflect.EnumDescriptor {
-	return file_discord_v1_message_proto_enumTypes[3].Descriptor()
+	return file_discord_v1_discordgo_proto_enumTypes[3].Descriptor()
 }
 
 func (EmbedType) Type() protoreflect.EnumType {
-	return &file_discord_v1_message_proto_enumTypes[3]
+	return &file_discord_v1_discordgo_proto_enumTypes[3]
 }
 
 func (x EmbedType) Number() protoreflect.EnumNumber {
@@ -309,7 +309,7 @@ func (x EmbedType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use EmbedType.Descriptor instead.
 func (EmbedType) EnumDescriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{3}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{3}
 }
 
 // MessageActivityType is the type of message activity
@@ -349,11 +349,11 @@ func (x MessageActivityType) String() string {
 }
 
 func (MessageActivityType) Descriptor() protoreflect.EnumDescriptor {
-	return file_discord_v1_message_proto_enumTypes[4].Descriptor()
+	return file_discord_v1_discordgo_proto_enumTypes[4].Descriptor()
 }
 
 func (MessageActivityType) Type() protoreflect.EnumType {
-	return &file_discord_v1_message_proto_enumTypes[4]
+	return &file_discord_v1_discordgo_proto_enumTypes[4]
 }
 
 func (x MessageActivityType) Number() protoreflect.EnumNumber {
@@ -362,7 +362,7 @@ func (x MessageActivityType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MessageActivityType.Descriptor instead.
 func (MessageActivityType) EnumDescriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{4}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{4}
 }
 
 // MessageReferenceType is a type of MessageReference
@@ -396,11 +396,11 @@ func (x MessageReferenceType) String() string {
 }
 
 func (MessageReferenceType) Descriptor() protoreflect.EnumDescriptor {
-	return file_discord_v1_message_proto_enumTypes[5].Descriptor()
+	return file_discord_v1_discordgo_proto_enumTypes[5].Descriptor()
 }
 
 func (MessageReferenceType) Type() protoreflect.EnumType {
-	return &file_discord_v1_message_proto_enumTypes[5]
+	return &file_discord_v1_discordgo_proto_enumTypes[5]
 }
 
 func (x MessageReferenceType) Number() protoreflect.EnumNumber {
@@ -409,7 +409,7 @@ func (x MessageReferenceType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MessageReferenceType.Descriptor instead.
 func (MessageReferenceType) EnumDescriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{5}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{5}
 }
 
 type UserFlags int32
@@ -488,11 +488,11 @@ func (x UserFlags) String() string {
 }
 
 func (UserFlags) Descriptor() protoreflect.EnumDescriptor {
-	return file_discord_v1_message_proto_enumTypes[6].Descriptor()
+	return file_discord_v1_discordgo_proto_enumTypes[6].Descriptor()
 }
 
 func (UserFlags) Type() protoreflect.EnumType {
-	return &file_discord_v1_message_proto_enumTypes[6]
+	return &file_discord_v1_discordgo_proto_enumTypes[6]
 }
 
 func (x UserFlags) Number() protoreflect.EnumNumber {
@@ -501,7 +501,7 @@ func (x UserFlags) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UserFlags.Descriptor instead.
 func (UserFlags) EnumDescriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{6}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{6}
 }
 
 // UserPremiumType is the type of premium (nitro) subscription a user has.
@@ -545,11 +545,11 @@ func (x UserPremiumType) String() string {
 }
 
 func (UserPremiumType) Descriptor() protoreflect.EnumDescriptor {
-	return file_discord_v1_message_proto_enumTypes[7].Descriptor()
+	return file_discord_v1_discordgo_proto_enumTypes[7].Descriptor()
 }
 
 func (UserPremiumType) Type() protoreflect.EnumType {
-	return &file_discord_v1_message_proto_enumTypes[7]
+	return &file_discord_v1_discordgo_proto_enumTypes[7]
 }
 
 func (x UserPremiumType) Number() protoreflect.EnumNumber {
@@ -558,7 +558,7 @@ func (x UserPremiumType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UserPremiumType.Descriptor instead.
 func (UserPremiumType) EnumDescriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{7}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{7}
 }
 
 // Corresponds to the Go enum MembershipState
@@ -596,11 +596,11 @@ func (x MembershipState) String() string {
 }
 
 func (MembershipState) Descriptor() protoreflect.EnumDescriptor {
-	return file_discord_v1_message_proto_enumTypes[8].Descriptor()
+	return file_discord_v1_discordgo_proto_enumTypes[8].Descriptor()
 }
 
 func (MembershipState) Type() protoreflect.EnumType {
-	return &file_discord_v1_message_proto_enumTypes[8]
+	return &file_discord_v1_discordgo_proto_enumTypes[8]
 }
 
 func (x MembershipState) Number() protoreflect.EnumNumber {
@@ -609,7 +609,7 @@ func (x MembershipState) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use MembershipState.Descriptor instead.
 func (MembershipState) EnumDescriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{8}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{8}
 }
 
 // WebhookType is the type of Webhook
@@ -647,11 +647,11 @@ func (x WebhookType) String() string {
 }
 
 func (WebhookType) Descriptor() protoreflect.EnumDescriptor {
-	return file_discord_v1_message_proto_enumTypes[9].Descriptor()
+	return file_discord_v1_discordgo_proto_enumTypes[9].Descriptor()
 }
 
 func (WebhookType) Type() protoreflect.EnumType {
-	return &file_discord_v1_message_proto_enumTypes[9]
+	return &file_discord_v1_discordgo_proto_enumTypes[9]
 }
 
 func (x WebhookType) Number() protoreflect.EnumNumber {
@@ -660,7 +660,539 @@ func (x WebhookType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use WebhookType.Descriptor instead.
 func (WebhookType) EnumDescriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{9}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{9}
+}
+
+// ChannelType represents the type of a channel. (Needs definition based on Discord API)
+type ChannelType int32
+
+const (
+	ChannelType_CHANNEL_TYPE_UNKNOWN ChannelType = 0 // Default zero value
+	// Add specific channel types based on Discord API, e.g.:
+	ChannelType_CHANNEL_TYPE_GUILD_TEXT ChannelType = 1
+	ChannelType_CHANNEL_TYPE_DM         ChannelType = 3 // ... other channel types ...
+)
+
+// Enum value maps for ChannelType.
+var (
+	ChannelType_name = map[int32]string{
+		0: "CHANNEL_TYPE_UNKNOWN",
+		1: "CHANNEL_TYPE_GUILD_TEXT",
+		3: "CHANNEL_TYPE_DM",
+	}
+	ChannelType_value = map[string]int32{
+		"CHANNEL_TYPE_UNKNOWN":    0,
+		"CHANNEL_TYPE_GUILD_TEXT": 1,
+		"CHANNEL_TYPE_DM":         3,
+	}
+)
+
+func (x ChannelType) Enum() *ChannelType {
+	p := new(ChannelType)
+	*p = x
+	return p
+}
+
+func (x ChannelType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (ChannelType) Descriptor() protoreflect.EnumDescriptor {
+	return file_discord_v1_discordgo_proto_enumTypes[10].Descriptor()
+}
+
+func (ChannelType) Type() protoreflect.EnumType {
+	return &file_discord_v1_discordgo_proto_enumTypes[10]
+}
+
+func (x ChannelType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use ChannelType.Descriptor instead.
+func (ChannelType) EnumDescriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{10}
+}
+
+// ComponentType represents the type of a message component. (Needs definition based on Discord API)
+type ComponentType int32
+
+const (
+	ComponentType_COMPONENT_TYPE_UNKNOWN ComponentType = 0 // Default zero value
+	// Add specific component types based on Discord API, e.g.:
+	ComponentType_COMPONENT_TYPE_ACTION_ROW  ComponentType = 1
+	ComponentType_COMPONENT_TYPE_BUTTON      ComponentType = 2
+	ComponentType_COMPONENT_TYPE_SELECT_MENU ComponentType = 3
+	ComponentType_COMPONENT_TYPE_TEXT_INPUT  ComponentType = 4 // ... other component types ...
+)
+
+// Enum value maps for ComponentType.
+var (
+	ComponentType_name = map[int32]string{
+		0: "COMPONENT_TYPE_UNKNOWN",
+		1: "COMPONENT_TYPE_ACTION_ROW",
+		2: "COMPONENT_TYPE_BUTTON",
+		3: "COMPONENT_TYPE_SELECT_MENU",
+		4: "COMPONENT_TYPE_TEXT_INPUT",
+	}
+	ComponentType_value = map[string]int32{
+		"COMPONENT_TYPE_UNKNOWN":     0,
+		"COMPONENT_TYPE_ACTION_ROW":  1,
+		"COMPONENT_TYPE_BUTTON":      2,
+		"COMPONENT_TYPE_SELECT_MENU": 3,
+		"COMPONENT_TYPE_TEXT_INPUT":  4,
+	}
+)
+
+func (x ComponentType) Enum() *ComponentType {
+	p := new(ComponentType)
+	*p = x
+	return p
+}
+
+func (x ComponentType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (ComponentType) Descriptor() protoreflect.EnumDescriptor {
+	return file_discord_v1_discordgo_proto_enumTypes[11].Descriptor()
+}
+
+func (ComponentType) Type() protoreflect.EnumType {
+	return &file_discord_v1_discordgo_proto_enumTypes[11]
+}
+
+func (x ComponentType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use ComponentType.Descriptor instead.
+func (ComponentType) EnumDescriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{11}
+}
+
+// ApplicationCommandType represents the type of application command.
+type ApplicationCommandType int32
+
+const (
+	ApplicationCommandType_APPLICATION_COMMAND_TYPE_UNKNOWN ApplicationCommandType = 0 // Default zero value
+	// ChatApplicationCommand is default command type. They are slash commands (i.e. called directly from the chat).
+	ApplicationCommandType_CHAT_APPLICATION_COMMAND ApplicationCommandType = 1
+	// UserApplicationCommand adds command to user context menu.
+	ApplicationCommandType_USER_APPLICATION_COMMAND ApplicationCommandType = 2
+	// MessageApplicationCommand adds command to message context menu.
+	ApplicationCommandType_MESSAGE_APPLICATION_COMMAND ApplicationCommandType = 3
+)
+
+// Enum value maps for ApplicationCommandType.
+var (
+	ApplicationCommandType_name = map[int32]string{
+		0: "APPLICATION_COMMAND_TYPE_UNKNOWN",
+		1: "CHAT_APPLICATION_COMMAND",
+		2: "USER_APPLICATION_COMMAND",
+		3: "MESSAGE_APPLICATION_COMMAND",
+	}
+	ApplicationCommandType_value = map[string]int32{
+		"APPLICATION_COMMAND_TYPE_UNKNOWN": 0,
+		"CHAT_APPLICATION_COMMAND":         1,
+		"USER_APPLICATION_COMMAND":         2,
+		"MESSAGE_APPLICATION_COMMAND":      3,
+	}
+)
+
+func (x ApplicationCommandType) Enum() *ApplicationCommandType {
+	p := new(ApplicationCommandType)
+	*p = x
+	return p
+}
+
+func (x ApplicationCommandType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (ApplicationCommandType) Descriptor() protoreflect.EnumDescriptor {
+	return file_discord_v1_discordgo_proto_enumTypes[12].Descriptor()
+}
+
+func (ApplicationCommandType) Type() protoreflect.EnumType {
+	return &file_discord_v1_discordgo_proto_enumTypes[12]
+}
+
+func (x ApplicationCommandType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use ApplicationCommandType.Descriptor instead.
+func (ApplicationCommandType) EnumDescriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{12}
+}
+
+// InteractionContextType represents the context in which interaction can be used or was triggered from.
+type InteractionContextType int32
+
+const (
+	InteractionContextType_INTERACTION_CONTEXT_UNKNOWN InteractionContextType = 0 // Default zero value
+	// InteractionContextGuild indicates that interaction can be used within guilds.
+	InteractionContextType_INTERACTION_CONTEXT_GUILD InteractionContextType = 1
+	// InteractionContextBotDM indicates that interaction can be used within DMs with the bot.
+	InteractionContextType_INTERACTION_CONTEXT_BOT_DM InteractionContextType = 2
+	// InteractionContextPrivateChannel indicates that interaction can be used within group DMs and DMs with other users.
+	InteractionContextType_INTERACTION_CONTEXT_PRIVATE_CHANNEL InteractionContextType = 3
+)
+
+// Enum value maps for InteractionContextType.
+var (
+	InteractionContextType_name = map[int32]string{
+		0: "INTERACTION_CONTEXT_UNKNOWN",
+		1: "INTERACTION_CONTEXT_GUILD",
+		2: "INTERACTION_CONTEXT_BOT_DM",
+		3: "INTERACTION_CONTEXT_PRIVATE_CHANNEL",
+	}
+	InteractionContextType_value = map[string]int32{
+		"INTERACTION_CONTEXT_UNKNOWN":         0,
+		"INTERACTION_CONTEXT_GUILD":           1,
+		"INTERACTION_CONTEXT_BOT_DM":          2,
+		"INTERACTION_CONTEXT_PRIVATE_CHANNEL": 3,
+	}
+)
+
+func (x InteractionContextType) Enum() *InteractionContextType {
+	p := new(InteractionContextType)
+	*p = x
+	return p
+}
+
+func (x InteractionContextType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (InteractionContextType) Descriptor() protoreflect.EnumDescriptor {
+	return file_discord_v1_discordgo_proto_enumTypes[13].Descriptor()
+}
+
+func (InteractionContextType) Type() protoreflect.EnumType {
+	return &file_discord_v1_discordgo_proto_enumTypes[13]
+}
+
+func (x InteractionContextType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use InteractionContextType.Descriptor instead.
+func (InteractionContextType) EnumDescriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{13}
+}
+
+// ApplicationIntegrationType represents the type of integration. (Needs definition based on Discord API)
+type ApplicationIntegrationType int32
+
+const (
+	ApplicationIntegrationType_APPLICATION_INTEGRATION_TYPE_UNKNOWN ApplicationIntegrationType = 0 // Use a suitable unknown value
+	// Add specific integration types based on Discord API, e.g.:
+	ApplicationIntegrationType_APPLICATION_INTEGRATION_TYPE_GUILD_INSTALL ApplicationIntegrationType = 1
+	ApplicationIntegrationType_APPLICATION_INTEGRATION_TYPE_USER_INSTALL  ApplicationIntegrationType = 2
+)
+
+// Enum value maps for ApplicationIntegrationType.
+var (
+	ApplicationIntegrationType_name = map[int32]string{
+		0: "APPLICATION_INTEGRATION_TYPE_UNKNOWN",
+		1: "APPLICATION_INTEGRATION_TYPE_GUILD_INSTALL",
+		2: "APPLICATION_INTEGRATION_TYPE_USER_INSTALL",
+	}
+	ApplicationIntegrationType_value = map[string]int32{
+		"APPLICATION_INTEGRATION_TYPE_UNKNOWN":       0,
+		"APPLICATION_INTEGRATION_TYPE_GUILD_INSTALL": 1,
+		"APPLICATION_INTEGRATION_TYPE_USER_INSTALL":  2,
+	}
+)
+
+func (x ApplicationIntegrationType) Enum() *ApplicationIntegrationType {
+	p := new(ApplicationIntegrationType)
+	*p = x
+	return p
+}
+
+func (x ApplicationIntegrationType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (ApplicationIntegrationType) Descriptor() protoreflect.EnumDescriptor {
+	return file_discord_v1_discordgo_proto_enumTypes[14].Descriptor()
+}
+
+func (ApplicationIntegrationType) Type() protoreflect.EnumType {
+	return &file_discord_v1_discordgo_proto_enumTypes[14]
+}
+
+func (x ApplicationIntegrationType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use ApplicationIntegrationType.Descriptor instead.
+func (ApplicationIntegrationType) EnumDescriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{14}
+}
+
+// ApplicationCommandOptionType indicates the type of a slash command's option.
+type ApplicationCommandOptionType int32
+
+const (
+	ApplicationCommandOptionType_APPLICATION_COMMAND_OPTION_TYPE_UNKNOWN      ApplicationCommandOptionType = 0 // Default zero value
+	ApplicationCommandOptionType_APPLICATION_COMMAND_OPTION_SUB_COMMAND       ApplicationCommandOptionType = 1
+	ApplicationCommandOptionType_APPLICATION_COMMAND_OPTION_SUB_COMMAND_GROUP ApplicationCommandOptionType = 2
+	ApplicationCommandOptionType_APPLICATION_COMMAND_OPTION_STRING            ApplicationCommandOptionType = 3
+	ApplicationCommandOptionType_APPLICATION_COMMAND_OPTION_INTEGER           ApplicationCommandOptionType = 4
+	ApplicationCommandOptionType_APPLICATION_COMMAND_OPTION_BOOLEAN           ApplicationCommandOptionType = 5
+	ApplicationCommandOptionType_APPLICATION_COMMAND_OPTION_USER              ApplicationCommandOptionType = 6
+	ApplicationCommandOptionType_APPLICATION_COMMAND_OPTION_CHANNEL           ApplicationCommandOptionType = 7
+	ApplicationCommandOptionType_APPLICATION_COMMAND_OPTION_ROLE              ApplicationCommandOptionType = 8
+	ApplicationCommandOptionType_APPLICATION_COMMAND_OPTION_MENTIONABLE       ApplicationCommandOptionType = 9
+	ApplicationCommandOptionType_APPLICATION_COMMAND_OPTION_NUMBER            ApplicationCommandOptionType = 10
+	ApplicationCommandOptionType_APPLICATION_COMMAND_OPTION_ATTACHMENT        ApplicationCommandOptionType = 11
+)
+
+// Enum value maps for ApplicationCommandOptionType.
+var (
+	ApplicationCommandOptionType_name = map[int32]string{
+		0:  "APPLICATION_COMMAND_OPTION_TYPE_UNKNOWN",
+		1:  "APPLICATION_COMMAND_OPTION_SUB_COMMAND",
+		2:  "APPLICATION_COMMAND_OPTION_SUB_COMMAND_GROUP",
+		3:  "APPLICATION_COMMAND_OPTION_STRING",
+		4:  "APPLICATION_COMMAND_OPTION_INTEGER",
+		5:  "APPLICATION_COMMAND_OPTION_BOOLEAN",
+		6:  "APPLICATION_COMMAND_OPTION_USER",
+		7:  "APPLICATION_COMMAND_OPTION_CHANNEL",
+		8:  "APPLICATION_COMMAND_OPTION_ROLE",
+		9:  "APPLICATION_COMMAND_OPTION_MENTIONABLE",
+		10: "APPLICATION_COMMAND_OPTION_NUMBER",
+		11: "APPLICATION_COMMAND_OPTION_ATTACHMENT",
+	}
+	ApplicationCommandOptionType_value = map[string]int32{
+		"APPLICATION_COMMAND_OPTION_TYPE_UNKNOWN":      0,
+		"APPLICATION_COMMAND_OPTION_SUB_COMMAND":       1,
+		"APPLICATION_COMMAND_OPTION_SUB_COMMAND_GROUP": 2,
+		"APPLICATION_COMMAND_OPTION_STRING":            3,
+		"APPLICATION_COMMAND_OPTION_INTEGER":           4,
+		"APPLICATION_COMMAND_OPTION_BOOLEAN":           5,
+		"APPLICATION_COMMAND_OPTION_USER":              6,
+		"APPLICATION_COMMAND_OPTION_CHANNEL":           7,
+		"APPLICATION_COMMAND_OPTION_ROLE":              8,
+		"APPLICATION_COMMAND_OPTION_MENTIONABLE":       9,
+		"APPLICATION_COMMAND_OPTION_NUMBER":            10,
+		"APPLICATION_COMMAND_OPTION_ATTACHMENT":        11,
+	}
+)
+
+func (x ApplicationCommandOptionType) Enum() *ApplicationCommandOptionType {
+	p := new(ApplicationCommandOptionType)
+	*p = x
+	return p
+}
+
+func (x ApplicationCommandOptionType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (ApplicationCommandOptionType) Descriptor() protoreflect.EnumDescriptor {
+	return file_discord_v1_discordgo_proto_enumTypes[15].Descriptor()
+}
+
+func (ApplicationCommandOptionType) Type() protoreflect.EnumType {
+	return &file_discord_v1_discordgo_proto_enumTypes[15]
+}
+
+func (x ApplicationCommandOptionType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use ApplicationCommandOptionType.Descriptor instead.
+func (ApplicationCommandOptionType) EnumDescriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{15}
+}
+
+// ApplicationCommandPermissionType indicates whether a permission is user or role based.
+type ApplicationCommandPermissionType int32
+
+const (
+	ApplicationCommandPermissionType_APPLICATION_COMMAND_PERMISSION_TYPE_UNKNOWN ApplicationCommandPermissionType = 0 // Default zero value
+	ApplicationCommandPermissionType_APPLICATION_COMMAND_PERMISSION_TYPE_ROLE    ApplicationCommandPermissionType = 1
+	ApplicationCommandPermissionType_APPLICATION_COMMAND_PERMISSION_TYPE_USER    ApplicationCommandPermissionType = 2
+	ApplicationCommandPermissionType_APPLICATION_COMMAND_PERMISSION_TYPE_CHANNEL ApplicationCommandPermissionType = 3
+)
+
+// Enum value maps for ApplicationCommandPermissionType.
+var (
+	ApplicationCommandPermissionType_name = map[int32]string{
+		0: "APPLICATION_COMMAND_PERMISSION_TYPE_UNKNOWN",
+		1: "APPLICATION_COMMAND_PERMISSION_TYPE_ROLE",
+		2: "APPLICATION_COMMAND_PERMISSION_TYPE_USER",
+		3: "APPLICATION_COMMAND_PERMISSION_TYPE_CHANNEL",
+	}
+	ApplicationCommandPermissionType_value = map[string]int32{
+		"APPLICATION_COMMAND_PERMISSION_TYPE_UNKNOWN": 0,
+		"APPLICATION_COMMAND_PERMISSION_TYPE_ROLE":    1,
+		"APPLICATION_COMMAND_PERMISSION_TYPE_USER":    2,
+		"APPLICATION_COMMAND_PERMISSION_TYPE_CHANNEL": 3,
+	}
+)
+
+func (x ApplicationCommandPermissionType) Enum() *ApplicationCommandPermissionType {
+	p := new(ApplicationCommandPermissionType)
+	*p = x
+	return p
+}
+
+func (x ApplicationCommandPermissionType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (ApplicationCommandPermissionType) Descriptor() protoreflect.EnumDescriptor {
+	return file_discord_v1_discordgo_proto_enumTypes[16].Descriptor()
+}
+
+func (ApplicationCommandPermissionType) Type() protoreflect.EnumType {
+	return &file_discord_v1_discordgo_proto_enumTypes[16]
+}
+
+func (x ApplicationCommandPermissionType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use ApplicationCommandPermissionType.Descriptor instead.
+func (ApplicationCommandPermissionType) EnumDescriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{16}
+}
+
+// InteractionType indicates the type of an interaction event.
+type InteractionType int32
+
+const (
+	InteractionType_INTERACTION_TYPE_UNKNOWN                     InteractionType = 0 // Default zero value
+	InteractionType_INTERACTION_PING                             InteractionType = 1
+	InteractionType_INTERACTION_APPLICATION_COMMAND              InteractionType = 2
+	InteractionType_INTERACTION_MESSAGE_COMPONENT                InteractionType = 3
+	InteractionType_INTERACTION_APPLICATION_COMMAND_AUTOCOMPLETE InteractionType = 4
+	InteractionType_INTERACTION_MODAL_SUBMIT                     InteractionType = 5
+)
+
+// Enum value maps for InteractionType.
+var (
+	InteractionType_name = map[int32]string{
+		0: "INTERACTION_TYPE_UNKNOWN",
+		1: "INTERACTION_PING",
+		2: "INTERACTION_APPLICATION_COMMAND",
+		3: "INTERACTION_MESSAGE_COMPONENT",
+		4: "INTERACTION_APPLICATION_COMMAND_AUTOCOMPLETE",
+		5: "INTERACTION_MODAL_SUBMIT",
+	}
+	InteractionType_value = map[string]int32{
+		"INTERACTION_TYPE_UNKNOWN":                     0,
+		"INTERACTION_PING":                             1,
+		"INTERACTION_APPLICATION_COMMAND":              2,
+		"INTERACTION_MESSAGE_COMPONENT":                3,
+		"INTERACTION_APPLICATION_COMMAND_AUTOCOMPLETE": 4,
+		"INTERACTION_MODAL_SUBMIT":                     5,
+	}
+)
+
+func (x InteractionType) Enum() *InteractionType {
+	p := new(InteractionType)
+	*p = x
+	return p
+}
+
+func (x InteractionType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (InteractionType) Descriptor() protoreflect.EnumDescriptor {
+	return file_discord_v1_discordgo_proto_enumTypes[17].Descriptor()
+}
+
+func (InteractionType) Type() protoreflect.EnumType {
+	return &file_discord_v1_discordgo_proto_enumTypes[17]
+}
+
+func (x InteractionType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use InteractionType.Descriptor instead.
+func (InteractionType) EnumDescriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{17}
+}
+
+// InteractionResponseType is type of interaction response.
+type InteractionResponseType int32
+
+const (
+	InteractionResponseType_INTERACTION_RESPONSE_TYPE_UNKNOWN InteractionResponseType = 0 // Default zero value
+	// InteractionResponsePong is for ACK ping event.
+	InteractionResponseType_INTERACTION_RESPONSE_PONG InteractionResponseType = 1
+	// InteractionResponseChannelMessageWithSource is for responding with a message, showing the user's input.
+	InteractionResponseType_INTERACTION_RESPONSE_CHANNEL_MESSAGE_WITH_SOURCE InteractionResponseType = 4
+	// InteractionResponseDeferredChannelMessageWithSource acknowledges that the event was received, and that a follow-up will come later.
+	InteractionResponseType_INTERACTION_RESPONSE_DEFERRED_CHANNEL_MESSAGE_WITH_SOURCE InteractionResponseType = 5
+	// InteractionResponseDeferredMessageUpdate acknowledges that the message component interaction event was received, and message will be updated later.
+	InteractionResponseType_INTERACTION_RESPONSE_DEFERRED_MESSAGE_UPDATE InteractionResponseType = 6
+	// InteractionResponseUpdateMessage is for updating the message to which message component was attached.
+	InteractionResponseType_INTERACTION_RESPONSE_UPDATE_MESSAGE InteractionResponseType = 7
+	// InteractionApplicationCommandAutocompleteResult shows autocompletion results. Autocomplete interaction only.
+	InteractionResponseType_INTERACTION_APPLICATION_COMMAND_AUTOCOMPLETE_RESULT InteractionResponseType = 8
+	// InteractionResponseModal is for responding to an interaction with a modal window.
+	InteractionResponseType_INTERACTION_RESPONSE_MODAL InteractionResponseType = 9
+)
+
+// Enum value maps for InteractionResponseType.
+var (
+	InteractionResponseType_name = map[int32]string{
+		0: "INTERACTION_RESPONSE_TYPE_UNKNOWN",
+		1: "INTERACTION_RESPONSE_PONG",
+		4: "INTERACTION_RESPONSE_CHANNEL_MESSAGE_WITH_SOURCE",
+		5: "INTERACTION_RESPONSE_DEFERRED_CHANNEL_MESSAGE_WITH_SOURCE",
+		6: "INTERACTION_RESPONSE_DEFERRED_MESSAGE_UPDATE",
+		7: "INTERACTION_RESPONSE_UPDATE_MESSAGE",
+		8: "INTERACTION_APPLICATION_COMMAND_AUTOCOMPLETE_RESULT",
+		9: "INTERACTION_RESPONSE_MODAL",
+	}
+	InteractionResponseType_value = map[string]int32{
+		"INTERACTION_RESPONSE_TYPE_UNKNOWN":                         0,
+		"INTERACTION_RESPONSE_PONG":                                 1,
+		"INTERACTION_RESPONSE_CHANNEL_MESSAGE_WITH_SOURCE":          4,
+		"INTERACTION_RESPONSE_DEFERRED_CHANNEL_MESSAGE_WITH_SOURCE": 5,
+		"INTERACTION_RESPONSE_DEFERRED_MESSAGE_UPDATE":              6,
+		"INTERACTION_RESPONSE_UPDATE_MESSAGE":                       7,
+		"INTERACTION_APPLICATION_COMMAND_AUTOCOMPLETE_RESULT":       8,
+		"INTERACTION_RESPONSE_MODAL":                                9,
+	}
+)
+
+func (x InteractionResponseType) Enum() *InteractionResponseType {
+	p := new(InteractionResponseType)
+	*p = x
+	return p
+}
+
+func (x InteractionResponseType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (InteractionResponseType) Descriptor() protoreflect.EnumDescriptor {
+	return file_discord_v1_discordgo_proto_enumTypes[18].Descriptor()
+}
+
+func (InteractionResponseType) Type() protoreflect.EnumType {
+	return &file_discord_v1_discordgo_proto_enumTypes[18]
+}
+
+func (x InteractionResponseType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use InteractionResponseType.Descriptor instead.
+func (InteractionResponseType) EnumDescriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{18}
 }
 
 // A Message stores all data related to a specific Discord message.
@@ -703,7 +1235,7 @@ type Message struct {
 
 func (x *Message) Reset() {
 	*x = Message{}
-	mi := &file_discord_v1_message_proto_msgTypes[0]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -715,7 +1247,7 @@ func (x *Message) String() string {
 func (*Message) ProtoMessage() {}
 
 func (x *Message) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[0]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -728,7 +1260,7 @@ func (x *Message) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Message.ProtoReflect.Descriptor instead.
 func (*Message) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{0}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Message) GetId() string {
@@ -959,7 +1491,7 @@ type File struct {
 
 func (x *File) Reset() {
 	*x = File{}
-	mi := &file_discord_v1_message_proto_msgTypes[1]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -971,7 +1503,7 @@ func (x *File) String() string {
 func (*File) ProtoMessage() {}
 
 func (x *File) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[1]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -984,7 +1516,7 @@ func (x *File) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use File.ProtoReflect.Descriptor instead.
 func (*File) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{1}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *File) GetName() string {
@@ -1020,7 +1552,7 @@ type MessageSend struct {
 
 func (x *MessageSend) Reset() {
 	*x = MessageSend{}
-	mi := &file_discord_v1_message_proto_msgTypes[2]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1032,7 +1564,7 @@ func (x *MessageSend) String() string {
 func (*MessageSend) ProtoMessage() {}
 
 func (x *MessageSend) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[2]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1045,7 +1577,7 @@ func (x *MessageSend) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageSend.ProtoReflect.Descriptor instead.
 func (*MessageSend) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{2}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *MessageSend) GetContent() string {
@@ -1136,7 +1668,7 @@ type MessageEdit struct {
 
 func (x *MessageEdit) Reset() {
 	*x = MessageEdit{}
-	mi := &file_discord_v1_message_proto_msgTypes[3]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1148,7 +1680,7 @@ func (x *MessageEdit) String() string {
 func (*MessageEdit) ProtoMessage() {}
 
 func (x *MessageEdit) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[3]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1161,7 +1693,7 @@ func (x *MessageEdit) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageEdit.ProtoReflect.Descriptor instead.
 func (*MessageEdit) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{3}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *MessageEdit) GetContent() string {
@@ -1241,7 +1773,7 @@ type MessageAllowedMentions struct {
 
 func (x *MessageAllowedMentions) Reset() {
 	*x = MessageAllowedMentions{}
-	mi := &file_discord_v1_message_proto_msgTypes[4]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1253,7 +1785,7 @@ func (x *MessageAllowedMentions) String() string {
 func (*MessageAllowedMentions) ProtoMessage() {}
 
 func (x *MessageAllowedMentions) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[4]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1266,7 +1798,7 @@ func (x *MessageAllowedMentions) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageAllowedMentions.ProtoReflect.Descriptor instead.
 func (*MessageAllowedMentions) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{4}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *MessageAllowedMentions) GetParse() []AllowedMentionType {
@@ -1315,7 +1847,7 @@ type MessageAttachment struct {
 
 func (x *MessageAttachment) Reset() {
 	*x = MessageAttachment{}
-	mi := &file_discord_v1_message_proto_msgTypes[5]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1327,7 +1859,7 @@ func (x *MessageAttachment) String() string {
 func (*MessageAttachment) ProtoMessage() {}
 
 func (x *MessageAttachment) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[5]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1340,7 +1872,7 @@ func (x *MessageAttachment) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageAttachment.ProtoReflect.Descriptor instead.
 func (*MessageAttachment) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{5}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *MessageAttachment) GetId() string {
@@ -1418,7 +1950,7 @@ type MessageEmbedFooter struct {
 
 func (x *MessageEmbedFooter) Reset() {
 	*x = MessageEmbedFooter{}
-	mi := &file_discord_v1_message_proto_msgTypes[6]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1430,7 +1962,7 @@ func (x *MessageEmbedFooter) String() string {
 func (*MessageEmbedFooter) ProtoMessage() {}
 
 func (x *MessageEmbedFooter) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[6]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1443,7 +1975,7 @@ func (x *MessageEmbedFooter) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageEmbedFooter.ProtoReflect.Descriptor instead.
 func (*MessageEmbedFooter) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{6}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *MessageEmbedFooter) GetText() string {
@@ -1480,7 +2012,7 @@ type MessageEmbedImage struct {
 
 func (x *MessageEmbedImage) Reset() {
 	*x = MessageEmbedImage{}
-	mi := &file_discord_v1_message_proto_msgTypes[7]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1492,7 +2024,7 @@ func (x *MessageEmbedImage) String() string {
 func (*MessageEmbedImage) ProtoMessage() {}
 
 func (x *MessageEmbedImage) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[7]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1505,7 +2037,7 @@ func (x *MessageEmbedImage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageEmbedImage.ProtoReflect.Descriptor instead.
 func (*MessageEmbedImage) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{7}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *MessageEmbedImage) GetUrl() string {
@@ -1549,7 +2081,7 @@ type MessageEmbedThumbnail struct {
 
 func (x *MessageEmbedThumbnail) Reset() {
 	*x = MessageEmbedThumbnail{}
-	mi := &file_discord_v1_message_proto_msgTypes[8]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1561,7 +2093,7 @@ func (x *MessageEmbedThumbnail) String() string {
 func (*MessageEmbedThumbnail) ProtoMessage() {}
 
 func (x *MessageEmbedThumbnail) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[8]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1574,7 +2106,7 @@ func (x *MessageEmbedThumbnail) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageEmbedThumbnail.ProtoReflect.Descriptor instead.
 func (*MessageEmbedThumbnail) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{8}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *MessageEmbedThumbnail) GetUrl() string {
@@ -1617,7 +2149,7 @@ type MessageEmbedVideo struct {
 
 func (x *MessageEmbedVideo) Reset() {
 	*x = MessageEmbedVideo{}
-	mi := &file_discord_v1_message_proto_msgTypes[9]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1629,7 +2161,7 @@ func (x *MessageEmbedVideo) String() string {
 func (*MessageEmbedVideo) ProtoMessage() {}
 
 func (x *MessageEmbedVideo) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[9]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1642,7 +2174,7 @@ func (x *MessageEmbedVideo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageEmbedVideo.ProtoReflect.Descriptor instead.
 func (*MessageEmbedVideo) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{9}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *MessageEmbedVideo) GetUrl() string {
@@ -1677,7 +2209,7 @@ type MessageEmbedProvider struct {
 
 func (x *MessageEmbedProvider) Reset() {
 	*x = MessageEmbedProvider{}
-	mi := &file_discord_v1_message_proto_msgTypes[10]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1689,7 +2221,7 @@ func (x *MessageEmbedProvider) String() string {
 func (*MessageEmbedProvider) ProtoMessage() {}
 
 func (x *MessageEmbedProvider) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[10]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1702,7 +2234,7 @@ func (x *MessageEmbedProvider) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageEmbedProvider.ProtoReflect.Descriptor instead.
 func (*MessageEmbedProvider) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{10}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *MessageEmbedProvider) GetUrl() string {
@@ -1732,7 +2264,7 @@ type MessageEmbedAuthor struct {
 
 func (x *MessageEmbedAuthor) Reset() {
 	*x = MessageEmbedAuthor{}
-	mi := &file_discord_v1_message_proto_msgTypes[11]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1744,7 +2276,7 @@ func (x *MessageEmbedAuthor) String() string {
 func (*MessageEmbedAuthor) ProtoMessage() {}
 
 func (x *MessageEmbedAuthor) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[11]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1757,7 +2289,7 @@ func (x *MessageEmbedAuthor) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageEmbedAuthor.ProtoReflect.Descriptor instead.
 func (*MessageEmbedAuthor) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{11}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *MessageEmbedAuthor) GetUrl() string {
@@ -1800,7 +2332,7 @@ type MessageEmbedField struct {
 
 func (x *MessageEmbedField) Reset() {
 	*x = MessageEmbedField{}
-	mi := &file_discord_v1_message_proto_msgTypes[12]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1812,7 +2344,7 @@ func (x *MessageEmbedField) String() string {
 func (*MessageEmbedField) ProtoMessage() {}
 
 func (x *MessageEmbedField) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[12]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1825,7 +2357,7 @@ func (x *MessageEmbedField) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageEmbedField.ProtoReflect.Descriptor instead.
 func (*MessageEmbedField) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{12}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *MessageEmbedField) GetName() string {
@@ -1871,7 +2403,7 @@ type MessageEmbed struct {
 
 func (x *MessageEmbed) Reset() {
 	*x = MessageEmbed{}
-	mi := &file_discord_v1_message_proto_msgTypes[13]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1883,7 +2415,7 @@ func (x *MessageEmbed) String() string {
 func (*MessageEmbed) ProtoMessage() {}
 
 func (x *MessageEmbed) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[13]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1896,7 +2428,7 @@ func (x *MessageEmbed) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageEmbed.ProtoReflect.Descriptor instead.
 func (*MessageEmbed) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{13}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *MessageEmbed) GetUrl() string {
@@ -2002,7 +2534,7 @@ type MessageReactions struct {
 
 func (x *MessageReactions) Reset() {
 	*x = MessageReactions{}
-	mi := &file_discord_v1_message_proto_msgTypes[14]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2014,7 +2546,7 @@ func (x *MessageReactions) String() string {
 func (*MessageReactions) ProtoMessage() {}
 
 func (x *MessageReactions) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[14]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2027,7 +2559,7 @@ func (x *MessageReactions) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageReactions.ProtoReflect.Descriptor instead.
 func (*MessageReactions) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{14}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *MessageReactions) GetCount() int32 {
@@ -2062,7 +2594,7 @@ type MessageActivity struct {
 
 func (x *MessageActivity) Reset() {
 	*x = MessageActivity{}
-	mi := &file_discord_v1_message_proto_msgTypes[15]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2074,7 +2606,7 @@ func (x *MessageActivity) String() string {
 func (*MessageActivity) ProtoMessage() {}
 
 func (x *MessageActivity) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[15]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2087,7 +2619,7 @@ func (x *MessageActivity) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageActivity.ProtoReflect.Descriptor instead.
 func (*MessageActivity) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{15}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *MessageActivity) GetType() MessageActivityType {
@@ -2118,7 +2650,7 @@ type MessageApplication struct {
 
 func (x *MessageApplication) Reset() {
 	*x = MessageApplication{}
-	mi := &file_discord_v1_message_proto_msgTypes[16]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2130,7 +2662,7 @@ func (x *MessageApplication) String() string {
 func (*MessageApplication) ProtoMessage() {}
 
 func (x *MessageApplication) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[16]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2143,7 +2675,7 @@ func (x *MessageApplication) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageApplication.ProtoReflect.Descriptor instead.
 func (*MessageApplication) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{16}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *MessageApplication) GetId() string {
@@ -2192,7 +2724,7 @@ type MessageSnapshot struct {
 
 func (x *MessageSnapshot) Reset() {
 	*x = MessageSnapshot{}
-	mi := &file_discord_v1_message_proto_msgTypes[17]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2204,7 +2736,7 @@ func (x *MessageSnapshot) String() string {
 func (*MessageSnapshot) ProtoMessage() {}
 
 func (x *MessageSnapshot) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[17]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2217,7 +2749,7 @@ func (x *MessageSnapshot) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageSnapshot.ProtoReflect.Descriptor instead.
 func (*MessageSnapshot) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{17}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *MessageSnapshot) GetMessage() *Message {
@@ -2241,7 +2773,7 @@ type MessageReference struct {
 
 func (x *MessageReference) Reset() {
 	*x = MessageReference{}
-	mi := &file_discord_v1_message_proto_msgTypes[18]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2253,7 +2785,7 @@ func (x *MessageReference) String() string {
 func (*MessageReference) ProtoMessage() {}
 
 func (x *MessageReference) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[18]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2266,7 +2798,7 @@ func (x *MessageReference) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageReference.ProtoReflect.Descriptor instead.
 func (*MessageReference) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{18}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *MessageReference) GetType() MessageReferenceType {
@@ -2320,7 +2852,7 @@ type MessageInteraction struct {
 
 func (x *MessageInteraction) Reset() {
 	*x = MessageInteraction{}
-	mi := &file_discord_v1_message_proto_msgTypes[19]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2332,7 +2864,7 @@ func (x *MessageInteraction) String() string {
 func (*MessageInteraction) ProtoMessage() {}
 
 func (x *MessageInteraction) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[19]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2345,7 +2877,7 @@ func (x *MessageInteraction) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageInteraction.ProtoReflect.Descriptor instead.
 func (*MessageInteraction) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{19}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *MessageInteraction) GetId() string {
@@ -2403,7 +2935,7 @@ type MessageInteractionMetadata struct {
 
 func (x *MessageInteractionMetadata) Reset() {
 	*x = MessageInteractionMetadata{}
-	mi := &file_discord_v1_message_proto_msgTypes[20]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2415,7 +2947,7 @@ func (x *MessageInteractionMetadata) String() string {
 func (*MessageInteractionMetadata) ProtoMessage() {}
 
 func (x *MessageInteractionMetadata) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[20]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2428,7 +2960,7 @@ func (x *MessageInteractionMetadata) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageInteractionMetadata.ProtoReflect.Descriptor instead.
 func (*MessageInteractionMetadata) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{20}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *MessageInteractionMetadata) GetId() string {
@@ -2512,7 +3044,7 @@ type Session struct {
 
 func (x *Session) Reset() {
 	*x = Session{}
-	mi := &file_discord_v1_message_proto_msgTypes[21]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2524,7 +3056,7 @@ func (x *Session) String() string {
 func (*Session) ProtoMessage() {}
 
 func (x *Session) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[21]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2537,7 +3069,7 @@ func (x *Session) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Session.ProtoReflect.Descriptor instead.
 func (*Session) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{21}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *Session) GetToken() string {
@@ -2709,7 +3241,7 @@ type Identify struct {
 
 func (x *Identify) Reset() {
 	*x = Identify{}
-	mi := &file_discord_v1_message_proto_msgTypes[22]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2721,7 +3253,7 @@ func (x *Identify) String() string {
 func (*Identify) ProtoMessage() {}
 
 func (x *Identify) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[22]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2734,7 +3266,7 @@ func (x *Identify) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Identify.ProtoReflect.Descriptor instead.
 func (*Identify) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{22}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *Identify) GetToken() string {
@@ -2799,7 +3331,7 @@ type IdentifyProperties struct {
 
 func (x *IdentifyProperties) Reset() {
 	*x = IdentifyProperties{}
-	mi := &file_discord_v1_message_proto_msgTypes[23]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2811,7 +3343,7 @@ func (x *IdentifyProperties) String() string {
 func (*IdentifyProperties) ProtoMessage() {}
 
 func (x *IdentifyProperties) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[23]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2824,7 +3356,7 @@ func (x *IdentifyProperties) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IdentifyProperties.ProtoReflect.Descriptor instead.
 func (*IdentifyProperties) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{23}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *IdentifyProperties) GetOs() string {
@@ -2874,7 +3406,7 @@ type GatewayStatusUpdate struct {
 
 func (x *GatewayStatusUpdate) Reset() {
 	*x = GatewayStatusUpdate{}
-	mi := &file_discord_v1_message_proto_msgTypes[24]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2886,7 +3418,7 @@ func (x *GatewayStatusUpdate) String() string {
 func (*GatewayStatusUpdate) ProtoMessage() {}
 
 func (x *GatewayStatusUpdate) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[24]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2899,7 +3431,7 @@ func (x *GatewayStatusUpdate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GatewayStatusUpdate.ProtoReflect.Descriptor instead.
 func (*GatewayStatusUpdate) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{24}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *GatewayStatusUpdate) GetSince() int32 {
@@ -2945,14 +3477,14 @@ type Activity struct {
 	Assets        *Assets                `protobuf:"bytes,11,opt,name=assets,proto3" json:"assets,omitempty"`
 	Secrets       *Secrets               `protobuf:"bytes,12,opt,name=secrets,proto3" json:"secrets,omitempty"`
 	Instance      bool                   `protobuf:"varint,13,opt,name=instance,proto3" json:"instance,omitempty"`
-	Flags         int32                  `protobuf:"varint,14,opt,name=flags,proto3" json:"flags,omitempty"`
+	Flags         int32                  `protobuf:"varint,14,opt,name=flags,proto3" json:"flags,omitempty"` // different from MessageFlags
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Activity) Reset() {
 	*x = Activity{}
-	mi := &file_discord_v1_message_proto_msgTypes[25]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2964,7 +3496,7 @@ func (x *Activity) String() string {
 func (*Activity) ProtoMessage() {}
 
 func (x *Activity) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[25]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2977,7 +3509,7 @@ func (x *Activity) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Activity.ProtoReflect.Descriptor instead.
 func (*Activity) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{25}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *Activity) GetName() string {
@@ -3088,7 +3620,7 @@ type TimeStamps struct {
 
 func (x *TimeStamps) Reset() {
 	*x = TimeStamps{}
-	mi := &file_discord_v1_message_proto_msgTypes[26]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3100,7 +3632,7 @@ func (x *TimeStamps) String() string {
 func (*TimeStamps) ProtoMessage() {}
 
 func (x *TimeStamps) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[26]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3113,7 +3645,7 @@ func (x *TimeStamps) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TimeStamps.ProtoReflect.Descriptor instead.
 func (*TimeStamps) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{26}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *TimeStamps) GetEndTimestamp() int64 {
@@ -3142,7 +3674,7 @@ type Assets struct {
 
 func (x *Assets) Reset() {
 	*x = Assets{}
-	mi := &file_discord_v1_message_proto_msgTypes[27]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3154,7 +3686,7 @@ func (x *Assets) String() string {
 func (*Assets) ProtoMessage() {}
 
 func (x *Assets) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[27]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3167,7 +3699,7 @@ func (x *Assets) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Assets.ProtoReflect.Descriptor instead.
 func (*Assets) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{27}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *Assets) GetLargeImageId() string {
@@ -3208,7 +3740,7 @@ type Party struct {
 
 func (x *Party) Reset() {
 	*x = Party{}
-	mi := &file_discord_v1_message_proto_msgTypes[28]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3220,7 +3752,7 @@ func (x *Party) String() string {
 func (*Party) ProtoMessage() {}
 
 func (x *Party) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[28]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3233,7 +3765,7 @@ func (x *Party) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Party.ProtoReflect.Descriptor instead.
 func (*Party) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{28}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *Party) GetId() string {
@@ -3261,7 +3793,7 @@ type Secrets struct {
 
 func (x *Secrets) Reset() {
 	*x = Secrets{}
-	mi := &file_discord_v1_message_proto_msgTypes[29]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3273,7 +3805,7 @@ func (x *Secrets) String() string {
 func (*Secrets) ProtoMessage() {}
 
 func (x *Secrets) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[29]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3286,7 +3818,7 @@ func (x *Secrets) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Secrets.ProtoReflect.Descriptor instead.
 func (*Secrets) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{29}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *Secrets) GetJoin() string {
@@ -3319,7 +3851,7 @@ type ApplicationIntegrationTypeConfig struct {
 
 func (x *ApplicationIntegrationTypeConfig) Reset() {
 	*x = ApplicationIntegrationTypeConfig{}
-	mi := &file_discord_v1_message_proto_msgTypes[30]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3331,7 +3863,7 @@ func (x *ApplicationIntegrationTypeConfig) String() string {
 func (*ApplicationIntegrationTypeConfig) ProtoMessage() {}
 
 func (x *ApplicationIntegrationTypeConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[30]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3344,7 +3876,7 @@ func (x *ApplicationIntegrationTypeConfig) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApplicationIntegrationTypeConfig.ProtoReflect.Descriptor instead.
 func (*ApplicationIntegrationTypeConfig) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{30}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *ApplicationIntegrationTypeConfig) GetOauth2InstallParams() *ApplicationInstallParams {
@@ -3364,7 +3896,7 @@ type ApplicationInstallParams struct {
 
 func (x *ApplicationInstallParams) Reset() {
 	*x = ApplicationInstallParams{}
-	mi := &file_discord_v1_message_proto_msgTypes[31]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3376,7 +3908,7 @@ func (x *ApplicationInstallParams) String() string {
 func (*ApplicationInstallParams) ProtoMessage() {}
 
 func (x *ApplicationInstallParams) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[31]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3389,7 +3921,7 @@ func (x *ApplicationInstallParams) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApplicationInstallParams.ProtoReflect.Descriptor instead.
 func (*ApplicationInstallParams) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{31}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *ApplicationInstallParams) GetScopes() []string {
@@ -3425,7 +3957,7 @@ type Application struct {
 	PrimarySkuId           string                                      `protobuf:"bytes,15,opt,name=primary_sku_id,json=primarySkuId,proto3" json:"primary_sku_id,omitempty"`
 	Slug                   string                                      `protobuf:"bytes,16,opt,name=slug,proto3" json:"slug,omitempty"`
 	CoverImage             string                                      `protobuf:"bytes,17,opt,name=cover_image,json=coverImage,proto3" json:"cover_image,omitempty"`
-	Flags                  int32                                       `protobuf:"varint,18,opt,name=flags,proto3" json:"flags,omitempty"`
+	Flags                  int32                                       `protobuf:"varint,18,opt,name=flags,proto3" json:"flags,omitempty"` // different from MessageFlags
 	IntegrationTypesConfig map[int32]*ApplicationIntegrationTypeConfig `protobuf:"bytes,19,rep,name=integration_types_config,json=integrationTypesConfig,proto3" json:"integration_types_config,omitempty" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields          protoimpl.UnknownFields
 	sizeCache              protoimpl.SizeCache
@@ -3433,7 +3965,7 @@ type Application struct {
 
 func (x *Application) Reset() {
 	*x = Application{}
-	mi := &file_discord_v1_message_proto_msgTypes[32]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3445,7 +3977,7 @@ func (x *Application) String() string {
 func (*Application) ProtoMessage() {}
 
 func (x *Application) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[32]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3458,7 +3990,7 @@ func (x *Application) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Application.ProtoReflect.Descriptor instead.
 func (*Application) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{32}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *Application) GetId() string {
@@ -3608,7 +4140,7 @@ type ApplicationRoleConnectionMetadata struct {
 
 func (x *ApplicationRoleConnectionMetadata) Reset() {
 	*x = ApplicationRoleConnectionMetadata{}
-	mi := &file_discord_v1_message_proto_msgTypes[33]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3620,7 +4152,7 @@ func (x *ApplicationRoleConnectionMetadata) String() string {
 func (*ApplicationRoleConnectionMetadata) ProtoMessage() {}
 
 func (x *ApplicationRoleConnectionMetadata) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[33]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3633,7 +4165,7 @@ func (x *ApplicationRoleConnectionMetadata) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use ApplicationRoleConnectionMetadata.ProtoReflect.Descriptor instead.
 func (*ApplicationRoleConnectionMetadata) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{33}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *ApplicationRoleConnectionMetadata) GetType() int32 {
@@ -3689,7 +4221,7 @@ type ApplicationRoleConnection struct {
 
 func (x *ApplicationRoleConnection) Reset() {
 	*x = ApplicationRoleConnection{}
-	mi := &file_discord_v1_message_proto_msgTypes[34]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3701,7 +4233,7 @@ func (x *ApplicationRoleConnection) String() string {
 func (*ApplicationRoleConnection) ProtoMessage() {}
 
 func (x *ApplicationRoleConnection) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[34]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3714,7 +4246,7 @@ func (x *ApplicationRoleConnection) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApplicationRoleConnection.ProtoReflect.Descriptor instead.
 func (*ApplicationRoleConnection) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{34}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *ApplicationRoleConnection) GetPlatformName() string {
@@ -3751,7 +4283,7 @@ type UserConnection struct {
 
 func (x *UserConnection) Reset() {
 	*x = UserConnection{}
-	mi := &file_discord_v1_message_proto_msgTypes[35]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3763,7 +4295,7 @@ func (x *UserConnection) String() string {
 func (*UserConnection) ProtoMessage() {}
 
 func (x *UserConnection) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[35]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3776,7 +4308,7 @@ func (x *UserConnection) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserConnection.ProtoReflect.Descriptor instead.
 func (*UserConnection) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{35}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *UserConnection) GetId() string {
@@ -3834,7 +4366,7 @@ type Integration struct {
 
 func (x *Integration) Reset() {
 	*x = Integration{}
-	mi := &file_discord_v1_message_proto_msgTypes[36]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3846,7 +4378,7 @@ func (x *Integration) String() string {
 func (*Integration) ProtoMessage() {}
 
 func (x *Integration) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[36]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3859,7 +4391,7 @@ func (x *Integration) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Integration.ProtoReflect.Descriptor instead.
 func (*Integration) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{36}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *Integration) GetId() string {
@@ -3956,7 +4488,7 @@ type IntegrationAccount struct {
 
 func (x *IntegrationAccount) Reset() {
 	*x = IntegrationAccount{}
-	mi := &file_discord_v1_message_proto_msgTypes[37]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3968,7 +4500,7 @@ func (x *IntegrationAccount) String() string {
 func (*IntegrationAccount) ProtoMessage() {}
 
 func (x *IntegrationAccount) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[37]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3981,7 +4513,7 @@ func (x *IntegrationAccount) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IntegrationAccount.ProtoReflect.Descriptor instead.
 func (*IntegrationAccount) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{37}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *IntegrationAccount) GetId() string {
@@ -4011,7 +4543,7 @@ type VoiceRegion struct {
 
 func (x *VoiceRegion) Reset() {
 	*x = VoiceRegion{}
-	mi := &file_discord_v1_message_proto_msgTypes[38]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4023,7 +4555,7 @@ func (x *VoiceRegion) String() string {
 func (*VoiceRegion) ProtoMessage() {}
 
 func (x *VoiceRegion) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[38]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4036,7 +4568,7 @@ func (x *VoiceRegion) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VoiceRegion.ProtoReflect.Descriptor instead.
 func (*VoiceRegion) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{38}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *VoiceRegion) GetId() string {
@@ -4099,7 +4631,7 @@ type Invite struct {
 
 func (x *Invite) Reset() {
 	*x = Invite{}
-	mi := &file_discord_v1_message_proto_msgTypes[39]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4111,7 +4643,7 @@ func (x *Invite) String() string {
 func (*Invite) ProtoMessage() {}
 
 func (x *Invite) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[39]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4124,7 +4656,7 @@ func (x *Invite) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Invite.ProtoReflect.Descriptor instead.
 func (*Invite) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{39}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *Invite) GetGuild() *Guild {
@@ -4272,7 +4804,7 @@ type Channel struct {
 	ThreadMetadata                *ThreadMetadata        `protobuf:"bytes,22,opt,name=thread_metadata,json=threadMetadata,proto3" json:"thread_metadata,omitempty"`
 	Member                        *ThreadMember          `protobuf:"bytes,23,opt,name=member,proto3" json:"member,omitempty"`
 	Members                       []*ThreadMember        `protobuf:"bytes,24,rep,name=members,proto3" json:"members,omitempty"`
-	Flags                         int32                  `protobuf:"varint,25,opt,name=flags,proto3" json:"flags,omitempty"`
+	Flags                         int32                  `protobuf:"varint,25,opt,name=flags,proto3" json:"flags,omitempty"` // different from MessageFlags
 	AvailableTags                 []*ForumTag            `protobuf:"bytes,26,rep,name=available_tags,json=availableTags,proto3" json:"available_tags,omitempty"`
 	AppliedTags                   []string               `protobuf:"bytes,27,rep,name=applied_tags,json=appliedTags,proto3" json:"applied_tags,omitempty"`
 	DefaultReactionEmoji          *ForumDefaultReaction  `protobuf:"bytes,28,opt,name=default_reaction_emoji,json=defaultReactionEmoji,proto3" json:"default_reaction_emoji,omitempty"`
@@ -4285,7 +4817,7 @@ type Channel struct {
 
 func (x *Channel) Reset() {
 	*x = Channel{}
-	mi := &file_discord_v1_message_proto_msgTypes[40]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4297,7 +4829,7 @@ func (x *Channel) String() string {
 func (*Channel) ProtoMessage() {}
 
 func (x *Channel) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[40]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4310,7 +4842,7 @@ func (x *Channel) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Channel.ProtoReflect.Descriptor instead.
 func (*Channel) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{40}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *Channel) GetId() string {
@@ -4542,7 +5074,7 @@ type PermissionOverwrite struct {
 
 func (x *PermissionOverwrite) Reset() {
 	*x = PermissionOverwrite{}
-	mi := &file_discord_v1_message_proto_msgTypes[41]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4554,7 +5086,7 @@ func (x *PermissionOverwrite) String() string {
 func (*PermissionOverwrite) ProtoMessage() {}
 
 func (x *PermissionOverwrite) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[41]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4567,7 +5099,7 @@ func (x *PermissionOverwrite) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PermissionOverwrite.ProtoReflect.Descriptor instead.
 func (*PermissionOverwrite) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{41}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *PermissionOverwrite) GetId() string {
@@ -4612,7 +5144,7 @@ type ThreadStart struct {
 
 func (x *ThreadStart) Reset() {
 	*x = ThreadStart{}
-	mi := &file_discord_v1_message_proto_msgTypes[42]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4624,7 +5156,7 @@ func (x *ThreadStart) String() string {
 func (*ThreadStart) ProtoMessage() {}
 
 func (x *ThreadStart) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[42]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4637,7 +5169,7 @@ func (x *ThreadStart) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ThreadStart.ProtoReflect.Descriptor instead.
 func (*ThreadStart) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{42}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *ThreadStart) GetName() string {
@@ -4695,7 +5227,7 @@ type ThreadMetadata struct {
 
 func (x *ThreadMetadata) Reset() {
 	*x = ThreadMetadata{}
-	mi := &file_discord_v1_message_proto_msgTypes[43]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4707,7 +5239,7 @@ func (x *ThreadMetadata) String() string {
 func (*ThreadMetadata) ProtoMessage() {}
 
 func (x *ThreadMetadata) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[43]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4720,7 +5252,7 @@ func (x *ThreadMetadata) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ThreadMetadata.ProtoReflect.Descriptor instead.
 func (*ThreadMetadata) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{43}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *ThreadMetadata) GetArchived() bool {
@@ -4763,7 +5295,7 @@ type ThreadMember struct {
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	JoinTimestamp *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=join_timestamp,json=joinTimestamp,proto3" json:"join_timestamp,omitempty"`
-	Flags         int32                  `protobuf:"varint,4,opt,name=flags,proto3" json:"flags,omitempty"`
+	Flags         int32                  `protobuf:"varint,4,opt,name=flags,proto3" json:"flags,omitempty"`  // different from MessageFlags
 	Member        *Member                `protobuf:"bytes,5,opt,name=member,proto3" json:"member,omitempty"` // Assuming Member is another message type
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -4771,7 +5303,7 @@ type ThreadMember struct {
 
 func (x *ThreadMember) Reset() {
 	*x = ThreadMember{}
-	mi := &file_discord_v1_message_proto_msgTypes[44]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4783,7 +5315,7 @@ func (x *ThreadMember) String() string {
 func (*ThreadMember) ProtoMessage() {}
 
 func (x *ThreadMember) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[44]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4796,7 +5328,7 @@ func (x *ThreadMember) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ThreadMember.ProtoReflect.Descriptor instead.
 func (*ThreadMember) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{44}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *ThreadMember) GetId() string {
@@ -4845,7 +5377,7 @@ type ThreadsList struct {
 
 func (x *ThreadsList) Reset() {
 	*x = ThreadsList{}
-	mi := &file_discord_v1_message_proto_msgTypes[45]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4857,7 +5389,7 @@ func (x *ThreadsList) String() string {
 func (*ThreadsList) ProtoMessage() {}
 
 func (x *ThreadsList) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[45]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4870,7 +5402,7 @@ func (x *ThreadsList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ThreadsList.ProtoReflect.Descriptor instead.
 func (*ThreadsList) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{45}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *ThreadsList) GetThreads() []*Channel {
@@ -4905,7 +5437,7 @@ type AddedThreadMember struct {
 
 func (x *AddedThreadMember) Reset() {
 	*x = AddedThreadMember{}
-	mi := &file_discord_v1_message_proto_msgTypes[46]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4917,7 +5449,7 @@ func (x *AddedThreadMember) String() string {
 func (*AddedThreadMember) ProtoMessage() {}
 
 func (x *AddedThreadMember) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[46]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4930,7 +5462,7 @@ func (x *AddedThreadMember) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddedThreadMember.ProtoReflect.Descriptor instead.
 func (*AddedThreadMember) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{46}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *AddedThreadMember) GetThreadMember() *ThreadMember {
@@ -4964,7 +5496,7 @@ type ForumDefaultReaction struct {
 
 func (x *ForumDefaultReaction) Reset() {
 	*x = ForumDefaultReaction{}
-	mi := &file_discord_v1_message_proto_msgTypes[47]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4976,7 +5508,7 @@ func (x *ForumDefaultReaction) String() string {
 func (*ForumDefaultReaction) ProtoMessage() {}
 
 func (x *ForumDefaultReaction) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[47]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4989,7 +5521,7 @@ func (x *ForumDefaultReaction) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ForumDefaultReaction.ProtoReflect.Descriptor instead.
 func (*ForumDefaultReaction) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{47}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *ForumDefaultReaction) GetEmojiId() string {
@@ -5019,7 +5551,7 @@ type ForumTag struct {
 
 func (x *ForumTag) Reset() {
 	*x = ForumTag{}
-	mi := &file_discord_v1_message_proto_msgTypes[48]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5031,7 +5563,7 @@ func (x *ForumTag) String() string {
 func (*ForumTag) ProtoMessage() {}
 
 func (x *ForumTag) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[48]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5044,7 +5576,7 @@ func (x *ForumTag) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ForumTag.ProtoReflect.Descriptor instead.
 func (*ForumTag) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{48}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *ForumTag) GetId() string {
@@ -5098,7 +5630,7 @@ type Emoji struct {
 
 func (x *Emoji) Reset() {
 	*x = Emoji{}
-	mi := &file_discord_v1_message_proto_msgTypes[49]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5110,7 +5642,7 @@ func (x *Emoji) String() string {
 func (*Emoji) ProtoMessage() {}
 
 func (x *Emoji) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[49]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5123,7 +5655,7 @@ func (x *Emoji) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Emoji.ProtoReflect.Descriptor instead.
 func (*Emoji) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{49}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *Emoji) GetId() string {
@@ -5193,7 +5725,7 @@ type EmojiParams struct {
 
 func (x *EmojiParams) Reset() {
 	*x = EmojiParams{}
-	mi := &file_discord_v1_message_proto_msgTypes[50]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5205,7 +5737,7 @@ func (x *EmojiParams) String() string {
 func (*EmojiParams) ProtoMessage() {}
 
 func (x *EmojiParams) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[50]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5218,7 +5750,7 @@ func (x *EmojiParams) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EmojiParams.ProtoReflect.Descriptor instead.
 func (*EmojiParams) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{50}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *EmojiParams) GetName() string {
@@ -5261,7 +5793,7 @@ type Sticker struct {
 
 func (x *Sticker) Reset() {
 	*x = Sticker{}
-	mi := &file_discord_v1_message_proto_msgTypes[51]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5273,7 +5805,7 @@ func (x *Sticker) String() string {
 func (*Sticker) ProtoMessage() {}
 
 func (x *Sticker) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[51]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5286,7 +5818,7 @@ func (x *Sticker) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Sticker.ProtoReflect.Descriptor instead.
 func (*Sticker) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{51}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *Sticker) GetId() string {
@@ -5377,7 +5909,7 @@ type StickerItem struct {
 
 func (x *StickerItem) Reset() {
 	*x = StickerItem{}
-	mi := &file_discord_v1_message_proto_msgTypes[52]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5389,7 +5921,7 @@ func (x *StickerItem) String() string {
 func (*StickerItem) ProtoMessage() {}
 
 func (x *StickerItem) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[52]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5402,7 +5934,7 @@ func (x *StickerItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StickerItem.ProtoReflect.Descriptor instead.
 func (*StickerItem) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{52}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *StickerItem) GetId() string {
@@ -5441,7 +5973,7 @@ type StickerPack struct {
 
 func (x *StickerPack) Reset() {
 	*x = StickerPack{}
-	mi := &file_discord_v1_message_proto_msgTypes[53]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5453,7 +5985,7 @@ func (x *StickerPack) String() string {
 func (*StickerPack) ProtoMessage() {}
 
 func (x *StickerPack) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[53]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5466,7 +5998,7 @@ func (x *StickerPack) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StickerPack.ProtoReflect.Descriptor instead.
 func (*StickerPack) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{53}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *StickerPack) GetId() string {
@@ -5574,7 +6106,7 @@ type Guild struct {
 
 func (x *Guild) Reset() {
 	*x = Guild{}
-	mi := &file_discord_v1_message_proto_msgTypes[54]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5586,7 +6118,7 @@ func (x *Guild) String() string {
 func (*Guild) ProtoMessage() {}
 
 func (x *Guild) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[54]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5599,7 +6131,7 @@ func (x *Guild) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Guild.ProtoReflect.Descriptor instead.
 func (*Guild) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{54}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *Guild) GetId() string {
@@ -5956,7 +6488,7 @@ type GuildPreview struct {
 
 func (x *GuildPreview) Reset() {
 	*x = GuildPreview{}
-	mi := &file_discord_v1_message_proto_msgTypes[55]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5968,7 +6500,7 @@ func (x *GuildPreview) String() string {
 func (*GuildPreview) ProtoMessage() {}
 
 func (x *GuildPreview) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[55]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5981,7 +6513,7 @@ func (x *GuildPreview) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuildPreview.ProtoReflect.Descriptor instead.
 func (*GuildPreview) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{55}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *GuildPreview) GetId() string {
@@ -6078,7 +6610,7 @@ type GuildScheduledEvent struct {
 
 func (x *GuildScheduledEvent) Reset() {
 	*x = GuildScheduledEvent{}
-	mi := &file_discord_v1_message_proto_msgTypes[56]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6090,7 +6622,7 @@ func (x *GuildScheduledEvent) String() string {
 func (*GuildScheduledEvent) ProtoMessage() {}
 
 func (x *GuildScheduledEvent) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[56]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6103,7 +6635,7 @@ func (x *GuildScheduledEvent) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuildScheduledEvent.ProtoReflect.Descriptor instead.
 func (*GuildScheduledEvent) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{56}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *GuildScheduledEvent) GetId() string {
@@ -6236,7 +6768,7 @@ type GuildScheduledEventParams struct {
 
 func (x *GuildScheduledEventParams) Reset() {
 	*x = GuildScheduledEventParams{}
-	mi := &file_discord_v1_message_proto_msgTypes[57]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6248,7 +6780,7 @@ func (x *GuildScheduledEventParams) String() string {
 func (*GuildScheduledEventParams) ProtoMessage() {}
 
 func (x *GuildScheduledEventParams) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[57]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6261,7 +6793,7 @@ func (x *GuildScheduledEventParams) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuildScheduledEventParams.ProtoReflect.Descriptor instead.
 func (*GuildScheduledEventParams) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{57}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *GuildScheduledEventParams) GetChannelId() string {
@@ -6343,7 +6875,7 @@ type GuildScheduledEventEntityMetadata struct {
 
 func (x *GuildScheduledEventEntityMetadata) Reset() {
 	*x = GuildScheduledEventEntityMetadata{}
-	mi := &file_discord_v1_message_proto_msgTypes[58]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6355,7 +6887,7 @@ func (x *GuildScheduledEventEntityMetadata) String() string {
 func (*GuildScheduledEventEntityMetadata) ProtoMessage() {}
 
 func (x *GuildScheduledEventEntityMetadata) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[58]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6368,7 +6900,7 @@ func (x *GuildScheduledEventEntityMetadata) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GuildScheduledEventEntityMetadata.ProtoReflect.Descriptor instead.
 func (*GuildScheduledEventEntityMetadata) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{58}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *GuildScheduledEventEntityMetadata) GetLocation() string {
@@ -6389,7 +6921,7 @@ type GuildScheduledEventUser struct {
 
 func (x *GuildScheduledEventUser) Reset() {
 	*x = GuildScheduledEventUser{}
-	mi := &file_discord_v1_message_proto_msgTypes[59]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6401,7 +6933,7 @@ func (x *GuildScheduledEventUser) String() string {
 func (*GuildScheduledEventUser) ProtoMessage() {}
 
 func (x *GuildScheduledEventUser) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[59]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6414,7 +6946,7 @@ func (x *GuildScheduledEventUser) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuildScheduledEventUser.ProtoReflect.Descriptor instead.
 func (*GuildScheduledEventUser) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{59}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *GuildScheduledEventUser) GetGuildScheduledEventId() string {
@@ -6448,7 +6980,7 @@ type GuildOnboardingMode struct {
 
 func (x *GuildOnboardingMode) Reset() {
 	*x = GuildOnboardingMode{}
-	mi := &file_discord_v1_message_proto_msgTypes[60]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6460,7 +6992,7 @@ func (x *GuildOnboardingMode) String() string {
 func (*GuildOnboardingMode) ProtoMessage() {}
 
 func (x *GuildOnboardingMode) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[60]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6473,7 +7005,7 @@ func (x *GuildOnboardingMode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuildOnboardingMode.ProtoReflect.Descriptor instead.
 func (*GuildOnboardingMode) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{60}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *GuildOnboardingMode) GetValue() int32 {
@@ -6496,7 +7028,7 @@ type GuildOnboarding struct {
 
 func (x *GuildOnboarding) Reset() {
 	*x = GuildOnboarding{}
-	mi := &file_discord_v1_message_proto_msgTypes[61]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6508,7 +7040,7 @@ func (x *GuildOnboarding) String() string {
 func (*GuildOnboarding) ProtoMessage() {}
 
 func (x *GuildOnboarding) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[61]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6521,7 +7053,7 @@ func (x *GuildOnboarding) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuildOnboarding.ProtoReflect.Descriptor instead.
 func (*GuildOnboarding) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{61}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *GuildOnboarding) GetGuildId() string {
@@ -6569,7 +7101,7 @@ type GuildOnboardingPromptType struct {
 
 func (x *GuildOnboardingPromptType) Reset() {
 	*x = GuildOnboardingPromptType{}
-	mi := &file_discord_v1_message_proto_msgTypes[62]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6581,7 +7113,7 @@ func (x *GuildOnboardingPromptType) String() string {
 func (*GuildOnboardingPromptType) ProtoMessage() {}
 
 func (x *GuildOnboardingPromptType) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[62]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6594,7 +7126,7 @@ func (x *GuildOnboardingPromptType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuildOnboardingPromptType.ProtoReflect.Descriptor instead.
 func (*GuildOnboardingPromptType) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{62}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *GuildOnboardingPromptType) GetValue() int32 {
@@ -6619,7 +7151,7 @@ type GuildOnboardingPrompt struct {
 
 func (x *GuildOnboardingPrompt) Reset() {
 	*x = GuildOnboardingPrompt{}
-	mi := &file_discord_v1_message_proto_msgTypes[63]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6631,7 +7163,7 @@ func (x *GuildOnboardingPrompt) String() string {
 func (*GuildOnboardingPrompt) ProtoMessage() {}
 
 func (x *GuildOnboardingPrompt) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[63]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6644,7 +7176,7 @@ func (x *GuildOnboardingPrompt) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuildOnboardingPrompt.ProtoReflect.Descriptor instead.
 func (*GuildOnboardingPrompt) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{63}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *GuildOnboardingPrompt) GetId() string {
@@ -6713,7 +7245,7 @@ type GuildOnboardingPromptOption struct {
 
 func (x *GuildOnboardingPromptOption) Reset() {
 	*x = GuildOnboardingPromptOption{}
-	mi := &file_discord_v1_message_proto_msgTypes[64]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6725,7 +7257,7 @@ func (x *GuildOnboardingPromptOption) String() string {
 func (*GuildOnboardingPromptOption) ProtoMessage() {}
 
 func (x *GuildOnboardingPromptOption) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[64]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6738,7 +7270,7 @@ func (x *GuildOnboardingPromptOption) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuildOnboardingPromptOption.ProtoReflect.Descriptor instead.
 func (*GuildOnboardingPromptOption) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{64}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *GuildOnboardingPromptOption) GetId() string {
@@ -6823,7 +7355,7 @@ type GuildTemplate struct {
 
 func (x *GuildTemplate) Reset() {
 	*x = GuildTemplate{}
-	mi := &file_discord_v1_message_proto_msgTypes[65]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6835,7 +7367,7 @@ func (x *GuildTemplate) String() string {
 func (*GuildTemplate) ProtoMessage() {}
 
 func (x *GuildTemplate) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[65]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6848,7 +7380,7 @@ func (x *GuildTemplate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuildTemplate.ProtoReflect.Descriptor instead.
 func (*GuildTemplate) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{65}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *GuildTemplate) GetCode() string {
@@ -6938,7 +7470,7 @@ type GuildTemplateParams struct {
 
 func (x *GuildTemplateParams) Reset() {
 	*x = GuildTemplateParams{}
-	mi := &file_discord_v1_message_proto_msgTypes[66]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6950,7 +7482,7 @@ func (x *GuildTemplateParams) String() string {
 func (*GuildTemplateParams) ProtoMessage() {}
 
 func (x *GuildTemplateParams) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[66]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6963,7 +7495,7 @@ func (x *GuildTemplateParams) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuildTemplateParams.ProtoReflect.Descriptor instead.
 func (*GuildTemplateParams) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{66}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *GuildTemplateParams) GetName() string {
@@ -6996,7 +7528,7 @@ type UserGuild struct {
 
 func (x *UserGuild) Reset() {
 	*x = UserGuild{}
-	mi := &file_discord_v1_message_proto_msgTypes[67]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7008,7 +7540,7 @@ func (x *UserGuild) String() string {
 func (*UserGuild) ProtoMessage() {}
 
 func (x *UserGuild) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[67]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7021,7 +7553,7 @@ func (x *UserGuild) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserGuild.ProtoReflect.Descriptor instead.
 func (*UserGuild) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{67}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *UserGuild) GetId() string {
@@ -7108,7 +7640,7 @@ type GuildParams struct {
 
 func (x *GuildParams) Reset() {
 	*x = GuildParams{}
-	mi := &file_discord_v1_message_proto_msgTypes[68]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7120,7 +7652,7 @@ func (x *GuildParams) String() string {
 func (*GuildParams) ProtoMessage() {}
 
 func (x *GuildParams) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[68]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7133,7 +7665,7 @@ func (x *GuildParams) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuildParams.ProtoReflect.Descriptor instead.
 func (*GuildParams) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{68}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *GuildParams) GetName() string {
@@ -7295,7 +7827,7 @@ type Role struct {
 
 func (x *Role) Reset() {
 	*x = Role{}
-	mi := &file_discord_v1_message_proto_msgTypes[69]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7307,7 +7839,7 @@ func (x *Role) String() string {
 func (*Role) ProtoMessage() {}
 
 func (x *Role) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[69]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7320,7 +7852,7 @@ func (x *Role) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Role.ProtoReflect.Descriptor instead.
 func (*Role) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{69}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *Role) GetId() string {
@@ -7410,7 +7942,7 @@ type RoleFlags struct {
 
 func (x *RoleFlags) Reset() {
 	*x = RoleFlags{}
-	mi := &file_discord_v1_message_proto_msgTypes[70]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7422,7 +7954,7 @@ func (x *RoleFlags) String() string {
 func (*RoleFlags) ProtoMessage() {}
 
 func (x *RoleFlags) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[70]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7435,7 +7967,7 @@ func (x *RoleFlags) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RoleFlags.ProtoReflect.Descriptor instead.
 func (*RoleFlags) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{70}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *RoleFlags) GetValue() int32 {
@@ -7460,7 +7992,7 @@ type RoleParams struct {
 
 func (x *RoleParams) Reset() {
 	*x = RoleParams{}
-	mi := &file_discord_v1_message_proto_msgTypes[71]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7472,7 +8004,7 @@ func (x *RoleParams) String() string {
 func (*RoleParams) ProtoMessage() {}
 
 func (x *RoleParams) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[71]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7485,7 +8017,7 @@ func (x *RoleParams) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RoleParams.ProtoReflect.Descriptor instead.
 func (*RoleParams) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{71}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *RoleParams) GetName() string {
@@ -7558,7 +8090,7 @@ type VoiceState struct {
 
 func (x *VoiceState) Reset() {
 	*x = VoiceState{}
-	mi := &file_discord_v1_message_proto_msgTypes[72]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7570,7 +8102,7 @@ func (x *VoiceState) String() string {
 func (*VoiceState) ProtoMessage() {}
 
 func (x *VoiceState) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[72]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7583,7 +8115,7 @@ func (x *VoiceState) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VoiceState.ProtoReflect.Descriptor instead.
 func (*VoiceState) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{72}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *VoiceState) GetGuildId() string {
@@ -7690,7 +8222,7 @@ type Presence struct {
 
 func (x *Presence) Reset() {
 	*x = Presence{}
-	mi := &file_discord_v1_message_proto_msgTypes[73]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7702,7 +8234,7 @@ func (x *Presence) String() string {
 func (*Presence) ProtoMessage() {}
 
 func (x *Presence) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[73]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7715,7 +8247,7 @@ func (x *Presence) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Presence.ProtoReflect.Descriptor instead.
 func (*Presence) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{73}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *Presence) GetUser() *User {
@@ -7763,7 +8295,7 @@ type MemberFlags struct {
 
 func (x *MemberFlags) Reset() {
 	*x = MemberFlags{}
-	mi := &file_discord_v1_message_proto_msgTypes[74]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7775,7 +8307,7 @@ func (x *MemberFlags) String() string {
 func (*MemberFlags) ProtoMessage() {}
 
 func (x *MemberFlags) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[74]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7788,7 +8320,7 @@ func (x *MemberFlags) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MemberFlags.ProtoReflect.Descriptor instead.
 func (*MemberFlags) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{74}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *MemberFlags) GetValue() int32 {
@@ -7820,7 +8352,7 @@ type Member struct {
 
 func (x *Member) Reset() {
 	*x = Member{}
-	mi := &file_discord_v1_message_proto_msgTypes[75]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7832,7 +8364,7 @@ func (x *Member) String() string {
 func (*Member) ProtoMessage() {}
 
 func (x *Member) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[75]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7845,7 +8377,7 @@ func (x *Member) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Member.ProtoReflect.Descriptor instead.
 func (*Member) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{75}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *Member) GetGuildId() string {
@@ -7957,7 +8489,7 @@ type ClientStatus struct {
 
 func (x *ClientStatus) Reset() {
 	*x = ClientStatus{}
-	mi := &file_discord_v1_message_proto_msgTypes[76]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7969,7 +8501,7 @@ func (x *ClientStatus) String() string {
 func (*ClientStatus) ProtoMessage() {}
 
 func (x *ClientStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[76]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7982,7 +8514,7 @@ func (x *ClientStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClientStatus.ProtoReflect.Descriptor instead.
 func (*ClientStatus) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{76}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *ClientStatus) GetDesktop() string {
@@ -8017,7 +8549,7 @@ type TooManyRequests struct {
 
 func (x *TooManyRequests) Reset() {
 	*x = TooManyRequests{}
-	mi := &file_discord_v1_message_proto_msgTypes[77]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8029,7 +8561,7 @@ func (x *TooManyRequests) String() string {
 func (*TooManyRequests) ProtoMessage() {}
 
 func (x *TooManyRequests) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[77]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8042,7 +8574,7 @@ func (x *TooManyRequests) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TooManyRequests.ProtoReflect.Descriptor instead.
 func (*TooManyRequests) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{77}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *TooManyRequests) GetBucket() string {
@@ -8077,7 +8609,7 @@ type ReadState struct {
 
 func (x *ReadState) Reset() {
 	*x = ReadState{}
-	mi := &file_discord_v1_message_proto_msgTypes[78]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8089,7 +8621,7 @@ func (x *ReadState) String() string {
 func (*ReadState) ProtoMessage() {}
 
 func (x *ReadState) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[78]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8102,7 +8634,7 @@ func (x *ReadState) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReadState.ProtoReflect.Descriptor instead.
 func (*ReadState) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{78}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *ReadState) GetMentionCount() int32 {
@@ -8136,7 +8668,7 @@ type GuildRole struct {
 
 func (x *GuildRole) Reset() {
 	*x = GuildRole{}
-	mi := &file_discord_v1_message_proto_msgTypes[79]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8148,7 +8680,7 @@ func (x *GuildRole) String() string {
 func (*GuildRole) ProtoMessage() {}
 
 func (x *GuildRole) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[79]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8161,7 +8693,7 @@ func (x *GuildRole) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuildRole.ProtoReflect.Descriptor instead.
 func (*GuildRole) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{79}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *GuildRole) GetRole() *Role {
@@ -8188,7 +8720,7 @@ type GuildBan struct {
 
 func (x *GuildBan) Reset() {
 	*x = GuildBan{}
-	mi := &file_discord_v1_message_proto_msgTypes[80]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8200,7 +8732,7 @@ func (x *GuildBan) String() string {
 func (*GuildBan) ProtoMessage() {}
 
 func (x *GuildBan) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[80]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8213,7 +8745,7 @@ func (x *GuildBan) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuildBan.ProtoReflect.Descriptor instead.
 func (*GuildBan) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{80}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *GuildBan) GetReason() string {
@@ -8249,7 +8781,7 @@ type AutoModerationRule struct {
 
 func (x *AutoModerationRule) Reset() {
 	*x = AutoModerationRule{}
-	mi := &file_discord_v1_message_proto_msgTypes[81]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8261,7 +8793,7 @@ func (x *AutoModerationRule) String() string {
 func (*AutoModerationRule) ProtoMessage() {}
 
 func (x *AutoModerationRule) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[81]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8274,7 +8806,7 @@ func (x *AutoModerationRule) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AutoModerationRule.ProtoReflect.Descriptor instead.
 func (*AutoModerationRule) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{81}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *AutoModerationRule) GetId() string {
@@ -8367,7 +8899,7 @@ type AutoModerationTriggerMetadata struct {
 
 func (x *AutoModerationTriggerMetadata) Reset() {
 	*x = AutoModerationTriggerMetadata{}
-	mi := &file_discord_v1_message_proto_msgTypes[82]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8379,7 +8911,7 @@ func (x *AutoModerationTriggerMetadata) String() string {
 func (*AutoModerationTriggerMetadata) ProtoMessage() {}
 
 func (x *AutoModerationTriggerMetadata) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[82]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8392,7 +8924,7 @@ func (x *AutoModerationTriggerMetadata) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AutoModerationTriggerMetadata.ProtoReflect.Descriptor instead.
 func (*AutoModerationTriggerMetadata) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{82}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *AutoModerationTriggerMetadata) GetKeywordFilter() []string {
@@ -8440,7 +8972,7 @@ type AutoModerationActionType struct {
 
 func (x *AutoModerationActionType) Reset() {
 	*x = AutoModerationActionType{}
-	mi := &file_discord_v1_message_proto_msgTypes[83]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8452,7 +8984,7 @@ func (x *AutoModerationActionType) String() string {
 func (*AutoModerationActionType) ProtoMessage() {}
 
 func (x *AutoModerationActionType) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[83]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8465,7 +8997,7 @@ func (x *AutoModerationActionType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AutoModerationActionType.ProtoReflect.Descriptor instead.
 func (*AutoModerationActionType) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{83}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{83}
 }
 
 func (x *AutoModerationActionType) GetValue() int32 {
@@ -8486,7 +9018,7 @@ type AutoModerationActionMetadata struct {
 
 func (x *AutoModerationActionMetadata) Reset() {
 	*x = AutoModerationActionMetadata{}
-	mi := &file_discord_v1_message_proto_msgTypes[84]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8498,7 +9030,7 @@ func (x *AutoModerationActionMetadata) String() string {
 func (*AutoModerationActionMetadata) ProtoMessage() {}
 
 func (x *AutoModerationActionMetadata) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[84]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8511,7 +9043,7 @@ func (x *AutoModerationActionMetadata) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AutoModerationActionMetadata.ProtoReflect.Descriptor instead.
 func (*AutoModerationActionMetadata) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{84}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *AutoModerationActionMetadata) GetChannelId() string {
@@ -8545,7 +9077,7 @@ type AutoModerationAction struct {
 
 func (x *AutoModerationAction) Reset() {
 	*x = AutoModerationAction{}
-	mi := &file_discord_v1_message_proto_msgTypes[85]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8557,7 +9089,7 @@ func (x *AutoModerationAction) String() string {
 func (*AutoModerationAction) ProtoMessage() {}
 
 func (x *AutoModerationAction) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[85]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8570,7 +9102,7 @@ func (x *AutoModerationAction) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AutoModerationAction.ProtoReflect.Descriptor instead.
 func (*AutoModerationAction) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{85}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{85}
 }
 
 func (x *AutoModerationAction) GetType() int32 {
@@ -8597,7 +9129,7 @@ type GuildEmbed struct {
 
 func (x *GuildEmbed) Reset() {
 	*x = GuildEmbed{}
-	mi := &file_discord_v1_message_proto_msgTypes[86]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8609,7 +9141,7 @@ func (x *GuildEmbed) String() string {
 func (*GuildEmbed) ProtoMessage() {}
 
 func (x *GuildEmbed) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[86]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8622,7 +9154,7 @@ func (x *GuildEmbed) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuildEmbed.ProtoReflect.Descriptor instead.
 func (*GuildEmbed) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{86}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *GuildEmbed) GetEnabled() bool {
@@ -8651,7 +9183,7 @@ type GuildAuditLog struct {
 
 func (x *GuildAuditLog) Reset() {
 	*x = GuildAuditLog{}
-	mi := &file_discord_v1_message_proto_msgTypes[87]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8663,7 +9195,7 @@ func (x *GuildAuditLog) String() string {
 func (*GuildAuditLog) ProtoMessage() {}
 
 func (x *GuildAuditLog) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[87]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8676,7 +9208,7 @@ func (x *GuildAuditLog) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuildAuditLog.ProtoReflect.Descriptor instead.
 func (*GuildAuditLog) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{87}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *GuildAuditLog) GetWebhooks() []*Webhook {
@@ -8722,7 +9254,7 @@ type AuditLogEntry struct {
 
 func (x *AuditLogEntry) Reset() {
 	*x = AuditLogEntry{}
-	mi := &file_discord_v1_message_proto_msgTypes[88]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8734,7 +9266,7 @@ func (x *AuditLogEntry) String() string {
 func (*AuditLogEntry) ProtoMessage() {}
 
 func (x *AuditLogEntry) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[88]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8747,7 +9279,7 @@ func (x *AuditLogEntry) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AuditLogEntry.ProtoReflect.Descriptor instead.
 func (*AuditLogEntry) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{88}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *AuditLogEntry) GetTargetId() string {
@@ -8813,7 +9345,7 @@ type AuditLogChange struct {
 
 func (x *AuditLogChange) Reset() {
 	*x = AuditLogChange{}
-	mi := &file_discord_v1_message_proto_msgTypes[89]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8825,7 +9357,7 @@ func (x *AuditLogChange) String() string {
 func (*AuditLogChange) ProtoMessage() {}
 
 func (x *AuditLogChange) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[89]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8838,7 +9370,7 @@ func (x *AuditLogChange) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AuditLogChange.ProtoReflect.Descriptor instead.
 func (*AuditLogChange) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{89}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *AuditLogChange) GetNewValue() []byte {
@@ -8882,7 +9414,7 @@ type AuditLogOptions struct {
 
 func (x *AuditLogOptions) Reset() {
 	*x = AuditLogOptions{}
-	mi := &file_discord_v1_message_proto_msgTypes[90]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8894,7 +9426,7 @@ func (x *AuditLogOptions) String() string {
 func (*AuditLogOptions) ProtoMessage() {}
 
 func (x *AuditLogOptions) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[90]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8907,7 +9439,7 @@ func (x *AuditLogOptions) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AuditLogOptions.ProtoReflect.Descriptor instead.
 func (*AuditLogOptions) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{90}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{90}
 }
 
 func (x *AuditLogOptions) GetDeleteMemberDays() string {
@@ -9008,7 +9540,7 @@ type GuildMemberParams struct {
 
 func (x *GuildMemberParams) Reset() {
 	*x = GuildMemberParams{}
-	mi := &file_discord_v1_message_proto_msgTypes[91]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9020,7 +9552,7 @@ func (x *GuildMemberParams) String() string {
 func (*GuildMemberParams) ProtoMessage() {}
 
 func (x *GuildMemberParams) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[91]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9033,7 +9565,7 @@ func (x *GuildMemberParams) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuildMemberParams.ProtoReflect.Descriptor instead.
 func (*GuildMemberParams) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{91}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{91}
 }
 
 func (x *GuildMemberParams) GetNick() string {
@@ -9091,7 +9623,7 @@ type GuildMemberAddParams struct {
 
 func (x *GuildMemberAddParams) Reset() {
 	*x = GuildMemberAddParams{}
-	mi := &file_discord_v1_message_proto_msgTypes[92]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9103,7 +9635,7 @@ func (x *GuildMemberAddParams) String() string {
 func (*GuildMemberAddParams) ProtoMessage() {}
 
 func (x *GuildMemberAddParams) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[92]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9116,7 +9648,7 @@ func (x *GuildMemberAddParams) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GuildMemberAddParams.ProtoReflect.Descriptor instead.
 func (*GuildMemberAddParams) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{92}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{92}
 }
 
 func (x *GuildMemberAddParams) GetAccessToken() string {
@@ -9164,7 +9696,7 @@ type APIErrorMessage struct {
 
 func (x *APIErrorMessage) Reset() {
 	*x = APIErrorMessage{}
-	mi := &file_discord_v1_message_proto_msgTypes[93]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9176,7 +9708,7 @@ func (x *APIErrorMessage) String() string {
 func (*APIErrorMessage) ProtoMessage() {}
 
 func (x *APIErrorMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[93]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9189,7 +9721,7 @@ func (x *APIErrorMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use APIErrorMessage.ProtoReflect.Descriptor instead.
 func (*APIErrorMessage) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{93}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *APIErrorMessage) GetCode() int32 {
@@ -9219,7 +9751,7 @@ type MessageReaction struct {
 
 func (x *MessageReaction) Reset() {
 	*x = MessageReaction{}
-	mi := &file_discord_v1_message_proto_msgTypes[94]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9231,7 +9763,7 @@ func (x *MessageReaction) String() string {
 func (*MessageReaction) ProtoMessage() {}
 
 func (x *MessageReaction) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[94]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9244,7 +9776,7 @@ func (x *MessageReaction) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageReaction.ProtoReflect.Descriptor instead.
 func (*MessageReaction) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{94}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *MessageReaction) GetUserId() string {
@@ -9293,7 +9825,7 @@ type GatewayBotResponse struct {
 
 func (x *GatewayBotResponse) Reset() {
 	*x = GatewayBotResponse{}
-	mi := &file_discord_v1_message_proto_msgTypes[95]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9305,7 +9837,7 @@ func (x *GatewayBotResponse) String() string {
 func (*GatewayBotResponse) ProtoMessage() {}
 
 func (x *GatewayBotResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[95]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9318,7 +9850,7 @@ func (x *GatewayBotResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GatewayBotResponse.ProtoReflect.Descriptor instead.
 func (*GatewayBotResponse) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{95}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *GatewayBotResponse) GetUrl() string {
@@ -9354,7 +9886,7 @@ type SessionInformation struct {
 
 func (x *SessionInformation) Reset() {
 	*x = SessionInformation{}
-	mi := &file_discord_v1_message_proto_msgTypes[96]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9366,7 +9898,7 @@ func (x *SessionInformation) String() string {
 func (*SessionInformation) ProtoMessage() {}
 
 func (x *SessionInformation) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[96]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9379,7 +9911,7 @@ func (x *SessionInformation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SessionInformation.ProtoReflect.Descriptor instead.
 func (*SessionInformation) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{96}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{96}
 }
 
 func (x *SessionInformation) GetTotal() int32 {
@@ -9425,7 +9957,7 @@ type StageInstance struct {
 
 func (x *StageInstance) Reset() {
 	*x = StageInstance{}
-	mi := &file_discord_v1_message_proto_msgTypes[97]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9437,7 +9969,7 @@ func (x *StageInstance) String() string {
 func (*StageInstance) ProtoMessage() {}
 
 func (x *StageInstance) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[97]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9450,7 +9982,7 @@ func (x *StageInstance) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StageInstance.ProtoReflect.Descriptor instead.
 func (*StageInstance) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{97}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{97}
 }
 
 func (x *StageInstance) GetId() string {
@@ -9514,7 +10046,7 @@ type StageInstanceParams struct {
 
 func (x *StageInstanceParams) Reset() {
 	*x = StageInstanceParams{}
-	mi := &file_discord_v1_message_proto_msgTypes[98]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9526,7 +10058,7 @@ func (x *StageInstanceParams) String() string {
 func (*StageInstanceParams) ProtoMessage() {}
 
 func (x *StageInstanceParams) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[98]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9539,7 +10071,7 @@ func (x *StageInstanceParams) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StageInstanceParams.ProtoReflect.Descriptor instead.
 func (*StageInstanceParams) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{98}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *StageInstanceParams) GetChannelId() string {
@@ -9580,7 +10112,7 @@ type PollLayoutType struct {
 
 func (x *PollLayoutType) Reset() {
 	*x = PollLayoutType{}
-	mi := &file_discord_v1_message_proto_msgTypes[99]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9592,7 +10124,7 @@ func (x *PollLayoutType) String() string {
 func (*PollLayoutType) ProtoMessage() {}
 
 func (x *PollLayoutType) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[99]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9605,7 +10137,7 @@ func (x *PollLayoutType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PollLayoutType.ProtoReflect.Descriptor instead.
 func (*PollLayoutType) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{99}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *PollLayoutType) GetValue() int32 {
@@ -9625,7 +10157,7 @@ type PollMedia struct {
 
 func (x *PollMedia) Reset() {
 	*x = PollMedia{}
-	mi := &file_discord_v1_message_proto_msgTypes[100]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9637,7 +10169,7 @@ func (x *PollMedia) String() string {
 func (*PollMedia) ProtoMessage() {}
 
 func (x *PollMedia) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[100]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9650,7 +10182,7 @@ func (x *PollMedia) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PollMedia.ProtoReflect.Descriptor instead.
 func (*PollMedia) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{100}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *PollMedia) GetText() string {
@@ -9677,7 +10209,7 @@ type PollAnswer struct {
 
 func (x *PollAnswer) Reset() {
 	*x = PollAnswer{}
-	mi := &file_discord_v1_message_proto_msgTypes[101]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9689,7 +10221,7 @@ func (x *PollAnswer) String() string {
 func (*PollAnswer) ProtoMessage() {}
 
 func (x *PollAnswer) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[101]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9702,7 +10234,7 @@ func (x *PollAnswer) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PollAnswer.ProtoReflect.Descriptor instead.
 func (*PollAnswer) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{101}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{101}
 }
 
 func (x *PollAnswer) GetAnswerId() int32 {
@@ -9730,7 +10262,7 @@ type PollAnswerCount struct {
 
 func (x *PollAnswerCount) Reset() {
 	*x = PollAnswerCount{}
-	mi := &file_discord_v1_message_proto_msgTypes[102]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9742,7 +10274,7 @@ func (x *PollAnswerCount) String() string {
 func (*PollAnswerCount) ProtoMessage() {}
 
 func (x *PollAnswerCount) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[102]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9755,7 +10287,7 @@ func (x *PollAnswerCount) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PollAnswerCount.ProtoReflect.Descriptor instead.
 func (*PollAnswerCount) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{102}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{102}
 }
 
 func (x *PollAnswerCount) GetId() int32 {
@@ -9789,7 +10321,7 @@ type PollResults struct {
 
 func (x *PollResults) Reset() {
 	*x = PollResults{}
-	mi := &file_discord_v1_message_proto_msgTypes[103]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9801,7 +10333,7 @@ func (x *PollResults) String() string {
 func (*PollResults) ProtoMessage() {}
 
 func (x *PollResults) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[103]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9814,7 +10346,7 @@ func (x *PollResults) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PollResults.ProtoReflect.Descriptor instead.
 func (*PollResults) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{103}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{103}
 }
 
 func (x *PollResults) GetFinalized() bool {
@@ -9846,7 +10378,7 @@ type Poll struct {
 
 func (x *Poll) Reset() {
 	*x = Poll{}
-	mi := &file_discord_v1_message_proto_msgTypes[104]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9858,7 +10390,7 @@ func (x *Poll) String() string {
 func (*Poll) ProtoMessage() {}
 
 func (x *Poll) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[104]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9871,7 +10403,7 @@ func (x *Poll) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Poll.ProtoReflect.Descriptor instead.
 func (*Poll) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{104}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{104}
 }
 
 func (x *Poll) GetQuestion() *PollMedia {
@@ -9933,7 +10465,7 @@ type SKUType struct {
 
 func (x *SKUType) Reset() {
 	*x = SKUType{}
-	mi := &file_discord_v1_message_proto_msgTypes[105]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9945,7 +10477,7 @@ func (x *SKUType) String() string {
 func (*SKUType) ProtoMessage() {}
 
 func (x *SKUType) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[105]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9958,7 +10490,7 @@ func (x *SKUType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SKUType.ProtoReflect.Descriptor instead.
 func (*SKUType) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{105}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{105}
 }
 
 func (x *SKUType) GetValue() int32 {
@@ -9978,7 +10510,7 @@ type SKUFlags struct {
 
 func (x *SKUFlags) Reset() {
 	*x = SKUFlags{}
-	mi := &file_discord_v1_message_proto_msgTypes[106]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9990,7 +10522,7 @@ func (x *SKUFlags) String() string {
 func (*SKUFlags) ProtoMessage() {}
 
 func (x *SKUFlags) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[106]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10003,7 +10535,7 @@ func (x *SKUFlags) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SKUFlags.ProtoReflect.Descriptor instead.
 func (*SKUFlags) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{106}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{106}
 }
 
 func (x *SKUFlags) GetValue() int32 {
@@ -10027,7 +10559,7 @@ type SKU struct {
 
 func (x *SKU) Reset() {
 	*x = SKU{}
-	mi := &file_discord_v1_message_proto_msgTypes[107]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10039,7 +10571,7 @@ func (x *SKU) String() string {
 func (*SKU) ProtoMessage() {}
 
 func (x *SKU) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[107]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10052,7 +10584,7 @@ func (x *SKU) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SKU.ProtoReflect.Descriptor instead.
 func (*SKU) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{107}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{107}
 }
 
 func (x *SKU) GetId() string {
@@ -10107,7 +10639,7 @@ type SubscriptionStatus struct {
 
 func (x *SubscriptionStatus) Reset() {
 	*x = SubscriptionStatus{}
-	mi := &file_discord_v1_message_proto_msgTypes[108]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10119,7 +10651,7 @@ func (x *SubscriptionStatus) String() string {
 func (*SubscriptionStatus) ProtoMessage() {}
 
 func (x *SubscriptionStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[108]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10132,7 +10664,7 @@ func (x *SubscriptionStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SubscriptionStatus.ProtoReflect.Descriptor instead.
 func (*SubscriptionStatus) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{108}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{108}
 }
 
 func (x *SubscriptionStatus) GetValue() int32 {
@@ -10160,7 +10692,7 @@ type Subscription struct {
 
 func (x *Subscription) Reset() {
 	*x = Subscription{}
-	mi := &file_discord_v1_message_proto_msgTypes[109]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10172,7 +10704,7 @@ func (x *Subscription) String() string {
 func (*Subscription) ProtoMessage() {}
 
 func (x *Subscription) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[109]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10185,7 +10717,7 @@ func (x *Subscription) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Subscription.ProtoReflect.Descriptor instead.
 func (*Subscription) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{109}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{109}
 }
 
 func (x *Subscription) GetId() string {
@@ -10268,7 +10800,7 @@ type EntitlementType struct {
 
 func (x *EntitlementType) Reset() {
 	*x = EntitlementType{}
-	mi := &file_discord_v1_message_proto_msgTypes[110]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10280,7 +10812,7 @@ func (x *EntitlementType) String() string {
 func (*EntitlementType) ProtoMessage() {}
 
 func (x *EntitlementType) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[110]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10293,7 +10825,7 @@ func (x *EntitlementType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EntitlementType.ProtoReflect.Descriptor instead.
 func (*EntitlementType) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{110}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{110}
 }
 
 func (x *EntitlementType) GetValue() int32 {
@@ -10322,7 +10854,7 @@ type Entitlement struct {
 
 func (x *Entitlement) Reset() {
 	*x = Entitlement{}
-	mi := &file_discord_v1_message_proto_msgTypes[111]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10334,7 +10866,7 @@ func (x *Entitlement) String() string {
 func (*Entitlement) ProtoMessage() {}
 
 func (x *Entitlement) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[111]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10347,7 +10879,7 @@ func (x *Entitlement) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Entitlement.ProtoReflect.Descriptor instead.
 func (*Entitlement) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{111}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{111}
 }
 
 func (x *Entitlement) GetId() string {
@@ -10437,7 +10969,7 @@ type EntitlementOwnerType struct {
 
 func (x *EntitlementOwnerType) Reset() {
 	*x = EntitlementOwnerType{}
-	mi := &file_discord_v1_message_proto_msgTypes[112]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10449,7 +10981,7 @@ func (x *EntitlementOwnerType) String() string {
 func (*EntitlementOwnerType) ProtoMessage() {}
 
 func (x *EntitlementOwnerType) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[112]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10462,7 +10994,7 @@ func (x *EntitlementOwnerType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EntitlementOwnerType.ProtoReflect.Descriptor instead.
 func (*EntitlementOwnerType) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{112}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{112}
 }
 
 func (x *EntitlementOwnerType) GetValue() int32 {
@@ -10483,7 +11015,7 @@ type EntitlementTest struct {
 
 func (x *EntitlementTest) Reset() {
 	*x = EntitlementTest{}
-	mi := &file_discord_v1_message_proto_msgTypes[113]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10495,7 +11027,7 @@ func (x *EntitlementTest) String() string {
 func (*EntitlementTest) ProtoMessage() {}
 
 func (x *EntitlementTest) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[113]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10508,7 +11040,7 @@ func (x *EntitlementTest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EntitlementTest.ProtoReflect.Descriptor instead.
 func (*EntitlementTest) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{113}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{113}
 }
 
 func (x *EntitlementTest) GetSkuId() string {
@@ -10547,7 +11079,7 @@ type EntitlementFilterOptions struct {
 
 func (x *EntitlementFilterOptions) Reset() {
 	*x = EntitlementFilterOptions{}
-	mi := &file_discord_v1_message_proto_msgTypes[114]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10559,7 +11091,7 @@ func (x *EntitlementFilterOptions) String() string {
 func (*EntitlementFilterOptions) ProtoMessage() {}
 
 func (x *EntitlementFilterOptions) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[114]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10572,7 +11104,7 @@ func (x *EntitlementFilterOptions) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EntitlementFilterOptions.ProtoReflect.Descriptor instead.
 func (*EntitlementFilterOptions) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{114}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{114}
 }
 
 func (x *EntitlementFilterOptions) GetUserId() string {
@@ -10648,7 +11180,7 @@ type State struct {
 
 func (x *State) Reset() {
 	*x = State{}
-	mi := &file_discord_v1_message_proto_msgTypes[115]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10660,7 +11192,7 @@ func (x *State) String() string {
 func (*State) ProtoMessage() {}
 
 func (x *State) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[115]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10673,7 +11205,7 @@ func (x *State) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use State.ProtoReflect.Descriptor instead.
 func (*State) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{115}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{115}
 }
 
 func (x *State) GetReady() bool {
@@ -10813,7 +11345,7 @@ type User struct {
 
 func (x *User) Reset() {
 	*x = User{}
-	mi := &file_discord_v1_message_proto_msgTypes[116]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[116]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10825,7 +11357,7 @@ func (x *User) String() string {
 func (*User) ProtoMessage() {}
 
 func (x *User) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[116]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[116]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10838,7 +11370,7 @@ func (x *User) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use User.ProtoReflect.Descriptor instead.
 func (*User) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{116}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{116}
 }
 
 func (x *User) GetId() string {
@@ -10973,7 +11505,7 @@ type TeamMember struct {
 
 func (x *TeamMember) Reset() {
 	*x = TeamMember{}
-	mi := &file_discord_v1_message_proto_msgTypes[117]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10985,7 +11517,7 @@ func (x *TeamMember) String() string {
 func (*TeamMember) ProtoMessage() {}
 
 func (x *TeamMember) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[117]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10998,7 +11530,7 @@ func (x *TeamMember) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TeamMember.ProtoReflect.Descriptor instead.
 func (*TeamMember) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{117}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{117}
 }
 
 func (x *TeamMember) GetUser() *User {
@@ -11044,7 +11576,7 @@ type Team struct {
 
 func (x *Team) Reset() {
 	*x = Team{}
-	mi := &file_discord_v1_message_proto_msgTypes[118]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[118]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11056,7 +11588,7 @@ func (x *Team) String() string {
 func (*Team) ProtoMessage() {}
 
 func (x *Team) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[118]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[118]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11069,7 +11601,7 @@ func (x *Team) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Team.ProtoReflect.Descriptor instead.
 func (*Team) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{118}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{118}
 }
 
 func (x *Team) GetId() string {
@@ -11134,7 +11666,7 @@ type Webhook struct {
 
 func (x *Webhook) Reset() {
 	*x = Webhook{}
-	mi := &file_discord_v1_message_proto_msgTypes[119]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[119]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11146,7 +11678,7 @@ func (x *Webhook) String() string {
 func (*Webhook) ProtoMessage() {}
 
 func (x *Webhook) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[119]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[119]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11159,7 +11691,7 @@ func (x *Webhook) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Webhook.ProtoReflect.Descriptor instead.
 func (*Webhook) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{119}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{119}
 }
 
 func (x *Webhook) GetId() string {
@@ -11247,11 +11779,7 @@ type WebhookParams struct {
 	Attachments []*MessageAttachment `protobuf:"bytes,8,rep,name=attachments,proto3" json:"attachments,omitempty"`
 	// Pointer in Go + OmitEmpty -> optional message
 	AllowedMentions *MessageAllowedMentions `protobuf:"bytes,9,opt,name=allowed_mentions,json=allowedMentions,proto3,oneof" json:"allowed_mentions,omitempty"`
-	// Only MessageFlagsSuppressEmbeds and MessageFlagsEphemeral can be set.
-	// MessageFlagsEphemeral can only be set when using Followup Message Create endpoint.
-	// OmitEmpty tag in Go -> optional integer (assuming MessageFlags is int-like)
-	// If MessageFlags requires its placeholder message, use optional MessageFlags flags = 10;
-	Flags *int32 `protobuf:"varint,10,opt,name=flags,proto3,oneof" json:"flags,omitempty"` // Using int32 as it's a common integer type for flags
+	Flags           *MessageFlags           `protobuf:"varint,10,opt,name=flags,proto3,enum=discord_v1.MessageFlags,oneof" json:"flags,omitempty"` // Using int32 as it's a common integer type for flags
 	// Name of the thread to create.
 	// NOTE: can only be set if the webhook channel is a forum.
 	// OmitEmpty tag in Go -> optional string
@@ -11262,7 +11790,7 @@ type WebhookParams struct {
 
 func (x *WebhookParams) Reset() {
 	*x = WebhookParams{}
-	mi := &file_discord_v1_message_proto_msgTypes[120]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[120]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11274,7 +11802,7 @@ func (x *WebhookParams) String() string {
 func (*WebhookParams) ProtoMessage() {}
 
 func (x *WebhookParams) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[120]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[120]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11287,7 +11815,7 @@ func (x *WebhookParams) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WebhookParams.ProtoReflect.Descriptor instead.
 func (*WebhookParams) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{120}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{120}
 }
 
 func (x *WebhookParams) GetContent() string {
@@ -11353,11 +11881,11 @@ func (x *WebhookParams) GetAllowedMentions() *MessageAllowedMentions {
 	return nil
 }
 
-func (x *WebhookParams) GetFlags() int32 {
+func (x *WebhookParams) GetFlags() MessageFlags {
 	if x != nil && x.Flags != nil {
 		return *x.Flags
 	}
-	return 0
+	return MessageFlags_MESSAGE_FLAGS_CROSS_POSTED
 }
 
 func (x *WebhookParams) GetThreadName() string {
@@ -11371,19 +11899,7 @@ func (x *WebhookParams) GetThreadName() string {
 type WebhookEdit struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Pointer in Go + OmitEmpty -> optional string
-	Content *string `protobuf:"bytes,1,opt,name=content,proto3,oneof" json:"content,omitempty"`
-	// Pointer to Slice in Go + OmitEmpty -> optional repeated message
-	// Representing an optional repeated field is slightly less direct.
-	// The pointer *to* the slice implies the *entire list* might be absent (nil),
-	// or present (not nil) but possibly empty.
-	// An `optional repeated` field in protobuf is syntactically not allowed.
-	// The standard way to represent an optional list is to make the field `repeated`
-	// and rely on the presence of the field itself or the list being empty vs having elements.
-	// However, the Go pointer implies a stronger "optionality" of the list container itself.
-	// A common workaround in Protobuf if strict "list absent" vs "list present but empty"
-	// distinction is needed is to wrap it in a dedicated message.
-	// But typically, a `repeated` field is sufficient and simpler; presence is often inferred
-	// by checking if the list has elements. Let's use `repeated` as is common, noting the subtle difference.
+	Content    *string      `protobuf:"bytes,1,opt,name=content,proto3,oneof" json:"content,omitempty"`
 	Components []*anypb.Any `protobuf:"bytes,2,rep,name=components,proto3" json:"components,omitempty"` // Changed from optional repeated
 	// Pointer to Slice of Pointers in Go + OmitEmpty -> repeated message
 	Embeds []*MessageEmbed `protobuf:"bytes,3,rep,name=embeds,proto3" json:"embeds,omitempty"` // Changed from optional repeated
@@ -11399,7 +11915,7 @@ type WebhookEdit struct {
 
 func (x *WebhookEdit) Reset() {
 	*x = WebhookEdit{}
-	mi := &file_discord_v1_message_proto_msgTypes[121]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[121]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11411,7 +11927,7 @@ func (x *WebhookEdit) String() string {
 func (*WebhookEdit) ProtoMessage() {}
 
 func (x *WebhookEdit) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[121]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[121]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11424,7 +11940,7 @@ func (x *WebhookEdit) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WebhookEdit.ProtoReflect.Descriptor instead.
 func (*WebhookEdit) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{121}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{121}
 }
 
 func (x *WebhookEdit) GetContent() string {
@@ -11480,7 +11996,7 @@ type ComponentEmoji struct {
 
 func (x *ComponentEmoji) Reset() {
 	*x = ComponentEmoji{}
-	mi := &file_discord_v1_message_proto_msgTypes[122]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[122]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11492,7 +12008,7 @@ func (x *ComponentEmoji) String() string {
 func (*ComponentEmoji) ProtoMessage() {}
 
 func (x *ComponentEmoji) ProtoReflect() protoreflect.Message {
-	mi := &file_discord_v1_message_proto_msgTypes[122]
+	mi := &file_discord_v1_discordgo_proto_msgTypes[122]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11505,7 +12021,7 @@ func (x *ComponentEmoji) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ComponentEmoji.ProtoReflect.Descriptor instead.
 func (*ComponentEmoji) Descriptor() ([]byte, []int) {
-	return file_discord_v1_message_proto_rawDescGZIP(), []int{122}
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{122}
 }
 
 func (x *ComponentEmoji) GetName() string {
@@ -11529,11 +12045,1681 @@ func (x *ComponentEmoji) GetAnimated() bool {
 	return false
 }
 
-var File_discord_v1_message_proto protoreflect.FileDescriptor
+// ApplicationCommand represents an application's slash command.
+type ApplicationCommand struct {
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	Id                string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	ApplicationId     string                 `protobuf:"bytes,2,opt,name=application_id,json=applicationId,proto3" json:"application_id,omitempty"`
+	GuildId           string                 `protobuf:"bytes,3,opt,name=guild_id,json=guildId,proto3" json:"guild_id,omitempty"`
+	Version           string                 `protobuf:"bytes,4,opt,name=version,proto3" json:"version,omitempty"`
+	Type              ApplicationCommandType `protobuf:"varint,5,opt,name=type,proto3,enum=discord_v1.ApplicationCommandType" json:"type,omitempty"`
+	Name              string                 `protobuf:"bytes,6,opt,name=name,proto3" json:"name,omitempty"`
+	NameLocalizations map[string]string      `protobuf:"bytes,7,rep,name=name_localizations,json=nameLocalizations,proto3" json:"name_localizations,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"` // Assuming Locale is stringable or maps to string
+	// NOTE: DefaultPermission will be soon deprecated. Use DefaultMemberPermissions and Contexts instead.
+	// DefaultPermission *bool `json:"default_permission,omitempty"` - Use optional bool for deprecation clarity? Or omit entirely as deprecated? Let's keep for now, marked as deprecated.
+	//
+	// Deprecated: Marked as deprecated in discord-v1/discordgo.proto.
+	DefaultPermission        *bool `protobuf:"varint,8,opt,name=default_permission,json=defaultPermission,proto3,oneof" json:"default_permission,omitempty"`
+	DefaultMemberPermissions int64 `protobuf:"varint,9,opt,name=default_member_permissions,json=defaultMemberPermissions,proto3" json:"default_member_permissions,omitempty"` // Use int64 for permissions bitfield
+	Nsfw                     *bool `protobuf:"varint,10,opt,name=nsfw,proto3,oneof" json:"nsfw,omitempty"`
+	// Deprecated: use Contexts instead.
+	// DMPermission *bool `json:"dm_permission,omitempty"` - Similar to DefaultPermission, mark deprecated or omit. Keep for now, marked.
+	//
+	// Deprecated: Marked as deprecated in discord-v1/discordgo.proto.
+	DmPermission     *bool                        `protobuf:"varint,11,opt,name=dm_permission,json=dmPermission,proto3,oneof" json:"dm_permission,omitempty"`
+	Contexts         []InteractionContextType     `protobuf:"varint,12,rep,packed,name=contexts,proto3,enum=discord_v1.InteractionContextType" json:"contexts,omitempty"`
+	IntegrationTypes []ApplicationIntegrationType `protobuf:"varint,13,rep,packed,name=integration_types,json=integrationTypes,proto3,enum=discord_v1.ApplicationIntegrationType" json:"integration_types,omitempty"`
+	// NOTE: Chat commands only. Otherwise it mustn't be set.
+	Description              string                      `protobuf:"bytes,14,opt,name=description,proto3" json:"description,omitempty"`
+	DescriptionLocalizations map[string]string           `protobuf:"bytes,15,rep,name=description_localizations,json=descriptionLocalizations,proto3" json:"description_localizations,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"` // Assuming Locale is stringable or maps to string
+	Options                  []*ApplicationCommandOption `protobuf:"bytes,16,rep,name=options,proto3" json:"options,omitempty"`
+	unknownFields            protoimpl.UnknownFields
+	sizeCache                protoimpl.SizeCache
+}
 
-const file_discord_v1_message_proto_rawDesc = "" +
+func (x *ApplicationCommand) Reset() {
+	*x = ApplicationCommand{}
+	mi := &file_discord_v1_discordgo_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ApplicationCommand) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ApplicationCommand) ProtoMessage() {}
+
+func (x *ApplicationCommand) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_discordgo_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ApplicationCommand.ProtoReflect.Descriptor instead.
+func (*ApplicationCommand) Descriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{123}
+}
+
+func (x *ApplicationCommand) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *ApplicationCommand) GetApplicationId() string {
+	if x != nil {
+		return x.ApplicationId
+	}
+	return ""
+}
+
+func (x *ApplicationCommand) GetGuildId() string {
+	if x != nil {
+		return x.GuildId
+	}
+	return ""
+}
+
+func (x *ApplicationCommand) GetVersion() string {
+	if x != nil {
+		return x.Version
+	}
+	return ""
+}
+
+func (x *ApplicationCommand) GetType() ApplicationCommandType {
+	if x != nil {
+		return x.Type
+	}
+	return ApplicationCommandType_APPLICATION_COMMAND_TYPE_UNKNOWN
+}
+
+func (x *ApplicationCommand) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *ApplicationCommand) GetNameLocalizations() map[string]string {
+	if x != nil {
+		return x.NameLocalizations
+	}
+	return nil
+}
+
+// Deprecated: Marked as deprecated in discord-v1/discordgo.proto.
+func (x *ApplicationCommand) GetDefaultPermission() bool {
+	if x != nil && x.DefaultPermission != nil {
+		return *x.DefaultPermission
+	}
+	return false
+}
+
+func (x *ApplicationCommand) GetDefaultMemberPermissions() int64 {
+	if x != nil {
+		return x.DefaultMemberPermissions
+	}
+	return 0
+}
+
+func (x *ApplicationCommand) GetNsfw() bool {
+	if x != nil && x.Nsfw != nil {
+		return *x.Nsfw
+	}
+	return false
+}
+
+// Deprecated: Marked as deprecated in discord-v1/discordgo.proto.
+func (x *ApplicationCommand) GetDmPermission() bool {
+	if x != nil && x.DmPermission != nil {
+		return *x.DmPermission
+	}
+	return false
+}
+
+func (x *ApplicationCommand) GetContexts() []InteractionContextType {
+	if x != nil {
+		return x.Contexts
+	}
+	return nil
+}
+
+func (x *ApplicationCommand) GetIntegrationTypes() []ApplicationIntegrationType {
+	if x != nil {
+		return x.IntegrationTypes
+	}
+	return nil
+}
+
+func (x *ApplicationCommand) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *ApplicationCommand) GetDescriptionLocalizations() map[string]string {
+	if x != nil {
+		return x.DescriptionLocalizations
+	}
+	return nil
+}
+
+func (x *ApplicationCommand) GetOptions() []*ApplicationCommandOption {
+	if x != nil {
+		return x.Options
+	}
+	return nil
+}
+
+// ApplicationCommandOption represents an option/subcommand/subcommands group.
+type ApplicationCommandOption struct {
+	state                    protoimpl.MessageState       `protogen:"open.v1"`
+	Type                     ApplicationCommandOptionType `protobuf:"varint,1,opt,name=type,proto3,enum=discord_v1.ApplicationCommandOptionType" json:"type,omitempty"`
+	Name                     string                       `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	NameLocalizations        map[string]string            `protobuf:"bytes,3,rep,name=name_localizations,json=nameLocalizations,proto3" json:"name_localizations,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"` // Assuming Locale is stringable or maps to string
+	Description              string                       `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
+	DescriptionLocalizations map[string]string            `protobuf:"bytes,5,rep,name=description_localizations,json=descriptionLocalizations,proto3" json:"description_localizations,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"` // Assuming Locale is stringable or maps to string
+	ChannelTypes             []ChannelType                `protobuf:"varint,7,rep,packed,name=channel_types,json=channelTypes,proto3,enum=discord_v1.ChannelType" json:"channel_types,omitempty"`
+	Required                 bool                         `protobuf:"varint,8,opt,name=required,proto3" json:"required,omitempty"`
+	Options                  []*ApplicationCommandOption  `protobuf:"bytes,9,rep,name=options,proto3" json:"options,omitempty"` // Recursive structure
+	// NOTE: mutually exclusive with Choices.
+	Autocomplete bool                              `protobuf:"varint,10,opt,name=autocomplete,proto3" json:"autocomplete,omitempty"`
+	Choices      []*ApplicationCommandOptionChoice `protobuf:"bytes,11,rep,name=choices,proto3" json:"choices,omitempty"`
+	// Minimal value of number/integer option.
+	// Use optional for clarity on presence/absence
+	MinValue *float64 `protobuf:"fixed64,12,opt,name=min_value,json=minValue,proto3,oneof" json:"min_value,omitempty"` // Can apply to integer/number
+	// Maximum value of number/integer option.
+	MaxValue *float64 `protobuf:"fixed64,13,opt,name=max_value,json=maxValue,proto3,oneof" json:"max_value,omitempty"` // Can apply to integer/number
+	// Minimum length of string option.
+	MinLength *int32 `protobuf:"varint,14,opt,name=min_length,json=minLength,proto3,oneof" json:"min_length,omitempty"`
+	// Maximum length of string option.
+	MaxLength     *int32 `protobuf:"varint,15,opt,name=max_length,json=maxLength,proto3,oneof" json:"max_length,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ApplicationCommandOption) Reset() {
+	*x = ApplicationCommandOption{}
+	mi := &file_discord_v1_discordgo_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ApplicationCommandOption) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ApplicationCommandOption) ProtoMessage() {}
+
+func (x *ApplicationCommandOption) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_discordgo_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ApplicationCommandOption.ProtoReflect.Descriptor instead.
+func (*ApplicationCommandOption) Descriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{124}
+}
+
+func (x *ApplicationCommandOption) GetType() ApplicationCommandOptionType {
+	if x != nil {
+		return x.Type
+	}
+	return ApplicationCommandOptionType_APPLICATION_COMMAND_OPTION_TYPE_UNKNOWN
+}
+
+func (x *ApplicationCommandOption) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *ApplicationCommandOption) GetNameLocalizations() map[string]string {
+	if x != nil {
+		return x.NameLocalizations
+	}
+	return nil
+}
+
+func (x *ApplicationCommandOption) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *ApplicationCommandOption) GetDescriptionLocalizations() map[string]string {
+	if x != nil {
+		return x.DescriptionLocalizations
+	}
+	return nil
+}
+
+func (x *ApplicationCommandOption) GetChannelTypes() []ChannelType {
+	if x != nil {
+		return x.ChannelTypes
+	}
+	return nil
+}
+
+func (x *ApplicationCommandOption) GetRequired() bool {
+	if x != nil {
+		return x.Required
+	}
+	return false
+}
+
+func (x *ApplicationCommandOption) GetOptions() []*ApplicationCommandOption {
+	if x != nil {
+		return x.Options
+	}
+	return nil
+}
+
+func (x *ApplicationCommandOption) GetAutocomplete() bool {
+	if x != nil {
+		return x.Autocomplete
+	}
+	return false
+}
+
+func (x *ApplicationCommandOption) GetChoices() []*ApplicationCommandOptionChoice {
+	if x != nil {
+		return x.Choices
+	}
+	return nil
+}
+
+func (x *ApplicationCommandOption) GetMinValue() float64 {
+	if x != nil && x.MinValue != nil {
+		return *x.MinValue
+	}
+	return 0
+}
+
+func (x *ApplicationCommandOption) GetMaxValue() float64 {
+	if x != nil && x.MaxValue != nil {
+		return *x.MaxValue
+	}
+	return 0
+}
+
+func (x *ApplicationCommandOption) GetMinLength() int32 {
+	if x != nil && x.MinLength != nil {
+		return *x.MinLength
+	}
+	return 0
+}
+
+func (x *ApplicationCommandOption) GetMaxLength() int32 {
+	if x != nil && x.MaxLength != nil {
+		return *x.MaxLength
+	}
+	return 0
+}
+
+// ApplicationCommandOptionChoice represents a slash command option choice.
+type ApplicationCommandOptionChoice struct {
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	Name              string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	NameLocalizations map[string]string      `protobuf:"bytes,2,rep,name=name_localizations,json=nameLocalizations,proto3" json:"name_localizations,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"` // Assuming Locale is stringable or maps to string
+	// NOTE: Contains the value specified by Type.
+	// Use oneof for the value, as it can be different types.
+	//
+	// Types that are valid to be assigned to Value:
+	//
+	//	*ApplicationCommandOptionChoice_StringValue
+	//	*ApplicationCommandOptionChoice_IntegerValue
+	//	*ApplicationCommandOptionChoice_NumberValue
+	Value         isApplicationCommandOptionChoice_Value `protobuf_oneof:"value"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ApplicationCommandOptionChoice) Reset() {
+	*x = ApplicationCommandOptionChoice{}
+	mi := &file_discord_v1_discordgo_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ApplicationCommandOptionChoice) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ApplicationCommandOptionChoice) ProtoMessage() {}
+
+func (x *ApplicationCommandOptionChoice) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_discordgo_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ApplicationCommandOptionChoice.ProtoReflect.Descriptor instead.
+func (*ApplicationCommandOptionChoice) Descriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{125}
+}
+
+func (x *ApplicationCommandOptionChoice) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *ApplicationCommandOptionChoice) GetNameLocalizations() map[string]string {
+	if x != nil {
+		return x.NameLocalizations
+	}
+	return nil
+}
+
+func (x *ApplicationCommandOptionChoice) GetValue() isApplicationCommandOptionChoice_Value {
+	if x != nil {
+		return x.Value
+	}
+	return nil
+}
+
+func (x *ApplicationCommandOptionChoice) GetStringValue() string {
+	if x != nil {
+		if x, ok := x.Value.(*ApplicationCommandOptionChoice_StringValue); ok {
+			return x.StringValue
+		}
+	}
+	return ""
+}
+
+func (x *ApplicationCommandOptionChoice) GetIntegerValue() int64 {
+	if x != nil {
+		if x, ok := x.Value.(*ApplicationCommandOptionChoice_IntegerValue); ok {
+			return x.IntegerValue
+		}
+	}
+	return 0
+}
+
+func (x *ApplicationCommandOptionChoice) GetNumberValue() float64 {
+	if x != nil {
+		if x, ok := x.Value.(*ApplicationCommandOptionChoice_NumberValue); ok {
+			return x.NumberValue
+		}
+	}
+	return 0
+}
+
+type isApplicationCommandOptionChoice_Value interface {
+	isApplicationCommandOptionChoice_Value()
+}
+
+type ApplicationCommandOptionChoice_StringValue struct {
+	StringValue string `protobuf:"bytes,3,opt,name=string_value,json=stringValue,proto3,oneof"`
+}
+
+type ApplicationCommandOptionChoice_IntegerValue struct {
+	IntegerValue int64 `protobuf:"varint,4,opt,name=integer_value,json=integerValue,proto3,oneof"`
+}
+
+type ApplicationCommandOptionChoice_NumberValue struct {
+	NumberValue float64 `protobuf:"fixed64,5,opt,name=number_value,json=numberValue,proto3,oneof"`
+}
+
+func (*ApplicationCommandOptionChoice_StringValue) isApplicationCommandOptionChoice_Value() {}
+
+func (*ApplicationCommandOptionChoice_IntegerValue) isApplicationCommandOptionChoice_Value() {}
+
+func (*ApplicationCommandOptionChoice_NumberValue) isApplicationCommandOptionChoice_Value() {}
+
+// ApplicationCommandPermissions represents a single user or role permission for a command.
+type ApplicationCommandPermissions struct {
+	state         protoimpl.MessageState           `protogen:"open.v1"`
+	Id            string                           `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Type          ApplicationCommandPermissionType `protobuf:"varint,2,opt,name=type,proto3,enum=discord_v1.ApplicationCommandPermissionType" json:"type,omitempty"`
+	Permission    bool                             `protobuf:"varint,3,opt,name=permission,proto3" json:"permission,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ApplicationCommandPermissions) Reset() {
+	*x = ApplicationCommandPermissions{}
+	mi := &file_discord_v1_discordgo_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ApplicationCommandPermissions) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ApplicationCommandPermissions) ProtoMessage() {}
+
+func (x *ApplicationCommandPermissions) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_discordgo_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ApplicationCommandPermissions.ProtoReflect.Descriptor instead.
+func (*ApplicationCommandPermissions) Descriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{126}
+}
+
+func (x *ApplicationCommandPermissions) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *ApplicationCommandPermissions) GetType() ApplicationCommandPermissionType {
+	if x != nil {
+		return x.Type
+	}
+	return ApplicationCommandPermissionType_APPLICATION_COMMAND_PERMISSION_TYPE_UNKNOWN
+}
+
+func (x *ApplicationCommandPermissions) GetPermission() bool {
+	if x != nil {
+		return x.Permission
+	}
+	return false
+}
+
+// ApplicationCommandPermissionsList represents a list of ApplicationCommandPermissions, needed for serializing to JSON.
+// This message might be useful if the API endpoint specifically wraps the list like this.
+type ApplicationCommandPermissionsList struct {
+	state         protoimpl.MessageState           `protogen:"open.v1"`
+	Permissions   []*ApplicationCommandPermissions `protobuf:"bytes,1,rep,name=permissions,proto3" json:"permissions,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ApplicationCommandPermissionsList) Reset() {
+	*x = ApplicationCommandPermissionsList{}
+	mi := &file_discord_v1_discordgo_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ApplicationCommandPermissionsList) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ApplicationCommandPermissionsList) ProtoMessage() {}
+
+func (x *ApplicationCommandPermissionsList) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_discordgo_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ApplicationCommandPermissionsList.ProtoReflect.Descriptor instead.
+func (*ApplicationCommandPermissionsList) Descriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{127}
+}
+
+func (x *ApplicationCommandPermissionsList) GetPermissions() []*ApplicationCommandPermissions {
+	if x != nil {
+		return x.Permissions
+	}
+	return nil
+}
+
+// GuildApplicationCommandPermissions represents all permissions for a single guild command.
+type GuildApplicationCommandPermissions struct {
+	state         protoimpl.MessageState           `protogen:"open.v1"`
+	Id            string                           `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	ApplicationId string                           `protobuf:"bytes,2,opt,name=application_id,json=applicationId,proto3" json:"application_id,omitempty"`
+	GuildId       string                           `protobuf:"bytes,3,opt,name=guild_id,json=guildId,proto3" json:"guild_id,omitempty"`
+	Permissions   []*ApplicationCommandPermissions `protobuf:"bytes,4,rep,name=permissions,proto3" json:"permissions,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GuildApplicationCommandPermissions) Reset() {
+	*x = GuildApplicationCommandPermissions{}
+	mi := &file_discord_v1_discordgo_proto_msgTypes[128]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GuildApplicationCommandPermissions) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GuildApplicationCommandPermissions) ProtoMessage() {}
+
+func (x *GuildApplicationCommandPermissions) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_discordgo_proto_msgTypes[128]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GuildApplicationCommandPermissions.ProtoReflect.Descriptor instead.
+func (*GuildApplicationCommandPermissions) Descriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{128}
+}
+
+func (x *GuildApplicationCommandPermissions) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *GuildApplicationCommandPermissions) GetApplicationId() string {
+	if x != nil {
+		return x.ApplicationId
+	}
+	return ""
+}
+
+func (x *GuildApplicationCommandPermissions) GetGuildId() string {
+	if x != nil {
+		return x.GuildId
+	}
+	return ""
+}
+
+func (x *GuildApplicationCommandPermissions) GetPermissions() []*ApplicationCommandPermissions {
+	if x != nil {
+		return x.Permissions
+	}
+	return nil
+}
+
+// Interaction represents data of an interaction.
+type Interaction struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	Id    string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	AppId string                 `protobuf:"bytes,2,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"`
+	Type  InteractionType        `protobuf:"varint,3,opt,name=type,proto3,enum=discord_v1.InteractionType" json:"type,omitempty"`
+	// The Data field is an interface in Go, representing different interaction data types.
+	// Use a oneof in protobuf to represent the possible data payloads.
+	//
+	// Types that are valid to be assigned to Data:
+	//
+	//	*Interaction_ApplicationCommandData
+	//	*Interaction_MessageComponentData
+	//	*Interaction_ModalSubmitData
+	Data      isInteraction_Data `protobuf_oneof:"data"`
+	GuildId   string             `protobuf:"bytes,8,opt,name=guild_id,json=guildId,proto3" json:"guild_id,omitempty"`
+	ChannelId string             `protobuf:"bytes,9,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	// The message on which interaction was used.
+	// NOTE: this field is only filled when a button click triggered the interaction. Otherwise it will be nil.
+	// Use optional for message presence.
+	Message *Message `protobuf:"bytes,10,opt,name=message,proto3,oneof" json:"message,omitempty"`
+	// Bitwise set of permissions the app or bot has within the channel the interaction was sent from
+	AppPermissions int64 `protobuf:"varint,11,opt,name=app_permissions,json=appPermissions,proto3" json:"app_permissions,omitempty"`
+	// The member who invoked this interaction.
+	// NOTE: this field is only filled when the slash command was invoked in a guild;
+	// if it was invoked in a DM, the `User` field will be filled instead.
+	// Make sure to check for `nil` before using this field. Use optional member.
+	Member *Member `protobuf:"bytes,12,opt,name=member,proto3,oneof" json:"member,omitempty"`
+	// The user who invoked this interaction.
+	// NOTE: this field is only filled when the slash command was invoked in a DM;
+	// if it was invoked in a guild, the `Member` field will be filled instead.
+	// Make sure to check for `nil` before using this field. Use optional user.
+	User *User `protobuf:"bytes,13,opt,name=user,proto3,oneof" json:"user,omitempty"`
+	// The user's discord client locale.
+	Locale string `protobuf:"bytes,14,opt,name=locale,proto3" json:"locale,omitempty"`
+	// The guild's locale. This defaults to EnglishUS
+	// NOTE: this field is only filled when the interaction was invoked in a guild. Use optional locale.
+	GuildLocale *string                `protobuf:"bytes,15,opt,name=guild_locale,json=guildLocale,proto3,oneof" json:"guild_locale,omitempty"`
+	Context     InteractionContextType `protobuf:"varint,16,opt,name=context,proto3,enum=discord_v1.InteractionContextType" json:"context,omitempty"`
+	// Map of integration type to owner ID (string)
+	AuthorizingIntegrationOwners map[int32]string `protobuf:"bytes,17,rep,name=authorizing_integration_owners,json=authorizingIntegrationOwners,proto3" json:"authorizing_integration_owners,omitempty" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"` // Mapping enum int value to string
+	Token                        string           `protobuf:"bytes,18,opt,name=token,proto3" json:"token,omitempty"`
+	Version                      int32            `protobuf:"varint,19,opt,name=version,proto3" json:"version,omitempty"`
+	// Any entitlements for the invoking user, representing access to premium SKUs.
+	// NOTE: this field is only filled in monetized apps. Repeated entitlements.
+	Entitlements  []*Entitlement `protobuf:"bytes,20,rep,name=entitlements,proto3" json:"entitlements,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Interaction) Reset() {
+	*x = Interaction{}
+	mi := &file_discord_v1_discordgo_proto_msgTypes[129]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Interaction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Interaction) ProtoMessage() {}
+
+func (x *Interaction) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_discordgo_proto_msgTypes[129]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Interaction.ProtoReflect.Descriptor instead.
+func (*Interaction) Descriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{129}
+}
+
+func (x *Interaction) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *Interaction) GetAppId() string {
+	if x != nil {
+		return x.AppId
+	}
+	return ""
+}
+
+func (x *Interaction) GetType() InteractionType {
+	if x != nil {
+		return x.Type
+	}
+	return InteractionType_INTERACTION_TYPE_UNKNOWN
+}
+
+func (x *Interaction) GetData() isInteraction_Data {
+	if x != nil {
+		return x.Data
+	}
+	return nil
+}
+
+func (x *Interaction) GetApplicationCommandData() *ApplicationCommandInteractionData {
+	if x != nil {
+		if x, ok := x.Data.(*Interaction_ApplicationCommandData); ok {
+			return x.ApplicationCommandData
+		}
+	}
+	return nil
+}
+
+func (x *Interaction) GetMessageComponentData() *MessageComponentInteractionData {
+	if x != nil {
+		if x, ok := x.Data.(*Interaction_MessageComponentData); ok {
+			return x.MessageComponentData
+		}
+	}
+	return nil
+}
+
+func (x *Interaction) GetModalSubmitData() *ModalSubmitInteractionData {
+	if x != nil {
+		if x, ok := x.Data.(*Interaction_ModalSubmitData); ok {
+			return x.ModalSubmitData
+		}
+	}
+	return nil
+}
+
+func (x *Interaction) GetGuildId() string {
+	if x != nil {
+		return x.GuildId
+	}
+	return ""
+}
+
+func (x *Interaction) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *Interaction) GetMessage() *Message {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
+func (x *Interaction) GetAppPermissions() int64 {
+	if x != nil {
+		return x.AppPermissions
+	}
+	return 0
+}
+
+func (x *Interaction) GetMember() *Member {
+	if x != nil {
+		return x.Member
+	}
+	return nil
+}
+
+func (x *Interaction) GetUser() *User {
+	if x != nil {
+		return x.User
+	}
+	return nil
+}
+
+func (x *Interaction) GetLocale() string {
+	if x != nil {
+		return x.Locale
+	}
+	return ""
+}
+
+func (x *Interaction) GetGuildLocale() string {
+	if x != nil && x.GuildLocale != nil {
+		return *x.GuildLocale
+	}
+	return ""
+}
+
+func (x *Interaction) GetContext() InteractionContextType {
+	if x != nil {
+		return x.Context
+	}
+	return InteractionContextType_INTERACTION_CONTEXT_UNKNOWN
+}
+
+func (x *Interaction) GetAuthorizingIntegrationOwners() map[int32]string {
+	if x != nil {
+		return x.AuthorizingIntegrationOwners
+	}
+	return nil
+}
+
+func (x *Interaction) GetToken() string {
+	if x != nil {
+		return x.Token
+	}
+	return ""
+}
+
+func (x *Interaction) GetVersion() int32 {
+	if x != nil {
+		return x.Version
+	}
+	return 0
+}
+
+func (x *Interaction) GetEntitlements() []*Entitlement {
+	if x != nil {
+		return x.Entitlements
+	}
+	return nil
+}
+
+type isInteraction_Data interface {
+	isInteraction_Data()
+}
+
+type Interaction_ApplicationCommandData struct {
+	ApplicationCommandData *ApplicationCommandInteractionData `protobuf:"bytes,4,opt,name=application_command_data,json=applicationCommandData,proto3,oneof"`
+}
+
+type Interaction_MessageComponentData struct {
+	MessageComponentData *MessageComponentInteractionData `protobuf:"bytes,5,opt,name=message_component_data,json=messageComponentData,proto3,oneof"`
+}
+
+type Interaction_ModalSubmitData struct {
+	ModalSubmitData *ModalSubmitInteractionData `protobuf:"bytes,6,opt,name=modal_submit_data,json=modalSubmitData,proto3,oneof"`
+}
+
+func (*Interaction_ApplicationCommandData) isInteraction_Data() {}
+
+func (*Interaction_MessageComponentData) isInteraction_Data() {}
+
+func (*Interaction_ModalSubmitData) isInteraction_Data() {}
+
+// ApplicationCommandInteractionData contains the data of application command interaction.
+type ApplicationCommandInteractionData struct {
+	state       protoimpl.MessageState                     `protogen:"open.v1"`
+	Id          string                                     `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name        string                                     `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	CommandType ApplicationCommandType                     `protobuf:"varint,3,opt,name=command_type,json=commandType,proto3,enum=discord_v1.ApplicationCommandType" json:"command_type,omitempty"`
+	Resolved    *ApplicationCommandInteractionDataResolved `protobuf:"bytes,4,opt,name=resolved,proto3,oneof" json:"resolved,omitempty"`
+	// Slash command options. Repeated options.
+	Options []*ApplicationCommandInteractionDataOption `protobuf:"bytes,5,rep,name=options,proto3" json:"options,omitempty"`
+	// Target (user/message) id on which context menu command was called.
+	// The details are stored in Resolved according to command type.
+	TargetId      string `protobuf:"bytes,6,opt,name=target_id,json=targetId,proto3" json:"target_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ApplicationCommandInteractionData) Reset() {
+	*x = ApplicationCommandInteractionData{}
+	mi := &file_discord_v1_discordgo_proto_msgTypes[130]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ApplicationCommandInteractionData) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ApplicationCommandInteractionData) ProtoMessage() {}
+
+func (x *ApplicationCommandInteractionData) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_discordgo_proto_msgTypes[130]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ApplicationCommandInteractionData.ProtoReflect.Descriptor instead.
+func (*ApplicationCommandInteractionData) Descriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{130}
+}
+
+func (x *ApplicationCommandInteractionData) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *ApplicationCommandInteractionData) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *ApplicationCommandInteractionData) GetCommandType() ApplicationCommandType {
+	if x != nil {
+		return x.CommandType
+	}
+	return ApplicationCommandType_APPLICATION_COMMAND_TYPE_UNKNOWN
+}
+
+func (x *ApplicationCommandInteractionData) GetResolved() *ApplicationCommandInteractionDataResolved {
+	if x != nil {
+		return x.Resolved
+	}
+	return nil
+}
+
+func (x *ApplicationCommandInteractionData) GetOptions() []*ApplicationCommandInteractionDataOption {
+	if x != nil {
+		return x.Options
+	}
+	return nil
+}
+
+func (x *ApplicationCommandInteractionData) GetTargetId() string {
+	if x != nil {
+		return x.TargetId
+	}
+	return ""
+}
+
+// ApplicationCommandInteractionDataResolved contains resolved data of command execution.
+// Partial Member objects are missing user, deaf and mute fields.
+// Partial Channel objects only have id, name, type and permissions fields.
+type ApplicationCommandInteractionDataResolved struct {
+	state         protoimpl.MessageState        `protogen:"open.v1"`
+	Users         map[string]*User              `protobuf:"bytes,1,rep,name=users,proto3" json:"users,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Members       map[string]*Member            `protobuf:"bytes,2,rep,name=members,proto3" json:"members,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Roles         map[string]*Role              `protobuf:"bytes,3,rep,name=roles,proto3" json:"roles,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Channels      map[string]*Channel           `protobuf:"bytes,4,rep,name=channels,proto3" json:"channels,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Messages      map[string]*Message           `protobuf:"bytes,5,rep,name=messages,proto3" json:"messages,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Attachments   map[string]*MessageAttachment `protobuf:"bytes,6,rep,name=attachments,proto3" json:"attachments,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ApplicationCommandInteractionDataResolved) Reset() {
+	*x = ApplicationCommandInteractionDataResolved{}
+	mi := &file_discord_v1_discordgo_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ApplicationCommandInteractionDataResolved) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ApplicationCommandInteractionDataResolved) ProtoMessage() {}
+
+func (x *ApplicationCommandInteractionDataResolved) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_discordgo_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ApplicationCommandInteractionDataResolved.ProtoReflect.Descriptor instead.
+func (*ApplicationCommandInteractionDataResolved) Descriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{131}
+}
+
+func (x *ApplicationCommandInteractionDataResolved) GetUsers() map[string]*User {
+	if x != nil {
+		return x.Users
+	}
+	return nil
+}
+
+func (x *ApplicationCommandInteractionDataResolved) GetMembers() map[string]*Member {
+	if x != nil {
+		return x.Members
+	}
+	return nil
+}
+
+func (x *ApplicationCommandInteractionDataResolved) GetRoles() map[string]*Role {
+	if x != nil {
+		return x.Roles
+	}
+	return nil
+}
+
+func (x *ApplicationCommandInteractionDataResolved) GetChannels() map[string]*Channel {
+	if x != nil {
+		return x.Channels
+	}
+	return nil
+}
+
+func (x *ApplicationCommandInteractionDataResolved) GetMessages() map[string]*Message {
+	if x != nil {
+		return x.Messages
+	}
+	return nil
+}
+
+func (x *ApplicationCommandInteractionDataResolved) GetAttachments() map[string]*MessageAttachment {
+	if x != nil {
+		return x.Attachments
+	}
+	return nil
+}
+
+// MessageComponentInteractionData contains the data of message component interaction.
+type MessageComponentInteractionData struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CustomId      string                 `protobuf:"bytes,1,opt,name=custom_id,json=customId,proto3" json:"custom_id,omitempty"`
+	ComponentType ComponentType          `protobuf:"varint,2,opt,name=component_type,json=componentType,proto3,enum=discord_v1.ComponentType" json:"component_type,omitempty"`
+	// Resolved data (struct name differs slightly from Go, assuming this is correct)
+	Resolved *MessageComponentInteractionDataResolved `protobuf:"bytes,3,opt,name=resolved,proto3,oneof" json:"resolved,omitempty"` // Go code had struct, not pointer
+	// NOTE: Only filled when ComponentType is SelectMenuComponent (3). Otherwise is nil.
+	Values        []string `protobuf:"bytes,4,rep,name=values,proto3" json:"values,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MessageComponentInteractionData) Reset() {
+	*x = MessageComponentInteractionData{}
+	mi := &file_discord_v1_discordgo_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MessageComponentInteractionData) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MessageComponentInteractionData) ProtoMessage() {}
+
+func (x *MessageComponentInteractionData) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_discordgo_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MessageComponentInteractionData.ProtoReflect.Descriptor instead.
+func (*MessageComponentInteractionData) Descriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{132}
+}
+
+func (x *MessageComponentInteractionData) GetCustomId() string {
+	if x != nil {
+		return x.CustomId
+	}
+	return ""
+}
+
+func (x *MessageComponentInteractionData) GetComponentType() ComponentType {
+	if x != nil {
+		return x.ComponentType
+	}
+	return ComponentType_COMPONENT_TYPE_UNKNOWN
+}
+
+func (x *MessageComponentInteractionData) GetResolved() *MessageComponentInteractionDataResolved {
+	if x != nil {
+		return x.Resolved
+	}
+	return nil
+}
+
+func (x *MessageComponentInteractionData) GetValues() []string {
+	if x != nil {
+		return x.Values
+	}
+	return nil
+}
+
+// MessageComponentInteractionDataResolved contains the resolved data of selected option.
+type MessageComponentInteractionDataResolved struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Users         map[string]*User       `protobuf:"bytes,1,rep,name=users,proto3" json:"users,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Members       map[string]*Member     `protobuf:"bytes,2,rep,name=members,proto3" json:"members,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Roles         map[string]*Role       `protobuf:"bytes,3,rep,name=roles,proto3" json:"roles,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Channels      map[string]*Channel    `protobuf:"bytes,4,rep,name=channels,proto3" json:"channels,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MessageComponentInteractionDataResolved) Reset() {
+	*x = MessageComponentInteractionDataResolved{}
+	mi := &file_discord_v1_discordgo_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MessageComponentInteractionDataResolved) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MessageComponentInteractionDataResolved) ProtoMessage() {}
+
+func (x *MessageComponentInteractionDataResolved) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_discordgo_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MessageComponentInteractionDataResolved.ProtoReflect.Descriptor instead.
+func (*MessageComponentInteractionDataResolved) Descriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{133}
+}
+
+func (x *MessageComponentInteractionDataResolved) GetUsers() map[string]*User {
+	if x != nil {
+		return x.Users
+	}
+	return nil
+}
+
+func (x *MessageComponentInteractionDataResolved) GetMembers() map[string]*Member {
+	if x != nil {
+		return x.Members
+	}
+	return nil
+}
+
+func (x *MessageComponentInteractionDataResolved) GetRoles() map[string]*Role {
+	if x != nil {
+		return x.Roles
+	}
+	return nil
+}
+
+func (x *MessageComponentInteractionDataResolved) GetChannels() map[string]*Channel {
+	if x != nil {
+		return x.Channels
+	}
+	return nil
+}
+
+// ModalSubmitInteractionData contains the data of modal submit interaction.
+type ModalSubmitInteractionData struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CustomId      string                 `protobuf:"bytes,1,opt,name=custom_id,json=customId,proto3" json:"custom_id,omitempty"`
+	Components    []*anypb.Any           `protobuf:"bytes,2,rep,name=components,proto3" json:"components,omitempty"` // Go code had json:"-" but it's data
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ModalSubmitInteractionData) Reset() {
+	*x = ModalSubmitInteractionData{}
+	mi := &file_discord_v1_discordgo_proto_msgTypes[134]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ModalSubmitInteractionData) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ModalSubmitInteractionData) ProtoMessage() {}
+
+func (x *ModalSubmitInteractionData) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_discordgo_proto_msgTypes[134]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ModalSubmitInteractionData.ProtoReflect.Descriptor instead.
+func (*ModalSubmitInteractionData) Descriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{134}
+}
+
+func (x *ModalSubmitInteractionData) GetCustomId() string {
+	if x != nil {
+		return x.CustomId
+	}
+	return ""
+}
+
+func (x *ModalSubmitInteractionData) GetComponents() []*anypb.Any {
+	if x != nil {
+		return x.Components
+	}
+	return nil
+}
+
+// ApplicationCommandInteractionDataOption represents an option of a slash command.
+type ApplicationCommandInteractionDataOption struct {
+	state protoimpl.MessageState       `protogen:"open.v1"`
+	Name  string                       `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Type  ApplicationCommandOptionType `protobuf:"varint,2,opt,name=type,proto3,enum=discord_v1.ApplicationCommandOptionType" json:"type,omitempty"`
+	// NOTE: Contains the value specified by Type. Use oneof based on option type.
+	//
+	// Types that are valid to be assigned to Value:
+	//
+	//	*ApplicationCommandInteractionDataOption_StringValue
+	//	*ApplicationCommandInteractionDataOption_IntegerValue
+	//	*ApplicationCommandInteractionDataOption_BooleanValue
+	//	*ApplicationCommandInteractionDataOption_UserValueId
+	//	*ApplicationCommandInteractionDataOption_ChannelValueId
+	//	*ApplicationCommandInteractionDataOption_RoleValueId
+	//	*ApplicationCommandInteractionDataOption_MentionableValueId
+	//	*ApplicationCommandInteractionDataOption_NumberValue
+	//	*ApplicationCommandInteractionDataOption_AttachmentValueId
+	Value isApplicationCommandInteractionDataOption_Value `protobuf_oneof:"value"`
+	// Options for SubCommand or SubCommandGroup types.
+	Options []*ApplicationCommandInteractionDataOption `protobuf:"bytes,12,rep,name=options,proto3" json:"options,omitempty"`
+	// NOTE: autocomplete interaction only.
+	Focused       bool `protobuf:"varint,13,opt,name=focused,proto3" json:"focused,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ApplicationCommandInteractionDataOption) Reset() {
+	*x = ApplicationCommandInteractionDataOption{}
+	mi := &file_discord_v1_discordgo_proto_msgTypes[135]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ApplicationCommandInteractionDataOption) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ApplicationCommandInteractionDataOption) ProtoMessage() {}
+
+func (x *ApplicationCommandInteractionDataOption) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_discordgo_proto_msgTypes[135]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ApplicationCommandInteractionDataOption.ProtoReflect.Descriptor instead.
+func (*ApplicationCommandInteractionDataOption) Descriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{135}
+}
+
+func (x *ApplicationCommandInteractionDataOption) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *ApplicationCommandInteractionDataOption) GetType() ApplicationCommandOptionType {
+	if x != nil {
+		return x.Type
+	}
+	return ApplicationCommandOptionType_APPLICATION_COMMAND_OPTION_TYPE_UNKNOWN
+}
+
+func (x *ApplicationCommandInteractionDataOption) GetValue() isApplicationCommandInteractionDataOption_Value {
+	if x != nil {
+		return x.Value
+	}
+	return nil
+}
+
+func (x *ApplicationCommandInteractionDataOption) GetStringValue() string {
+	if x != nil {
+		if x, ok := x.Value.(*ApplicationCommandInteractionDataOption_StringValue); ok {
+			return x.StringValue
+		}
+	}
+	return ""
+}
+
+func (x *ApplicationCommandInteractionDataOption) GetIntegerValue() int64 {
+	if x != nil {
+		if x, ok := x.Value.(*ApplicationCommandInteractionDataOption_IntegerValue); ok {
+			return x.IntegerValue
+		}
+	}
+	return 0
+}
+
+func (x *ApplicationCommandInteractionDataOption) GetBooleanValue() bool {
+	if x != nil {
+		if x, ok := x.Value.(*ApplicationCommandInteractionDataOption_BooleanValue); ok {
+			return x.BooleanValue
+		}
+	}
+	return false
+}
+
+func (x *ApplicationCommandInteractionDataOption) GetUserValueId() string {
+	if x != nil {
+		if x, ok := x.Value.(*ApplicationCommandInteractionDataOption_UserValueId); ok {
+			return x.UserValueId
+		}
+	}
+	return ""
+}
+
+func (x *ApplicationCommandInteractionDataOption) GetChannelValueId() string {
+	if x != nil {
+		if x, ok := x.Value.(*ApplicationCommandInteractionDataOption_ChannelValueId); ok {
+			return x.ChannelValueId
+		}
+	}
+	return ""
+}
+
+func (x *ApplicationCommandInteractionDataOption) GetRoleValueId() string {
+	if x != nil {
+		if x, ok := x.Value.(*ApplicationCommandInteractionDataOption_RoleValueId); ok {
+			return x.RoleValueId
+		}
+	}
+	return ""
+}
+
+func (x *ApplicationCommandInteractionDataOption) GetMentionableValueId() string {
+	if x != nil {
+		if x, ok := x.Value.(*ApplicationCommandInteractionDataOption_MentionableValueId); ok {
+			return x.MentionableValueId
+		}
+	}
+	return ""
+}
+
+func (x *ApplicationCommandInteractionDataOption) GetNumberValue() float64 {
+	if x != nil {
+		if x, ok := x.Value.(*ApplicationCommandInteractionDataOption_NumberValue); ok {
+			return x.NumberValue
+		}
+	}
+	return 0
+}
+
+func (x *ApplicationCommandInteractionDataOption) GetAttachmentValueId() string {
+	if x != nil {
+		if x, ok := x.Value.(*ApplicationCommandInteractionDataOption_AttachmentValueId); ok {
+			return x.AttachmentValueId
+		}
+	}
+	return ""
+}
+
+func (x *ApplicationCommandInteractionDataOption) GetOptions() []*ApplicationCommandInteractionDataOption {
+	if x != nil {
+		return x.Options
+	}
+	return nil
+}
+
+func (x *ApplicationCommandInteractionDataOption) GetFocused() bool {
+	if x != nil {
+		return x.Focused
+	}
+	return false
+}
+
+type isApplicationCommandInteractionDataOption_Value interface {
+	isApplicationCommandInteractionDataOption_Value()
+}
+
+type ApplicationCommandInteractionDataOption_StringValue struct {
+	StringValue string `protobuf:"bytes,3,opt,name=string_value,json=stringValue,proto3,oneof"`
+}
+
+type ApplicationCommandInteractionDataOption_IntegerValue struct {
+	IntegerValue int64 `protobuf:"varint,4,opt,name=integer_value,json=integerValue,proto3,oneof"`
+}
+
+type ApplicationCommandInteractionDataOption_BooleanValue struct {
+	BooleanValue bool `protobuf:"varint,5,opt,name=boolean_value,json=booleanValue,proto3,oneof"`
+}
+
+type ApplicationCommandInteractionDataOption_UserValueId struct {
+	UserValueId string `protobuf:"bytes,6,opt,name=user_value_id,json=userValueId,proto3,oneof"` // User ID snowflake
+}
+
+type ApplicationCommandInteractionDataOption_ChannelValueId struct {
+	ChannelValueId string `protobuf:"bytes,7,opt,name=channel_value_id,json=channelValueId,proto3,oneof"` // Channel ID snowflake
+}
+
+type ApplicationCommandInteractionDataOption_RoleValueId struct {
+	RoleValueId string `protobuf:"bytes,8,opt,name=role_value_id,json=roleValueId,proto3,oneof"` // Role ID snowflake
+}
+
+type ApplicationCommandInteractionDataOption_MentionableValueId struct {
+	MentionableValueId string `protobuf:"bytes,9,opt,name=mentionable_value_id,json=mentionableValueId,proto3,oneof"` // Mentionable ID snowflake (user or role)
+}
+
+type ApplicationCommandInteractionDataOption_NumberValue struct {
+	NumberValue float64 `protobuf:"fixed64,10,opt,name=number_value,json=numberValue,proto3,oneof"`
+}
+
+type ApplicationCommandInteractionDataOption_AttachmentValueId struct {
+	AttachmentValueId string `protobuf:"bytes,11,opt,name=attachment_value_id,json=attachmentValueId,proto3,oneof"` // Attachment ID snowflake
+}
+
+func (*ApplicationCommandInteractionDataOption_StringValue) isApplicationCommandInteractionDataOption_Value() {
+}
+
+func (*ApplicationCommandInteractionDataOption_IntegerValue) isApplicationCommandInteractionDataOption_Value() {
+}
+
+func (*ApplicationCommandInteractionDataOption_BooleanValue) isApplicationCommandInteractionDataOption_Value() {
+}
+
+func (*ApplicationCommandInteractionDataOption_UserValueId) isApplicationCommandInteractionDataOption_Value() {
+}
+
+func (*ApplicationCommandInteractionDataOption_ChannelValueId) isApplicationCommandInteractionDataOption_Value() {
+}
+
+func (*ApplicationCommandInteractionDataOption_RoleValueId) isApplicationCommandInteractionDataOption_Value() {
+}
+
+func (*ApplicationCommandInteractionDataOption_MentionableValueId) isApplicationCommandInteractionDataOption_Value() {
+}
+
+func (*ApplicationCommandInteractionDataOption_NumberValue) isApplicationCommandInteractionDataOption_Value() {
+}
+
+func (*ApplicationCommandInteractionDataOption_AttachmentValueId) isApplicationCommandInteractionDataOption_Value() {
+}
+
+// InteractionResponse represents a response for an interaction event.
+type InteractionResponse struct {
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	Type          InteractionResponseType  `protobuf:"varint,1,opt,name=type,proto3,enum=discord_v1.InteractionResponseType" json:"type,omitempty"`
+	Data          *InteractionResponseData `protobuf:"bytes,2,opt,name=data,proto3,oneof" json:"data,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InteractionResponse) Reset() {
+	*x = InteractionResponse{}
+	mi := &file_discord_v1_discordgo_proto_msgTypes[136]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InteractionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InteractionResponse) ProtoMessage() {}
+
+func (x *InteractionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_discordgo_proto_msgTypes[136]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InteractionResponse.ProtoReflect.Descriptor instead.
+func (*InteractionResponse) Descriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{136}
+}
+
+func (x *InteractionResponse) GetType() InteractionResponseType {
+	if x != nil {
+		return x.Type
+	}
+	return InteractionResponseType_INTERACTION_RESPONSE_TYPE_UNKNOWN
+}
+
+func (x *InteractionResponse) GetData() *InteractionResponseData {
+	if x != nil {
+		return x.Data
+	}
+	return nil
+}
+
+// InteractionResponseData is response data for an interaction.
+type InteractionResponseData struct {
+	state           protoimpl.MessageState  `protogen:"open.v1"`
+	Tts             bool                    `protobuf:"varint,1,opt,name=tts,proto3" json:"tts,omitempty"`
+	Content         string                  `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty"`
+	Components      []*anypb.Any            `protobuf:"bytes,3,rep,name=components,proto3" json:"components,omitempty"`
+	Embeds          []*MessageEmbed         `protobuf:"bytes,4,rep,name=embeds,proto3" json:"embeds,omitempty"`
+	AllowedMentions *MessageAllowedMentions `protobuf:"bytes,5,opt,name=allowed_mentions,json=allowedMentions,proto3,oneof" json:"allowed_mentions,omitempty"`
+	Files           []*File                 `protobuf:"bytes,6,rep,name=files,proto3" json:"files,omitempty"`             // Go had json:"-" but it's data
+	Attachments     []*MessageAttachment    `protobuf:"bytes,7,rep,name=attachments,proto3" json:"attachments,omitempty"` // Go had pointer to slice
+	Poll            *Poll                   `protobuf:"bytes,8,opt,name=poll,proto3,oneof" json:"poll,omitempty"`
+	// NOTE: only MessageFlagsSuppressEmbeds and MessageFlagsEphemeral can be set.
+	Flags *MessageFlags `protobuf:"varint,9,opt,name=flags,proto3,enum=discord_v1.MessageFlags,oneof" json:"flags,omitempty"` // Go had int64/uint64 directly
+	// NOTE: autocomplete interaction only. Repeated choices.
+	Choices []*ApplicationCommandOptionChoice `protobuf:"bytes,10,rep,name=choices,proto3" json:"choices,omitempty"`
+	// NOTE: modal interaction only.
+	CustomId      string `protobuf:"bytes,11,opt,name=custom_id,json=customId,proto3" json:"custom_id,omitempty"`
+	Title         string `protobuf:"bytes,12,opt,name=title,proto3" json:"title,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InteractionResponseData) Reset() {
+	*x = InteractionResponseData{}
+	mi := &file_discord_v1_discordgo_proto_msgTypes[137]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InteractionResponseData) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InteractionResponseData) ProtoMessage() {}
+
+func (x *InteractionResponseData) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_discordgo_proto_msgTypes[137]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InteractionResponseData.ProtoReflect.Descriptor instead.
+func (*InteractionResponseData) Descriptor() ([]byte, []int) {
+	return file_discord_v1_discordgo_proto_rawDescGZIP(), []int{137}
+}
+
+func (x *InteractionResponseData) GetTts() bool {
+	if x != nil {
+		return x.Tts
+	}
+	return false
+}
+
+func (x *InteractionResponseData) GetContent() string {
+	if x != nil {
+		return x.Content
+	}
+	return ""
+}
+
+func (x *InteractionResponseData) GetComponents() []*anypb.Any {
+	if x != nil {
+		return x.Components
+	}
+	return nil
+}
+
+func (x *InteractionResponseData) GetEmbeds() []*MessageEmbed {
+	if x != nil {
+		return x.Embeds
+	}
+	return nil
+}
+
+func (x *InteractionResponseData) GetAllowedMentions() *MessageAllowedMentions {
+	if x != nil {
+		return x.AllowedMentions
+	}
+	return nil
+}
+
+func (x *InteractionResponseData) GetFiles() []*File {
+	if x != nil {
+		return x.Files
+	}
+	return nil
+}
+
+func (x *InteractionResponseData) GetAttachments() []*MessageAttachment {
+	if x != nil {
+		return x.Attachments
+	}
+	return nil
+}
+
+func (x *InteractionResponseData) GetPoll() *Poll {
+	if x != nil {
+		return x.Poll
+	}
+	return nil
+}
+
+func (x *InteractionResponseData) GetFlags() MessageFlags {
+	if x != nil && x.Flags != nil {
+		return *x.Flags
+	}
+	return MessageFlags_MESSAGE_FLAGS_CROSS_POSTED
+}
+
+func (x *InteractionResponseData) GetChoices() []*ApplicationCommandOptionChoice {
+	if x != nil {
+		return x.Choices
+	}
+	return nil
+}
+
+func (x *InteractionResponseData) GetCustomId() string {
+	if x != nil {
+		return x.CustomId
+	}
+	return ""
+}
+
+func (x *InteractionResponseData) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+var File_discord_v1_discordgo_proto protoreflect.FileDescriptor
+
+const file_discord_v1_discordgo_proto_rawDesc = "" +
 	"\n" +
-	"\x18discord-v1/message.proto\x12\n" +
+	"\x1adiscord-v1/discordgo.proto\x12\n" +
 	"discord_v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x19google/protobuf/any.proto\"\x8f\f\n" +
 	"\aMessage\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
@@ -12567,7 +14753,7 @@ const file_discord_v1_message_proto_rawDesc = "" +
 	"\x05token\x18\b \x01(\tR\x05token\x12*\n" +
 	"\x0eapplication_id\x18\t \x01(\tH\x01R\rapplicationId\x88\x01\x01B\a\n" +
 	"\x05_userB\x11\n" +
-	"\x0f_application_id\"\xcf\x04\n" +
+	"\x0f_application_id\"\xe9\x04\n" +
 	"\rWebhookParams\x12\x1d\n" +
 	"\acontent\x18\x01 \x01(\tH\x00R\acontent\x88\x01\x01\x12\x1f\n" +
 	"\busername\x18\x02 \x01(\tH\x01R\busername\x88\x01\x01\x12\"\n" +
@@ -12580,9 +14766,9 @@ const file_discord_v1_message_proto_rawDesc = "" +
 	"components\x120\n" +
 	"\x06embeds\x18\a \x03(\v2\x18.discord_v1.MessageEmbedR\x06embeds\x12?\n" +
 	"\vattachments\x18\b \x03(\v2\x1d.discord_v1.MessageAttachmentR\vattachments\x12R\n" +
-	"\x10allowed_mentions\x18\t \x01(\v2\".discord_v1.MessageAllowedMentionsH\x04R\x0fallowedMentions\x88\x01\x01\x12\x19\n" +
+	"\x10allowed_mentions\x18\t \x01(\v2\".discord_v1.MessageAllowedMentionsH\x04R\x0fallowedMentions\x88\x01\x01\x123\n" +
 	"\x05flags\x18\n" +
-	" \x01(\x05H\x05R\x05flags\x88\x01\x01\x12$\n" +
+	" \x01(\x0e2\x18.discord_v1.MessageFlagsH\x05R\x05flags\x88\x01\x01\x12$\n" +
 	"\vthread_name\x18\v \x01(\tH\x06R\n" +
 	"threadName\x88\x01\x01B\n" +
 	"\n" +
@@ -12608,7 +14794,222 @@ const file_discord_v1_message_proto_rawDesc = "" +
 	"\x0eComponentEmoji\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x0e\n" +
 	"\x02id\x18\x02 \x01(\tR\x02id\x12\x1a\n" +
-	"\banimated\x18\x03 \x01(\bR\banimated*\xaf\x06\n" +
+	"\banimated\x18\x03 \x01(\bR\banimated\"\xa6\b\n" +
+	"\x12ApplicationCommand\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12%\n" +
+	"\x0eapplication_id\x18\x02 \x01(\tR\rapplicationId\x12\x19\n" +
+	"\bguild_id\x18\x03 \x01(\tR\aguildId\x12\x18\n" +
+	"\aversion\x18\x04 \x01(\tR\aversion\x126\n" +
+	"\x04type\x18\x05 \x01(\x0e2\".discord_v1.ApplicationCommandTypeR\x04type\x12\x12\n" +
+	"\x04name\x18\x06 \x01(\tR\x04name\x12d\n" +
+	"\x12name_localizations\x18\a \x03(\v25.discord_v1.ApplicationCommand.NameLocalizationsEntryR\x11nameLocalizations\x126\n" +
+	"\x12default_permission\x18\b \x01(\bB\x02\x18\x01H\x00R\x11defaultPermission\x88\x01\x01\x12<\n" +
+	"\x1adefault_member_permissions\x18\t \x01(\x03R\x18defaultMemberPermissions\x12\x17\n" +
+	"\x04nsfw\x18\n" +
+	" \x01(\bH\x01R\x04nsfw\x88\x01\x01\x12,\n" +
+	"\rdm_permission\x18\v \x01(\bB\x02\x18\x01H\x02R\fdmPermission\x88\x01\x01\x12>\n" +
+	"\bcontexts\x18\f \x03(\x0e2\".discord_v1.InteractionContextTypeR\bcontexts\x12S\n" +
+	"\x11integration_types\x18\r \x03(\x0e2&.discord_v1.ApplicationIntegrationTypeR\x10integrationTypes\x12 \n" +
+	"\vdescription\x18\x0e \x01(\tR\vdescription\x12y\n" +
+	"\x19description_localizations\x18\x0f \x03(\v2<.discord_v1.ApplicationCommand.DescriptionLocalizationsEntryR\x18descriptionLocalizations\x12>\n" +
+	"\aoptions\x18\x10 \x03(\v2$.discord_v1.ApplicationCommandOptionR\aoptions\x1aD\n" +
+	"\x16NameLocalizationsEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1aK\n" +
+	"\x1dDescriptionLocalizationsEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\x15\n" +
+	"\x13_default_permissionB\a\n" +
+	"\x05_nsfwB\x10\n" +
+	"\x0e_dm_permission\"\xd8\a\n" +
+	"\x18ApplicationCommandOption\x12<\n" +
+	"\x04type\x18\x01 \x01(\x0e2(.discord_v1.ApplicationCommandOptionTypeR\x04type\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12j\n" +
+	"\x12name_localizations\x18\x03 \x03(\v2;.discord_v1.ApplicationCommandOption.NameLocalizationsEntryR\x11nameLocalizations\x12 \n" +
+	"\vdescription\x18\x04 \x01(\tR\vdescription\x12\x7f\n" +
+	"\x19description_localizations\x18\x05 \x03(\v2B.discord_v1.ApplicationCommandOption.DescriptionLocalizationsEntryR\x18descriptionLocalizations\x12<\n" +
+	"\rchannel_types\x18\a \x03(\x0e2\x17.discord_v1.ChannelTypeR\fchannelTypes\x12\x1a\n" +
+	"\brequired\x18\b \x01(\bR\brequired\x12>\n" +
+	"\aoptions\x18\t \x03(\v2$.discord_v1.ApplicationCommandOptionR\aoptions\x12\"\n" +
+	"\fautocomplete\x18\n" +
+	" \x01(\bR\fautocomplete\x12D\n" +
+	"\achoices\x18\v \x03(\v2*.discord_v1.ApplicationCommandOptionChoiceR\achoices\x12 \n" +
+	"\tmin_value\x18\f \x01(\x01H\x00R\bminValue\x88\x01\x01\x12 \n" +
+	"\tmax_value\x18\r \x01(\x01H\x01R\bmaxValue\x88\x01\x01\x12\"\n" +
+	"\n" +
+	"min_length\x18\x0e \x01(\x05H\x02R\tminLength\x88\x01\x01\x12\"\n" +
+	"\n" +
+	"max_length\x18\x0f \x01(\x05H\x03R\tmaxLength\x88\x01\x01\x1aD\n" +
+	"\x16NameLocalizationsEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1aK\n" +
+	"\x1dDescriptionLocalizationsEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\f\n" +
+	"\n" +
+	"_min_valueB\f\n" +
+	"\n" +
+	"_max_valueB\r\n" +
+	"\v_min_lengthB\r\n" +
+	"\v_max_length\"\xe6\x02\n" +
+	"\x1eApplicationCommandOptionChoice\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12p\n" +
+	"\x12name_localizations\x18\x02 \x03(\v2A.discord_v1.ApplicationCommandOptionChoice.NameLocalizationsEntryR\x11nameLocalizations\x12#\n" +
+	"\fstring_value\x18\x03 \x01(\tH\x00R\vstringValue\x12%\n" +
+	"\rinteger_value\x18\x04 \x01(\x03H\x00R\fintegerValue\x12#\n" +
+	"\fnumber_value\x18\x05 \x01(\x01H\x00R\vnumberValue\x1aD\n" +
+	"\x16NameLocalizationsEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\a\n" +
+	"\x05value\"\x91\x01\n" +
+	"\x1dApplicationCommandPermissions\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12@\n" +
+	"\x04type\x18\x02 \x01(\x0e2,.discord_v1.ApplicationCommandPermissionTypeR\x04type\x12\x1e\n" +
+	"\n" +
+	"permission\x18\x03 \x01(\bR\n" +
+	"permission\"p\n" +
+	"!ApplicationCommandPermissionsList\x12K\n" +
+	"\vpermissions\x18\x01 \x03(\v2).discord_v1.ApplicationCommandPermissionsR\vpermissions\"\xc3\x01\n" +
+	"\"GuildApplicationCommandPermissions\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12%\n" +
+	"\x0eapplication_id\x18\x02 \x01(\tR\rapplicationId\x12\x19\n" +
+	"\bguild_id\x18\x03 \x01(\tR\aguildId\x12K\n" +
+	"\vpermissions\x18\x04 \x03(\v2).discord_v1.ApplicationCommandPermissionsR\vpermissions\"\xf4\b\n" +
+	"\vInteraction\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x15\n" +
+	"\x06app_id\x18\x02 \x01(\tR\x05appId\x12/\n" +
+	"\x04type\x18\x03 \x01(\x0e2\x1b.discord_v1.InteractionTypeR\x04type\x12i\n" +
+	"\x18application_command_data\x18\x04 \x01(\v2-.discord_v1.ApplicationCommandInteractionDataH\x00R\x16applicationCommandData\x12c\n" +
+	"\x16message_component_data\x18\x05 \x01(\v2+.discord_v1.MessageComponentInteractionDataH\x00R\x14messageComponentData\x12T\n" +
+	"\x11modal_submit_data\x18\x06 \x01(\v2&.discord_v1.ModalSubmitInteractionDataH\x00R\x0fmodalSubmitData\x12\x19\n" +
+	"\bguild_id\x18\b \x01(\tR\aguildId\x12\x1d\n" +
+	"\n" +
+	"channel_id\x18\t \x01(\tR\tchannelId\x122\n" +
+	"\amessage\x18\n" +
+	" \x01(\v2\x13.discord_v1.MessageH\x01R\amessage\x88\x01\x01\x12'\n" +
+	"\x0fapp_permissions\x18\v \x01(\x03R\x0eappPermissions\x12/\n" +
+	"\x06member\x18\f \x01(\v2\x12.discord_v1.MemberH\x02R\x06member\x88\x01\x01\x12)\n" +
+	"\x04user\x18\r \x01(\v2\x10.discord_v1.UserH\x03R\x04user\x88\x01\x01\x12\x16\n" +
+	"\x06locale\x18\x0e \x01(\tR\x06locale\x12&\n" +
+	"\fguild_locale\x18\x0f \x01(\tH\x04R\vguildLocale\x88\x01\x01\x12<\n" +
+	"\acontext\x18\x10 \x01(\x0e2\".discord_v1.InteractionContextTypeR\acontext\x12\x7f\n" +
+	"\x1eauthorizing_integration_owners\x18\x11 \x03(\v29.discord_v1.Interaction.AuthorizingIntegrationOwnersEntryR\x1cauthorizingIntegrationOwners\x12\x14\n" +
+	"\x05token\x18\x12 \x01(\tR\x05token\x12\x18\n" +
+	"\aversion\x18\x13 \x01(\x05R\aversion\x12;\n" +
+	"\fentitlements\x18\x14 \x03(\v2\x17.discord_v1.EntitlementR\fentitlements\x1aO\n" +
+	"!AuthorizingIntegrationOwnersEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\x05R\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\x06\n" +
+	"\x04dataB\n" +
+	"\n" +
+	"\b_messageB\t\n" +
+	"\a_memberB\a\n" +
+	"\x05_userB\x0f\n" +
+	"\r_guild_locale\"\xdf\x02\n" +
+	"!ApplicationCommandInteractionData\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12E\n" +
+	"\fcommand_type\x18\x03 \x01(\x0e2\".discord_v1.ApplicationCommandTypeR\vcommandType\x12V\n" +
+	"\bresolved\x18\x04 \x01(\v25.discord_v1.ApplicationCommandInteractionDataResolvedH\x00R\bresolved\x88\x01\x01\x12M\n" +
+	"\aoptions\x18\x05 \x03(\v23.discord_v1.ApplicationCommandInteractionDataOptionR\aoptions\x12\x1b\n" +
+	"\ttarget_id\x18\x06 \x01(\tR\btargetIdB\v\n" +
+	"\t_resolved\"\xd0\b\n" +
+	")ApplicationCommandInteractionDataResolved\x12V\n" +
+	"\x05users\x18\x01 \x03(\v2@.discord_v1.ApplicationCommandInteractionDataResolved.UsersEntryR\x05users\x12\\\n" +
+	"\amembers\x18\x02 \x03(\v2B.discord_v1.ApplicationCommandInteractionDataResolved.MembersEntryR\amembers\x12V\n" +
+	"\x05roles\x18\x03 \x03(\v2@.discord_v1.ApplicationCommandInteractionDataResolved.RolesEntryR\x05roles\x12_\n" +
+	"\bchannels\x18\x04 \x03(\v2C.discord_v1.ApplicationCommandInteractionDataResolved.ChannelsEntryR\bchannels\x12_\n" +
+	"\bmessages\x18\x05 \x03(\v2C.discord_v1.ApplicationCommandInteractionDataResolved.MessagesEntryR\bmessages\x12h\n" +
+	"\vattachments\x18\x06 \x03(\v2F.discord_v1.ApplicationCommandInteractionDataResolved.AttachmentsEntryR\vattachments\x1aJ\n" +
+	"\n" +
+	"UsersEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12&\n" +
+	"\x05value\x18\x02 \x01(\v2\x10.discord_v1.UserR\x05value:\x028\x01\x1aN\n" +
+	"\fMembersEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12(\n" +
+	"\x05value\x18\x02 \x01(\v2\x12.discord_v1.MemberR\x05value:\x028\x01\x1aJ\n" +
+	"\n" +
+	"RolesEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12&\n" +
+	"\x05value\x18\x02 \x01(\v2\x10.discord_v1.RoleR\x05value:\x028\x01\x1aP\n" +
+	"\rChannelsEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12)\n" +
+	"\x05value\x18\x02 \x01(\v2\x13.discord_v1.ChannelR\x05value:\x028\x01\x1aP\n" +
+	"\rMessagesEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12)\n" +
+	"\x05value\x18\x02 \x01(\v2\x13.discord_v1.MessageR\x05value:\x028\x01\x1a]\n" +
+	"\x10AttachmentsEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x123\n" +
+	"\x05value\x18\x02 \x01(\v2\x1d.discord_v1.MessageAttachmentR\x05value:\x028\x01\"\xfb\x01\n" +
+	"\x1fMessageComponentInteractionData\x12\x1b\n" +
+	"\tcustom_id\x18\x01 \x01(\tR\bcustomId\x12@\n" +
+	"\x0ecomponent_type\x18\x02 \x01(\x0e2\x19.discord_v1.ComponentTypeR\rcomponentType\x12T\n" +
+	"\bresolved\x18\x03 \x01(\v23.discord_v1.MessageComponentInteractionDataResolvedH\x00R\bresolved\x88\x01\x01\x12\x16\n" +
+	"\x06values\x18\x04 \x03(\tR\x06valuesB\v\n" +
+	"\t_resolved\"\xca\x05\n" +
+	"'MessageComponentInteractionDataResolved\x12T\n" +
+	"\x05users\x18\x01 \x03(\v2>.discord_v1.MessageComponentInteractionDataResolved.UsersEntryR\x05users\x12Z\n" +
+	"\amembers\x18\x02 \x03(\v2@.discord_v1.MessageComponentInteractionDataResolved.MembersEntryR\amembers\x12T\n" +
+	"\x05roles\x18\x03 \x03(\v2>.discord_v1.MessageComponentInteractionDataResolved.RolesEntryR\x05roles\x12]\n" +
+	"\bchannels\x18\x04 \x03(\v2A.discord_v1.MessageComponentInteractionDataResolved.ChannelsEntryR\bchannels\x1aJ\n" +
+	"\n" +
+	"UsersEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12&\n" +
+	"\x05value\x18\x02 \x01(\v2\x10.discord_v1.UserR\x05value:\x028\x01\x1aN\n" +
+	"\fMembersEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12(\n" +
+	"\x05value\x18\x02 \x01(\v2\x12.discord_v1.MemberR\x05value:\x028\x01\x1aJ\n" +
+	"\n" +
+	"RolesEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12&\n" +
+	"\x05value\x18\x02 \x01(\v2\x10.discord_v1.RoleR\x05value:\x028\x01\x1aP\n" +
+	"\rChannelsEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12)\n" +
+	"\x05value\x18\x02 \x01(\v2\x13.discord_v1.ChannelR\x05value:\x028\x01\"o\n" +
+	"\x1aModalSubmitInteractionData\x12\x1b\n" +
+	"\tcustom_id\x18\x01 \x01(\tR\bcustomId\x124\n" +
+	"\n" +
+	"components\x18\x02 \x03(\v2\x14.google.protobuf.AnyR\n" +
+	"components\"\xe3\x04\n" +
+	"'ApplicationCommandInteractionDataOption\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12<\n" +
+	"\x04type\x18\x02 \x01(\x0e2(.discord_v1.ApplicationCommandOptionTypeR\x04type\x12#\n" +
+	"\fstring_value\x18\x03 \x01(\tH\x00R\vstringValue\x12%\n" +
+	"\rinteger_value\x18\x04 \x01(\x03H\x00R\fintegerValue\x12%\n" +
+	"\rboolean_value\x18\x05 \x01(\bH\x00R\fbooleanValue\x12$\n" +
+	"\ruser_value_id\x18\x06 \x01(\tH\x00R\vuserValueId\x12*\n" +
+	"\x10channel_value_id\x18\a \x01(\tH\x00R\x0echannelValueId\x12$\n" +
+	"\rrole_value_id\x18\b \x01(\tH\x00R\vroleValueId\x122\n" +
+	"\x14mentionable_value_id\x18\t \x01(\tH\x00R\x12mentionableValueId\x12#\n" +
+	"\fnumber_value\x18\n" +
+	" \x01(\x01H\x00R\vnumberValue\x120\n" +
+	"\x13attachment_value_id\x18\v \x01(\tH\x00R\x11attachmentValueId\x12M\n" +
+	"\aoptions\x18\f \x03(\v23.discord_v1.ApplicationCommandInteractionDataOptionR\aoptions\x12\x18\n" +
+	"\afocused\x18\r \x01(\bR\afocusedB\a\n" +
+	"\x05value\"\x95\x01\n" +
+	"\x13InteractionResponse\x127\n" +
+	"\x04type\x18\x01 \x01(\x0e2#.discord_v1.InteractionResponseTypeR\x04type\x12<\n" +
+	"\x04data\x18\x02 \x01(\v2#.discord_v1.InteractionResponseDataH\x00R\x04data\x88\x01\x01B\a\n" +
+	"\x05_data\"\xeb\x04\n" +
+	"\x17InteractionResponseData\x12\x10\n" +
+	"\x03tts\x18\x01 \x01(\bR\x03tts\x12\x18\n" +
+	"\acontent\x18\x02 \x01(\tR\acontent\x124\n" +
+	"\n" +
+	"components\x18\x03 \x03(\v2\x14.google.protobuf.AnyR\n" +
+	"components\x120\n" +
+	"\x06embeds\x18\x04 \x03(\v2\x18.discord_v1.MessageEmbedR\x06embeds\x12R\n" +
+	"\x10allowed_mentions\x18\x05 \x01(\v2\".discord_v1.MessageAllowedMentionsH\x00R\x0fallowedMentions\x88\x01\x01\x12&\n" +
+	"\x05files\x18\x06 \x03(\v2\x10.discord_v1.FileR\x05files\x12?\n" +
+	"\vattachments\x18\a \x03(\v2\x1d.discord_v1.MessageAttachmentR\vattachments\x12)\n" +
+	"\x04poll\x18\b \x01(\v2\x10.discord_v1.PollH\x01R\x04poll\x88\x01\x01\x123\n" +
+	"\x05flags\x18\t \x01(\x0e2\x18.discord_v1.MessageFlagsH\x02R\x05flags\x88\x01\x01\x12D\n" +
+	"\achoices\x18\n" +
+	" \x03(\v2*.discord_v1.ApplicationCommandOptionChoiceR\achoices\x12\x1b\n" +
+	"\tcustom_id\x18\v \x01(\tR\bcustomId\x12\x14\n" +
+	"\x05title\x18\f \x01(\tR\x05titleB\x13\n" +
+	"\x11_allowed_mentionsB\a\n" +
+	"\x05_pollB\b\n" +
+	"\x06_flags*\xaf\x06\n" +
 	"\vMessageType\x12\x18\n" +
 	"\x14MESSAGE_TYPE_DEFAULT\x10\x00\x12\x1e\n" +
 	"\x1aMESSAGE_TYPE_RECIPIENT_ADD\x10\x01\x12!\n" +
@@ -12693,391 +15094,582 @@ const file_discord_v1_message_proto_rawDesc = "" +
 	"\vWebhookType\x12\x1c\n" +
 	"\x18WEBHOOK_TYPE_UNSPECIFIED\x10\x00\x12\x19\n" +
 	"\x15WEBHOOK_TYPE_INCOMING\x10\x01\x12!\n" +
-	"\x1dWEBHOOK_TYPE_CHANNEL_FOLLOWER\x10\x02B<Z:github.com/thirdscam/chatanium-flexmodule/proto/discord-v1b\x06proto3"
+	"\x1dWEBHOOK_TYPE_CHANNEL_FOLLOWER\x10\x02*Y\n" +
+	"\vChannelType\x12\x18\n" +
+	"\x14CHANNEL_TYPE_UNKNOWN\x10\x00\x12\x1b\n" +
+	"\x17CHANNEL_TYPE_GUILD_TEXT\x10\x01\x12\x13\n" +
+	"\x0fCHANNEL_TYPE_DM\x10\x03*\xa4\x01\n" +
+	"\rComponentType\x12\x1a\n" +
+	"\x16COMPONENT_TYPE_UNKNOWN\x10\x00\x12\x1d\n" +
+	"\x19COMPONENT_TYPE_ACTION_ROW\x10\x01\x12\x19\n" +
+	"\x15COMPONENT_TYPE_BUTTON\x10\x02\x12\x1e\n" +
+	"\x1aCOMPONENT_TYPE_SELECT_MENU\x10\x03\x12\x1d\n" +
+	"\x19COMPONENT_TYPE_TEXT_INPUT\x10\x04*\x9b\x01\n" +
+	"\x16ApplicationCommandType\x12$\n" +
+	" APPLICATION_COMMAND_TYPE_UNKNOWN\x10\x00\x12\x1c\n" +
+	"\x18CHAT_APPLICATION_COMMAND\x10\x01\x12\x1c\n" +
+	"\x18USER_APPLICATION_COMMAND\x10\x02\x12\x1f\n" +
+	"\x1bMESSAGE_APPLICATION_COMMAND\x10\x03*\xa1\x01\n" +
+	"\x16InteractionContextType\x12\x1f\n" +
+	"\x1bINTERACTION_CONTEXT_UNKNOWN\x10\x00\x12\x1d\n" +
+	"\x19INTERACTION_CONTEXT_GUILD\x10\x01\x12\x1e\n" +
+	"\x1aINTERACTION_CONTEXT_BOT_DM\x10\x02\x12'\n" +
+	"#INTERACTION_CONTEXT_PRIVATE_CHANNEL\x10\x03*\xa5\x01\n" +
+	"\x1aApplicationIntegrationType\x12(\n" +
+	"$APPLICATION_INTEGRATION_TYPE_UNKNOWN\x10\x00\x12.\n" +
+	"*APPLICATION_INTEGRATION_TYPE_GUILD_INSTALL\x10\x01\x12-\n" +
+	")APPLICATION_INTEGRATION_TYPE_USER_INSTALL\x10\x02*\x90\x04\n" +
+	"\x1cApplicationCommandOptionType\x12+\n" +
+	"'APPLICATION_COMMAND_OPTION_TYPE_UNKNOWN\x10\x00\x12*\n" +
+	"&APPLICATION_COMMAND_OPTION_SUB_COMMAND\x10\x01\x120\n" +
+	",APPLICATION_COMMAND_OPTION_SUB_COMMAND_GROUP\x10\x02\x12%\n" +
+	"!APPLICATION_COMMAND_OPTION_STRING\x10\x03\x12&\n" +
+	"\"APPLICATION_COMMAND_OPTION_INTEGER\x10\x04\x12&\n" +
+	"\"APPLICATION_COMMAND_OPTION_BOOLEAN\x10\x05\x12#\n" +
+	"\x1fAPPLICATION_COMMAND_OPTION_USER\x10\x06\x12&\n" +
+	"\"APPLICATION_COMMAND_OPTION_CHANNEL\x10\a\x12#\n" +
+	"\x1fAPPLICATION_COMMAND_OPTION_ROLE\x10\b\x12*\n" +
+	"&APPLICATION_COMMAND_OPTION_MENTIONABLE\x10\t\x12%\n" +
+	"!APPLICATION_COMMAND_OPTION_NUMBER\x10\n" +
+	"\x12)\n" +
+	"%APPLICATION_COMMAND_OPTION_ATTACHMENT\x10\v*\xe0\x01\n" +
+	" ApplicationCommandPermissionType\x12/\n" +
+	"+APPLICATION_COMMAND_PERMISSION_TYPE_UNKNOWN\x10\x00\x12,\n" +
+	"(APPLICATION_COMMAND_PERMISSION_TYPE_ROLE\x10\x01\x12,\n" +
+	"(APPLICATION_COMMAND_PERMISSION_TYPE_USER\x10\x02\x12/\n" +
+	"+APPLICATION_COMMAND_PERMISSION_TYPE_CHANNEL\x10\x03*\xdd\x01\n" +
+	"\x0fInteractionType\x12\x1c\n" +
+	"\x18INTERACTION_TYPE_UNKNOWN\x10\x00\x12\x14\n" +
+	"\x10INTERACTION_PING\x10\x01\x12#\n" +
+	"\x1fINTERACTION_APPLICATION_COMMAND\x10\x02\x12!\n" +
+	"\x1dINTERACTION_MESSAGE_COMPONENT\x10\x03\x120\n" +
+	",INTERACTION_APPLICATION_COMMAND_AUTOCOMPLETE\x10\x04\x12\x1c\n" +
+	"\x18INTERACTION_MODAL_SUBMIT\x10\x05*\x88\x03\n" +
+	"\x17InteractionResponseType\x12%\n" +
+	"!INTERACTION_RESPONSE_TYPE_UNKNOWN\x10\x00\x12\x1d\n" +
+	"\x19INTERACTION_RESPONSE_PONG\x10\x01\x124\n" +
+	"0INTERACTION_RESPONSE_CHANNEL_MESSAGE_WITH_SOURCE\x10\x04\x12=\n" +
+	"9INTERACTION_RESPONSE_DEFERRED_CHANNEL_MESSAGE_WITH_SOURCE\x10\x05\x120\n" +
+	",INTERACTION_RESPONSE_DEFERRED_MESSAGE_UPDATE\x10\x06\x12'\n" +
+	"#INTERACTION_RESPONSE_UPDATE_MESSAGE\x10\a\x127\n" +
+	"3INTERACTION_APPLICATION_COMMAND_AUTOCOMPLETE_RESULT\x10\b\x12\x1e\n" +
+	"\x1aINTERACTION_RESPONSE_MODAL\x10\tB<Z:github.com/thirdscam/chatanium-flexmodule/proto/discord-v1b\x06proto3"
 
 var (
-	file_discord_v1_message_proto_rawDescOnce sync.Once
-	file_discord_v1_message_proto_rawDescData []byte
+	file_discord_v1_discordgo_proto_rawDescOnce sync.Once
+	file_discord_v1_discordgo_proto_rawDescData []byte
 )
 
-func file_discord_v1_message_proto_rawDescGZIP() []byte {
-	file_discord_v1_message_proto_rawDescOnce.Do(func() {
-		file_discord_v1_message_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_discord_v1_message_proto_rawDesc), len(file_discord_v1_message_proto_rawDesc)))
+func file_discord_v1_discordgo_proto_rawDescGZIP() []byte {
+	file_discord_v1_discordgo_proto_rawDescOnce.Do(func() {
+		file_discord_v1_discordgo_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_discord_v1_discordgo_proto_rawDesc), len(file_discord_v1_discordgo_proto_rawDesc)))
 	})
-	return file_discord_v1_message_proto_rawDescData
+	return file_discord_v1_discordgo_proto_rawDescData
 }
 
-var file_discord_v1_message_proto_enumTypes = make([]protoimpl.EnumInfo, 10)
-var file_discord_v1_message_proto_msgTypes = make([]protoimpl.MessageInfo, 130)
-var file_discord_v1_message_proto_goTypes = []any{
-	(MessageType)(0),                          // 0: discord_v1.MessageType
-	(MessageFlags)(0),                         // 1: discord_v1.MessageFlags
-	(AllowedMentionType)(0),                   // 2: discord_v1.AllowedMentionType
-	(EmbedType)(0),                            // 3: discord_v1.EmbedType
-	(MessageActivityType)(0),                  // 4: discord_v1.MessageActivityType
-	(MessageReferenceType)(0),                 // 5: discord_v1.MessageReferenceType
-	(UserFlags)(0),                            // 6: discord_v1.UserFlags
-	(UserPremiumType)(0),                      // 7: discord_v1.UserPremiumType
-	(MembershipState)(0),                      // 8: discord_v1.MembershipState
-	(WebhookType)(0),                          // 9: discord_v1.WebhookType
-	(*Message)(nil),                           // 10: discord_v1.Message
-	(*File)(nil),                              // 11: discord_v1.File
-	(*MessageSend)(nil),                       // 12: discord_v1.MessageSend
-	(*MessageEdit)(nil),                       // 13: discord_v1.MessageEdit
-	(*MessageAllowedMentions)(nil),            // 14: discord_v1.MessageAllowedMentions
-	(*MessageAttachment)(nil),                 // 15: discord_v1.MessageAttachment
-	(*MessageEmbedFooter)(nil),                // 16: discord_v1.MessageEmbedFooter
-	(*MessageEmbedImage)(nil),                 // 17: discord_v1.MessageEmbedImage
-	(*MessageEmbedThumbnail)(nil),             // 18: discord_v1.MessageEmbedThumbnail
-	(*MessageEmbedVideo)(nil),                 // 19: discord_v1.MessageEmbedVideo
-	(*MessageEmbedProvider)(nil),              // 20: discord_v1.MessageEmbedProvider
-	(*MessageEmbedAuthor)(nil),                // 21: discord_v1.MessageEmbedAuthor
-	(*MessageEmbedField)(nil),                 // 22: discord_v1.MessageEmbedField
-	(*MessageEmbed)(nil),                      // 23: discord_v1.MessageEmbed
-	(*MessageReactions)(nil),                  // 24: discord_v1.MessageReactions
-	(*MessageActivity)(nil),                   // 25: discord_v1.MessageActivity
-	(*MessageApplication)(nil),                // 26: discord_v1.MessageApplication
-	(*MessageSnapshot)(nil),                   // 27: discord_v1.MessageSnapshot
-	(*MessageReference)(nil),                  // 28: discord_v1.MessageReference
-	(*MessageInteraction)(nil),                // 29: discord_v1.MessageInteraction
-	(*MessageInteractionMetadata)(nil),        // 30: discord_v1.MessageInteractionMetadata
-	(*Session)(nil),                           // 31: discord_v1.Session
-	(*Identify)(nil),                          // 32: discord_v1.Identify
-	(*IdentifyProperties)(nil),                // 33: discord_v1.IdentifyProperties
-	(*GatewayStatusUpdate)(nil),               // 34: discord_v1.GatewayStatusUpdate
-	(*Activity)(nil),                          // 35: discord_v1.Activity
-	(*TimeStamps)(nil),                        // 36: discord_v1.TimeStamps
-	(*Assets)(nil),                            // 37: discord_v1.Assets
-	(*Party)(nil),                             // 38: discord_v1.Party
-	(*Secrets)(nil),                           // 39: discord_v1.Secrets
-	(*ApplicationIntegrationTypeConfig)(nil),  // 40: discord_v1.ApplicationIntegrationTypeConfig
-	(*ApplicationInstallParams)(nil),          // 41: discord_v1.ApplicationInstallParams
-	(*Application)(nil),                       // 42: discord_v1.Application
-	(*ApplicationRoleConnectionMetadata)(nil), // 43: discord_v1.ApplicationRoleConnectionMetadata
-	(*ApplicationRoleConnection)(nil),         // 44: discord_v1.ApplicationRoleConnection
-	(*UserConnection)(nil),                    // 45: discord_v1.UserConnection
-	(*Integration)(nil),                       // 46: discord_v1.Integration
-	(*IntegrationAccount)(nil),                // 47: discord_v1.IntegrationAccount
-	(*VoiceRegion)(nil),                       // 48: discord_v1.VoiceRegion
-	(*Invite)(nil),                            // 49: discord_v1.Invite
-	(*Channel)(nil),                           // 50: discord_v1.Channel
-	(*PermissionOverwrite)(nil),               // 51: discord_v1.PermissionOverwrite
-	(*ThreadStart)(nil),                       // 52: discord_v1.ThreadStart
-	(*ThreadMetadata)(nil),                    // 53: discord_v1.ThreadMetadata
-	(*ThreadMember)(nil),                      // 54: discord_v1.ThreadMember
-	(*ThreadsList)(nil),                       // 55: discord_v1.ThreadsList
-	(*AddedThreadMember)(nil),                 // 56: discord_v1.AddedThreadMember
-	(*ForumDefaultReaction)(nil),              // 57: discord_v1.ForumDefaultReaction
-	(*ForumTag)(nil),                          // 58: discord_v1.ForumTag
-	(*Emoji)(nil),                             // 59: discord_v1.Emoji
-	(*EmojiParams)(nil),                       // 60: discord_v1.EmojiParams
-	(*Sticker)(nil),                           // 61: discord_v1.Sticker
-	(*StickerItem)(nil),                       // 62: discord_v1.StickerItem
-	(*StickerPack)(nil),                       // 63: discord_v1.StickerPack
-	(*Guild)(nil),                             // 64: discord_v1.Guild
-	(*GuildPreview)(nil),                      // 65: discord_v1.GuildPreview
-	(*GuildScheduledEvent)(nil),               // 66: discord_v1.GuildScheduledEvent
-	(*GuildScheduledEventParams)(nil),         // 67: discord_v1.GuildScheduledEventParams
-	(*GuildScheduledEventEntityMetadata)(nil), // 68: discord_v1.GuildScheduledEventEntityMetadata
-	(*GuildScheduledEventUser)(nil),           // 69: discord_v1.GuildScheduledEventUser
-	(*GuildOnboardingMode)(nil),               // 70: discord_v1.GuildOnboardingMode
-	(*GuildOnboarding)(nil),                   // 71: discord_v1.GuildOnboarding
-	(*GuildOnboardingPromptType)(nil),         // 72: discord_v1.GuildOnboardingPromptType
-	(*GuildOnboardingPrompt)(nil),             // 73: discord_v1.GuildOnboardingPrompt
-	(*GuildOnboardingPromptOption)(nil),       // 74: discord_v1.GuildOnboardingPromptOption
-	(*GuildTemplate)(nil),                     // 75: discord_v1.GuildTemplate
-	(*GuildTemplateParams)(nil),               // 76: discord_v1.GuildTemplateParams
-	(*UserGuild)(nil),                         // 77: discord_v1.UserGuild
-	(*GuildParams)(nil),                       // 78: discord_v1.GuildParams
-	(*Role)(nil),                              // 79: discord_v1.Role
-	(*RoleFlags)(nil),                         // 80: discord_v1.RoleFlags
-	(*RoleParams)(nil),                        // 81: discord_v1.RoleParams
-	(*VoiceState)(nil),                        // 82: discord_v1.VoiceState
-	(*Presence)(nil),                          // 83: discord_v1.Presence
-	(*MemberFlags)(nil),                       // 84: discord_v1.MemberFlags
-	(*Member)(nil),                            // 85: discord_v1.Member
-	(*ClientStatus)(nil),                      // 86: discord_v1.ClientStatus
-	(*TooManyRequests)(nil),                   // 87: discord_v1.TooManyRequests
-	(*ReadState)(nil),                         // 88: discord_v1.ReadState
-	(*GuildRole)(nil),                         // 89: discord_v1.GuildRole
-	(*GuildBan)(nil),                          // 90: discord_v1.GuildBan
-	(*AutoModerationRule)(nil),                // 91: discord_v1.AutoModerationRule
-	(*AutoModerationTriggerMetadata)(nil),     // 92: discord_v1.AutoModerationTriggerMetadata
-	(*AutoModerationActionType)(nil),          // 93: discord_v1.AutoModerationActionType
-	(*AutoModerationActionMetadata)(nil),      // 94: discord_v1.AutoModerationActionMetadata
-	(*AutoModerationAction)(nil),              // 95: discord_v1.AutoModerationAction
-	(*GuildEmbed)(nil),                        // 96: discord_v1.GuildEmbed
-	(*GuildAuditLog)(nil),                     // 97: discord_v1.GuildAuditLog
-	(*AuditLogEntry)(nil),                     // 98: discord_v1.AuditLogEntry
-	(*AuditLogChange)(nil),                    // 99: discord_v1.AuditLogChange
-	(*AuditLogOptions)(nil),                   // 100: discord_v1.AuditLogOptions
-	(*GuildMemberParams)(nil),                 // 101: discord_v1.GuildMemberParams
-	(*GuildMemberAddParams)(nil),              // 102: discord_v1.GuildMemberAddParams
-	(*APIErrorMessage)(nil),                   // 103: discord_v1.APIErrorMessage
-	(*MessageReaction)(nil),                   // 104: discord_v1.MessageReaction
-	(*GatewayBotResponse)(nil),                // 105: discord_v1.GatewayBotResponse
-	(*SessionInformation)(nil),                // 106: discord_v1.SessionInformation
-	(*StageInstance)(nil),                     // 107: discord_v1.StageInstance
-	(*StageInstanceParams)(nil),               // 108: discord_v1.StageInstanceParams
-	(*PollLayoutType)(nil),                    // 109: discord_v1.PollLayoutType
-	(*PollMedia)(nil),                         // 110: discord_v1.PollMedia
-	(*PollAnswer)(nil),                        // 111: discord_v1.PollAnswer
-	(*PollAnswerCount)(nil),                   // 112: discord_v1.PollAnswerCount
-	(*PollResults)(nil),                       // 113: discord_v1.PollResults
-	(*Poll)(nil),                              // 114: discord_v1.Poll
-	(*SKUType)(nil),                           // 115: discord_v1.SKUType
-	(*SKUFlags)(nil),                          // 116: discord_v1.SKUFlags
-	(*SKU)(nil),                               // 117: discord_v1.SKU
-	(*SubscriptionStatus)(nil),                // 118: discord_v1.SubscriptionStatus
-	(*Subscription)(nil),                      // 119: discord_v1.Subscription
-	(*EntitlementType)(nil),                   // 120: discord_v1.EntitlementType
-	(*Entitlement)(nil),                       // 121: discord_v1.Entitlement
-	(*EntitlementOwnerType)(nil),              // 122: discord_v1.EntitlementOwnerType
-	(*EntitlementTest)(nil),                   // 123: discord_v1.EntitlementTest
-	(*EntitlementFilterOptions)(nil),          // 124: discord_v1.EntitlementFilterOptions
-	(*State)(nil),                             // 125: discord_v1.State
-	(*User)(nil),                              // 126: discord_v1.User
-	(*TeamMember)(nil),                        // 127: discord_v1.TeamMember
-	(*Team)(nil),                              // 128: discord_v1.Team
-	(*Webhook)(nil),                           // 129: discord_v1.Webhook
-	(*WebhookParams)(nil),                     // 130: discord_v1.WebhookParams
-	(*WebhookEdit)(nil),                       // 131: discord_v1.WebhookEdit
-	(*ComponentEmoji)(nil),                    // 132: discord_v1.ComponentEmoji
-	nil,                                       // 133: discord_v1.MessageInteractionMetadata.AuthorizingIntegrationOwnersEntry
-	nil,                                       // 134: discord_v1.Application.IntegrationTypesConfigEntry
-	nil,                                       // 135: discord_v1.ApplicationRoleConnectionMetadata.NameLocalizationsEntry
-	nil,                                       // 136: discord_v1.ApplicationRoleConnectionMetadata.DescriptionLocalizationsEntry
-	nil,                                       // 137: discord_v1.ApplicationRoleConnection.MetadataEntry
-	nil,                                       // 138: discord_v1.State.GuildMapEntry
-	nil,                                       // 139: discord_v1.State.ChannelMapEntry
-	(*timestamppb.Timestamp)(nil),             // 140: google.protobuf.Timestamp
-	(*anypb.Any)(nil),                         // 141: google.protobuf.Any
-	(*durationpb.Duration)(nil),               // 142: google.protobuf.Duration
+var file_discord_v1_discordgo_proto_enumTypes = make([]protoimpl.EnumInfo, 19)
+var file_discord_v1_discordgo_proto_msgTypes = make([]protoimpl.MessageInfo, 161)
+var file_discord_v1_discordgo_proto_goTypes = []any{
+	(MessageType)(0),                                  // 0: discord_v1.MessageType
+	(MessageFlags)(0),                                 // 1: discord_v1.MessageFlags
+	(AllowedMentionType)(0),                           // 2: discord_v1.AllowedMentionType
+	(EmbedType)(0),                                    // 3: discord_v1.EmbedType
+	(MessageActivityType)(0),                          // 4: discord_v1.MessageActivityType
+	(MessageReferenceType)(0),                         // 5: discord_v1.MessageReferenceType
+	(UserFlags)(0),                                    // 6: discord_v1.UserFlags
+	(UserPremiumType)(0),                              // 7: discord_v1.UserPremiumType
+	(MembershipState)(0),                              // 8: discord_v1.MembershipState
+	(WebhookType)(0),                                  // 9: discord_v1.WebhookType
+	(ChannelType)(0),                                  // 10: discord_v1.ChannelType
+	(ComponentType)(0),                                // 11: discord_v1.ComponentType
+	(ApplicationCommandType)(0),                       // 12: discord_v1.ApplicationCommandType
+	(InteractionContextType)(0),                       // 13: discord_v1.InteractionContextType
+	(ApplicationIntegrationType)(0),                   // 14: discord_v1.ApplicationIntegrationType
+	(ApplicationCommandOptionType)(0),                 // 15: discord_v1.ApplicationCommandOptionType
+	(ApplicationCommandPermissionType)(0),             // 16: discord_v1.ApplicationCommandPermissionType
+	(InteractionType)(0),                              // 17: discord_v1.InteractionType
+	(InteractionResponseType)(0),                      // 18: discord_v1.InteractionResponseType
+	(*Message)(nil),                                   // 19: discord_v1.Message
+	(*File)(nil),                                      // 20: discord_v1.File
+	(*MessageSend)(nil),                               // 21: discord_v1.MessageSend
+	(*MessageEdit)(nil),                               // 22: discord_v1.MessageEdit
+	(*MessageAllowedMentions)(nil),                    // 23: discord_v1.MessageAllowedMentions
+	(*MessageAttachment)(nil),                         // 24: discord_v1.MessageAttachment
+	(*MessageEmbedFooter)(nil),                        // 25: discord_v1.MessageEmbedFooter
+	(*MessageEmbedImage)(nil),                         // 26: discord_v1.MessageEmbedImage
+	(*MessageEmbedThumbnail)(nil),                     // 27: discord_v1.MessageEmbedThumbnail
+	(*MessageEmbedVideo)(nil),                         // 28: discord_v1.MessageEmbedVideo
+	(*MessageEmbedProvider)(nil),                      // 29: discord_v1.MessageEmbedProvider
+	(*MessageEmbedAuthor)(nil),                        // 30: discord_v1.MessageEmbedAuthor
+	(*MessageEmbedField)(nil),                         // 31: discord_v1.MessageEmbedField
+	(*MessageEmbed)(nil),                              // 32: discord_v1.MessageEmbed
+	(*MessageReactions)(nil),                          // 33: discord_v1.MessageReactions
+	(*MessageActivity)(nil),                           // 34: discord_v1.MessageActivity
+	(*MessageApplication)(nil),                        // 35: discord_v1.MessageApplication
+	(*MessageSnapshot)(nil),                           // 36: discord_v1.MessageSnapshot
+	(*MessageReference)(nil),                          // 37: discord_v1.MessageReference
+	(*MessageInteraction)(nil),                        // 38: discord_v1.MessageInteraction
+	(*MessageInteractionMetadata)(nil),                // 39: discord_v1.MessageInteractionMetadata
+	(*Session)(nil),                                   // 40: discord_v1.Session
+	(*Identify)(nil),                                  // 41: discord_v1.Identify
+	(*IdentifyProperties)(nil),                        // 42: discord_v1.IdentifyProperties
+	(*GatewayStatusUpdate)(nil),                       // 43: discord_v1.GatewayStatusUpdate
+	(*Activity)(nil),                                  // 44: discord_v1.Activity
+	(*TimeStamps)(nil),                                // 45: discord_v1.TimeStamps
+	(*Assets)(nil),                                    // 46: discord_v1.Assets
+	(*Party)(nil),                                     // 47: discord_v1.Party
+	(*Secrets)(nil),                                   // 48: discord_v1.Secrets
+	(*ApplicationIntegrationTypeConfig)(nil),          // 49: discord_v1.ApplicationIntegrationTypeConfig
+	(*ApplicationInstallParams)(nil),                  // 50: discord_v1.ApplicationInstallParams
+	(*Application)(nil),                               // 51: discord_v1.Application
+	(*ApplicationRoleConnectionMetadata)(nil),         // 52: discord_v1.ApplicationRoleConnectionMetadata
+	(*ApplicationRoleConnection)(nil),                 // 53: discord_v1.ApplicationRoleConnection
+	(*UserConnection)(nil),                            // 54: discord_v1.UserConnection
+	(*Integration)(nil),                               // 55: discord_v1.Integration
+	(*IntegrationAccount)(nil),                        // 56: discord_v1.IntegrationAccount
+	(*VoiceRegion)(nil),                               // 57: discord_v1.VoiceRegion
+	(*Invite)(nil),                                    // 58: discord_v1.Invite
+	(*Channel)(nil),                                   // 59: discord_v1.Channel
+	(*PermissionOverwrite)(nil),                       // 60: discord_v1.PermissionOverwrite
+	(*ThreadStart)(nil),                               // 61: discord_v1.ThreadStart
+	(*ThreadMetadata)(nil),                            // 62: discord_v1.ThreadMetadata
+	(*ThreadMember)(nil),                              // 63: discord_v1.ThreadMember
+	(*ThreadsList)(nil),                               // 64: discord_v1.ThreadsList
+	(*AddedThreadMember)(nil),                         // 65: discord_v1.AddedThreadMember
+	(*ForumDefaultReaction)(nil),                      // 66: discord_v1.ForumDefaultReaction
+	(*ForumTag)(nil),                                  // 67: discord_v1.ForumTag
+	(*Emoji)(nil),                                     // 68: discord_v1.Emoji
+	(*EmojiParams)(nil),                               // 69: discord_v1.EmojiParams
+	(*Sticker)(nil),                                   // 70: discord_v1.Sticker
+	(*StickerItem)(nil),                               // 71: discord_v1.StickerItem
+	(*StickerPack)(nil),                               // 72: discord_v1.StickerPack
+	(*Guild)(nil),                                     // 73: discord_v1.Guild
+	(*GuildPreview)(nil),                              // 74: discord_v1.GuildPreview
+	(*GuildScheduledEvent)(nil),                       // 75: discord_v1.GuildScheduledEvent
+	(*GuildScheduledEventParams)(nil),                 // 76: discord_v1.GuildScheduledEventParams
+	(*GuildScheduledEventEntityMetadata)(nil),         // 77: discord_v1.GuildScheduledEventEntityMetadata
+	(*GuildScheduledEventUser)(nil),                   // 78: discord_v1.GuildScheduledEventUser
+	(*GuildOnboardingMode)(nil),                       // 79: discord_v1.GuildOnboardingMode
+	(*GuildOnboarding)(nil),                           // 80: discord_v1.GuildOnboarding
+	(*GuildOnboardingPromptType)(nil),                 // 81: discord_v1.GuildOnboardingPromptType
+	(*GuildOnboardingPrompt)(nil),                     // 82: discord_v1.GuildOnboardingPrompt
+	(*GuildOnboardingPromptOption)(nil),               // 83: discord_v1.GuildOnboardingPromptOption
+	(*GuildTemplate)(nil),                             // 84: discord_v1.GuildTemplate
+	(*GuildTemplateParams)(nil),                       // 85: discord_v1.GuildTemplateParams
+	(*UserGuild)(nil),                                 // 86: discord_v1.UserGuild
+	(*GuildParams)(nil),                               // 87: discord_v1.GuildParams
+	(*Role)(nil),                                      // 88: discord_v1.Role
+	(*RoleFlags)(nil),                                 // 89: discord_v1.RoleFlags
+	(*RoleParams)(nil),                                // 90: discord_v1.RoleParams
+	(*VoiceState)(nil),                                // 91: discord_v1.VoiceState
+	(*Presence)(nil),                                  // 92: discord_v1.Presence
+	(*MemberFlags)(nil),                               // 93: discord_v1.MemberFlags
+	(*Member)(nil),                                    // 94: discord_v1.Member
+	(*ClientStatus)(nil),                              // 95: discord_v1.ClientStatus
+	(*TooManyRequests)(nil),                           // 96: discord_v1.TooManyRequests
+	(*ReadState)(nil),                                 // 97: discord_v1.ReadState
+	(*GuildRole)(nil),                                 // 98: discord_v1.GuildRole
+	(*GuildBan)(nil),                                  // 99: discord_v1.GuildBan
+	(*AutoModerationRule)(nil),                        // 100: discord_v1.AutoModerationRule
+	(*AutoModerationTriggerMetadata)(nil),             // 101: discord_v1.AutoModerationTriggerMetadata
+	(*AutoModerationActionType)(nil),                  // 102: discord_v1.AutoModerationActionType
+	(*AutoModerationActionMetadata)(nil),              // 103: discord_v1.AutoModerationActionMetadata
+	(*AutoModerationAction)(nil),                      // 104: discord_v1.AutoModerationAction
+	(*GuildEmbed)(nil),                                // 105: discord_v1.GuildEmbed
+	(*GuildAuditLog)(nil),                             // 106: discord_v1.GuildAuditLog
+	(*AuditLogEntry)(nil),                             // 107: discord_v1.AuditLogEntry
+	(*AuditLogChange)(nil),                            // 108: discord_v1.AuditLogChange
+	(*AuditLogOptions)(nil),                           // 109: discord_v1.AuditLogOptions
+	(*GuildMemberParams)(nil),                         // 110: discord_v1.GuildMemberParams
+	(*GuildMemberAddParams)(nil),                      // 111: discord_v1.GuildMemberAddParams
+	(*APIErrorMessage)(nil),                           // 112: discord_v1.APIErrorMessage
+	(*MessageReaction)(nil),                           // 113: discord_v1.MessageReaction
+	(*GatewayBotResponse)(nil),                        // 114: discord_v1.GatewayBotResponse
+	(*SessionInformation)(nil),                        // 115: discord_v1.SessionInformation
+	(*StageInstance)(nil),                             // 116: discord_v1.StageInstance
+	(*StageInstanceParams)(nil),                       // 117: discord_v1.StageInstanceParams
+	(*PollLayoutType)(nil),                            // 118: discord_v1.PollLayoutType
+	(*PollMedia)(nil),                                 // 119: discord_v1.PollMedia
+	(*PollAnswer)(nil),                                // 120: discord_v1.PollAnswer
+	(*PollAnswerCount)(nil),                           // 121: discord_v1.PollAnswerCount
+	(*PollResults)(nil),                               // 122: discord_v1.PollResults
+	(*Poll)(nil),                                      // 123: discord_v1.Poll
+	(*SKUType)(nil),                                   // 124: discord_v1.SKUType
+	(*SKUFlags)(nil),                                  // 125: discord_v1.SKUFlags
+	(*SKU)(nil),                                       // 126: discord_v1.SKU
+	(*SubscriptionStatus)(nil),                        // 127: discord_v1.SubscriptionStatus
+	(*Subscription)(nil),                              // 128: discord_v1.Subscription
+	(*EntitlementType)(nil),                           // 129: discord_v1.EntitlementType
+	(*Entitlement)(nil),                               // 130: discord_v1.Entitlement
+	(*EntitlementOwnerType)(nil),                      // 131: discord_v1.EntitlementOwnerType
+	(*EntitlementTest)(nil),                           // 132: discord_v1.EntitlementTest
+	(*EntitlementFilterOptions)(nil),                  // 133: discord_v1.EntitlementFilterOptions
+	(*State)(nil),                                     // 134: discord_v1.State
+	(*User)(nil),                                      // 135: discord_v1.User
+	(*TeamMember)(nil),                                // 136: discord_v1.TeamMember
+	(*Team)(nil),                                      // 137: discord_v1.Team
+	(*Webhook)(nil),                                   // 138: discord_v1.Webhook
+	(*WebhookParams)(nil),                             // 139: discord_v1.WebhookParams
+	(*WebhookEdit)(nil),                               // 140: discord_v1.WebhookEdit
+	(*ComponentEmoji)(nil),                            // 141: discord_v1.ComponentEmoji
+	(*ApplicationCommand)(nil),                        // 142: discord_v1.ApplicationCommand
+	(*ApplicationCommandOption)(nil),                  // 143: discord_v1.ApplicationCommandOption
+	(*ApplicationCommandOptionChoice)(nil),            // 144: discord_v1.ApplicationCommandOptionChoice
+	(*ApplicationCommandPermissions)(nil),             // 145: discord_v1.ApplicationCommandPermissions
+	(*ApplicationCommandPermissionsList)(nil),         // 146: discord_v1.ApplicationCommandPermissionsList
+	(*GuildApplicationCommandPermissions)(nil),        // 147: discord_v1.GuildApplicationCommandPermissions
+	(*Interaction)(nil),                               // 148: discord_v1.Interaction
+	(*ApplicationCommandInteractionData)(nil),         // 149: discord_v1.ApplicationCommandInteractionData
+	(*ApplicationCommandInteractionDataResolved)(nil), // 150: discord_v1.ApplicationCommandInteractionDataResolved
+	(*MessageComponentInteractionData)(nil),           // 151: discord_v1.MessageComponentInteractionData
+	(*MessageComponentInteractionDataResolved)(nil),   // 152: discord_v1.MessageComponentInteractionDataResolved
+	(*ModalSubmitInteractionData)(nil),                // 153: discord_v1.ModalSubmitInteractionData
+	(*ApplicationCommandInteractionDataOption)(nil),   // 154: discord_v1.ApplicationCommandInteractionDataOption
+	(*InteractionResponse)(nil),                       // 155: discord_v1.InteractionResponse
+	(*InteractionResponseData)(nil),                   // 156: discord_v1.InteractionResponseData
+	nil,                                               // 157: discord_v1.MessageInteractionMetadata.AuthorizingIntegrationOwnersEntry
+	nil,                                               // 158: discord_v1.Application.IntegrationTypesConfigEntry
+	nil,                                               // 159: discord_v1.ApplicationRoleConnectionMetadata.NameLocalizationsEntry
+	nil,                                               // 160: discord_v1.ApplicationRoleConnectionMetadata.DescriptionLocalizationsEntry
+	nil,                                               // 161: discord_v1.ApplicationRoleConnection.MetadataEntry
+	nil,                                               // 162: discord_v1.State.GuildMapEntry
+	nil,                                               // 163: discord_v1.State.ChannelMapEntry
+	nil,                                               // 164: discord_v1.ApplicationCommand.NameLocalizationsEntry
+	nil,                                               // 165: discord_v1.ApplicationCommand.DescriptionLocalizationsEntry
+	nil,                                               // 166: discord_v1.ApplicationCommandOption.NameLocalizationsEntry
+	nil,                                               // 167: discord_v1.ApplicationCommandOption.DescriptionLocalizationsEntry
+	nil,                                               // 168: discord_v1.ApplicationCommandOptionChoice.NameLocalizationsEntry
+	nil,                                               // 169: discord_v1.Interaction.AuthorizingIntegrationOwnersEntry
+	nil,                                               // 170: discord_v1.ApplicationCommandInteractionDataResolved.UsersEntry
+	nil,                                               // 171: discord_v1.ApplicationCommandInteractionDataResolved.MembersEntry
+	nil,                                               // 172: discord_v1.ApplicationCommandInteractionDataResolved.RolesEntry
+	nil,                                               // 173: discord_v1.ApplicationCommandInteractionDataResolved.ChannelsEntry
+	nil,                                               // 174: discord_v1.ApplicationCommandInteractionDataResolved.MessagesEntry
+	nil,                                               // 175: discord_v1.ApplicationCommandInteractionDataResolved.AttachmentsEntry
+	nil,                                               // 176: discord_v1.MessageComponentInteractionDataResolved.UsersEntry
+	nil,                                               // 177: discord_v1.MessageComponentInteractionDataResolved.MembersEntry
+	nil,                                               // 178: discord_v1.MessageComponentInteractionDataResolved.RolesEntry
+	nil,                                               // 179: discord_v1.MessageComponentInteractionDataResolved.ChannelsEntry
+	(*timestamppb.Timestamp)(nil),                     // 180: google.protobuf.Timestamp
+	(*anypb.Any)(nil),                                 // 181: google.protobuf.Any
+	(*durationpb.Duration)(nil),                       // 182: google.protobuf.Duration
 }
-var file_discord_v1_message_proto_depIdxs = []int32{
-	140, // 0: discord_v1.Message.timestamp:type_name -> google.protobuf.Timestamp
-	140, // 1: discord_v1.Message.edited_timestamp:type_name -> google.protobuf.Timestamp
-	126, // 2: discord_v1.Message.author:type_name -> discord_v1.User
-	15,  // 3: discord_v1.Message.attachments:type_name -> discord_v1.MessageAttachment
-	141, // 4: discord_v1.Message.components:type_name -> google.protobuf.Any
-	23,  // 5: discord_v1.Message.embeds:type_name -> discord_v1.MessageEmbed
-	126, // 6: discord_v1.Message.mentions:type_name -> discord_v1.User
-	24,  // 7: discord_v1.Message.reactions:type_name -> discord_v1.MessageReactions
+var file_discord_v1_discordgo_proto_depIdxs = []int32{
+	180, // 0: discord_v1.Message.timestamp:type_name -> google.protobuf.Timestamp
+	180, // 1: discord_v1.Message.edited_timestamp:type_name -> google.protobuf.Timestamp
+	135, // 2: discord_v1.Message.author:type_name -> discord_v1.User
+	24,  // 3: discord_v1.Message.attachments:type_name -> discord_v1.MessageAttachment
+	181, // 4: discord_v1.Message.components:type_name -> google.protobuf.Any
+	32,  // 5: discord_v1.Message.embeds:type_name -> discord_v1.MessageEmbed
+	135, // 6: discord_v1.Message.mentions:type_name -> discord_v1.User
+	33,  // 7: discord_v1.Message.reactions:type_name -> discord_v1.MessageReactions
 	0,   // 8: discord_v1.Message.type:type_name -> discord_v1.MessageType
-	85,  // 9: discord_v1.Message.member:type_name -> discord_v1.Member
-	50,  // 10: discord_v1.Message.mention_channels:type_name -> discord_v1.Channel
-	25,  // 11: discord_v1.Message.activity:type_name -> discord_v1.MessageActivity
-	26,  // 12: discord_v1.Message.application:type_name -> discord_v1.MessageApplication
-	28,  // 13: discord_v1.Message.message_reference:type_name -> discord_v1.MessageReference
-	10,  // 14: discord_v1.Message.referenced_message:type_name -> discord_v1.Message
-	27,  // 15: discord_v1.Message.message_snapshots:type_name -> discord_v1.MessageSnapshot
-	29,  // 16: discord_v1.Message.interaction:type_name -> discord_v1.MessageInteraction
-	30,  // 17: discord_v1.Message.interaction_metadata:type_name -> discord_v1.MessageInteractionMetadata
+	94,  // 9: discord_v1.Message.member:type_name -> discord_v1.Member
+	59,  // 10: discord_v1.Message.mention_channels:type_name -> discord_v1.Channel
+	34,  // 11: discord_v1.Message.activity:type_name -> discord_v1.MessageActivity
+	35,  // 12: discord_v1.Message.application:type_name -> discord_v1.MessageApplication
+	37,  // 13: discord_v1.Message.message_reference:type_name -> discord_v1.MessageReference
+	19,  // 14: discord_v1.Message.referenced_message:type_name -> discord_v1.Message
+	36,  // 15: discord_v1.Message.message_snapshots:type_name -> discord_v1.MessageSnapshot
+	38,  // 16: discord_v1.Message.interaction:type_name -> discord_v1.MessageInteraction
+	39,  // 17: discord_v1.Message.interaction_metadata:type_name -> discord_v1.MessageInteractionMetadata
 	1,   // 18: discord_v1.Message.flags:type_name -> discord_v1.MessageFlags
-	50,  // 19: discord_v1.Message.thread:type_name -> discord_v1.Channel
-	62,  // 20: discord_v1.Message.sticker_items:type_name -> discord_v1.StickerItem
-	114, // 21: discord_v1.Message.poll:type_name -> discord_v1.Poll
-	23,  // 22: discord_v1.MessageSend.embeds:type_name -> discord_v1.MessageEmbed
-	141, // 23: discord_v1.MessageSend.components:type_name -> google.protobuf.Any
-	11,  // 24: discord_v1.MessageSend.files:type_name -> discord_v1.File
-	14,  // 25: discord_v1.MessageSend.allowed_mentions:type_name -> discord_v1.MessageAllowedMentions
-	28,  // 26: discord_v1.MessageSend.reference:type_name -> discord_v1.MessageReference
+	59,  // 19: discord_v1.Message.thread:type_name -> discord_v1.Channel
+	71,  // 20: discord_v1.Message.sticker_items:type_name -> discord_v1.StickerItem
+	123, // 21: discord_v1.Message.poll:type_name -> discord_v1.Poll
+	32,  // 22: discord_v1.MessageSend.embeds:type_name -> discord_v1.MessageEmbed
+	181, // 23: discord_v1.MessageSend.components:type_name -> google.protobuf.Any
+	20,  // 24: discord_v1.MessageSend.files:type_name -> discord_v1.File
+	23,  // 25: discord_v1.MessageSend.allowed_mentions:type_name -> discord_v1.MessageAllowedMentions
+	37,  // 26: discord_v1.MessageSend.reference:type_name -> discord_v1.MessageReference
 	1,   // 27: discord_v1.MessageSend.flags:type_name -> discord_v1.MessageFlags
-	114, // 28: discord_v1.MessageSend.poll:type_name -> discord_v1.Poll
-	141, // 29: discord_v1.MessageEdit.components:type_name -> google.protobuf.Any
-	23,  // 30: discord_v1.MessageEdit.embeds:type_name -> discord_v1.MessageEmbed
-	14,  // 31: discord_v1.MessageEdit.allowed_mentions:type_name -> discord_v1.MessageAllowedMentions
+	123, // 28: discord_v1.MessageSend.poll:type_name -> discord_v1.Poll
+	181, // 29: discord_v1.MessageEdit.components:type_name -> google.protobuf.Any
+	32,  // 30: discord_v1.MessageEdit.embeds:type_name -> discord_v1.MessageEmbed
+	23,  // 31: discord_v1.MessageEdit.allowed_mentions:type_name -> discord_v1.MessageAllowedMentions
 	1,   // 32: discord_v1.MessageEdit.flags:type_name -> discord_v1.MessageFlags
-	11,  // 33: discord_v1.MessageEdit.files:type_name -> discord_v1.File
-	15,  // 34: discord_v1.MessageEdit.attachments:type_name -> discord_v1.MessageAttachment
+	20,  // 33: discord_v1.MessageEdit.files:type_name -> discord_v1.File
+	24,  // 34: discord_v1.MessageEdit.attachments:type_name -> discord_v1.MessageAttachment
 	2,   // 35: discord_v1.MessageAllowedMentions.parse:type_name -> discord_v1.AllowedMentionType
 	3,   // 36: discord_v1.MessageEmbed.type:type_name -> discord_v1.EmbedType
-	16,  // 37: discord_v1.MessageEmbed.footer:type_name -> discord_v1.MessageEmbedFooter
-	17,  // 38: discord_v1.MessageEmbed.image:type_name -> discord_v1.MessageEmbedImage
-	18,  // 39: discord_v1.MessageEmbed.thumbnail:type_name -> discord_v1.MessageEmbedThumbnail
-	19,  // 40: discord_v1.MessageEmbed.video:type_name -> discord_v1.MessageEmbedVideo
-	20,  // 41: discord_v1.MessageEmbed.provider:type_name -> discord_v1.MessageEmbedProvider
-	21,  // 42: discord_v1.MessageEmbed.author:type_name -> discord_v1.MessageEmbedAuthor
-	22,  // 43: discord_v1.MessageEmbed.fields:type_name -> discord_v1.MessageEmbedField
-	59,  // 44: discord_v1.MessageReactions.emoji:type_name -> discord_v1.Emoji
+	25,  // 37: discord_v1.MessageEmbed.footer:type_name -> discord_v1.MessageEmbedFooter
+	26,  // 38: discord_v1.MessageEmbed.image:type_name -> discord_v1.MessageEmbedImage
+	27,  // 39: discord_v1.MessageEmbed.thumbnail:type_name -> discord_v1.MessageEmbedThumbnail
+	28,  // 40: discord_v1.MessageEmbed.video:type_name -> discord_v1.MessageEmbedVideo
+	29,  // 41: discord_v1.MessageEmbed.provider:type_name -> discord_v1.MessageEmbedProvider
+	30,  // 42: discord_v1.MessageEmbed.author:type_name -> discord_v1.MessageEmbedAuthor
+	31,  // 43: discord_v1.MessageEmbed.fields:type_name -> discord_v1.MessageEmbedField
+	68,  // 44: discord_v1.MessageReactions.emoji:type_name -> discord_v1.Emoji
 	4,   // 45: discord_v1.MessageActivity.type:type_name -> discord_v1.MessageActivityType
-	10,  // 46: discord_v1.MessageSnapshot.message:type_name -> discord_v1.Message
+	19,  // 46: discord_v1.MessageSnapshot.message:type_name -> discord_v1.Message
 	5,   // 47: discord_v1.MessageReference.type:type_name -> discord_v1.MessageReferenceType
-	126, // 48: discord_v1.MessageInteraction.user:type_name -> discord_v1.User
-	85,  // 49: discord_v1.MessageInteraction.member:type_name -> discord_v1.Member
-	126, // 50: discord_v1.MessageInteractionMetadata.user:type_name -> discord_v1.User
-	133, // 51: discord_v1.MessageInteractionMetadata.authorizing_integration_owners:type_name -> discord_v1.MessageInteractionMetadata.AuthorizingIntegrationOwnersEntry
-	30,  // 52: discord_v1.MessageInteractionMetadata.triggering_interaction_metadata:type_name -> discord_v1.MessageInteractionMetadata
-	32,  // 53: discord_v1.Session.identify:type_name -> discord_v1.Identify
-	125, // 54: discord_v1.Session.state:type_name -> discord_v1.State
-	140, // 55: discord_v1.Session.last_heartbeat_ack:type_name -> google.protobuf.Timestamp
-	140, // 56: discord_v1.Session.last_heartbeat_sent:type_name -> google.protobuf.Timestamp
-	33,  // 57: discord_v1.Identify.properties:type_name -> discord_v1.IdentifyProperties
-	34,  // 58: discord_v1.Identify.presence:type_name -> discord_v1.GatewayStatusUpdate
-	35,  // 59: discord_v1.GatewayStatusUpdate.game:type_name -> discord_v1.Activity
-	140, // 60: discord_v1.Activity.created_at:type_name -> google.protobuf.Timestamp
-	36,  // 61: discord_v1.Activity.timestamps:type_name -> discord_v1.TimeStamps
-	59,  // 62: discord_v1.Activity.emoji:type_name -> discord_v1.Emoji
-	38,  // 63: discord_v1.Activity.party:type_name -> discord_v1.Party
-	37,  // 64: discord_v1.Activity.assets:type_name -> discord_v1.Assets
-	39,  // 65: discord_v1.Activity.secrets:type_name -> discord_v1.Secrets
-	41,  // 66: discord_v1.ApplicationIntegrationTypeConfig.oauth2_install_params:type_name -> discord_v1.ApplicationInstallParams
-	126, // 67: discord_v1.Application.owner:type_name -> discord_v1.User
-	128, // 68: discord_v1.Application.team:type_name -> discord_v1.Team
-	134, // 69: discord_v1.Application.integration_types_config:type_name -> discord_v1.Application.IntegrationTypesConfigEntry
-	135, // 70: discord_v1.ApplicationRoleConnectionMetadata.name_localizations:type_name -> discord_v1.ApplicationRoleConnectionMetadata.NameLocalizationsEntry
-	136, // 71: discord_v1.ApplicationRoleConnectionMetadata.description_localizations:type_name -> discord_v1.ApplicationRoleConnectionMetadata.DescriptionLocalizationsEntry
-	137, // 72: discord_v1.ApplicationRoleConnection.metadata:type_name -> discord_v1.ApplicationRoleConnection.MetadataEntry
-	46,  // 73: discord_v1.UserConnection.integrations:type_name -> discord_v1.Integration
-	126, // 74: discord_v1.Integration.user:type_name -> discord_v1.User
-	47,  // 75: discord_v1.Integration.account:type_name -> discord_v1.IntegrationAccount
-	140, // 76: discord_v1.Integration.synced_at:type_name -> google.protobuf.Timestamp
-	64,  // 77: discord_v1.Invite.guild:type_name -> discord_v1.Guild
-	50,  // 78: discord_v1.Invite.channel:type_name -> discord_v1.Channel
-	126, // 79: discord_v1.Invite.inviter:type_name -> discord_v1.User
-	140, // 80: discord_v1.Invite.created_at:type_name -> google.protobuf.Timestamp
-	126, // 81: discord_v1.Invite.target_user:type_name -> discord_v1.User
-	42,  // 82: discord_v1.Invite.target_application:type_name -> discord_v1.Application
-	140, // 83: discord_v1.Invite.expires_at:type_name -> google.protobuf.Timestamp
-	140, // 84: discord_v1.Channel.last_pin_timestamp:type_name -> google.protobuf.Timestamp
-	126, // 85: discord_v1.Channel.recipients:type_name -> discord_v1.User
-	10,  // 86: discord_v1.Channel.messages:type_name -> discord_v1.Message
-	51,  // 87: discord_v1.Channel.permission_overwrites:type_name -> discord_v1.PermissionOverwrite
-	53,  // 88: discord_v1.Channel.thread_metadata:type_name -> discord_v1.ThreadMetadata
-	54,  // 89: discord_v1.Channel.member:type_name -> discord_v1.ThreadMember
-	54,  // 90: discord_v1.Channel.members:type_name -> discord_v1.ThreadMember
-	58,  // 91: discord_v1.Channel.available_tags:type_name -> discord_v1.ForumTag
-	57,  // 92: discord_v1.Channel.default_reaction_emoji:type_name -> discord_v1.ForumDefaultReaction
-	140, // 93: discord_v1.ThreadMetadata.archive_timestamp:type_name -> google.protobuf.Timestamp
-	140, // 94: discord_v1.ThreadMember.join_timestamp:type_name -> google.protobuf.Timestamp
-	85,  // 95: discord_v1.ThreadMember.member:type_name -> discord_v1.Member
-	50,  // 96: discord_v1.ThreadsList.threads:type_name -> discord_v1.Channel
-	54,  // 97: discord_v1.ThreadsList.members:type_name -> discord_v1.ThreadMember
-	54,  // 98: discord_v1.AddedThreadMember.thread_member:type_name -> discord_v1.ThreadMember
-	85,  // 99: discord_v1.AddedThreadMember.member:type_name -> discord_v1.Member
-	83,  // 100: discord_v1.AddedThreadMember.presence:type_name -> discord_v1.Presence
-	126, // 101: discord_v1.Emoji.user:type_name -> discord_v1.User
-	126, // 102: discord_v1.Sticker.user:type_name -> discord_v1.User
-	61,  // 103: discord_v1.StickerPack.stickers:type_name -> discord_v1.Sticker
-	140, // 104: discord_v1.Guild.joined_at:type_name -> google.protobuf.Timestamp
-	79,  // 105: discord_v1.Guild.roles:type_name -> discord_v1.Role
-	59,  // 106: discord_v1.Guild.emojis:type_name -> discord_v1.Emoji
-	61,  // 107: discord_v1.Guild.stickers:type_name -> discord_v1.Sticker
-	85,  // 108: discord_v1.Guild.members:type_name -> discord_v1.Member
-	83,  // 109: discord_v1.Guild.presences:type_name -> discord_v1.Presence
-	50,  // 110: discord_v1.Guild.channels:type_name -> discord_v1.Channel
-	50,  // 111: discord_v1.Guild.threads:type_name -> discord_v1.Channel
-	82,  // 112: discord_v1.Guild.voice_states:type_name -> discord_v1.VoiceState
-	107, // 113: discord_v1.Guild.stage_instances:type_name -> discord_v1.StageInstance
-	59,  // 114: discord_v1.GuildPreview.emojis:type_name -> discord_v1.Emoji
-	140, // 115: discord_v1.GuildScheduledEvent.scheduled_start_time:type_name -> google.protobuf.Timestamp
-	140, // 116: discord_v1.GuildScheduledEvent.scheduled_end_time:type_name -> google.protobuf.Timestamp
-	68,  // 117: discord_v1.GuildScheduledEvent.entity_metadata:type_name -> discord_v1.GuildScheduledEventEntityMetadata
-	126, // 118: discord_v1.GuildScheduledEvent.creator:type_name -> discord_v1.User
-	140, // 119: discord_v1.GuildScheduledEventParams.scheduled_start_time:type_name -> google.protobuf.Timestamp
-	140, // 120: discord_v1.GuildScheduledEventParams.scheduled_end_time:type_name -> google.protobuf.Timestamp
-	68,  // 121: discord_v1.GuildScheduledEventParams.entity_metadata:type_name -> discord_v1.GuildScheduledEventEntityMetadata
-	126, // 122: discord_v1.GuildScheduledEventUser.user:type_name -> discord_v1.User
-	85,  // 123: discord_v1.GuildScheduledEventUser.member:type_name -> discord_v1.Member
-	73,  // 124: discord_v1.GuildOnboarding.prompts:type_name -> discord_v1.GuildOnboardingPrompt
-	70,  // 125: discord_v1.GuildOnboarding.mode:type_name -> discord_v1.GuildOnboardingMode
-	72,  // 126: discord_v1.GuildOnboardingPrompt.type:type_name -> discord_v1.GuildOnboardingPromptType
-	74,  // 127: discord_v1.GuildOnboardingPrompt.options:type_name -> discord_v1.GuildOnboardingPromptOption
-	59,  // 128: discord_v1.GuildOnboardingPromptOption.emoji:type_name -> discord_v1.Emoji
-	126, // 129: discord_v1.GuildTemplate.creator:type_name -> discord_v1.User
-	140, // 130: discord_v1.GuildTemplate.created_at:type_name -> google.protobuf.Timestamp
-	140, // 131: discord_v1.GuildTemplate.updated_at:type_name -> google.protobuf.Timestamp
-	64,  // 132: discord_v1.GuildTemplate.serialized_source_guild:type_name -> discord_v1.Guild
-	85,  // 133: discord_v1.VoiceState.member:type_name -> discord_v1.Member
-	140, // 134: discord_v1.VoiceState.request_to_speak_timestamp:type_name -> google.protobuf.Timestamp
-	126, // 135: discord_v1.Presence.user:type_name -> discord_v1.User
-	35,  // 136: discord_v1.Presence.activities:type_name -> discord_v1.Activity
-	86,  // 137: discord_v1.Presence.client_status:type_name -> discord_v1.ClientStatus
-	140, // 138: discord_v1.Member.joined_at:type_name -> google.protobuf.Timestamp
-	126, // 139: discord_v1.Member.user:type_name -> discord_v1.User
-	140, // 140: discord_v1.Member.premium_since:type_name -> google.protobuf.Timestamp
-	140, // 141: discord_v1.Member.communication_disabled_until:type_name -> google.protobuf.Timestamp
-	142, // 142: discord_v1.TooManyRequests.retry_after:type_name -> google.protobuf.Duration
-	79,  // 143: discord_v1.GuildRole.role:type_name -> discord_v1.Role
-	126, // 144: discord_v1.GuildBan.user:type_name -> discord_v1.User
-	92,  // 145: discord_v1.AutoModerationRule.trigger_metadata:type_name -> discord_v1.AutoModerationTriggerMetadata
-	95,  // 146: discord_v1.AutoModerationRule.actions:type_name -> discord_v1.AutoModerationAction
-	94,  // 147: discord_v1.AutoModerationAction.metadata:type_name -> discord_v1.AutoModerationActionMetadata
-	129, // 148: discord_v1.GuildAuditLog.webhooks:type_name -> discord_v1.Webhook
-	126, // 149: discord_v1.GuildAuditLog.users:type_name -> discord_v1.User
-	98,  // 150: discord_v1.GuildAuditLog.audit_log_entries:type_name -> discord_v1.AuditLogEntry
-	46,  // 151: discord_v1.GuildAuditLog.integrations:type_name -> discord_v1.Integration
-	99,  // 152: discord_v1.AuditLogEntry.changes:type_name -> discord_v1.AuditLogChange
-	100, // 153: discord_v1.AuditLogEntry.options:type_name -> discord_v1.AuditLogOptions
-	140, // 154: discord_v1.GuildMemberParams.communication_disabled_until:type_name -> google.protobuf.Timestamp
-	59,  // 155: discord_v1.MessageReaction.emoji:type_name -> discord_v1.Emoji
-	106, // 156: discord_v1.GatewayBotResponse.session_start_limit:type_name -> discord_v1.SessionInformation
-	132, // 157: discord_v1.PollMedia.emoji:type_name -> discord_v1.ComponentEmoji
-	110, // 158: discord_v1.PollAnswer.media:type_name -> discord_v1.PollMedia
-	112, // 159: discord_v1.PollResults.answer_counts:type_name -> discord_v1.PollAnswerCount
-	110, // 160: discord_v1.Poll.question:type_name -> discord_v1.PollMedia
-	111, // 161: discord_v1.Poll.answers:type_name -> discord_v1.PollAnswer
-	113, // 162: discord_v1.Poll.results:type_name -> discord_v1.PollResults
-	140, // 163: discord_v1.Poll.expiry:type_name -> google.protobuf.Timestamp
-	140, // 164: discord_v1.Subscription.current_period_start:type_name -> google.protobuf.Timestamp
-	140, // 165: discord_v1.Subscription.current_period_end:type_name -> google.protobuf.Timestamp
-	140, // 166: discord_v1.Subscription.canceled_at:type_name -> google.protobuf.Timestamp
-	140, // 167: discord_v1.Entitlement.starts_at:type_name -> google.protobuf.Timestamp
-	140, // 168: discord_v1.Entitlement.ends_at:type_name -> google.protobuf.Timestamp
-	140, // 169: discord_v1.EntitlementFilterOptions.before:type_name -> google.protobuf.Timestamp
-	140, // 170: discord_v1.EntitlementFilterOptions.after:type_name -> google.protobuf.Timestamp
-	138, // 171: discord_v1.State.guild_map:type_name -> discord_v1.State.GuildMapEntry
-	139, // 172: discord_v1.State.channel_map:type_name -> discord_v1.State.ChannelMapEntry
+	135, // 48: discord_v1.MessageInteraction.user:type_name -> discord_v1.User
+	94,  // 49: discord_v1.MessageInteraction.member:type_name -> discord_v1.Member
+	135, // 50: discord_v1.MessageInteractionMetadata.user:type_name -> discord_v1.User
+	157, // 51: discord_v1.MessageInteractionMetadata.authorizing_integration_owners:type_name -> discord_v1.MessageInteractionMetadata.AuthorizingIntegrationOwnersEntry
+	39,  // 52: discord_v1.MessageInteractionMetadata.triggering_interaction_metadata:type_name -> discord_v1.MessageInteractionMetadata
+	41,  // 53: discord_v1.Session.identify:type_name -> discord_v1.Identify
+	134, // 54: discord_v1.Session.state:type_name -> discord_v1.State
+	180, // 55: discord_v1.Session.last_heartbeat_ack:type_name -> google.protobuf.Timestamp
+	180, // 56: discord_v1.Session.last_heartbeat_sent:type_name -> google.protobuf.Timestamp
+	42,  // 57: discord_v1.Identify.properties:type_name -> discord_v1.IdentifyProperties
+	43,  // 58: discord_v1.Identify.presence:type_name -> discord_v1.GatewayStatusUpdate
+	44,  // 59: discord_v1.GatewayStatusUpdate.game:type_name -> discord_v1.Activity
+	180, // 60: discord_v1.Activity.created_at:type_name -> google.protobuf.Timestamp
+	45,  // 61: discord_v1.Activity.timestamps:type_name -> discord_v1.TimeStamps
+	68,  // 62: discord_v1.Activity.emoji:type_name -> discord_v1.Emoji
+	47,  // 63: discord_v1.Activity.party:type_name -> discord_v1.Party
+	46,  // 64: discord_v1.Activity.assets:type_name -> discord_v1.Assets
+	48,  // 65: discord_v1.Activity.secrets:type_name -> discord_v1.Secrets
+	50,  // 66: discord_v1.ApplicationIntegrationTypeConfig.oauth2_install_params:type_name -> discord_v1.ApplicationInstallParams
+	135, // 67: discord_v1.Application.owner:type_name -> discord_v1.User
+	137, // 68: discord_v1.Application.team:type_name -> discord_v1.Team
+	158, // 69: discord_v1.Application.integration_types_config:type_name -> discord_v1.Application.IntegrationTypesConfigEntry
+	159, // 70: discord_v1.ApplicationRoleConnectionMetadata.name_localizations:type_name -> discord_v1.ApplicationRoleConnectionMetadata.NameLocalizationsEntry
+	160, // 71: discord_v1.ApplicationRoleConnectionMetadata.description_localizations:type_name -> discord_v1.ApplicationRoleConnectionMetadata.DescriptionLocalizationsEntry
+	161, // 72: discord_v1.ApplicationRoleConnection.metadata:type_name -> discord_v1.ApplicationRoleConnection.MetadataEntry
+	55,  // 73: discord_v1.UserConnection.integrations:type_name -> discord_v1.Integration
+	135, // 74: discord_v1.Integration.user:type_name -> discord_v1.User
+	56,  // 75: discord_v1.Integration.account:type_name -> discord_v1.IntegrationAccount
+	180, // 76: discord_v1.Integration.synced_at:type_name -> google.protobuf.Timestamp
+	73,  // 77: discord_v1.Invite.guild:type_name -> discord_v1.Guild
+	59,  // 78: discord_v1.Invite.channel:type_name -> discord_v1.Channel
+	135, // 79: discord_v1.Invite.inviter:type_name -> discord_v1.User
+	180, // 80: discord_v1.Invite.created_at:type_name -> google.protobuf.Timestamp
+	135, // 81: discord_v1.Invite.target_user:type_name -> discord_v1.User
+	51,  // 82: discord_v1.Invite.target_application:type_name -> discord_v1.Application
+	180, // 83: discord_v1.Invite.expires_at:type_name -> google.protobuf.Timestamp
+	180, // 84: discord_v1.Channel.last_pin_timestamp:type_name -> google.protobuf.Timestamp
+	135, // 85: discord_v1.Channel.recipients:type_name -> discord_v1.User
+	19,  // 86: discord_v1.Channel.messages:type_name -> discord_v1.Message
+	60,  // 87: discord_v1.Channel.permission_overwrites:type_name -> discord_v1.PermissionOverwrite
+	62,  // 88: discord_v1.Channel.thread_metadata:type_name -> discord_v1.ThreadMetadata
+	63,  // 89: discord_v1.Channel.member:type_name -> discord_v1.ThreadMember
+	63,  // 90: discord_v1.Channel.members:type_name -> discord_v1.ThreadMember
+	67,  // 91: discord_v1.Channel.available_tags:type_name -> discord_v1.ForumTag
+	66,  // 92: discord_v1.Channel.default_reaction_emoji:type_name -> discord_v1.ForumDefaultReaction
+	180, // 93: discord_v1.ThreadMetadata.archive_timestamp:type_name -> google.protobuf.Timestamp
+	180, // 94: discord_v1.ThreadMember.join_timestamp:type_name -> google.protobuf.Timestamp
+	94,  // 95: discord_v1.ThreadMember.member:type_name -> discord_v1.Member
+	59,  // 96: discord_v1.ThreadsList.threads:type_name -> discord_v1.Channel
+	63,  // 97: discord_v1.ThreadsList.members:type_name -> discord_v1.ThreadMember
+	63,  // 98: discord_v1.AddedThreadMember.thread_member:type_name -> discord_v1.ThreadMember
+	94,  // 99: discord_v1.AddedThreadMember.member:type_name -> discord_v1.Member
+	92,  // 100: discord_v1.AddedThreadMember.presence:type_name -> discord_v1.Presence
+	135, // 101: discord_v1.Emoji.user:type_name -> discord_v1.User
+	135, // 102: discord_v1.Sticker.user:type_name -> discord_v1.User
+	70,  // 103: discord_v1.StickerPack.stickers:type_name -> discord_v1.Sticker
+	180, // 104: discord_v1.Guild.joined_at:type_name -> google.protobuf.Timestamp
+	88,  // 105: discord_v1.Guild.roles:type_name -> discord_v1.Role
+	68,  // 106: discord_v1.Guild.emojis:type_name -> discord_v1.Emoji
+	70,  // 107: discord_v1.Guild.stickers:type_name -> discord_v1.Sticker
+	94,  // 108: discord_v1.Guild.members:type_name -> discord_v1.Member
+	92,  // 109: discord_v1.Guild.presences:type_name -> discord_v1.Presence
+	59,  // 110: discord_v1.Guild.channels:type_name -> discord_v1.Channel
+	59,  // 111: discord_v1.Guild.threads:type_name -> discord_v1.Channel
+	91,  // 112: discord_v1.Guild.voice_states:type_name -> discord_v1.VoiceState
+	116, // 113: discord_v1.Guild.stage_instances:type_name -> discord_v1.StageInstance
+	68,  // 114: discord_v1.GuildPreview.emojis:type_name -> discord_v1.Emoji
+	180, // 115: discord_v1.GuildScheduledEvent.scheduled_start_time:type_name -> google.protobuf.Timestamp
+	180, // 116: discord_v1.GuildScheduledEvent.scheduled_end_time:type_name -> google.protobuf.Timestamp
+	77,  // 117: discord_v1.GuildScheduledEvent.entity_metadata:type_name -> discord_v1.GuildScheduledEventEntityMetadata
+	135, // 118: discord_v1.GuildScheduledEvent.creator:type_name -> discord_v1.User
+	180, // 119: discord_v1.GuildScheduledEventParams.scheduled_start_time:type_name -> google.protobuf.Timestamp
+	180, // 120: discord_v1.GuildScheduledEventParams.scheduled_end_time:type_name -> google.protobuf.Timestamp
+	77,  // 121: discord_v1.GuildScheduledEventParams.entity_metadata:type_name -> discord_v1.GuildScheduledEventEntityMetadata
+	135, // 122: discord_v1.GuildScheduledEventUser.user:type_name -> discord_v1.User
+	94,  // 123: discord_v1.GuildScheduledEventUser.member:type_name -> discord_v1.Member
+	82,  // 124: discord_v1.GuildOnboarding.prompts:type_name -> discord_v1.GuildOnboardingPrompt
+	79,  // 125: discord_v1.GuildOnboarding.mode:type_name -> discord_v1.GuildOnboardingMode
+	81,  // 126: discord_v1.GuildOnboardingPrompt.type:type_name -> discord_v1.GuildOnboardingPromptType
+	83,  // 127: discord_v1.GuildOnboardingPrompt.options:type_name -> discord_v1.GuildOnboardingPromptOption
+	68,  // 128: discord_v1.GuildOnboardingPromptOption.emoji:type_name -> discord_v1.Emoji
+	135, // 129: discord_v1.GuildTemplate.creator:type_name -> discord_v1.User
+	180, // 130: discord_v1.GuildTemplate.created_at:type_name -> google.protobuf.Timestamp
+	180, // 131: discord_v1.GuildTemplate.updated_at:type_name -> google.protobuf.Timestamp
+	73,  // 132: discord_v1.GuildTemplate.serialized_source_guild:type_name -> discord_v1.Guild
+	94,  // 133: discord_v1.VoiceState.member:type_name -> discord_v1.Member
+	180, // 134: discord_v1.VoiceState.request_to_speak_timestamp:type_name -> google.protobuf.Timestamp
+	135, // 135: discord_v1.Presence.user:type_name -> discord_v1.User
+	44,  // 136: discord_v1.Presence.activities:type_name -> discord_v1.Activity
+	95,  // 137: discord_v1.Presence.client_status:type_name -> discord_v1.ClientStatus
+	180, // 138: discord_v1.Member.joined_at:type_name -> google.protobuf.Timestamp
+	135, // 139: discord_v1.Member.user:type_name -> discord_v1.User
+	180, // 140: discord_v1.Member.premium_since:type_name -> google.protobuf.Timestamp
+	180, // 141: discord_v1.Member.communication_disabled_until:type_name -> google.protobuf.Timestamp
+	182, // 142: discord_v1.TooManyRequests.retry_after:type_name -> google.protobuf.Duration
+	88,  // 143: discord_v1.GuildRole.role:type_name -> discord_v1.Role
+	135, // 144: discord_v1.GuildBan.user:type_name -> discord_v1.User
+	101, // 145: discord_v1.AutoModerationRule.trigger_metadata:type_name -> discord_v1.AutoModerationTriggerMetadata
+	104, // 146: discord_v1.AutoModerationRule.actions:type_name -> discord_v1.AutoModerationAction
+	103, // 147: discord_v1.AutoModerationAction.metadata:type_name -> discord_v1.AutoModerationActionMetadata
+	138, // 148: discord_v1.GuildAuditLog.webhooks:type_name -> discord_v1.Webhook
+	135, // 149: discord_v1.GuildAuditLog.users:type_name -> discord_v1.User
+	107, // 150: discord_v1.GuildAuditLog.audit_log_entries:type_name -> discord_v1.AuditLogEntry
+	55,  // 151: discord_v1.GuildAuditLog.integrations:type_name -> discord_v1.Integration
+	108, // 152: discord_v1.AuditLogEntry.changes:type_name -> discord_v1.AuditLogChange
+	109, // 153: discord_v1.AuditLogEntry.options:type_name -> discord_v1.AuditLogOptions
+	180, // 154: discord_v1.GuildMemberParams.communication_disabled_until:type_name -> google.protobuf.Timestamp
+	68,  // 155: discord_v1.MessageReaction.emoji:type_name -> discord_v1.Emoji
+	115, // 156: discord_v1.GatewayBotResponse.session_start_limit:type_name -> discord_v1.SessionInformation
+	141, // 157: discord_v1.PollMedia.emoji:type_name -> discord_v1.ComponentEmoji
+	119, // 158: discord_v1.PollAnswer.media:type_name -> discord_v1.PollMedia
+	121, // 159: discord_v1.PollResults.answer_counts:type_name -> discord_v1.PollAnswerCount
+	119, // 160: discord_v1.Poll.question:type_name -> discord_v1.PollMedia
+	120, // 161: discord_v1.Poll.answers:type_name -> discord_v1.PollAnswer
+	122, // 162: discord_v1.Poll.results:type_name -> discord_v1.PollResults
+	180, // 163: discord_v1.Poll.expiry:type_name -> google.protobuf.Timestamp
+	180, // 164: discord_v1.Subscription.current_period_start:type_name -> google.protobuf.Timestamp
+	180, // 165: discord_v1.Subscription.current_period_end:type_name -> google.protobuf.Timestamp
+	180, // 166: discord_v1.Subscription.canceled_at:type_name -> google.protobuf.Timestamp
+	180, // 167: discord_v1.Entitlement.starts_at:type_name -> google.protobuf.Timestamp
+	180, // 168: discord_v1.Entitlement.ends_at:type_name -> google.protobuf.Timestamp
+	180, // 169: discord_v1.EntitlementFilterOptions.before:type_name -> google.protobuf.Timestamp
+	180, // 170: discord_v1.EntitlementFilterOptions.after:type_name -> google.protobuf.Timestamp
+	162, // 171: discord_v1.State.guild_map:type_name -> discord_v1.State.GuildMapEntry
+	163, // 172: discord_v1.State.channel_map:type_name -> discord_v1.State.ChannelMapEntry
 	7,   // 173: discord_v1.User.premium_type:type_name -> discord_v1.UserPremiumType
-	126, // 174: discord_v1.TeamMember.user:type_name -> discord_v1.User
+	135, // 174: discord_v1.TeamMember.user:type_name -> discord_v1.User
 	8,   // 175: discord_v1.TeamMember.membership_state:type_name -> discord_v1.MembershipState
-	127, // 176: discord_v1.Team.members:type_name -> discord_v1.TeamMember
+	136, // 176: discord_v1.Team.members:type_name -> discord_v1.TeamMember
 	9,   // 177: discord_v1.Webhook.type:type_name -> discord_v1.WebhookType
-	126, // 178: discord_v1.Webhook.user:type_name -> discord_v1.User
-	11,  // 179: discord_v1.WebhookParams.files:type_name -> discord_v1.File
-	141, // 180: discord_v1.WebhookParams.components:type_name -> google.protobuf.Any
-	23,  // 181: discord_v1.WebhookParams.embeds:type_name -> discord_v1.MessageEmbed
-	15,  // 182: discord_v1.WebhookParams.attachments:type_name -> discord_v1.MessageAttachment
-	14,  // 183: discord_v1.WebhookParams.allowed_mentions:type_name -> discord_v1.MessageAllowedMentions
-	141, // 184: discord_v1.WebhookEdit.components:type_name -> google.protobuf.Any
-	23,  // 185: discord_v1.WebhookEdit.embeds:type_name -> discord_v1.MessageEmbed
-	11,  // 186: discord_v1.WebhookEdit.files:type_name -> discord_v1.File
-	15,  // 187: discord_v1.WebhookEdit.attachments:type_name -> discord_v1.MessageAttachment
-	14,  // 188: discord_v1.WebhookEdit.allowed_mentions:type_name -> discord_v1.MessageAllowedMentions
-	40,  // 189: discord_v1.Application.IntegrationTypesConfigEntry.value:type_name -> discord_v1.ApplicationIntegrationTypeConfig
-	64,  // 190: discord_v1.State.GuildMapEntry.value:type_name -> discord_v1.Guild
-	50,  // 191: discord_v1.State.ChannelMapEntry.value:type_name -> discord_v1.Channel
-	192, // [192:192] is the sub-list for method output_type
-	192, // [192:192] is the sub-list for method input_type
-	192, // [192:192] is the sub-list for extension type_name
-	192, // [192:192] is the sub-list for extension extendee
-	0,   // [0:192] is the sub-list for field type_name
+	135, // 178: discord_v1.Webhook.user:type_name -> discord_v1.User
+	20,  // 179: discord_v1.WebhookParams.files:type_name -> discord_v1.File
+	181, // 180: discord_v1.WebhookParams.components:type_name -> google.protobuf.Any
+	32,  // 181: discord_v1.WebhookParams.embeds:type_name -> discord_v1.MessageEmbed
+	24,  // 182: discord_v1.WebhookParams.attachments:type_name -> discord_v1.MessageAttachment
+	23,  // 183: discord_v1.WebhookParams.allowed_mentions:type_name -> discord_v1.MessageAllowedMentions
+	1,   // 184: discord_v1.WebhookParams.flags:type_name -> discord_v1.MessageFlags
+	181, // 185: discord_v1.WebhookEdit.components:type_name -> google.protobuf.Any
+	32,  // 186: discord_v1.WebhookEdit.embeds:type_name -> discord_v1.MessageEmbed
+	20,  // 187: discord_v1.WebhookEdit.files:type_name -> discord_v1.File
+	24,  // 188: discord_v1.WebhookEdit.attachments:type_name -> discord_v1.MessageAttachment
+	23,  // 189: discord_v1.WebhookEdit.allowed_mentions:type_name -> discord_v1.MessageAllowedMentions
+	12,  // 190: discord_v1.ApplicationCommand.type:type_name -> discord_v1.ApplicationCommandType
+	164, // 191: discord_v1.ApplicationCommand.name_localizations:type_name -> discord_v1.ApplicationCommand.NameLocalizationsEntry
+	13,  // 192: discord_v1.ApplicationCommand.contexts:type_name -> discord_v1.InteractionContextType
+	14,  // 193: discord_v1.ApplicationCommand.integration_types:type_name -> discord_v1.ApplicationIntegrationType
+	165, // 194: discord_v1.ApplicationCommand.description_localizations:type_name -> discord_v1.ApplicationCommand.DescriptionLocalizationsEntry
+	143, // 195: discord_v1.ApplicationCommand.options:type_name -> discord_v1.ApplicationCommandOption
+	15,  // 196: discord_v1.ApplicationCommandOption.type:type_name -> discord_v1.ApplicationCommandOptionType
+	166, // 197: discord_v1.ApplicationCommandOption.name_localizations:type_name -> discord_v1.ApplicationCommandOption.NameLocalizationsEntry
+	167, // 198: discord_v1.ApplicationCommandOption.description_localizations:type_name -> discord_v1.ApplicationCommandOption.DescriptionLocalizationsEntry
+	10,  // 199: discord_v1.ApplicationCommandOption.channel_types:type_name -> discord_v1.ChannelType
+	143, // 200: discord_v1.ApplicationCommandOption.options:type_name -> discord_v1.ApplicationCommandOption
+	144, // 201: discord_v1.ApplicationCommandOption.choices:type_name -> discord_v1.ApplicationCommandOptionChoice
+	168, // 202: discord_v1.ApplicationCommandOptionChoice.name_localizations:type_name -> discord_v1.ApplicationCommandOptionChoice.NameLocalizationsEntry
+	16,  // 203: discord_v1.ApplicationCommandPermissions.type:type_name -> discord_v1.ApplicationCommandPermissionType
+	145, // 204: discord_v1.ApplicationCommandPermissionsList.permissions:type_name -> discord_v1.ApplicationCommandPermissions
+	145, // 205: discord_v1.GuildApplicationCommandPermissions.permissions:type_name -> discord_v1.ApplicationCommandPermissions
+	17,  // 206: discord_v1.Interaction.type:type_name -> discord_v1.InteractionType
+	149, // 207: discord_v1.Interaction.application_command_data:type_name -> discord_v1.ApplicationCommandInteractionData
+	151, // 208: discord_v1.Interaction.message_component_data:type_name -> discord_v1.MessageComponentInteractionData
+	153, // 209: discord_v1.Interaction.modal_submit_data:type_name -> discord_v1.ModalSubmitInteractionData
+	19,  // 210: discord_v1.Interaction.message:type_name -> discord_v1.Message
+	94,  // 211: discord_v1.Interaction.member:type_name -> discord_v1.Member
+	135, // 212: discord_v1.Interaction.user:type_name -> discord_v1.User
+	13,  // 213: discord_v1.Interaction.context:type_name -> discord_v1.InteractionContextType
+	169, // 214: discord_v1.Interaction.authorizing_integration_owners:type_name -> discord_v1.Interaction.AuthorizingIntegrationOwnersEntry
+	130, // 215: discord_v1.Interaction.entitlements:type_name -> discord_v1.Entitlement
+	12,  // 216: discord_v1.ApplicationCommandInteractionData.command_type:type_name -> discord_v1.ApplicationCommandType
+	150, // 217: discord_v1.ApplicationCommandInteractionData.resolved:type_name -> discord_v1.ApplicationCommandInteractionDataResolved
+	154, // 218: discord_v1.ApplicationCommandInteractionData.options:type_name -> discord_v1.ApplicationCommandInteractionDataOption
+	170, // 219: discord_v1.ApplicationCommandInteractionDataResolved.users:type_name -> discord_v1.ApplicationCommandInteractionDataResolved.UsersEntry
+	171, // 220: discord_v1.ApplicationCommandInteractionDataResolved.members:type_name -> discord_v1.ApplicationCommandInteractionDataResolved.MembersEntry
+	172, // 221: discord_v1.ApplicationCommandInteractionDataResolved.roles:type_name -> discord_v1.ApplicationCommandInteractionDataResolved.RolesEntry
+	173, // 222: discord_v1.ApplicationCommandInteractionDataResolved.channels:type_name -> discord_v1.ApplicationCommandInteractionDataResolved.ChannelsEntry
+	174, // 223: discord_v1.ApplicationCommandInteractionDataResolved.messages:type_name -> discord_v1.ApplicationCommandInteractionDataResolved.MessagesEntry
+	175, // 224: discord_v1.ApplicationCommandInteractionDataResolved.attachments:type_name -> discord_v1.ApplicationCommandInteractionDataResolved.AttachmentsEntry
+	11,  // 225: discord_v1.MessageComponentInteractionData.component_type:type_name -> discord_v1.ComponentType
+	152, // 226: discord_v1.MessageComponentInteractionData.resolved:type_name -> discord_v1.MessageComponentInteractionDataResolved
+	176, // 227: discord_v1.MessageComponentInteractionDataResolved.users:type_name -> discord_v1.MessageComponentInteractionDataResolved.UsersEntry
+	177, // 228: discord_v1.MessageComponentInteractionDataResolved.members:type_name -> discord_v1.MessageComponentInteractionDataResolved.MembersEntry
+	178, // 229: discord_v1.MessageComponentInteractionDataResolved.roles:type_name -> discord_v1.MessageComponentInteractionDataResolved.RolesEntry
+	179, // 230: discord_v1.MessageComponentInteractionDataResolved.channels:type_name -> discord_v1.MessageComponentInteractionDataResolved.ChannelsEntry
+	181, // 231: discord_v1.ModalSubmitInteractionData.components:type_name -> google.protobuf.Any
+	15,  // 232: discord_v1.ApplicationCommandInteractionDataOption.type:type_name -> discord_v1.ApplicationCommandOptionType
+	154, // 233: discord_v1.ApplicationCommandInteractionDataOption.options:type_name -> discord_v1.ApplicationCommandInteractionDataOption
+	18,  // 234: discord_v1.InteractionResponse.type:type_name -> discord_v1.InteractionResponseType
+	156, // 235: discord_v1.InteractionResponse.data:type_name -> discord_v1.InteractionResponseData
+	181, // 236: discord_v1.InteractionResponseData.components:type_name -> google.protobuf.Any
+	32,  // 237: discord_v1.InteractionResponseData.embeds:type_name -> discord_v1.MessageEmbed
+	23,  // 238: discord_v1.InteractionResponseData.allowed_mentions:type_name -> discord_v1.MessageAllowedMentions
+	20,  // 239: discord_v1.InteractionResponseData.files:type_name -> discord_v1.File
+	24,  // 240: discord_v1.InteractionResponseData.attachments:type_name -> discord_v1.MessageAttachment
+	123, // 241: discord_v1.InteractionResponseData.poll:type_name -> discord_v1.Poll
+	1,   // 242: discord_v1.InteractionResponseData.flags:type_name -> discord_v1.MessageFlags
+	144, // 243: discord_v1.InteractionResponseData.choices:type_name -> discord_v1.ApplicationCommandOptionChoice
+	49,  // 244: discord_v1.Application.IntegrationTypesConfigEntry.value:type_name -> discord_v1.ApplicationIntegrationTypeConfig
+	73,  // 245: discord_v1.State.GuildMapEntry.value:type_name -> discord_v1.Guild
+	59,  // 246: discord_v1.State.ChannelMapEntry.value:type_name -> discord_v1.Channel
+	135, // 247: discord_v1.ApplicationCommandInteractionDataResolved.UsersEntry.value:type_name -> discord_v1.User
+	94,  // 248: discord_v1.ApplicationCommandInteractionDataResolved.MembersEntry.value:type_name -> discord_v1.Member
+	88,  // 249: discord_v1.ApplicationCommandInteractionDataResolved.RolesEntry.value:type_name -> discord_v1.Role
+	59,  // 250: discord_v1.ApplicationCommandInteractionDataResolved.ChannelsEntry.value:type_name -> discord_v1.Channel
+	19,  // 251: discord_v1.ApplicationCommandInteractionDataResolved.MessagesEntry.value:type_name -> discord_v1.Message
+	24,  // 252: discord_v1.ApplicationCommandInteractionDataResolved.AttachmentsEntry.value:type_name -> discord_v1.MessageAttachment
+	135, // 253: discord_v1.MessageComponentInteractionDataResolved.UsersEntry.value:type_name -> discord_v1.User
+	94,  // 254: discord_v1.MessageComponentInteractionDataResolved.MembersEntry.value:type_name -> discord_v1.Member
+	88,  // 255: discord_v1.MessageComponentInteractionDataResolved.RolesEntry.value:type_name -> discord_v1.Role
+	59,  // 256: discord_v1.MessageComponentInteractionDataResolved.ChannelsEntry.value:type_name -> discord_v1.Channel
+	257, // [257:257] is the sub-list for method output_type
+	257, // [257:257] is the sub-list for method input_type
+	257, // [257:257] is the sub-list for extension type_name
+	257, // [257:257] is the sub-list for extension extendee
+	0,   // [0:257] is the sub-list for field type_name
 }
 
-func init() { file_discord_v1_message_proto_init() }
-func file_discord_v1_message_proto_init() {
-	if File_discord_v1_message_proto != nil {
+func init() { file_discord_v1_discordgo_proto_init() }
+func file_discord_v1_discordgo_proto_init() {
+	if File_discord_v1_discordgo_proto != nil {
 		return
 	}
-	file_discord_v1_message_proto_msgTypes[119].OneofWrappers = []any{}
-	file_discord_v1_message_proto_msgTypes[120].OneofWrappers = []any{}
-	file_discord_v1_message_proto_msgTypes[121].OneofWrappers = []any{}
+	file_discord_v1_discordgo_proto_msgTypes[119].OneofWrappers = []any{}
+	file_discord_v1_discordgo_proto_msgTypes[120].OneofWrappers = []any{}
+	file_discord_v1_discordgo_proto_msgTypes[121].OneofWrappers = []any{}
+	file_discord_v1_discordgo_proto_msgTypes[123].OneofWrappers = []any{}
+	file_discord_v1_discordgo_proto_msgTypes[124].OneofWrappers = []any{}
+	file_discord_v1_discordgo_proto_msgTypes[125].OneofWrappers = []any{
+		(*ApplicationCommandOptionChoice_StringValue)(nil),
+		(*ApplicationCommandOptionChoice_IntegerValue)(nil),
+		(*ApplicationCommandOptionChoice_NumberValue)(nil),
+	}
+	file_discord_v1_discordgo_proto_msgTypes[129].OneofWrappers = []any{
+		(*Interaction_ApplicationCommandData)(nil),
+		(*Interaction_MessageComponentData)(nil),
+		(*Interaction_ModalSubmitData)(nil),
+	}
+	file_discord_v1_discordgo_proto_msgTypes[130].OneofWrappers = []any{}
+	file_discord_v1_discordgo_proto_msgTypes[132].OneofWrappers = []any{}
+	file_discord_v1_discordgo_proto_msgTypes[135].OneofWrappers = []any{
+		(*ApplicationCommandInteractionDataOption_StringValue)(nil),
+		(*ApplicationCommandInteractionDataOption_IntegerValue)(nil),
+		(*ApplicationCommandInteractionDataOption_BooleanValue)(nil),
+		(*ApplicationCommandInteractionDataOption_UserValueId)(nil),
+		(*ApplicationCommandInteractionDataOption_ChannelValueId)(nil),
+		(*ApplicationCommandInteractionDataOption_RoleValueId)(nil),
+		(*ApplicationCommandInteractionDataOption_MentionableValueId)(nil),
+		(*ApplicationCommandInteractionDataOption_NumberValue)(nil),
+		(*ApplicationCommandInteractionDataOption_AttachmentValueId)(nil),
+	}
+	file_discord_v1_discordgo_proto_msgTypes[136].OneofWrappers = []any{}
+	file_discord_v1_discordgo_proto_msgTypes[137].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_discord_v1_message_proto_rawDesc), len(file_discord_v1_message_proto_rawDesc)),
-			NumEnums:      10,
-			NumMessages:   130,
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_discord_v1_discordgo_proto_rawDesc), len(file_discord_v1_discordgo_proto_rawDesc)),
+			NumEnums:      19,
+			NumMessages:   161,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_discord_v1_message_proto_goTypes,
-		DependencyIndexes: file_discord_v1_message_proto_depIdxs,
-		EnumInfos:         file_discord_v1_message_proto_enumTypes,
-		MessageInfos:      file_discord_v1_message_proto_msgTypes,
+		GoTypes:           file_discord_v1_discordgo_proto_goTypes,
+		DependencyIndexes: file_discord_v1_discordgo_proto_depIdxs,
+		EnumInfos:         file_discord_v1_discordgo_proto_enumTypes,
+		MessageInfos:      file_discord_v1_discordgo_proto_msgTypes,
 	}.Build()
-	File_discord_v1_message_proto = out.File
-	file_discord_v1_message_proto_goTypes = nil
-	file_discord_v1_message_proto_depIdxs = nil
+	File_discord_v1_discordgo_proto = out.File
+	file_discord_v1_discordgo_proto_goTypes = nil
+	file_discord_v1_discordgo_proto_depIdxs = nil
 }
