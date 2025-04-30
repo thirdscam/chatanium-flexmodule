@@ -4,16 +4,21 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
+type InitResponse struct {
+	// if bot needs to register interactions, write them here
+	Interactions []*discordgo.ApplicationCommand
+}
+
 type Hook interface {
-	OnInit() error
-	OnCreateChatMessage(message discordgo.Message) error
-	OnCreateInteraction(interaction discordgo.Interaction) error
+	OnInit() InitResponse
+	OnCreateChatMessage(message *discordgo.Message) error
+	OnCreateInteraction(interaction *discordgo.Interaction) error
 	OnEvent(event string) error
 }
 
 type Helper interface {
-	SendMessage(message discordgo.Message) error
-	SendMessageToChannel(channelID string, message discordgo.Message) error
+	// SendMessage(message *discordgo.Message) error
+	// SendMessageToChannel(channelID string, message *discordgo.Message) error
 }
 
 // AbstractHooks is a partial implementation of the hook Interface.
