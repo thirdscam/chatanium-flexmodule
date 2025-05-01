@@ -17,6 +17,7 @@ type GRPCServer struct {
 	broker *plugin.GRPCBroker
 }
 
+// OnInit is called when the discord plugin is initialized.
 func (m *GRPCServer) OnInit(ctx context.Context, req *proto_common.Empty) (*proto.InitResponse, error) {
 	resp := m.Impl.OnInit()
 

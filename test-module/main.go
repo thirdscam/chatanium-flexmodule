@@ -1,6 +1,8 @@
 package main
 
 import (
+	"github.com/bwmarrin/discordgo"
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/go-plugin"
 	broker "github.com/thirdscam/chatanium-flexmodule/shared"
 	Core "github.com/thirdscam/chatanium-flexmodule/shared/core-v1"
@@ -21,6 +23,8 @@ var MANIFEST = Core.Manifest{
 	Repository:  "github:thirdscam/chatanium-flexmodule",
 	Permissions: PERMISSIONS,
 }
+
+var log hclog.Logger
 
 type core struct {
 	ready bool
@@ -50,8 +54,9 @@ func (m *core) GetStatus() (Core.Status, error) {
 // OnStage is a Hook that signals that the runtime has
 // entered a particular lifecycle stage.
 func (m *core) OnStage(stage string) {
+	log.Debug("OnStage", "stage", stage)
 	switch stage {
-	case "    ":
+	case "MODULE_INIT":
 		m.ready = true
 	case "MODULE_START":
 		// do something
@@ -69,11 +74,51 @@ type discord struct {
 	Discord.AbstractHooks
 }
 
-func main() {
-	broker.ServeToRuntime(map[string]plugin.Plugin{
-		"core-v1": &Core.Plugin{Impl: &core{}},
+func (u *discord) OnInit() Discord.InitResponse {
+	return Discord.InitResponse{
+		Interactions: []*discordgo.ApplicationCommand{
+			{
+				Name:        "test",
+				Description: "Test command",
+			},
+		},
+	}
+}
 
-		// // if want to implement more plugins, you can add it here!
-		// "discord-v1": &Discord.Plugin{Impl: &discord{}},
+func (u *discord) OnCreateChatMessage(m *discordgo.Message) error {
+	log.Info("MESSAGE_CREATE", "message", hclog.Fmt("%+v", m))
+	return nil
+}
+
+func (u *discord) OnCreateInteraction(i *discordgo.Interaction) error {
+	log.Debug("INTERACTION_CREATE", "interaction", hclog.Fmt("%+v", i))
+
+	if i.Type == discordgo.InteractionApplicationCommand {
+		if i.ApplicationCommandData().Name == "test" {
+			err := broker.SendInteractionResponse(i.ID, i.Token, &discordgo.InteractionResponse{
+				Type: discordgo.InteractionResponseChannelMessageWithSource,
+				Data: &discordgo.InteractionResponseData{
+					Content: "Hello, world!",
+				},
+			})
+			if err != nil {
+				log.Error("Error sending interaction response", "error", err.Error())
+				return err
+			}
+		}
+	}
+	return nil
+}
+
+func main() {
+	log = hclog.New(&hclog.LoggerOptions{
+		Name:       "TestModule",
+		Level:      hclog.LevelFromString("DEBUG"),
+		JSONFormat: true,
+	})
+
+	broker.ServeToRuntime(map[string]plugin.Plugin{
+		"core-v1":    &Core.Plugin{Impl: &core{}},
+		"discord-v1": &Discord.Plugin{Impl: &discord{}},
 	})
 }

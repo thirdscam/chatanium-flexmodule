@@ -27,16 +27,15 @@ type Helper interface {
 // implement a subset of the hook Interface.
 type AbstractHooks struct{}
 
-// asdasdasd
-func (u *AbstractHooks) OnInit() error {
+func (u *AbstractHooks) OnInit() InitResponse {
+	return InitResponse{}
+}
+
+func (u *AbstractHooks) OnCreateChatMessage(m *discordgo.Message) error {
 	return nil
 }
 
-func (u *AbstractHooks) OnCreateChatMessage(m discordgo.Message) error {
-	return nil
-}
-
-func (u *AbstractHooks) OnCreateInteraction(i discordgo.Interaction) error {
+func (u *AbstractHooks) OnCreateInteraction(i *discordgo.Interaction) error {
 	return nil
 }
 

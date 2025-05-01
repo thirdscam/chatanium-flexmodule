@@ -275,6 +275,25 @@ func BufMessageToStruct(buf *proto.Message) *discordgo.Message {
 		embeds = append(embeds, BufMessageEmbedToStruct(embed))
 	}
 
+	var activity *discordgo.MessageActivity
+	if buf.Activity != nil {
+		activity = &discordgo.MessageActivity{
+			Type:    discordgo.MessageActivityType(buf.Activity.Type),
+			PartyID: buf.Activity.PartyId,
+		}
+	}
+
+	var application *discordgo.MessageApplication
+	if buf.Application != nil {
+		application = &discordgo.MessageApplication{
+			ID:          buf.Application.Id,
+			CoverImage:  buf.Application.CoverImage,
+			Description: buf.Application.Description,
+			Icon:        buf.Application.Icon,
+			Name:        buf.Application.Name,
+		}
+	}
+
 	return &discordgo.Message{
 		ID:              buf.Id,
 		ChannelID:       buf.ChannelId,
@@ -295,17 +314,8 @@ func BufMessageToStruct(buf *proto.Message) *discordgo.Message {
 		WebhookID:       buf.WebhookId,
 		Member:          BufMemberToStruct(buf.Member),
 		MentionChannels: mentionChannels,
-		Activity: &discordgo.MessageActivity{
-			Type:    discordgo.MessageActivityType(buf.Activity.Type),
-			PartyID: buf.Activity.PartyId,
-		},
-		Application: &discordgo.MessageApplication{
-			ID:          buf.Application.Id,
-			CoverImage:  buf.Application.CoverImage,
-			Description: buf.Application.Description,
-			Icon:        buf.Application.Icon,
-			Name:        buf.Application.Name,
-		},
+		Activity:        activity,
+		Application:     application,
 	}
 }
 

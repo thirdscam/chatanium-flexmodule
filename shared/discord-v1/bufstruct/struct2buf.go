@@ -382,21 +382,43 @@ func StructToBufMessage(s *discordgo.Message) *proto.Message {
 	}
 }
 
-// func StructToBufInteraction(s *discordgo.Interaction) *proto.Interaction {
-// 	if s == nil {
-// 		return nil
-// 	}
+func StructToBufInteraction(s *discordgo.Interaction) *proto.Interaction {
+	if s == nil {
+		return nil
+	}
 
-// 	return &proto.Interaction{
-// 		Id:        s.ID,
-// 		AppId:     s.AppID,
-// 		Type:      proto.InteractionType(s.Type),
-// 		GuildId:   s.GuildID,
-// 		ChannelId: s.ChannelID,
-// 		Message:   StructToBufMessage(s.Message),
-// 		User:      StructToBufUser(s.User),
-// 	}
-// }
+	var guildLocale *string
+	if s.GuildLocale != nil {
+		gl := string(*s.GuildLocale)
+		guildLocale = &gl
+	}
+
+	// implements Data
+	data := s.Data
+	if data != nil {
+
+			
+
+	return &proto.Interaction{
+		Id:                           s.ID,
+		AppId:                        s.AppID,
+		Type:                         proto.InteractionType(s.Type),
+		GuildId:                      s.GuildID,
+		ChannelId:                    s.ChannelID,
+		Message:                      StructToBufMessage(s.Message),
+		User:                         StructToBufUser(s.User),
+		Data:                         nil, // TODO(discord/bufstruct): implements Data
+		AppPermissions:               s.AppPermissions,
+		Member:                       StructToBufMember(s.Member),
+		Locale:                       string(s.Locale),
+		GuildLocale:                  guildLocale,
+		Context:                      0,
+		AuthorizingIntegrationOwners: nil,
+		Token:                        "",
+		Version:                      0,
+		Entitlements:                 nil,
+	}
+}
 
 func StructToBufApplicationCmd(s *discordgo.ApplicationCommand) *proto.ApplicationCommand {
 	if s == nil {
@@ -412,7 +434,12 @@ func StructToBufApplicationCmd(s *discordgo.ApplicationCommand) *proto.Applicati
 	case discordgo.MessageApplicationCommand:
 		cmdType = 3
 	default:
-		panic("StructToBufApplicationCmd > unknown command type")
+		cmdType = 0
+	}
+
+	var defaultMemberPermissions int64
+	if s.DefaultMemberPermissions != nil {
+		defaultMemberPermissions = *s.DefaultMemberPermissions
 	}
 
 	return &proto.ApplicationCommand{
@@ -424,7 +451,7 @@ func StructToBufApplicationCmd(s *discordgo.ApplicationCommand) *proto.Applicati
 		Name:              s.Name,
 		NameLocalizations: nil, // TODO(discord/bufstruct): implements NameLocalizations
 		// DefaultPermission:        s.DefaultPermission, // Deprecated
-		DefaultMemberPermissions: *s.DefaultMemberPermissions,
+		DefaultMemberPermissions: defaultMemberPermissions,
 		// DmPermission:             s.DMPermission, // Deprecated
 		Nsfw:                     s.NSFW,
 		Description:              s.Description,
