@@ -1651,16 +1651,30 @@ message Interaction {
     string app_id = 2;
     InteractionType type = 3;
 
-    // The Data field is an interface in Go, representing different interaction data types.
-    // Use a oneof in protobuf to represent the possible data payloads.
-    oneof data {
-        ApplicationCommandInteractionData application_command_data = 4;
-        MessageComponentInteractionData message_component_data = 5;
-        ModalSubmitInteractionData modal_submit_data = 6;
-        // Autocomplete data often reuses ApplicationCommandInteractionData but with 'focused' set.
-        // If it has a distinct structure, add it here.
-        // ApplicationCommandAutocompleteInteractionData autocomplete_data = 7; // Example if separate
-    }
+    // In discordgo, there is a conversion process from the original
+    // rawInteraction to an Interaction.
+    //
+    // To do this, they use UnmarshalJSON() to type-cast the raw
+    // data ([]byte) and inject it into Interaction.Data.
+    //
+    // Therefore, we leave this field as bytes field because we need
+    // to do the typecasting in the plugin anyway. Therefore, when
+    // we pass the discord-v1/server.go to the plugin side as
+    // discordgo.Interaction type, we need to receive it as
+    // discordgo.rawInteraction type and perform
+    // UnmarshalJSON(data) once to pass it.
+    bytes data = 4;
+
+    // // The Data field is an interface in Go, representing different interaction data types.
+    // // Use a oneof in protobuf to represent the possible data payloads.
+    // oneof data {
+    //     ApplicationCommandInteractionData application_command_data = 4;
+    //     MessageComponentInteractionData message_component_data = 5;
+    //     ModalSubmitInteractionData modal_submit_data = 6;
+    //     // Autocomplete data often reuses ApplicationCommandInteractionData but with 'focused' set.
+    //     // If it has a distinct structure, add it here.
+    //     // ApplicationCommandAutocompleteInteractionData autocomplete_data = 7; // Example if separate
+    // }
 
     string guild_id = 8;
     string channel_id = 9;
