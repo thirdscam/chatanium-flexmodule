@@ -1,4 +1,4 @@
-package bufstruct
+package buf2struct
 
 import (
 	"github.com/bwmarrin/discordgo"
