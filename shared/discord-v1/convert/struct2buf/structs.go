@@ -187,3 +187,23 @@ func ThreadMember(s *discordgo.ThreadMember) *proto.ThreadMember {
 		Member:        Member(s.Member),
 	}
 }
+
+func Role(s *discordgo.Role) *proto.Role {
+	if s == nil {
+		return nil
+	}
+
+	return &proto.Role{
+		Id:           s.ID,
+		Name:         s.Name,
+		Managed:      s.Managed,
+		Mentionable:  s.Mentionable,
+		Hoist:        s.Hoist,
+		Color:        int32(s.Color),
+		Position:     int32(s.Position),
+		Permissions:  s.Permissions,
+		Icon:         s.Icon,
+		UnicodeEmoji: s.UnicodeEmoji,
+		Flags:        int32(s.Flags),
+	}
+}
