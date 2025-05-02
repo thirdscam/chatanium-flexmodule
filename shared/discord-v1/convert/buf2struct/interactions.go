@@ -66,7 +66,7 @@ func Interaction(buf *proto.Interaction) *discordgo.Interaction {
 		AppPermissions: buf.AppPermissions,
 		Member:         Member(buf.Member),
 		User:           User(buf.User),
-		Locale:         util.StringToLocale(buf.Locale), // TODO(discord/bufstruct): implements Locale
+		Locale:         util.StringToLocale(buf.Locale),
 		GuildLocale:    guildLocale,
 		// Context:                      0,   // TODO(discord/bufstruct): Preparing for discordgo updates (^v0.28.1)
 		// AuthorizingIntegrationOwners: nil, // TODO(discord/bufstruct): Preparing for discordgo updates (^v0.28.1)
