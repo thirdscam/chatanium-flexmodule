@@ -18,7 +18,7 @@ func Message(buf *proto.Message) *discordgo.Message {
 
 	mentionChannels := make([]*discordgo.Channel, 0)
 	for _, channel := range buf.MentionChannels {
-		mentionChannels = append(mentionChannels, BufChannelToStruct(channel))
+		mentionChannels = append(mentionChannels, Channel(channel))
 	}
 
 	embeds := make([]*discordgo.MessageEmbed, 0)
@@ -88,83 +88,6 @@ func MessageAttachment(buf *proto.MessageAttachment) *discordgo.MessageAttachmen
 	}
 }
 
-func BufChannelToStruct(buf *proto.Channel) *discordgo.Channel {
-	if buf == nil {
-		return nil
-	}
-
-	recipients := make([]*discordgo.User, 0)
-	for _, recipient := range buf.Recipients {
-		recipients = append(recipients, User(recipient))
-	}
-
-	availableTags := make([]discordgo.ForumTag, 0)
-	for _, tag := range buf.AvailableTags {
-		availableTags = append(availableTags, *ForumTag(tag))
-	}
-
-	permissionOverwrites := make([]*discordgo.PermissionOverwrite, 0)
-	for _, overwrite := range buf.PermissionOverwrites {
-		permissionOverwrites = append(permissionOverwrites, &discordgo.PermissionOverwrite{
-			ID:    overwrite.Id,
-			Type:  discordgo.PermissionOverwriteType(overwrite.Type),
-			Deny:  overwrite.Deny,
-			Allow: overwrite.Allow,
-		})
-	}
-
-	sortOrder := discordgo.ForumSortOrderType(buf.DefaultSortOrder)
-	defaultSortOrder := &sortOrder
-	return &discordgo.Channel{
-		ID:                   buf.Id,
-		GuildID:              buf.GuildId,
-		Name:                 buf.Name,
-		Topic:                buf.Topic,
-		Type:                 discordgo.ChannelType(buf.Type),
-		LastMessageID:        buf.LastMessageId,
-		LastPinTimestamp:     util.PbTimestamp2AsTimePtr(buf.LastPinTimestamp),
-		MessageCount:         int(buf.MessageCount),
-		MemberCount:          int(buf.MemberCount),
-		NSFW:                 buf.Nsfw,
-		Icon:                 buf.Icon,
-		Position:             int(buf.Position),
-		Bitrate:              int(buf.Bitrate),
-		Recipients:           recipients,
-		Messages:             nil, // TODO: Mapping state-enabled fields (#1)
-		PermissionOverwrites: permissionOverwrites,
-		UserLimit:            int(buf.UserLimit),
-		ParentID:             buf.ParentId,
-		RateLimitPerUser:     int(buf.RateLimitPerUser),
-		OwnerID:              buf.OwnerId,
-		ApplicationID:        buf.ApplicationId,
-		ThreadMetadata: &discordgo.ThreadMetadata{
-			Archived:            buf.ThreadMetadata.Archived,
-			AutoArchiveDuration: int(buf.ThreadMetadata.AutoArchiveDuration),
-			ArchiveTimestamp:    buf.ThreadMetadata.ArchiveTimestamp.AsTime(),
-			Locked:              buf.ThreadMetadata.Locked,
-			Invitable:           buf.ThreadMetadata.Invitable,
-		},
-		Member: &discordgo.ThreadMember{
-			ID:            buf.Member.Id,
-			UserID:        buf.Member.UserId,
-			JoinTimestamp: buf.Member.JoinTimestamp.AsTime(),
-			Flags:         int(buf.Member.Flags),
-			Member:        Member(buf.Member.Member),
-		},
-		Members:       nil, // TODO: Mapping state-enabled fields (#1)
-		Flags:         discordgo.ChannelFlags(buf.Flags),
-		AvailableTags: availableTags,
-		AppliedTags:   buf.AppliedTags,
-		DefaultReactionEmoji: discordgo.ForumDefaultReaction{
-			EmojiID:   buf.DefaultReactionEmoji.EmojiId,
-			EmojiName: buf.DefaultReactionEmoji.EmojiName,
-		},
-		DefaultThreadRateLimitPerUser: int(buf.DefaultThreadRateLimitPerUser),
-		DefaultSortOrder:              defaultSortOrder,
-		DefaultForumLayout:            discordgo.ForumLayout(buf.DefaultForumLayout),
-	}
-}
-
 func MessageEmbed(buf *proto.MessageEmbed) *discordgo.MessageEmbed {
 	if buf == nil {
 		return nil
@@ -172,11 +95,7 @@ func MessageEmbed(buf *proto.MessageEmbed) *discordgo.MessageEmbed {
 
 	messageEmbedField := make([]*discordgo.MessageEmbedField, 0)
 	for _, field := range buf.Fields {
-		messageEmbedField = append(messageEmbedField, &discordgo.MessageEmbedField{
-			Name:   field.Name,
-			Value:  field.Value,
-			Inline: field.Inline,
-		})
+		messageEmbedField = append(messageEmbedField, MessageEmbedField(field))
 	}
 
 	return &discordgo.MessageEmbed{
@@ -186,38 +105,110 @@ func MessageEmbed(buf *proto.MessageEmbed) *discordgo.MessageEmbed {
 		Description: buf.Description,
 		Timestamp:   buf.Timestamp,
 		Color:       int(buf.Color),
-		Footer: &discordgo.MessageEmbedFooter{
-			Text:         buf.Footer.Text,
-			IconURL:      buf.Footer.IconUrl,
-			ProxyIconURL: buf.Footer.ProxyIconUrl,
-		},
-		Image: &discordgo.MessageEmbedImage{
-			URL:      buf.Image.Url,
-			ProxyURL: buf.Image.ProxyUrl,
-			Height:   int(buf.Image.Height),
-			Width:    int(buf.Image.Width),
-		},
-		Thumbnail: &discordgo.MessageEmbedThumbnail{
-			URL:      buf.Thumbnail.Url,
-			ProxyURL: buf.Thumbnail.ProxyUrl,
-			Height:   int(buf.Thumbnail.Height),
-			Width:    int(buf.Thumbnail.Width),
-		},
-		Video: &discordgo.MessageEmbedVideo{
-			URL:    buf.Video.Url,
-			Height: int(buf.Video.Height),
-			Width:  int(buf.Video.Width),
-		},
-		Provider: &discordgo.MessageEmbedProvider{
-			URL:  buf.Provider.Url,
-			Name: buf.Provider.Name,
-		},
-		Author: &discordgo.MessageEmbedAuthor{
-			URL:          buf.Author.Url,
-			Name:         buf.Author.Name,
-			IconURL:      buf.Author.IconUrl,
-			ProxyIconURL: buf.Author.ProxyIconUrl,
-		},
-		Fields: messageEmbedField,
+		Footer:      MessageEmbedFooter(buf.Footer),
+		Image:       MessageEmbedImage(buf.Image),
+		Thumbnail:   MessageEmbedThumbnail(buf.Thumbnail),
+		Video:       MessageEmbedVideo(buf.Video),
+		Provider:    MessageEmbedProvider(buf.Provider),
+		Author:      MessageEmbedAuthor(buf.Author),
+		Fields:      messageEmbedField,
+	}
+}
+
+func MessageEmbedField(buf *proto.MessageEmbedField) *discordgo.MessageEmbedField {
+	if buf == nil {
+		return nil
+	}
+
+	return &discordgo.MessageEmbedField{
+		Name:   buf.Name,
+		Value:  buf.Value,
+		Inline: buf.Inline,
+	}
+}
+
+func MessageEmbedFooter(buf *proto.MessageEmbedFooter) *discordgo.MessageEmbedFooter {
+	if buf == nil {
+		return nil
+	}
+
+	return &discordgo.MessageEmbedFooter{
+		Text:         buf.Text,
+		IconURL:      buf.IconUrl,
+		ProxyIconURL: buf.ProxyIconUrl,
+	}
+}
+
+func MessageEmbedImage(buf *proto.MessageEmbedImage) *discordgo.MessageEmbedImage {
+	if buf == nil {
+		return nil
+	}
+
+	return &discordgo.MessageEmbedImage{
+		URL:      buf.Url,
+		ProxyURL: buf.ProxyUrl,
+		Height:   int(buf.Height),
+		Width:    int(buf.Width),
+	}
+}
+
+func MessageEmbedThumbnail(buf *proto.MessageEmbedThumbnail) *discordgo.MessageEmbedThumbnail {
+	if buf == nil {
+		return nil
+	}
+
+	return &discordgo.MessageEmbedThumbnail{
+		URL:      buf.Url,
+		ProxyURL: buf.ProxyUrl,
+		Height:   int(buf.Height),
+		Width:    int(buf.Width),
+	}
+}
+
+func MessageEmbedVideo(buf *proto.MessageEmbedVideo) *discordgo.MessageEmbedVideo {
+	if buf == nil {
+		return nil
+	}
+
+	return &discordgo.MessageEmbedVideo{
+		URL:    buf.Url,
+		Height: int(buf.Height),
+		Width:  int(buf.Width),
+	}
+}
+
+func MessageEmbedProvider(buf *proto.MessageEmbedProvider) *discordgo.MessageEmbedProvider {
+	if buf == nil {
+		return nil
+	}
+
+	return &discordgo.MessageEmbedProvider{
+		URL:  buf.Url,
+		Name: buf.Name,
+	}
+}
+
+func MessageEmbedAuthor(buf *proto.MessageEmbedAuthor) *discordgo.MessageEmbedAuthor {
+	if buf == nil {
+		return nil
+	}
+
+	return &discordgo.MessageEmbedAuthor{
+		URL:          buf.Url,
+		Name:         buf.Name,
+		IconURL:      buf.IconUrl,
+		ProxyIconURL: buf.ProxyIconUrl,
+	}
+}
+
+func MessageReactions(buf *proto.MessageReactions) *discordgo.MessageReactions {
+	if buf == nil {
+		return nil
+	}
+
+	return &discordgo.MessageReactions{
+		Count: int(buf.Count),
+		Me:    buf.Me,
+		Emoji: Emoji(buf.Emoji),
 	}
 }

@@ -101,40 +101,21 @@ func Interaction(s *discordgo.Interaction) *proto.Interaction {
 		switch s.Data.Type() {
 		case discordgo.InteractionApplicationCommand, discordgo.InteractionApplicationCommandAutocomplete:
 			data := s.Data.(discordgo.ApplicationCommandInteractionData)
-			options := make([]*proto.ApplicationCommandInteractionDataOption, 0)
-			for _, v := range data.Options {
-				options = append(options, ApplicationCommandInteractionDataOption(v))
-			}
-
 			result.Data = &proto.Interaction_ApplicationCommandData{
-				ApplicationCommandData: &proto.ApplicationCommandInteractionData{
-					Id:          data.ID,
-					Name:        data.Name,
-					CommandType: proto.ApplicationCommandType(data.CommandType),
-					Resolved:    ApplicationCommandInteractionDataResolved(data.Resolved),
-					Options:     options,
-					TargetId:    data.TargetID,
-				},
+				ApplicationCommandData: ApplicationCommandInteractionData(&data),
 			}
 		case discordgo.InteractionMessageComponent:
 			data := s.Data.(discordgo.MessageComponentInteractionData)
 			result.Data = &proto.Interaction_MessageComponentData{
-				MessageComponentData: &proto.MessageComponentInteractionData{
-					CustomId:      data.CustomID,
-					ComponentType: proto.ComponentType(data.ComponentType),
-					Resolved:      MessageComponentInteractionDataResolved(&data.Resolved),
-					Values:        data.Values,
-				},
+				MessageComponentData: MessageComponentInteractionData(&data),
 			}
 		case discordgo.InteractionModalSubmit:
 			data := s.Data.(discordgo.ModalSubmitInteractionData)
 			result.Data = &proto.Interaction_ModalSubmitData{
-				ModalSubmitData: &proto.ModalSubmitInteractionData{
-					CustomId:   data.CustomID,
-					Components: nil, // TODO(discord/bufstruct): implements MessageComponent
-				},
+				ModalSubmitData: ModalSubmitInteractionData(&data),
 			}
-
+		default:
+			fmt.Printf("Interaction > unknown interaction data type: %d\n", s.Data.Type())
 		}
 	}
 
@@ -146,45 +127,18 @@ func ApplicationCommandInteractionData(s *discordgo.ApplicationCommandInteractio
 		return nil
 	}
 
+	options := make([]*proto.ApplicationCommandInteractionDataOption, 0)
+	for _, v := range s.Options {
+		options = append(options, ApplicationCommandInteractionDataOption(v))
+	}
+
 	return &proto.ApplicationCommandInteractionData{
 		Id:          s.ID,
 		Name:        s.Name,
 		CommandType: proto.ApplicationCommandType(s.CommandType),
 		Resolved:    ApplicationCommandInteractionDataResolved(s.Resolved),
+		Options:     options, // TODO(discord/bufstruct): implements Options
 		TargetId:    s.TargetID,
-	}
-}
-
-func MessageComponentInteractionDataResolved(s *discordgo.MessageComponentInteractionDataResolved) *proto.MessageComponentInteractionDataResolved {
-	if s == nil {
-		return nil
-	}
-
-	users := make(map[string]*proto.User)
-	for k, v := range s.Users {
-		users[k] = User(v)
-	}
-
-	members := make(map[string]*proto.Member)
-	for k, v := range s.Members {
-		members[k] = Member(v)
-	}
-
-	roles := make(map[string]*proto.Role)
-	for k, v := range s.Roles {
-		roles[k] = Role(v)
-	}
-
-	channels := make(map[string]*proto.Channel)
-	for k, v := range s.Channels {
-		channels[k] = Channel(v)
-	}
-
-	return &proto.MessageComponentInteractionDataResolved{
-		Users:    users,
-		Members:  members,
-		Roles:    roles,
-		Channels: channels,
 	}
 }
 
@@ -276,7 +230,7 @@ func ApplicationCommandInteractionDataOption(s *discordgo.ApplicationCommandInte
 		case discordgo.ApplicationCommandOptionChannel:
 			channel := s.ChannelValue(DiscordSession)
 			if channel == nil {
-				fmt.Println("ApplicationCommandInteractionDataOption > discordgo.Channel is nil, filling channel_id field with empty string")
+				fmt.Println("ApplicationCommandInteractionDataOption > discordgo.Channel is nil")
 				result.Value = &proto.ApplicationCommandInteractionDataOption_ChannelValueId{
 					ChannelValueId: "",
 				}
@@ -289,4 +243,61 @@ func ApplicationCommandInteractionDataOption(s *discordgo.ApplicationCommandInte
 	}
 
 	return result
+}
+
+func MessageComponentInteractionData(s *discordgo.MessageComponentInteractionData) *proto.MessageComponentInteractionData {
+	if s == nil {
+		return nil
+	}
+
+	return &proto.MessageComponentInteractionData{
+		CustomId:      s.CustomID,
+		ComponentType: proto.ComponentType(s.ComponentType),
+		Resolved:      MessageComponentInteractionDataResolved(&s.Resolved),
+		Values:        s.Values,
+	}
+}
+
+func MessageComponentInteractionDataResolved(s *discordgo.MessageComponentInteractionDataResolved) *proto.MessageComponentInteractionDataResolved {
+	if s == nil {
+		return nil
+	}
+
+	users := make(map[string]*proto.User)
+	for k, v := range s.Users {
+		users[k] = User(v)
+	}
+
+	members := make(map[string]*proto.Member)
+	for k, v := range s.Members {
+		members[k] = Member(v)
+	}
+
+	roles := make(map[string]*proto.Role)
+	for k, v := range s.Roles {
+		roles[k] = Role(v)
+	}
+
+	channels := make(map[string]*proto.Channel)
+	for k, v := range s.Channels {
+		channels[k] = Channel(v)
+	}
+
+	return &proto.MessageComponentInteractionDataResolved{
+		Users:    users,
+		Members:  members,
+		Roles:    roles,
+		Channels: channels,
+	}
+}
+
+func ModalSubmitInteractionData(s *discordgo.ModalSubmitInteractionData) *proto.ModalSubmitInteractionData {
+	if s == nil {
+		return nil
+	}
+
+	return &proto.ModalSubmitInteractionData{
+		CustomId:   s.CustomID,
+		Components: nil, // TODO(discord/bufstruct): implements Components
+	}
 }

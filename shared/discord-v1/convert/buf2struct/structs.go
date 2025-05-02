@@ -46,17 +46,98 @@ func Member(buf *proto.Member) *discordgo.Member {
 	}
 }
 
-func ForumTag(buf *proto.ForumTag) *discordgo.ForumTag {
+func Channel(buf *proto.Channel) *discordgo.Channel {
 	if buf == nil {
 		return nil
 	}
 
-	return &discordgo.ForumTag{
-		ID:        buf.Id,
-		Name:      buf.Name,
+	recipients := make([]*discordgo.User, 0)
+	for _, recipient := range buf.Recipients {
+		recipients = append(recipients, User(recipient))
+	}
+
+	availableTags := make([]discordgo.ForumTag, 0)
+	for _, tag := range buf.AvailableTags {
+		availableTags = append(availableTags, *ForumTag(tag))
+	}
+
+	permissionOverwrites := make([]*discordgo.PermissionOverwrite, 0)
+	for _, overwrite := range buf.PermissionOverwrites {
+		permissionOverwrites = append(permissionOverwrites, PermissionOverwrite(overwrite))
+	}
+
+	sortOrder := discordgo.ForumSortOrderType(buf.DefaultSortOrder)
+	defaultSortOrder := &sortOrder
+	return &discordgo.Channel{
+		ID:                            buf.Id,
+		GuildID:                       buf.GuildId,
+		Name:                          buf.Name,
+		Topic:                         buf.Topic,
+		Type:                          discordgo.ChannelType(buf.Type),
+		LastMessageID:                 buf.LastMessageId,
+		LastPinTimestamp:              util.PbTimestamp2AsTimePtr(buf.LastPinTimestamp),
+		MessageCount:                  int(buf.MessageCount),
+		MemberCount:                   int(buf.MemberCount),
+		NSFW:                          buf.Nsfw,
+		Icon:                          buf.Icon,
+		Position:                      int(buf.Position),
+		Bitrate:                       int(buf.Bitrate),
+		Recipients:                    recipients,
+		Messages:                      nil, // TODO: Mapping state-enabled fields (#1)
+		PermissionOverwrites:          permissionOverwrites,
+		UserLimit:                     int(buf.UserLimit),
+		ParentID:                      buf.ParentId,
+		RateLimitPerUser:              int(buf.RateLimitPerUser),
+		OwnerID:                       buf.OwnerId,
+		ApplicationID:                 buf.ApplicationId,
+		ThreadMetadata:                ThreadMetadata(buf.ThreadMetadata),
+		Member:                        ThreadMember(buf.Member),
+		Members:                       nil, // TODO: Mapping state-enabled fields (#1)
+		Flags:                         discordgo.ChannelFlags(buf.Flags),
+		AvailableTags:                 availableTags,
+		AppliedTags:                   buf.AppliedTags,
+		DefaultReactionEmoji:          *ForumDefaultReaction(buf.DefaultReactionEmoji),
+		DefaultThreadRateLimitPerUser: int(buf.DefaultThreadRateLimitPerUser),
+		DefaultSortOrder:              defaultSortOrder,
+		DefaultForumLayout:            discordgo.ForumLayout(buf.DefaultForumLayout),
+	}
+}
+
+func ForumDefaultReaction(buf *proto.ForumDefaultReaction) *discordgo.ForumDefaultReaction {
+	if buf == nil {
+		return nil
+	}
+
+	return &discordgo.ForumDefaultReaction{
 		EmojiID:   buf.EmojiId,
 		EmojiName: buf.EmojiName,
-		Moderated: buf.Moderated,
+	}
+}
+
+func PermissionOverwrite(buf *proto.PermissionOverwrite) *discordgo.PermissionOverwrite {
+	if buf == nil {
+		return nil
+	}
+
+	return &discordgo.PermissionOverwrite{
+		ID:    buf.Id,
+		Type:  discordgo.PermissionOverwriteType(buf.Type),
+		Deny:  buf.Deny,
+		Allow: buf.Allow,
+	}
+}
+
+func ThreadMetadata(buf *proto.ThreadMetadata) *discordgo.ThreadMetadata {
+	if buf == nil {
+		return nil
+	}
+
+	return &discordgo.ThreadMetadata{
+		Archived:            buf.Archived,
+		AutoArchiveDuration: int(buf.AutoArchiveDuration),
+		ArchiveTimestamp:    buf.ArchiveTimestamp.AsTime(),
+		Locked:              buf.Locked,
+		Invitable:           buf.Invitable,
 	}
 }
 
@@ -74,15 +155,17 @@ func ThreadMember(buf *proto.ThreadMember) *discordgo.ThreadMember {
 	}
 }
 
-func MessageReactions(buf *proto.MessageReactions) *discordgo.MessageReactions {
+func ForumTag(buf *proto.ForumTag) *discordgo.ForumTag {
 	if buf == nil {
 		return nil
 	}
 
-	return &discordgo.MessageReactions{
-		Count: int(buf.Count),
-		Me:    buf.Me,
-		Emoji: Emoji(buf.Emoji),
+	return &discordgo.ForumTag{
+		ID:        buf.Id,
+		Name:      buf.Name,
+		EmojiID:   buf.EmojiId,
+		EmojiName: buf.EmojiName,
+		Moderated: buf.Moderated,
 	}
 }
 
@@ -103,47 +186,22 @@ func Emoji(buf *proto.Emoji) *discordgo.Emoji {
 	}
 }
 
-func Interaction(buf *proto.Interaction) *discordgo.Interaction {
+func Role(buf *proto.Role) *discordgo.Role {
 	if buf == nil {
 		return nil
 	}
 
-	return &discordgo.Interaction{
-		ID:             buf.Id,
-		AppID:          buf.AppId,
-		Type:           discordgo.InteractionType(buf.Type),
-		GuildID:        buf.GuildId,
-		ChannelID:      buf.ChannelId,
-		Message:        Message(buf.Message),
-		AppPermissions: buf.AppPermissions,
-		Member:         Member(buf.Member),
-		User:           User(buf.User),
-		Locale:         "",                                   // TODO(discord/bufstruct): implements Locale
-		GuildLocale:    (*discordgo.Locale)(buf.GuildLocale), // TODO(discord/bufstruct): add type guard
-		Token:          buf.Token,
-		Version:        int(buf.Version),
-	}
-}
-
-func ApplicationCommand(buf *proto.ApplicationCommand) *discordgo.ApplicationCommand {
-	if buf == nil {
-		return nil
-	}
-
-	return &discordgo.ApplicationCommand{
-		ID:                buf.Id,
-		ApplicationID:     buf.ApplicationId,
-		GuildID:           buf.GuildId,
-		Version:           buf.Version,
-		Type:              discordgo.ApplicationCommandType(buf.Type),
-		Name:              buf.Name,
-		NameLocalizations: nil, // TODO(discord/bufstruct): implements NameLocalizations
-		// DefaultPermission:        buf.DefaultPermission, // Deprecated
-		DefaultMemberPermissions: &buf.DefaultMemberPermissions,
-		// DMPermission:             buf.DmPermission, // Deprecated
-		NSFW:                     buf.Nsfw,
-		Description:              buf.Description,
-		DescriptionLocalizations: nil, // TODO(discord/bufstruct): implements DescriptionLocalizations
-		Options:                  nil, // TODO(discord/bufstruct): implements Options
+	return &discordgo.Role{
+		ID:           buf.Id,
+		Name:         buf.Name,
+		Managed:      buf.Managed,
+		Mentionable:  buf.Mentionable,
+		Hoist:        buf.Hoist,
+		Color:        int(buf.Color),
+		Position:     int(buf.Position),
+		Permissions:  buf.Permissions,
+		Icon:         buf.Icon,
+		UnicodeEmoji: buf.UnicodeEmoji,
+		Flags:        discordgo.RoleFlags(buf.Flags),
 	}
 }

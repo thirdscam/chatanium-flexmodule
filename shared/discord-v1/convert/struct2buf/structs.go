@@ -143,6 +143,20 @@ func ThreadMetadata(s *discordgo.ThreadMetadata) *proto.ThreadMetadata {
 	}
 }
 
+func ThreadMember(s *discordgo.ThreadMember) *proto.ThreadMember {
+	if s == nil {
+		return nil
+	}
+
+	return &proto.ThreadMember{
+		Id:            s.ID,
+		UserId:        s.UserID,
+		JoinTimestamp: timestamppb.New(s.JoinTimestamp),
+		Flags:         int32(s.Flags),
+		Member:        Member(s.Member),
+	}
+}
+
 func ForumTag(s *discordgo.ForumTag) *proto.ForumTag {
 	if s == nil {
 		return nil
@@ -171,20 +185,6 @@ func Emoji(s *discordgo.Emoji) *proto.Emoji {
 		Managed:       s.Managed,
 		Animated:      s.Animated,
 		Available:     s.Available,
-	}
-}
-
-func ThreadMember(s *discordgo.ThreadMember) *proto.ThreadMember {
-	if s == nil {
-		return nil
-	}
-
-	return &proto.ThreadMember{
-		Id:            s.ID,
-		UserId:        s.UserID,
-		JoinTimestamp: timestamppb.New(s.JoinTimestamp),
-		Flags:         int32(s.Flags),
-		Member:        Member(s.Member),
 	}
 }
 
