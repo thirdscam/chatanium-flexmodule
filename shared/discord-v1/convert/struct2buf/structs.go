@@ -98,7 +98,7 @@ func Channel(s *discordgo.Channel) *proto.Channel {
 		Flags:                         int32(s.Flags),
 		AvailableTags:                 availableTags,
 		AppliedTags:                   s.AppliedTags,
-		DefaultReactionEmoji:          ForumDefaultReactionNonPtr(s.DefaultReactionEmoji),
+		DefaultReactionEmoji:          ForumDefaultReaction(&s.DefaultReactionEmoji),
 		DefaultThreadRateLimitPerUser: int32(s.DefaultThreadRateLimitPerUser),
 		DefaultSortOrder:              defaultSortOrder,
 		DefaultForumLayout:            int32(s.DefaultForumLayout),

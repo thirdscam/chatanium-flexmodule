@@ -86,7 +86,7 @@ func (u *discord) OnInit() Discord.InitResponse {
 }
 
 func (u *discord) OnCreateChatMessage(m *discordgo.Message) error {
-	log.Info("MESSAGE_CREATE", "message", hclog.Fmt("%+v", m))
+	log.Debug("MESSAGE_CREATE", "message", hclog.Fmt("%+v", m))
 	return nil
 }
 
@@ -95,16 +95,17 @@ func (u *discord) OnCreateInteraction(i *discordgo.Interaction) error {
 
 	if i.Type == discordgo.InteractionApplicationCommand {
 		if i.ApplicationCommandData().Name == "test" {
-			err := broker.SendInteractionResponse(i.ID, i.Token, &discordgo.InteractionResponse{
-				Type: discordgo.InteractionResponseChannelMessageWithSource,
-				Data: &discordgo.InteractionResponseData{
-					Content: "Hello, world!",
-				},
-			})
-			if err != nil {
-				log.Error("Error sending interaction response", "error", err.Error())
-				return err
-			}
+			log.Debug("INTERACTION_CREATE > test")
+			// err := broker.SendInteractionResponse(i.ID, i.Token, &discordgo.InteractionResponse{
+			// 	Type: discordgo.InteractionResponseChannelMessageWithSource,
+			// 	Data: &discordgo.InteractionResponseData{
+			// 		Content: "Hello, world!",
+			// 	},
+			// })
+			// if err != nil {
+			// 	log.Error("Error sending interaction response", "error", err.Error())
+			// 	return err
+			// }
 		}
 	}
 	return nil

@@ -6,7 +6,8 @@ import (
 	plugin "github.com/hashicorp/go-plugin"
 	proto_common "github.com/thirdscam/chatanium-flexmodule/proto"
 	proto "github.com/thirdscam/chatanium-flexmodule/proto/discord-v1"
-	"github.com/thirdscam/chatanium-flexmodule/shared/discord-v1/bufstruct"
+	"github.com/thirdscam/chatanium-flexmodule/shared/discord-v1/convert/buf2struct"
+	"github.com/thirdscam/chatanium-flexmodule/shared/discord-v1/convert/struct2buf"
 )
 
 // Here is the gRPC server that GRPCClient talks to.
@@ -21,15 +22,20 @@ type GRPCServer struct {
 func (m *GRPCServer) OnInit(ctx context.Context, req *proto_common.Empty) (*proto.InitResponse, error) {
 	resp := m.Impl.OnInit()
 
+	interactions := make([]*proto.ApplicationCommand, 0)
+	for _, v := range resp.Interactions {
+		interactions = append(interactions, struct2buf.ApplicationCommmand(v))
+	}
+
 	return &proto.InitResponse{
-		Interactions: bufstruct.StructToBufApplicationCmds(resp.Interactions),
+		Interactions: interactions,
 	}, nil
 }
 
 // OnCreateChatMessage is called when a message is created from the runtime.
 func (m *GRPCServer) OnCreateMessage(ctx context.Context, req *proto.Message) (*proto_common.Empty, error) {
 	// Convert the protobuf message to a discordgo.Message struct
-	m.Impl.OnCreateChatMessage(bufstruct.BufMessageToStruct(req))
+	m.Impl.OnCreateChatMessage(buf2struct.Message(req))
 
 	// Hook function is not required to return anything to the client (runtime)
 	return &proto_common.Empty{}, nil
@@ -38,7 +44,7 @@ func (m *GRPCServer) OnCreateMessage(ctx context.Context, req *proto.Message) (*
 // OnCreateInteraction is called when an interaction is created from the runtime.
 func (m *GRPCServer) OnCreateInteraction(ctx context.Context, req *proto.Interaction) (*proto_common.Empty, error) {
 	// Convert the protobuf message to a discordgo.Interaction struct
-	m.Impl.OnCreateInteraction(bufstruct.BufInteractionToStruct(req))
+	m.Impl.OnCreateInteraction(buf2struct.Interaction(req))
 
 	// Hook function is not required to return anything to the client (runtime)
 	return &proto_common.Empty{}, nil

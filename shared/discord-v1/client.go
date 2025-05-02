@@ -7,7 +7,8 @@ import (
 	plugin "github.com/hashicorp/go-plugin"
 	proto_common "github.com/thirdscam/chatanium-flexmodule/proto"
 	proto "github.com/thirdscam/chatanium-flexmodule/proto/discord-v1"
-	"github.com/thirdscam/chatanium-flexmodule/shared/discord-v1/bufstruct"
+	"github.com/thirdscam/chatanium-flexmodule/shared/discord-v1/convert/buf2struct"
+	"github.com/thirdscam/chatanium-flexmodule/shared/discord-v1/convert/struct2buf"
 )
 
 // GRPCClient is an implementation of Hook that talks over RPC.
@@ -28,7 +29,7 @@ func (m *GRPCClient) OnInit() InitResponse {
 	for _, interaction := range resp.Interactions {
 		// Convert the interaction to a discordgo.ApplicationCommand
 		// and add it to the list of interactions.
-		cmds = append(cmds, bufstruct.BufApplicationCmdToStruct(interaction))
+		cmds = append(cmds, buf2struct.ApplicationCommand(interaction))
 	}
 
 	return InitResponse{
@@ -40,7 +41,7 @@ func (m *GRPCClient) OnInit() InitResponse {
 func (m *GRPCClient) OnCreateChatMessage(message *discordgo.Message) error {
 	_, err := m.client.OnCreateMessage(
 		context.Background(),
-		bufstruct.StructToBufMessage(message),
+		struct2buf.Message(message),
 	)
 	return err
 }
@@ -49,7 +50,7 @@ func (m *GRPCClient) OnCreateChatMessage(message *discordgo.Message) error {
 func (m *GRPCClient) OnCreateInteraction(interaction *discordgo.Interaction) error {
 	_, err := m.client.OnCreateInteraction(
 		context.Background(),
-		bufstruct.StructToBufInteraction(interaction),
+		struct2buf.Interaction(interaction),
 	)
 	return err
 }
