@@ -17,7 +17,8 @@ type Hook interface {
 }
 
 type Helper interface {
-	// SendMessage(message *discordgo.Message) error
+	SendMessage(message *discordgo.Message) error
+	SendInteractionResponse(interactionID, interactionToken string, response *discordgo.InteractionResponse) error
 	// SendMessageToChannel(channelID string, message *discordgo.Message) error
 }
 

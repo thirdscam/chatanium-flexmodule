@@ -94,6 +94,7 @@ func (u *discord) OnCreateInteraction(i *discordgo.Interaction) error {
 	log.Debug("INTERACTION_CREATE", "interaction", hclog.Fmt("%+v", i))
 
 	if i.Type == discordgo.InteractionApplicationCommand {
+		log.Debug("INTERACTION_CREATE", "i.Type", i.Type, "i.Data", i.Data)
 		if i.ApplicationCommandData().Name == "test" {
 			log.Debug("INTERACTION_CREATE > test")
 			// err := broker.SendInteractionResponse(i.ID, i.Token, &discordgo.InteractionResponse{

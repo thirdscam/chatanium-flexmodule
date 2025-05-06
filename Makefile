@@ -4,3 +4,5 @@ build:
 	GOOS=linux GOARCH=amd64 go build -o ./bin/runtime .
 buf:
 	rm -rf ./proto/*.pb.go ./proto/**/*.pb.go && cd proto && buf generate
+run:
+	make build && ./bin/runtime

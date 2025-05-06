@@ -78,13 +78,13 @@ func Interaction(buf *proto.Interaction) *discordgo.Interaction {
 	switch buf.Data.(type) {
 	case *proto.Interaction_ApplicationCommandData:
 		appCmdData := buf.Data.(*proto.Interaction_ApplicationCommandData).ApplicationCommandData
-		interaction.Data = ApplicationCommandInteractionData(appCmdData)
+		interaction.Data = *ApplicationCommandInteractionData(appCmdData)
 	case *proto.Interaction_MessageComponentData:
 		msgCompData := buf.Data.(*proto.Interaction_MessageComponentData).MessageComponentData
-		interaction.Data = MessageComponentInteractionData(msgCompData)
+		interaction.Data = *MessageComponentInteractionData(msgCompData)
 	case *proto.Interaction_ModalSubmitData:
 		modalSubmitData := buf.Data.(*proto.Interaction_ModalSubmitData).ModalSubmitData
-		interaction.Data = ModalSubmitInteractionData(modalSubmitData)
+		interaction.Data = *ModalSubmitInteractionData(modalSubmitData)
 	default:
 		fmt.Println("Interaction > Unknown interaction data type")
 	}

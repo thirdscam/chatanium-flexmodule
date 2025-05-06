@@ -62,7 +62,7 @@ func main() {
 		HandshakeConfig: shared.Handshake,
 		Plugins:         shared.PluginMap,
 		Cmd:             exec.Command("sh", "-c", os.Getenv("PLUGIN_PATH")),
-		Logger:          log.ResetNamed("Module"),
+		Logger:          log.ResetNamed("Module").Named("TestModule"),
 		AllowedProtocols: []plugin.Protocol{
 			plugin.ProtocolGRPC,
 		},
@@ -151,6 +151,11 @@ func RunDiscordV1(client plugin.ClientProtocol) {
 	}
 
 	dgSession.AddHandler(func(s *discordgo.Session, i *discordgo.MessageCreate) {
+		log.Debug("Discord", "type", "MESSAGE_CREATE", "message", hclog.Fmt("%+v", i.Message))
+		hook.OnCreateChatMessage(i.Message)
+	})
+
+	dgSession.AddHandler(func(s *discordgo.Session, i *discordgo.MessageDelete) {
 		log.Debug("Discord", "type", "MESSAGE_CREATE", "message", hclog.Fmt("%+v", i.Message))
 		hook.OnCreateChatMessage(i.Message)
 	})
