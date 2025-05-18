@@ -3,7 +3,7 @@
 We're completely stripping out Chatanium's existing Go Plugin-based module system and creating a new one here.
 
 ## Goals
-![Diagram](https://github.com/user-attachments/assets/c9085d53-aabd-47ce-9b85-5b8254c94f08)
+![Diagram](https://github.com/user-attachments/assets/f5ca80f8-8ec9-487c-ae5a-0aa07191b020)
 
 Once our PoC implementation for multi-provider (Backend) is finalized, this codebase will be adapted to Chatanium v2.
 
