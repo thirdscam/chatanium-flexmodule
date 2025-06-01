@@ -4,6 +4,8 @@ We're completely stripping out Chatanium's existing Go Plugin-based module syste
 
 ## Goals
 
+![FlexModule Diagram](https://github.com/user-attachments/assets/1cf77e2c-ea04-47be-b2c5-1d4bb7bd9fc6)
+
 Once our PoC implementation for multi-provider (Backend) is finalized, this codebase will be adapted to Chatanium v2.
 
 ## Design
