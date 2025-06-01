@@ -5,7 +5,10 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/go-plugin"
 	broker "github.com/thirdscam/chatanium-flexmodule/shared"
+
 	Core "github.com/thirdscam/chatanium-flexmodule/shared/core-v1"
+	CorePlugin "github.com/thirdscam/chatanium-flexmodule/shared/core-v1/module"
+
 	Discord "github.com/thirdscam/chatanium-flexmodule/shared/discord-v1"
 )
 
@@ -27,32 +30,30 @@ var MANIFEST = Core.Manifest{
 var log hclog.Logger
 
 type core struct {
+	// You don't necessarily need to use a variable named ready for your Core implementation like this.
+	// However, we recommend that you implement some other logic that allows you to control the IsReady field of Core.Status.
 	ready bool
 }
 
 // GetManifest returns the manifest of the plugin.
 //
-// Identify modules at runtime, and proactively check for
-// required permissions.
+// Identify modules at runtime, and proactively check for required permissions.
 //
-// Note that out-of-permission features may be ignored
-// based on runtime preferences.
+// Note: out-of-permission features may be ignored based on runtime preferences.
 func (m *core) GetManifest() (Core.Manifest, error) {
 	return MANIFEST, nil
 }
 
 // GetStatus returns the status of the plugin.
 //
-// If IsReady is not true, no hooks will be called at
-// runtime for the backend extension.
+// If IsReady is not true, no hooks will be called at runtime for the backend extension.
 func (m *core) GetStatus() (Core.Status, error) {
 	return Core.Status{
 		IsReady: m.ready,
 	}, nil
 }
 
-// OnStage is a Hook that signals that the runtime has
-// entered a particular lifecycle stage.
+// OnStage is a Hook that signals that the runtime has entered a particular lifecycle stage.
 func (m *core) OnStage(stage string) {
 	log.Debug("OnStage", "stage", stage)
 	switch stage {
@@ -67,10 +68,8 @@ func (m *core) OnStage(stage string) {
 }
 
 type discord struct {
-	// If you don't want to use all the hooks,
-	// you can embed this struct, which is an empty set
-	// of hooks, and use it similarly to implementing
-	// an abstract class.
+	// If you don't want to use all the hooks, you can embed this struct, which is an empty set
+	// of hooks, and use it similarly to implementing an abstract class.
 	Discord.AbstractHooks
 }
 
@@ -120,7 +119,7 @@ func main() {
 	})
 
 	broker.ServeToRuntime(map[string]plugin.Plugin{
-		"core-v1":    &Core.Plugin{Impl: &core{}},
+		"core-v1":    &CorePlugin.Plugin{Impl: &core{}},
 		"discord-v1": &Discord.Plugin{Impl: &discord{}},
 	})
 }

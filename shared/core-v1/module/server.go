@@ -1,4 +1,4 @@
-package core
+package module
 
 import (
 	"context"
@@ -6,21 +6,23 @@ import (
 	plugin "github.com/hashicorp/go-plugin"
 	proto_common "github.com/thirdscam/chatanium-flexmodule/proto"
 	proto "github.com/thirdscam/chatanium-flexmodule/proto/core-v1"
+	shared "github.com/thirdscam/chatanium-flexmodule/shared/core-v1"
 )
 
-// Here is the gRPC server that GRPCClient talks to.
+// This part works on the module-side and is the gRPC server implementation for the runtime.
 type GRPCServer struct {
-	// This is the real implementation
-	Impl   Hook
+	Impl   shared.Hook // Hook functions implemented by module developers
 	broker *plugin.GRPCBroker
 }
 
 func (m *GRPCServer) GetManifest(ctx context.Context, req *proto_common.Empty) (*proto.GetManifestResponse, error) {
+	// Receive results from modules
 	manifest, err := m.Impl.GetManifest()
 	if err != nil {
 		return nil, err
 	}
 
+	// Serve manifests to the runtime
 	return &proto.GetManifestResponse{
 		Name:        manifest.Name,
 		Version:     manifest.Version,
@@ -31,11 +33,13 @@ func (m *GRPCServer) GetManifest(ctx context.Context, req *proto_common.Empty) (
 }
 
 func (m *GRPCServer) GetStatus(ctx context.Context, req *proto_common.Empty) (*proto.GetStatusResponse, error) {
+	// Receive results from modules
 	status, err := m.Impl.GetStatus()
 	if err != nil {
 		return nil, err
 	}
 
+	// Serve status to the runtime
 	return &proto.GetStatusResponse{
 		IsReady: status.IsReady,
 	}, nil

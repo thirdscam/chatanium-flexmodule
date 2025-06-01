@@ -1,0 +1,26 @@
+package runtime
+
+import (
+	"context"
+
+	plugin "github.com/hashicorp/go-plugin"
+	proto "github.com/thirdscam/chatanium-flexmodule/proto/core-v1"
+	"google.golang.org/grpc"
+)
+
+// This is the implementation of plugin.Plugin so we can serve/consume this.
+// We also implement GRPCPlugin so that this plugin can be served over
+// gRPC.
+type Plugin struct {
+	plugin.NetRPCUnsupportedPlugin
+}
+
+func (p *Plugin) GRPCServer(broker *plugin.GRPCBroker, s *grpc.Server) error {
+	return nil
+}
+
+func (p *Plugin) GRPCClient(ctx context.Context, broker *plugin.GRPCBroker, c *grpc.ClientConn) (interface{}, error) {
+	return &GRPCClient{client: proto.NewHookClient(c), broker: broker}, nil
+}
+
+var _ plugin.GRPCPlugin = &Plugin{}

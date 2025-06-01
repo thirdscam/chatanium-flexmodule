@@ -60,7 +60,7 @@ func main() {
 	// We're a host. Start by launching the plugin process.
 	client := plugin.NewClient(&plugin.ClientConfig{
 		HandshakeConfig: shared.Handshake,
-		Plugins:         shared.PluginMap,
+		Plugins:         shared.RuntimePluginMap,
 		Cmd:             exec.Command("sh", "-c", os.Getenv("PLUGIN_PATH")),
 		Logger:          log.ResetNamed("Module").Named("TestModule"),
 		AllowedProtocols: []plugin.Protocol{

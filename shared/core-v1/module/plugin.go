@@ -1,10 +1,11 @@
-package core
+package module
 
 import (
 	"context"
 
 	plugin "github.com/hashicorp/go-plugin"
 	proto "github.com/thirdscam/chatanium-flexmodule/proto/core-v1"
+	shared "github.com/thirdscam/chatanium-flexmodule/shared/core-v1"
 	"google.golang.org/grpc"
 )
 
@@ -14,7 +15,7 @@ import (
 type Plugin struct {
 	plugin.NetRPCUnsupportedPlugin
 
-	Impl Hook
+	Impl shared.Hook
 }
 
 func (p *Plugin) GRPCServer(broker *plugin.GRPCBroker, s *grpc.Server) error {
@@ -26,7 +27,7 @@ func (p *Plugin) GRPCServer(broker *plugin.GRPCBroker, s *grpc.Server) error {
 }
 
 func (p *Plugin) GRPCClient(ctx context.Context, broker *plugin.GRPCBroker, c *grpc.ClientConn) (interface{}, error) {
-	return &GRPCClient{client: proto.NewHookClient(c), broker: broker}, nil
+	return nil, nil
 }
 
 var _ plugin.GRPCPlugin = &Plugin{}

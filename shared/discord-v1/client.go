@@ -17,6 +17,10 @@ type GRPCClient struct {
 	client proto.HookClient
 }
 
+// ================================================
+// Runtime -> Module Server (Hook)
+// ================================================
+
 // OnInit calls the OnInit RPC method and returns the initialization response.
 func (m *GRPCClient) OnInit() InitResponse {
 	resp, err := m.client.OnInit(context.Background(), &proto_common.Empty{})

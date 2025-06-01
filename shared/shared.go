@@ -2,7 +2,9 @@ package shared
 
 import (
 	"github.com/hashicorp/go-plugin"
-	core "github.com/thirdscam/chatanium-flexmodule/shared/core-v1"
+	core_module "github.com/thirdscam/chatanium-flexmodule/shared/core-v1/module"
+	core_runtime "github.com/thirdscam/chatanium-flexmodule/shared/core-v1/runtime"
+
 	discord "github.com/thirdscam/chatanium-flexmodule/shared/discord-v1"
 )
 
@@ -13,9 +15,16 @@ var Handshake = plugin.HandshakeConfig{
 	MagicCookieValue: "CHATANIUM_FOREVER",
 }
 
-// PluginMap is the map of plugins we can dispense.
-var PluginMap = map[string]plugin.Plugin{
-	"core-v1":    &core.Plugin{},
+// ModulePluginMap is the map of plugins for the runtime.
+// This map is used at runtime, so it's not needed in the module implementation.
+var RuntimePluginMap = map[string]plugin.Plugin{
+	"core-v1":    &core_runtime.Plugin{},
+	"discord-v1": &discord.Plugin{},
+}
+
+// ModulePluginMap is the map of plugins we can dispense.
+var ModulePluginMap = map[string]plugin.Plugin{
+	"core-v1":    &core_module.Plugin{},
 	"discord-v1": &discord.Plugin{},
 }
 
