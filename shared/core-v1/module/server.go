@@ -9,14 +9,16 @@ import (
 	shared "github.com/thirdscam/chatanium-flexmodule/shared/core-v1"
 )
 
+// `module/server.go` implements the gRPC server for receiving from the runtime.
+//
 // This part works on the module-side and is the gRPC server implementation for the runtime.
 type GRPCServer struct {
-	Impl   shared.Hook // Hook functions implemented by module developers
+	Impl   shared.Hook // Hook functions to be called from runtime (module developers must implement this!)
 	broker *plugin.GRPCBroker
 }
 
 func (m *GRPCServer) GetManifest(ctx context.Context, req *proto_common.Empty) (*proto.GetManifestResponse, error) {
-	// Receive results from modules
+	// Receive results from module
 	manifest, err := m.Impl.GetManifest()
 	if err != nil {
 		return nil, err
@@ -33,7 +35,7 @@ func (m *GRPCServer) GetManifest(ctx context.Context, req *proto_common.Empty) (
 }
 
 func (m *GRPCServer) GetStatus(ctx context.Context, req *proto_common.Empty) (*proto.GetStatusResponse, error) {
-	// Receive results from modules
+	// Receive results from module
 	status, err := m.Impl.GetStatus()
 	if err != nil {
 		return nil, err

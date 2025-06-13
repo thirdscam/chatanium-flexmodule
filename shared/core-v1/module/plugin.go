@@ -12,9 +12,9 @@ import (
 // FlexModule uses hashicorp/go-plugin:
 // So we need to declare a separate Plugin for the runtime and module.
 //
-// `server.go` implements the gRPC server for receiving from the runtime.
+// `module/server.go` implements the gRPC server for receiving from the runtime.
 //
-// `client.go` implements the gRPC client for making calls to the runtime.
+// `module/client.go` implements the gRPC client for making calls to the runtime.
 type Plugin struct {
 	plugin.NetRPCUnsupportedPlugin
 

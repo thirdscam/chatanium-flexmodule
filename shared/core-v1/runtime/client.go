@@ -9,6 +9,8 @@ import (
 	shared "github.com/thirdscam/chatanium-flexmodule/shared/core-v1"
 )
 
+// `runtime/client.go` implements the gRPC client for making calls to the module.
+//
 // This part works on the runtime-side and is the gRPC client implementation for the module.
 type GRPCClient struct {
 	broker *plugin.GRPCBroker
@@ -22,6 +24,7 @@ func (m *GRPCClient) GetManifest() (shared.Manifest, error) {
 		return shared.Manifest{}, err
 	}
 
+	// Pass the results received from the module to the runtime
 	return shared.Manifest{
 		Name:        resp.Name,
 		Version:     resp.Version,
@@ -38,6 +41,7 @@ func (m *GRPCClient) GetStatus() (shared.Status, error) {
 		return shared.Status{}, err
 	}
 
+	// Pass the results received from the module to the runtime
 	return shared.Status{
 		IsReady: resp.IsReady,
 	}, nil
