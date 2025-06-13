@@ -1,20 +1,24 @@
-package discord
+package module
 
 import (
 	"context"
 
 	plugin "github.com/hashicorp/go-plugin"
 	proto "github.com/thirdscam/chatanium-flexmodule/proto/discord-v1"
+	shared "github.com/thirdscam/chatanium-flexmodule/shared/discord-v1"
 	"google.golang.org/grpc"
 )
 
-// This is the implementation of plugin.Plugin so we can serve/consume this.
-// We also implement GRPCPlugin so that this plugin can be served over
-// gRPC.
+// FlexModule uses hashicorp/go-plugin:
+// So we need to declare a separate Plugin for the runtime and module.
+//
+// `module/server.go` implements the gRPC server for receiving from the runtime.
+//
+// `module/client.go` implements the gRPC client for making calls to the runtime.
 type Plugin struct {
 	plugin.NetRPCUnsupportedPlugin
 
-	Impl Hook
+	Impl shared.Hook
 }
 
 func (p *Plugin) GRPCServer(broker *plugin.GRPCBroker, s *grpc.Server) error {
@@ -26,7 +30,7 @@ func (p *Plugin) GRPCServer(broker *plugin.GRPCBroker, s *grpc.Server) error {
 }
 
 func (p *Plugin) GRPCClient(ctx context.Context, broker *plugin.GRPCBroker, c *grpc.ClientConn) (interface{}, error) {
-	return &GRPCClient{client: proto.NewHookClient(c), broker: broker}, nil
+	return nil, nil
 }
 
 var _ plugin.GRPCPlugin = &Plugin{}

@@ -1,4 +1,4 @@
-package discord
+package runtime
 
 import (
 	"context"
@@ -7,11 +7,14 @@ import (
 	plugin "github.com/hashicorp/go-plugin"
 	proto_common "github.com/thirdscam/chatanium-flexmodule/proto"
 	proto "github.com/thirdscam/chatanium-flexmodule/proto/discord-v1"
+	shared "github.com/thirdscam/chatanium-flexmodule/shared/discord-v1"
 	"github.com/thirdscam/chatanium-flexmodule/shared/discord-v1/convert/buf2struct"
 	"github.com/thirdscam/chatanium-flexmodule/shared/discord-v1/convert/struct2buf"
 )
 
-// GRPCClient is an implementation of Hook that talks over RPC.
+// `runtime/client.go` implements the gRPC client for making calls to the module.
+//
+// This part works on the runtime-side and is the gRPC client implementation for the module.
 type GRPCClient struct {
 	broker *plugin.GRPCBroker
 	client proto.HookClient
@@ -22,10 +25,10 @@ type GRPCClient struct {
 // ================================================
 
 // OnInit calls the OnInit RPC method and returns the initialization response.
-func (m *GRPCClient) OnInit() InitResponse {
+func (m *GRPCClient) OnInit() shared.InitResponse {
 	resp, err := m.client.OnInit(context.Background(), &proto_common.Empty{})
 	if err != nil {
-		return InitResponse{}
+		return shared.InitResponse{}
 	}
 
 	// Convert the interactions to discordgo.ApplicationCommand
@@ -36,7 +39,7 @@ func (m *GRPCClient) OnInit() InitResponse {
 		cmds = append(cmds, buf2struct.ApplicationCommand(interaction))
 	}
 
-	return InitResponse{
+	return shared.InitResponse{
 		Interactions: cmds,
 	}
 }

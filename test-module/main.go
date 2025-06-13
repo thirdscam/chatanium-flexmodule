@@ -10,6 +10,7 @@ import (
 	CorePlugin "github.com/thirdscam/chatanium-flexmodule/shared/core-v1/module"
 
 	Discord "github.com/thirdscam/chatanium-flexmodule/shared/discord-v1"
+	DiscordPlugin "github.com/thirdscam/chatanium-flexmodule/shared/discord-v1/module"
 )
 
 var PERMISSIONS = Core.Permissions{
@@ -120,6 +121,6 @@ func main() {
 
 	broker.ServeToRuntime(map[string]plugin.Plugin{
 		"core-v1":    &CorePlugin.Plugin{Impl: &core{}},
-		"discord-v1": &Discord.Plugin{Impl: &discord{}},
+		"discord-v1": &DiscordPlugin.Plugin{Impl: &discord{}},
 	})
 }

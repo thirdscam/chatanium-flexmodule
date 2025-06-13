@@ -5,7 +5,8 @@ import (
 	core_module "github.com/thirdscam/chatanium-flexmodule/shared/core-v1/module"
 	core_runtime "github.com/thirdscam/chatanium-flexmodule/shared/core-v1/runtime"
 
-	discord "github.com/thirdscam/chatanium-flexmodule/shared/discord-v1"
+	discord_module "github.com/thirdscam/chatanium-flexmodule/shared/discord-v1/module"
+	discord_runtime "github.com/thirdscam/chatanium-flexmodule/shared/discord-v1/runtime"
 )
 
 // Handshake is a common handshake that is shared by plugin and host.
@@ -19,13 +20,13 @@ var Handshake = plugin.HandshakeConfig{
 // This map is used at runtime, so it's not needed in the module implementation.
 var RuntimePluginMap = map[string]plugin.Plugin{
 	"core-v1":    &core_runtime.Plugin{},
-	"discord-v1": &discord.Plugin{},
+	"discord-v1": &discord_runtime.Plugin{},
 }
 
 // ModulePluginMap is the map of plugins we can dispense.
 var ModulePluginMap = map[string]plugin.Plugin{
 	"core-v1":    &core_module.Plugin{},
-	"discord-v1": &discord.Plugin{},
+	"discord-v1": &discord_module.Plugin{},
 }
 
 func ServeToRuntime(plugins map[string]plugin.Plugin) {
