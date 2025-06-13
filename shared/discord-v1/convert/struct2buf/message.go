@@ -228,3 +228,75 @@ func MessageReactions(s *discordgo.MessageReactions) *proto.MessageReactions {
 		Emoji: Emoji(s.Emoji),
 	}
 }
+
+func MessageSend(s *discordgo.MessageSend) *proto.MessageSend {
+	if s == nil {
+		return nil
+	}
+
+	embeds := make([]*proto.MessageEmbed, 0, len(s.Embeds))
+	for _, embed := range s.Embeds {
+		embeds = append(embeds, MessageEmbed(embed))
+	}
+
+	files := make([]*proto.File, 0, len(s.Files))
+	for _, file := range s.Files {
+		files = append(files, &proto.File{
+			Name:        file.Name,
+			ContentType: file.ContentType,
+		})
+	}
+
+	stickerIDs := append([]string(nil), s.StickerIDs...)
+
+	return &proto.MessageSend{
+		Content:    s.Content,
+		Embeds:     embeds,
+		Tts:        s.TTS,
+		Files:      files,
+		StickerIds: stickerIDs,
+		// Note: AllowedMentions and Reference need conversion functions
+		// Flags:      proto.MessageFlags(s.Flags),
+	}
+}
+
+func MessageEdit(s *discordgo.MessageEdit) *proto.MessageEdit {
+	if s == nil {
+		return nil
+	}
+
+	var embeds []*proto.MessageEmbed
+	if s.Embeds != nil {
+		embeds = make([]*proto.MessageEmbed, 0, len(*s.Embeds))
+		for _, embed := range *s.Embeds {
+			embeds = append(embeds, MessageEmbed(embed))
+		}
+	}
+
+	files := make([]*proto.File, 0, len(s.Files))
+	for _, file := range s.Files {
+		files = append(files, &proto.File{
+			Name:        file.Name,
+			ContentType: file.ContentType,
+		})
+	}
+
+	var attachments []*proto.MessageAttachment
+	if s.Attachments != nil {
+		attachments = make([]*proto.MessageAttachment, 0, len(*s.Attachments))
+		for _, attachment := range *s.Attachments {
+			attachments = append(attachments, MessageAttachment(attachment))
+		}
+	}
+
+	return &proto.MessageEdit{
+		Content:     util.StringPtrToString(s.Content),
+		Embeds:      embeds,
+		Files:       files,
+		Attachments: attachments,
+		Id:          s.ID,
+		Channel:     s.Channel,
+		// Note: AllowedMentions and Flags need proper handling
+		// Flags:      proto.MessageFlags(s.Flags),
+	}
+}

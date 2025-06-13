@@ -22,3 +22,17 @@ func AsTimePtrToPbTimestamp(t *time.Time) *timestamppb.Timestamp {
 
 	return timestamppb.New(*t)
 }
+
+func StringPtrToString(s *string) string {
+	if s == nil {
+		return ""
+	}
+	return *s
+}
+
+func IntPtrToInt(i *int) int {
+	if i == nil {
+		return 0
+	}
+	return *i
+}

@@ -7,7 +7,11 @@
 package discord_v1
 
 import (
+	context "context"
+	proto "github.com/thirdscam/chatanium-flexmodule/proto"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -15,12 +19,32 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-const ()
+const (
+	Helper_ChannelMessageSend_FullMethodName        = "/discord_v1.Helper/ChannelMessageSend"
+	Helper_ChannelMessageSendComplex_FullMethodName = "/discord_v1.Helper/ChannelMessageSendComplex"
+	Helper_ChannelMessageSendEmbed_FullMethodName   = "/discord_v1.Helper/ChannelMessageSendEmbed"
+	Helper_ChannelMessageSendEmbeds_FullMethodName  = "/discord_v1.Helper/ChannelMessageSendEmbeds"
+	Helper_ChannelMessageEdit_FullMethodName        = "/discord_v1.Helper/ChannelMessageEdit"
+	Helper_ChannelMessageEditComplex_FullMethodName = "/discord_v1.Helper/ChannelMessageEditComplex"
+	Helper_ChannelMessageDelete_FullMethodName      = "/discord_v1.Helper/ChannelMessageDelete"
+	Helper_ChannelMessages_FullMethodName           = "/discord_v1.Helper/ChannelMessages"
+	Helper_ChannelMessage_FullMethodName            = "/discord_v1.Helper/ChannelMessage"
+)
 
 // HelperClient is the client API for Helper service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type HelperClient interface {
+	// Message operations
+	ChannelMessageSend(ctx context.Context, in *ChannelMessageSendRequest, opts ...grpc.CallOption) (*ChannelMessageSendResponse, error)
+	ChannelMessageSendComplex(ctx context.Context, in *ChannelMessageSendComplexRequest, opts ...grpc.CallOption) (*ChannelMessageSendComplexResponse, error)
+	ChannelMessageSendEmbed(ctx context.Context, in *ChannelMessageSendEmbedRequest, opts ...grpc.CallOption) (*ChannelMessageSendEmbedResponse, error)
+	ChannelMessageSendEmbeds(ctx context.Context, in *ChannelMessageSendEmbedsRequest, opts ...grpc.CallOption) (*ChannelMessageSendEmbedsResponse, error)
+	ChannelMessageEdit(ctx context.Context, in *ChannelMessageEditRequest, opts ...grpc.CallOption) (*ChannelMessageEditResponse, error)
+	ChannelMessageEditComplex(ctx context.Context, in *ChannelMessageEditComplexRequest, opts ...grpc.CallOption) (*ChannelMessageEditComplexResponse, error)
+	ChannelMessageDelete(ctx context.Context, in *ChannelMessageDeleteRequest, opts ...grpc.CallOption) (*proto.Empty, error)
+	ChannelMessages(ctx context.Context, in *ChannelMessagesRequest, opts ...grpc.CallOption) (*ChannelMessagesResponse, error)
+	ChannelMessage(ctx context.Context, in *ChannelMessageRequest, opts ...grpc.CallOption) (*ChannelMessageResponse, error)
 }
 
 type helperClient struct {
@@ -31,14 +55,133 @@ func NewHelperClient(cc grpc.ClientConnInterface) HelperClient {
 	return &helperClient{cc}
 }
 
+func (c *helperClient) ChannelMessageSend(ctx context.Context, in *ChannelMessageSendRequest, opts ...grpc.CallOption) (*ChannelMessageSendResponse, error) {
+	out := new(ChannelMessageSendResponse)
+	err := c.cc.Invoke(ctx, Helper_ChannelMessageSend_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ChannelMessageSendComplex(ctx context.Context, in *ChannelMessageSendComplexRequest, opts ...grpc.CallOption) (*ChannelMessageSendComplexResponse, error) {
+	out := new(ChannelMessageSendComplexResponse)
+	err := c.cc.Invoke(ctx, Helper_ChannelMessageSendComplex_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ChannelMessageSendEmbed(ctx context.Context, in *ChannelMessageSendEmbedRequest, opts ...grpc.CallOption) (*ChannelMessageSendEmbedResponse, error) {
+	out := new(ChannelMessageSendEmbedResponse)
+	err := c.cc.Invoke(ctx, Helper_ChannelMessageSendEmbed_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ChannelMessageSendEmbeds(ctx context.Context, in *ChannelMessageSendEmbedsRequest, opts ...grpc.CallOption) (*ChannelMessageSendEmbedsResponse, error) {
+	out := new(ChannelMessageSendEmbedsResponse)
+	err := c.cc.Invoke(ctx, Helper_ChannelMessageSendEmbeds_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ChannelMessageEdit(ctx context.Context, in *ChannelMessageEditRequest, opts ...grpc.CallOption) (*ChannelMessageEditResponse, error) {
+	out := new(ChannelMessageEditResponse)
+	err := c.cc.Invoke(ctx, Helper_ChannelMessageEdit_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ChannelMessageEditComplex(ctx context.Context, in *ChannelMessageEditComplexRequest, opts ...grpc.CallOption) (*ChannelMessageEditComplexResponse, error) {
+	out := new(ChannelMessageEditComplexResponse)
+	err := c.cc.Invoke(ctx, Helper_ChannelMessageEditComplex_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ChannelMessageDelete(ctx context.Context, in *ChannelMessageDeleteRequest, opts ...grpc.CallOption) (*proto.Empty, error) {
+	out := new(proto.Empty)
+	err := c.cc.Invoke(ctx, Helper_ChannelMessageDelete_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ChannelMessages(ctx context.Context, in *ChannelMessagesRequest, opts ...grpc.CallOption) (*ChannelMessagesResponse, error) {
+	out := new(ChannelMessagesResponse)
+	err := c.cc.Invoke(ctx, Helper_ChannelMessages_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ChannelMessage(ctx context.Context, in *ChannelMessageRequest, opts ...grpc.CallOption) (*ChannelMessageResponse, error) {
+	out := new(ChannelMessageResponse)
+	err := c.cc.Invoke(ctx, Helper_ChannelMessage_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // HelperServer is the server API for Helper service.
 // All implementations should embed UnimplementedHelperServer
 // for forward compatibility
 type HelperServer interface {
+	// Message operations
+	ChannelMessageSend(context.Context, *ChannelMessageSendRequest) (*ChannelMessageSendResponse, error)
+	ChannelMessageSendComplex(context.Context, *ChannelMessageSendComplexRequest) (*ChannelMessageSendComplexResponse, error)
+	ChannelMessageSendEmbed(context.Context, *ChannelMessageSendEmbedRequest) (*ChannelMessageSendEmbedResponse, error)
+	ChannelMessageSendEmbeds(context.Context, *ChannelMessageSendEmbedsRequest) (*ChannelMessageSendEmbedsResponse, error)
+	ChannelMessageEdit(context.Context, *ChannelMessageEditRequest) (*ChannelMessageEditResponse, error)
+	ChannelMessageEditComplex(context.Context, *ChannelMessageEditComplexRequest) (*ChannelMessageEditComplexResponse, error)
+	ChannelMessageDelete(context.Context, *ChannelMessageDeleteRequest) (*proto.Empty, error)
+	ChannelMessages(context.Context, *ChannelMessagesRequest) (*ChannelMessagesResponse, error)
+	ChannelMessage(context.Context, *ChannelMessageRequest) (*ChannelMessageResponse, error)
 }
 
 // UnimplementedHelperServer should be embedded to have forward compatible implementations.
 type UnimplementedHelperServer struct {
+}
+
+func (UnimplementedHelperServer) ChannelMessageSend(context.Context, *ChannelMessageSendRequest) (*ChannelMessageSendResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChannelMessageSend not implemented")
+}
+func (UnimplementedHelperServer) ChannelMessageSendComplex(context.Context, *ChannelMessageSendComplexRequest) (*ChannelMessageSendComplexResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChannelMessageSendComplex not implemented")
+}
+func (UnimplementedHelperServer) ChannelMessageSendEmbed(context.Context, *ChannelMessageSendEmbedRequest) (*ChannelMessageSendEmbedResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChannelMessageSendEmbed not implemented")
+}
+func (UnimplementedHelperServer) ChannelMessageSendEmbeds(context.Context, *ChannelMessageSendEmbedsRequest) (*ChannelMessageSendEmbedsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChannelMessageSendEmbeds not implemented")
+}
+func (UnimplementedHelperServer) ChannelMessageEdit(context.Context, *ChannelMessageEditRequest) (*ChannelMessageEditResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChannelMessageEdit not implemented")
+}
+func (UnimplementedHelperServer) ChannelMessageEditComplex(context.Context, *ChannelMessageEditComplexRequest) (*ChannelMessageEditComplexResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChannelMessageEditComplex not implemented")
+}
+func (UnimplementedHelperServer) ChannelMessageDelete(context.Context, *ChannelMessageDeleteRequest) (*proto.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChannelMessageDelete not implemented")
+}
+func (UnimplementedHelperServer) ChannelMessages(context.Context, *ChannelMessagesRequest) (*ChannelMessagesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChannelMessages not implemented")
+}
+func (UnimplementedHelperServer) ChannelMessage(context.Context, *ChannelMessageRequest) (*ChannelMessageResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChannelMessage not implemented")
 }
 
 // UnsafeHelperServer may be embedded to opt out of forward compatibility for this service.
@@ -52,13 +195,212 @@ func RegisterHelperServer(s grpc.ServiceRegistrar, srv HelperServer) {
 	s.RegisterService(&Helper_ServiceDesc, srv)
 }
 
+func _Helper_ChannelMessageSend_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelMessageSendRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ChannelMessageSend(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ChannelMessageSend_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ChannelMessageSend(ctx, req.(*ChannelMessageSendRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ChannelMessageSendComplex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelMessageSendComplexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ChannelMessageSendComplex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ChannelMessageSendComplex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ChannelMessageSendComplex(ctx, req.(*ChannelMessageSendComplexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ChannelMessageSendEmbed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelMessageSendEmbedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ChannelMessageSendEmbed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ChannelMessageSendEmbed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ChannelMessageSendEmbed(ctx, req.(*ChannelMessageSendEmbedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ChannelMessageSendEmbeds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelMessageSendEmbedsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ChannelMessageSendEmbeds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ChannelMessageSendEmbeds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ChannelMessageSendEmbeds(ctx, req.(*ChannelMessageSendEmbedsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ChannelMessageEdit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelMessageEditRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ChannelMessageEdit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ChannelMessageEdit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ChannelMessageEdit(ctx, req.(*ChannelMessageEditRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ChannelMessageEditComplex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelMessageEditComplexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ChannelMessageEditComplex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ChannelMessageEditComplex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ChannelMessageEditComplex(ctx, req.(*ChannelMessageEditComplexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ChannelMessageDelete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelMessageDeleteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ChannelMessageDelete(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ChannelMessageDelete_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ChannelMessageDelete(ctx, req.(*ChannelMessageDeleteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ChannelMessages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelMessagesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ChannelMessages(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ChannelMessages_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ChannelMessages(ctx, req.(*ChannelMessagesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ChannelMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ChannelMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ChannelMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ChannelMessage(ctx, req.(*ChannelMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Helper_ServiceDesc is the grpc.ServiceDesc for Helper service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Helper_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "discord_v1.Helper",
 	HandlerType: (*HelperServer)(nil),
-	Methods:     []grpc.MethodDesc{},
-	Streams:     []grpc.StreamDesc{},
-	Metadata:    "discord-v1/helper.proto",
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ChannelMessageSend",
+			Handler:    _Helper_ChannelMessageSend_Handler,
+		},
+		{
+			MethodName: "ChannelMessageSendComplex",
+			Handler:    _Helper_ChannelMessageSendComplex_Handler,
+		},
+		{
+			MethodName: "ChannelMessageSendEmbed",
+			Handler:    _Helper_ChannelMessageSendEmbed_Handler,
+		},
+		{
+			MethodName: "ChannelMessageSendEmbeds",
+			Handler:    _Helper_ChannelMessageSendEmbeds_Handler,
+		},
+		{
+			MethodName: "ChannelMessageEdit",
+			Handler:    _Helper_ChannelMessageEdit_Handler,
+		},
+		{
+			MethodName: "ChannelMessageEditComplex",
+			Handler:    _Helper_ChannelMessageEditComplex_Handler,
+		},
+		{
+			MethodName: "ChannelMessageDelete",
+			Handler:    _Helper_ChannelMessageDelete_Handler,
+		},
+		{
+			MethodName: "ChannelMessages",
+			Handler:    _Helper_ChannelMessages_Handler,
+		},
+		{
+			MethodName: "ChannelMessage",
+			Handler:    _Helper_ChannelMessage_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "discord-v1/helper.proto",
 }

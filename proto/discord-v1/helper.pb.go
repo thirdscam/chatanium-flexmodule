@@ -7,10 +7,11 @@
 package discord_v1
 
 import (
-	_ "github.com/thirdscam/chatanium-flexmodule/proto"
+	proto "github.com/thirdscam/chatanium-flexmodule/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -21,21 +22,997 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type ChannelMessageSendRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChannelId     string                 `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	Content       string                 `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChannelMessageSendRequest) Reset() {
+	*x = ChannelMessageSendRequest{}
+	mi := &file_discord_v1_helper_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChannelMessageSendRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChannelMessageSendRequest) ProtoMessage() {}
+
+func (x *ChannelMessageSendRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_helper_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChannelMessageSendRequest.ProtoReflect.Descriptor instead.
+func (*ChannelMessageSendRequest) Descriptor() ([]byte, []int) {
+	return file_discord_v1_helper_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *ChannelMessageSendRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *ChannelMessageSendRequest) GetContent() string {
+	if x != nil {
+		return x.Content
+	}
+	return ""
+}
+
+type ChannelMessageSendResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Message       *Message               `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChannelMessageSendResponse) Reset() {
+	*x = ChannelMessageSendResponse{}
+	mi := &file_discord_v1_helper_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChannelMessageSendResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChannelMessageSendResponse) ProtoMessage() {}
+
+func (x *ChannelMessageSendResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_helper_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChannelMessageSendResponse.ProtoReflect.Descriptor instead.
+func (*ChannelMessageSendResponse) Descriptor() ([]byte, []int) {
+	return file_discord_v1_helper_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *ChannelMessageSendResponse) GetMessage() *Message {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
+type ChannelMessageSendComplexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChannelId     string                 `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	Data          *MessageSend           `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChannelMessageSendComplexRequest) Reset() {
+	*x = ChannelMessageSendComplexRequest{}
+	mi := &file_discord_v1_helper_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChannelMessageSendComplexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChannelMessageSendComplexRequest) ProtoMessage() {}
+
+func (x *ChannelMessageSendComplexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_helper_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChannelMessageSendComplexRequest.ProtoReflect.Descriptor instead.
+func (*ChannelMessageSendComplexRequest) Descriptor() ([]byte, []int) {
+	return file_discord_v1_helper_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *ChannelMessageSendComplexRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *ChannelMessageSendComplexRequest) GetData() *MessageSend {
+	if x != nil {
+		return x.Data
+	}
+	return nil
+}
+
+type ChannelMessageSendComplexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Message       *Message               `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChannelMessageSendComplexResponse) Reset() {
+	*x = ChannelMessageSendComplexResponse{}
+	mi := &file_discord_v1_helper_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChannelMessageSendComplexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChannelMessageSendComplexResponse) ProtoMessage() {}
+
+func (x *ChannelMessageSendComplexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_helper_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChannelMessageSendComplexResponse.ProtoReflect.Descriptor instead.
+func (*ChannelMessageSendComplexResponse) Descriptor() ([]byte, []int) {
+	return file_discord_v1_helper_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *ChannelMessageSendComplexResponse) GetMessage() *Message {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
+type ChannelMessageSendEmbedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChannelId     string                 `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	Embed         *MessageEmbed          `protobuf:"bytes,2,opt,name=embed,proto3" json:"embed,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChannelMessageSendEmbedRequest) Reset() {
+	*x = ChannelMessageSendEmbedRequest{}
+	mi := &file_discord_v1_helper_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChannelMessageSendEmbedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChannelMessageSendEmbedRequest) ProtoMessage() {}
+
+func (x *ChannelMessageSendEmbedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_helper_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChannelMessageSendEmbedRequest.ProtoReflect.Descriptor instead.
+func (*ChannelMessageSendEmbedRequest) Descriptor() ([]byte, []int) {
+	return file_discord_v1_helper_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *ChannelMessageSendEmbedRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *ChannelMessageSendEmbedRequest) GetEmbed() *MessageEmbed {
+	if x != nil {
+		return x.Embed
+	}
+	return nil
+}
+
+type ChannelMessageSendEmbedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Message       *Message               `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChannelMessageSendEmbedResponse) Reset() {
+	*x = ChannelMessageSendEmbedResponse{}
+	mi := &file_discord_v1_helper_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChannelMessageSendEmbedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChannelMessageSendEmbedResponse) ProtoMessage() {}
+
+func (x *ChannelMessageSendEmbedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_helper_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChannelMessageSendEmbedResponse.ProtoReflect.Descriptor instead.
+func (*ChannelMessageSendEmbedResponse) Descriptor() ([]byte, []int) {
+	return file_discord_v1_helper_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *ChannelMessageSendEmbedResponse) GetMessage() *Message {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
+type ChannelMessageSendEmbedsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChannelId     string                 `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	Embeds        []*MessageEmbed        `protobuf:"bytes,2,rep,name=embeds,proto3" json:"embeds,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChannelMessageSendEmbedsRequest) Reset() {
+	*x = ChannelMessageSendEmbedsRequest{}
+	mi := &file_discord_v1_helper_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChannelMessageSendEmbedsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChannelMessageSendEmbedsRequest) ProtoMessage() {}
+
+func (x *ChannelMessageSendEmbedsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_helper_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChannelMessageSendEmbedsRequest.ProtoReflect.Descriptor instead.
+func (*ChannelMessageSendEmbedsRequest) Descriptor() ([]byte, []int) {
+	return file_discord_v1_helper_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *ChannelMessageSendEmbedsRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *ChannelMessageSendEmbedsRequest) GetEmbeds() []*MessageEmbed {
+	if x != nil {
+		return x.Embeds
+	}
+	return nil
+}
+
+type ChannelMessageSendEmbedsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Message       *Message               `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChannelMessageSendEmbedsResponse) Reset() {
+	*x = ChannelMessageSendEmbedsResponse{}
+	mi := &file_discord_v1_helper_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChannelMessageSendEmbedsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChannelMessageSendEmbedsResponse) ProtoMessage() {}
+
+func (x *ChannelMessageSendEmbedsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_helper_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChannelMessageSendEmbedsResponse.ProtoReflect.Descriptor instead.
+func (*ChannelMessageSendEmbedsResponse) Descriptor() ([]byte, []int) {
+	return file_discord_v1_helper_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *ChannelMessageSendEmbedsResponse) GetMessage() *Message {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
+type ChannelMessageEditRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChannelId     string                 `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	MessageId     string                 `protobuf:"bytes,2,opt,name=message_id,json=messageId,proto3" json:"message_id,omitempty"`
+	Content       string                 `protobuf:"bytes,3,opt,name=content,proto3" json:"content,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChannelMessageEditRequest) Reset() {
+	*x = ChannelMessageEditRequest{}
+	mi := &file_discord_v1_helper_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChannelMessageEditRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChannelMessageEditRequest) ProtoMessage() {}
+
+func (x *ChannelMessageEditRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_helper_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChannelMessageEditRequest.ProtoReflect.Descriptor instead.
+func (*ChannelMessageEditRequest) Descriptor() ([]byte, []int) {
+	return file_discord_v1_helper_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *ChannelMessageEditRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *ChannelMessageEditRequest) GetMessageId() string {
+	if x != nil {
+		return x.MessageId
+	}
+	return ""
+}
+
+func (x *ChannelMessageEditRequest) GetContent() string {
+	if x != nil {
+		return x.Content
+	}
+	return ""
+}
+
+type ChannelMessageEditResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Message       *Message               `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChannelMessageEditResponse) Reset() {
+	*x = ChannelMessageEditResponse{}
+	mi := &file_discord_v1_helper_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChannelMessageEditResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChannelMessageEditResponse) ProtoMessage() {}
+
+func (x *ChannelMessageEditResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_helper_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChannelMessageEditResponse.ProtoReflect.Descriptor instead.
+func (*ChannelMessageEditResponse) Descriptor() ([]byte, []int) {
+	return file_discord_v1_helper_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *ChannelMessageEditResponse) GetMessage() *Message {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
+type ChannelMessageEditComplexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	MessageEdit   *MessageEdit           `protobuf:"bytes,1,opt,name=message_edit,json=messageEdit,proto3" json:"message_edit,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChannelMessageEditComplexRequest) Reset() {
+	*x = ChannelMessageEditComplexRequest{}
+	mi := &file_discord_v1_helper_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChannelMessageEditComplexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChannelMessageEditComplexRequest) ProtoMessage() {}
+
+func (x *ChannelMessageEditComplexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_helper_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChannelMessageEditComplexRequest.ProtoReflect.Descriptor instead.
+func (*ChannelMessageEditComplexRequest) Descriptor() ([]byte, []int) {
+	return file_discord_v1_helper_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *ChannelMessageEditComplexRequest) GetMessageEdit() *MessageEdit {
+	if x != nil {
+		return x.MessageEdit
+	}
+	return nil
+}
+
+type ChannelMessageEditComplexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Message       *Message               `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChannelMessageEditComplexResponse) Reset() {
+	*x = ChannelMessageEditComplexResponse{}
+	mi := &file_discord_v1_helper_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChannelMessageEditComplexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChannelMessageEditComplexResponse) ProtoMessage() {}
+
+func (x *ChannelMessageEditComplexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_helper_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChannelMessageEditComplexResponse.ProtoReflect.Descriptor instead.
+func (*ChannelMessageEditComplexResponse) Descriptor() ([]byte, []int) {
+	return file_discord_v1_helper_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *ChannelMessageEditComplexResponse) GetMessage() *Message {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
+type ChannelMessageDeleteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChannelId     string                 `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	MessageId     string                 `protobuf:"bytes,2,opt,name=message_id,json=messageId,proto3" json:"message_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChannelMessageDeleteRequest) Reset() {
+	*x = ChannelMessageDeleteRequest{}
+	mi := &file_discord_v1_helper_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChannelMessageDeleteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChannelMessageDeleteRequest) ProtoMessage() {}
+
+func (x *ChannelMessageDeleteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_helper_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChannelMessageDeleteRequest.ProtoReflect.Descriptor instead.
+func (*ChannelMessageDeleteRequest) Descriptor() ([]byte, []int) {
+	return file_discord_v1_helper_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *ChannelMessageDeleteRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *ChannelMessageDeleteRequest) GetMessageId() string {
+	if x != nil {
+		return x.MessageId
+	}
+	return ""
+}
+
+type ChannelMessagesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChannelId     string                 `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	Limit         int32                  `protobuf:"varint,2,opt,name=limit,proto3" json:"limit,omitempty"`
+	BeforeId      string                 `protobuf:"bytes,3,opt,name=before_id,json=beforeId,proto3" json:"before_id,omitempty"`
+	AfterId       string                 `protobuf:"bytes,4,opt,name=after_id,json=afterId,proto3" json:"after_id,omitempty"`
+	AroundId      string                 `protobuf:"bytes,5,opt,name=around_id,json=aroundId,proto3" json:"around_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChannelMessagesRequest) Reset() {
+	*x = ChannelMessagesRequest{}
+	mi := &file_discord_v1_helper_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChannelMessagesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChannelMessagesRequest) ProtoMessage() {}
+
+func (x *ChannelMessagesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_helper_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChannelMessagesRequest.ProtoReflect.Descriptor instead.
+func (*ChannelMessagesRequest) Descriptor() ([]byte, []int) {
+	return file_discord_v1_helper_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *ChannelMessagesRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *ChannelMessagesRequest) GetLimit() int32 {
+	if x != nil {
+		return x.Limit
+	}
+	return 0
+}
+
+func (x *ChannelMessagesRequest) GetBeforeId() string {
+	if x != nil {
+		return x.BeforeId
+	}
+	return ""
+}
+
+func (x *ChannelMessagesRequest) GetAfterId() string {
+	if x != nil {
+		return x.AfterId
+	}
+	return ""
+}
+
+func (x *ChannelMessagesRequest) GetAroundId() string {
+	if x != nil {
+		return x.AroundId
+	}
+	return ""
+}
+
+type ChannelMessagesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Messages      []*Message             `protobuf:"bytes,1,rep,name=messages,proto3" json:"messages,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChannelMessagesResponse) Reset() {
+	*x = ChannelMessagesResponse{}
+	mi := &file_discord_v1_helper_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChannelMessagesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChannelMessagesResponse) ProtoMessage() {}
+
+func (x *ChannelMessagesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_helper_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChannelMessagesResponse.ProtoReflect.Descriptor instead.
+func (*ChannelMessagesResponse) Descriptor() ([]byte, []int) {
+	return file_discord_v1_helper_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *ChannelMessagesResponse) GetMessages() []*Message {
+	if x != nil {
+		return x.Messages
+	}
+	return nil
+}
+
+type ChannelMessageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChannelId     string                 `protobuf:"bytes,1,opt,name=channel_id,json=channelId,proto3" json:"channel_id,omitempty"`
+	MessageId     string                 `protobuf:"bytes,2,opt,name=message_id,json=messageId,proto3" json:"message_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChannelMessageRequest) Reset() {
+	*x = ChannelMessageRequest{}
+	mi := &file_discord_v1_helper_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChannelMessageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChannelMessageRequest) ProtoMessage() {}
+
+func (x *ChannelMessageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_helper_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChannelMessageRequest.ProtoReflect.Descriptor instead.
+func (*ChannelMessageRequest) Descriptor() ([]byte, []int) {
+	return file_discord_v1_helper_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *ChannelMessageRequest) GetChannelId() string {
+	if x != nil {
+		return x.ChannelId
+	}
+	return ""
+}
+
+func (x *ChannelMessageRequest) GetMessageId() string {
+	if x != nil {
+		return x.MessageId
+	}
+	return ""
+}
+
+type ChannelMessageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Message       *Message               `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChannelMessageResponse) Reset() {
+	*x = ChannelMessageResponse{}
+	mi := &file_discord_v1_helper_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChannelMessageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChannelMessageResponse) ProtoMessage() {}
+
+func (x *ChannelMessageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_discord_v1_helper_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChannelMessageResponse.ProtoReflect.Descriptor instead.
+func (*ChannelMessageResponse) Descriptor() ([]byte, []int) {
+	return file_discord_v1_helper_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *ChannelMessageResponse) GetMessage() *Message {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
 var File_discord_v1_helper_proto protoreflect.FileDescriptor
 
 const file_discord_v1_helper_proto_rawDesc = "" +
 	"\n" +
 	"\x17discord-v1/helper.proto\x12\n" +
-	"discord_v1\x1a\fcommon.proto\x1a\x1adiscord-v1/discordgo.proto2\b\n" +
-	"\x06HelperB<Z:github.com/thirdscam/chatanium-flexmodule/proto/discord-v1b\x06proto3"
+	"discord_v1\x1a\fcommon.proto\x1a\x1adiscord-v1/discordgo.proto\"T\n" +
+	"\x19ChannelMessageSendRequest\x12\x1d\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tR\tchannelId\x12\x18\n" +
+	"\acontent\x18\x02 \x01(\tR\acontent\"K\n" +
+	"\x1aChannelMessageSendResponse\x12-\n" +
+	"\amessage\x18\x01 \x01(\v2\x13.discord_v1.MessageR\amessage\"n\n" +
+	" ChannelMessageSendComplexRequest\x12\x1d\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tR\tchannelId\x12+\n" +
+	"\x04data\x18\x02 \x01(\v2\x17.discord_v1.MessageSendR\x04data\"R\n" +
+	"!ChannelMessageSendComplexResponse\x12-\n" +
+	"\amessage\x18\x01 \x01(\v2\x13.discord_v1.MessageR\amessage\"o\n" +
+	"\x1eChannelMessageSendEmbedRequest\x12\x1d\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tR\tchannelId\x12.\n" +
+	"\x05embed\x18\x02 \x01(\v2\x18.discord_v1.MessageEmbedR\x05embed\"P\n" +
+	"\x1fChannelMessageSendEmbedResponse\x12-\n" +
+	"\amessage\x18\x01 \x01(\v2\x13.discord_v1.MessageR\amessage\"r\n" +
+	"\x1fChannelMessageSendEmbedsRequest\x12\x1d\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tR\tchannelId\x120\n" +
+	"\x06embeds\x18\x02 \x03(\v2\x18.discord_v1.MessageEmbedR\x06embeds\"Q\n" +
+	" ChannelMessageSendEmbedsResponse\x12-\n" +
+	"\amessage\x18\x01 \x01(\v2\x13.discord_v1.MessageR\amessage\"s\n" +
+	"\x19ChannelMessageEditRequest\x12\x1d\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tR\tchannelId\x12\x1d\n" +
+	"\n" +
+	"message_id\x18\x02 \x01(\tR\tmessageId\x12\x18\n" +
+	"\acontent\x18\x03 \x01(\tR\acontent\"K\n" +
+	"\x1aChannelMessageEditResponse\x12-\n" +
+	"\amessage\x18\x01 \x01(\v2\x13.discord_v1.MessageR\amessage\"^\n" +
+	" ChannelMessageEditComplexRequest\x12:\n" +
+	"\fmessage_edit\x18\x01 \x01(\v2\x17.discord_v1.MessageEditR\vmessageEdit\"R\n" +
+	"!ChannelMessageEditComplexResponse\x12-\n" +
+	"\amessage\x18\x01 \x01(\v2\x13.discord_v1.MessageR\amessage\"[\n" +
+	"\x1bChannelMessageDeleteRequest\x12\x1d\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tR\tchannelId\x12\x1d\n" +
+	"\n" +
+	"message_id\x18\x02 \x01(\tR\tmessageId\"\xa2\x01\n" +
+	"\x16ChannelMessagesRequest\x12\x1d\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tR\tchannelId\x12\x14\n" +
+	"\x05limit\x18\x02 \x01(\x05R\x05limit\x12\x1b\n" +
+	"\tbefore_id\x18\x03 \x01(\tR\bbeforeId\x12\x19\n" +
+	"\bafter_id\x18\x04 \x01(\tR\aafterId\x12\x1b\n" +
+	"\taround_id\x18\x05 \x01(\tR\baroundId\"J\n" +
+	"\x17ChannelMessagesResponse\x12/\n" +
+	"\bmessages\x18\x01 \x03(\v2\x13.discord_v1.MessageR\bmessages\"U\n" +
+	"\x15ChannelMessageRequest\x12\x1d\n" +
+	"\n" +
+	"channel_id\x18\x01 \x01(\tR\tchannelId\x12\x1d\n" +
+	"\n" +
+	"message_id\x18\x02 \x01(\tR\tmessageId\"G\n" +
+	"\x16ChannelMessageResponse\x12-\n" +
+	"\amessage\x18\x01 \x01(\v2\x13.discord_v1.MessageR\amessage2\xb6\a\n" +
+	"\x06Helper\x12c\n" +
+	"\x12ChannelMessageSend\x12%.discord_v1.ChannelMessageSendRequest\x1a&.discord_v1.ChannelMessageSendResponse\x12x\n" +
+	"\x19ChannelMessageSendComplex\x12,.discord_v1.ChannelMessageSendComplexRequest\x1a-.discord_v1.ChannelMessageSendComplexResponse\x12r\n" +
+	"\x17ChannelMessageSendEmbed\x12*.discord_v1.ChannelMessageSendEmbedRequest\x1a+.discord_v1.ChannelMessageSendEmbedResponse\x12u\n" +
+	"\x18ChannelMessageSendEmbeds\x12+.discord_v1.ChannelMessageSendEmbedsRequest\x1a,.discord_v1.ChannelMessageSendEmbedsResponse\x12c\n" +
+	"\x12ChannelMessageEdit\x12%.discord_v1.ChannelMessageEditRequest\x1a&.discord_v1.ChannelMessageEditResponse\x12x\n" +
+	"\x19ChannelMessageEditComplex\x12,.discord_v1.ChannelMessageEditComplexRequest\x1a-.discord_v1.ChannelMessageEditComplexResponse\x12N\n" +
+	"\x14ChannelMessageDelete\x12'.discord_v1.ChannelMessageDeleteRequest\x1a\r.common.Empty\x12Z\n" +
+	"\x0fChannelMessages\x12\".discord_v1.ChannelMessagesRequest\x1a#.discord_v1.ChannelMessagesResponse\x12W\n" +
+	"\x0eChannelMessage\x12!.discord_v1.ChannelMessageRequest\x1a\".discord_v1.ChannelMessageResponseB<Z:github.com/thirdscam/chatanium-flexmodule/proto/discord-v1b\x06proto3"
 
-var file_discord_v1_helper_proto_goTypes = []any{}
+var (
+	file_discord_v1_helper_proto_rawDescOnce sync.Once
+	file_discord_v1_helper_proto_rawDescData []byte
+)
+
+func file_discord_v1_helper_proto_rawDescGZIP() []byte {
+	file_discord_v1_helper_proto_rawDescOnce.Do(func() {
+		file_discord_v1_helper_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_discord_v1_helper_proto_rawDesc), len(file_discord_v1_helper_proto_rawDesc)))
+	})
+	return file_discord_v1_helper_proto_rawDescData
+}
+
+var file_discord_v1_helper_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
+var file_discord_v1_helper_proto_goTypes = []any{
+	(*ChannelMessageSendRequest)(nil),         // 0: discord_v1.ChannelMessageSendRequest
+	(*ChannelMessageSendResponse)(nil),        // 1: discord_v1.ChannelMessageSendResponse
+	(*ChannelMessageSendComplexRequest)(nil),  // 2: discord_v1.ChannelMessageSendComplexRequest
+	(*ChannelMessageSendComplexResponse)(nil), // 3: discord_v1.ChannelMessageSendComplexResponse
+	(*ChannelMessageSendEmbedRequest)(nil),    // 4: discord_v1.ChannelMessageSendEmbedRequest
+	(*ChannelMessageSendEmbedResponse)(nil),   // 5: discord_v1.ChannelMessageSendEmbedResponse
+	(*ChannelMessageSendEmbedsRequest)(nil),   // 6: discord_v1.ChannelMessageSendEmbedsRequest
+	(*ChannelMessageSendEmbedsResponse)(nil),  // 7: discord_v1.ChannelMessageSendEmbedsResponse
+	(*ChannelMessageEditRequest)(nil),         // 8: discord_v1.ChannelMessageEditRequest
+	(*ChannelMessageEditResponse)(nil),        // 9: discord_v1.ChannelMessageEditResponse
+	(*ChannelMessageEditComplexRequest)(nil),  // 10: discord_v1.ChannelMessageEditComplexRequest
+	(*ChannelMessageEditComplexResponse)(nil), // 11: discord_v1.ChannelMessageEditComplexResponse
+	(*ChannelMessageDeleteRequest)(nil),       // 12: discord_v1.ChannelMessageDeleteRequest
+	(*ChannelMessagesRequest)(nil),            // 13: discord_v1.ChannelMessagesRequest
+	(*ChannelMessagesResponse)(nil),           // 14: discord_v1.ChannelMessagesResponse
+	(*ChannelMessageRequest)(nil),             // 15: discord_v1.ChannelMessageRequest
+	(*ChannelMessageResponse)(nil),            // 16: discord_v1.ChannelMessageResponse
+	(*Message)(nil),                           // 17: discord_v1.Message
+	(*MessageSend)(nil),                       // 18: discord_v1.MessageSend
+	(*MessageEmbed)(nil),                      // 19: discord_v1.MessageEmbed
+	(*MessageEdit)(nil),                       // 20: discord_v1.MessageEdit
+	(*proto.Empty)(nil),                       // 21: common.Empty
+}
 var file_discord_v1_helper_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	17, // 0: discord_v1.ChannelMessageSendResponse.message:type_name -> discord_v1.Message
+	18, // 1: discord_v1.ChannelMessageSendComplexRequest.data:type_name -> discord_v1.MessageSend
+	17, // 2: discord_v1.ChannelMessageSendComplexResponse.message:type_name -> discord_v1.Message
+	19, // 3: discord_v1.ChannelMessageSendEmbedRequest.embed:type_name -> discord_v1.MessageEmbed
+	17, // 4: discord_v1.ChannelMessageSendEmbedResponse.message:type_name -> discord_v1.Message
+	19, // 5: discord_v1.ChannelMessageSendEmbedsRequest.embeds:type_name -> discord_v1.MessageEmbed
+	17, // 6: discord_v1.ChannelMessageSendEmbedsResponse.message:type_name -> discord_v1.Message
+	17, // 7: discord_v1.ChannelMessageEditResponse.message:type_name -> discord_v1.Message
+	20, // 8: discord_v1.ChannelMessageEditComplexRequest.message_edit:type_name -> discord_v1.MessageEdit
+	17, // 9: discord_v1.ChannelMessageEditComplexResponse.message:type_name -> discord_v1.Message
+	17, // 10: discord_v1.ChannelMessagesResponse.messages:type_name -> discord_v1.Message
+	17, // 11: discord_v1.ChannelMessageResponse.message:type_name -> discord_v1.Message
+	0,  // 12: discord_v1.Helper.ChannelMessageSend:input_type -> discord_v1.ChannelMessageSendRequest
+	2,  // 13: discord_v1.Helper.ChannelMessageSendComplex:input_type -> discord_v1.ChannelMessageSendComplexRequest
+	4,  // 14: discord_v1.Helper.ChannelMessageSendEmbed:input_type -> discord_v1.ChannelMessageSendEmbedRequest
+	6,  // 15: discord_v1.Helper.ChannelMessageSendEmbeds:input_type -> discord_v1.ChannelMessageSendEmbedsRequest
+	8,  // 16: discord_v1.Helper.ChannelMessageEdit:input_type -> discord_v1.ChannelMessageEditRequest
+	10, // 17: discord_v1.Helper.ChannelMessageEditComplex:input_type -> discord_v1.ChannelMessageEditComplexRequest
+	12, // 18: discord_v1.Helper.ChannelMessageDelete:input_type -> discord_v1.ChannelMessageDeleteRequest
+	13, // 19: discord_v1.Helper.ChannelMessages:input_type -> discord_v1.ChannelMessagesRequest
+	15, // 20: discord_v1.Helper.ChannelMessage:input_type -> discord_v1.ChannelMessageRequest
+	1,  // 21: discord_v1.Helper.ChannelMessageSend:output_type -> discord_v1.ChannelMessageSendResponse
+	3,  // 22: discord_v1.Helper.ChannelMessageSendComplex:output_type -> discord_v1.ChannelMessageSendComplexResponse
+	5,  // 23: discord_v1.Helper.ChannelMessageSendEmbed:output_type -> discord_v1.ChannelMessageSendEmbedResponse
+	7,  // 24: discord_v1.Helper.ChannelMessageSendEmbeds:output_type -> discord_v1.ChannelMessageSendEmbedsResponse
+	9,  // 25: discord_v1.Helper.ChannelMessageEdit:output_type -> discord_v1.ChannelMessageEditResponse
+	11, // 26: discord_v1.Helper.ChannelMessageEditComplex:output_type -> discord_v1.ChannelMessageEditComplexResponse
+	21, // 27: discord_v1.Helper.ChannelMessageDelete:output_type -> common.Empty
+	14, // 28: discord_v1.Helper.ChannelMessages:output_type -> discord_v1.ChannelMessagesResponse
+	16, // 29: discord_v1.Helper.ChannelMessage:output_type -> discord_v1.ChannelMessageResponse
+	21, // [21:30] is the sub-list for method output_type
+	12, // [12:21] is the sub-list for method input_type
+	12, // [12:12] is the sub-list for extension type_name
+	12, // [12:12] is the sub-list for extension extendee
+	0,  // [0:12] is the sub-list for field type_name
 }
 
 func init() { file_discord_v1_helper_proto_init() }
@@ -50,12 +1027,13 @@ func file_discord_v1_helper_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_discord_v1_helper_proto_rawDesc), len(file_discord_v1_helper_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   17,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
 		GoTypes:           file_discord_v1_helper_proto_goTypes,
 		DependencyIndexes: file_discord_v1_helper_proto_depIdxs,
+		MessageInfos:      file_discord_v1_helper_proto_msgTypes,
 	}.Build()
 	File_discord_v1_helper_proto = out.File
 	file_discord_v1_helper_proto_goTypes = nil

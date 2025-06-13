@@ -212,3 +212,81 @@ func MessageReactions(buf *proto.MessageReactions) *discordgo.MessageReactions {
 		Emoji: Emoji(buf.Emoji),
 	}
 }
+
+func MessageSend(buf *proto.MessageSend) *discordgo.MessageSend {
+	if buf == nil {
+		return nil
+	}
+
+	embeds := make([]*discordgo.MessageEmbed, 0, len(buf.Embeds))
+	for _, embed := range buf.Embeds {
+		embeds = append(embeds, MessageEmbed(embed))
+	}
+
+	files := make([]*discordgo.File, 0, len(buf.Files))
+	for _, file := range buf.Files {
+		files = append(files, &discordgo.File{
+			Name:        file.Name,
+			ContentType: file.ContentType,
+		})
+	}
+
+	stickerIDs := append([]string(nil), buf.StickerIds...)
+
+	return &discordgo.MessageSend{
+		Content:    buf.Content,
+		Embeds:     embeds,
+		TTS:        buf.Tts,
+		Files:      files,
+		StickerIDs: stickerIDs,
+		// Note: AllowedMentions and Reference need conversion functions
+		// Flags:      discordgo.MessageFlags(buf.Flags),
+	}
+}
+
+func MessageEdit(buf *proto.MessageEdit) *discordgo.MessageEdit {
+	if buf == nil {
+		return nil
+	}
+
+	var embeds *[]*discordgo.MessageEmbed
+	if len(buf.Embeds) > 0 {
+		embedSlice := make([]*discordgo.MessageEmbed, 0, len(buf.Embeds))
+		for _, embed := range buf.Embeds {
+			embedSlice = append(embedSlice, MessageEmbed(embed))
+		}
+		embeds = &embedSlice
+	}
+
+	files := make([]*discordgo.File, 0, len(buf.Files))
+	for _, file := range buf.Files {
+		files = append(files, &discordgo.File{
+			Name:        file.Name,
+			ContentType: file.ContentType,
+		})
+	}
+
+	var attachments *[]*discordgo.MessageAttachment
+	if len(buf.Attachments) > 0 {
+		attachmentSlice := make([]*discordgo.MessageAttachment, 0, len(buf.Attachments))
+		for _, attachment := range buf.Attachments {
+			attachmentSlice = append(attachmentSlice, MessageAttachment(attachment))
+		}
+		attachments = &attachmentSlice
+	}
+
+	var content *string
+	if buf.Content != "" {
+		content = &buf.Content
+	}
+
+	return &discordgo.MessageEdit{
+		Content:     content,
+		Embeds:      embeds,
+		Files:       files,
+		Attachments: attachments,
+		ID:          buf.Id,
+		Channel:     buf.Channel,
+		// Note: AllowedMentions and Flags need proper handling
+	}
+}

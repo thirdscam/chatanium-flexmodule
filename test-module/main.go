@@ -97,16 +97,6 @@ func (u *discord) OnCreateInteraction(i *discordgo.Interaction) error {
 		log.Debug("INTERACTION_CREATE", "i.Type", i.Type, "i.Data", i.Data)
 		if i.ApplicationCommandData().Name == "test" {
 			log.Debug("INTERACTION_CREATE > test")
-			// err := broker.SendInteractionResponse(i.ID, i.Token, &discordgo.InteractionResponse{
-			// 	Type: discordgo.InteractionResponseChannelMessageWithSource,
-			// 	Data: &discordgo.InteractionResponseData{
-			// 		Content: "Hello, world!",
-			// 	},
-			// })
-			// if err != nil {
-			// 	log.Error("Error sending interaction response", "error", err.Error())
-			// 	return err
-			// }
 		}
 	}
 	return nil

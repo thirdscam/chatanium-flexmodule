@@ -14,10 +14,8 @@ message InitResponse {
 }
 
 service Hook {
-    // Runtime -> Module
     rpc OnInit(common.Empty) returns (InitResponse);
     rpc OnCreateMessage(Message) returns (common.Empty);
     rpc OnCreateInteraction(Interaction) returns (common.Empty);
     rpc OnEvent(OnEventRequest) returns (common.Empty);
 }
-
