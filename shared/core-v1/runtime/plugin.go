@@ -8,9 +8,12 @@ import (
 	"google.golang.org/grpc"
 )
 
-// This is the implementation of plugin.Plugin so we can serve/consume this.
-// We also implement GRPCPlugin so that this plugin can be served over
-// gRPC.
+// FlexModule uses hashicorp/go-plugin:
+// So we need to declare a separate Plugin for the runtime and module.
+//
+// `server.go` implements the gRPC server for receiving from the module.
+//
+// `client.go` implements the gRPC client for making calls to the module.
 type Plugin struct {
 	plugin.NetRPCUnsupportedPlugin
 }
