@@ -5,6 +5,7 @@ import (
 
 	plugin "github.com/hashicorp/go-plugin"
 	proto "github.com/thirdscam/chatanium-flexmodule/proto/discord-v1"
+	shared "github.com/thirdscam/chatanium-flexmodule/shared/discord-v1"
 	"google.golang.org/grpc"
 )
 
@@ -16,9 +17,15 @@ import (
 // `runtime/client.go` implements the gRPC client for making calls to the module.
 type Plugin struct {
 	plugin.NetRPCUnsupportedPlugin
+
+	Impl shared.Helper // The implementation of the Helper interface
 }
 
 func (p *Plugin) GRPCServer(broker *plugin.GRPCBroker, s *grpc.Server) error {
+	proto.RegisterHelperServer(s, &GRPCServer{
+		Impl:   p.Impl,
+		broker: broker,
+	})
 	return nil
 }
 

@@ -16,6 +16,12 @@ service Helper {
     rpc ChannelMessageDelete(ChannelMessageDeleteRequest) returns (common.Empty);
     rpc ChannelMessages(ChannelMessagesRequest) returns (ChannelMessagesResponse);
     rpc ChannelMessage(ChannelMessageRequest) returns (ChannelMessageResponse);
+    
+    // Channel operations
+    rpc Channel(ChannelRequest) returns (ChannelResponse);
+    rpc ChannelEdit(ChannelEditRequest) returns (ChannelEditResponse);
+    rpc ChannelDelete(ChannelDeleteRequest) returns (ChannelDeleteResponse);
+    rpc ChannelTyping(ChannelTypingRequest) returns (common.Empty);
 }
 
 // Message operation messages
@@ -98,4 +104,35 @@ message ChannelMessageRequest {
 
 message ChannelMessageResponse {
     Message message = 1;
+}
+
+// Channel operation messages
+
+message ChannelRequest {
+    string channel_id = 1;
+}
+
+message ChannelResponse {
+    Channel channel = 1;
+}
+
+message ChannelEditRequest {
+    string channel_id = 1;
+    ChannelEdit data = 2;
+}
+
+message ChannelEditResponse {
+    Channel channel = 1;
+}
+
+message ChannelDeleteRequest {
+    string channel_id = 1;
+}
+
+message ChannelDeleteResponse {
+    Channel channel = 1;
+}
+
+message ChannelTypingRequest {
+    string channel_id = 1;
 }

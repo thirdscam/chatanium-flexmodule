@@ -1,4 +1,4 @@
-package module
+package runtime
 
 import (
 	"context"
@@ -12,19 +12,11 @@ import (
 	"github.com/thirdscam/chatanium-flexmodule/shared/discord-v1/convert/struct2buf"
 )
 
-// HelperServer implements the Helper gRPC server for the module-side.
-// This server receives calls from the runtime and delegates them to the actual Helper implementation.
-type HelperServer struct {
-	Helper shared.Helper // Helper implementation that provides Discord operations
+// GRPCServer implements the Helper gRPC server for the runtime-side.
+// This server receives calls from the module and provides actual Discord operations.
+type GRPCServer struct {
+	Impl   shared.Helper // Helper implementation that provides Discord operations
 	broker *plugin.GRPCBroker
-}
-
-// NewHelperServer creates a new HelperServer instance
-func NewHelperServer(helper shared.Helper, broker *plugin.GRPCBroker) *HelperServer {
-	return &HelperServer{
-		Helper: helper,
-		broker: broker,
-	}
 }
 
 // ================================================
@@ -32,8 +24,8 @@ func NewHelperServer(helper shared.Helper, broker *plugin.GRPCBroker) *HelperSer
 // ================================================
 
 // ChannelMessageSend handles sending a simple text message.
-func (h *HelperServer) ChannelMessageSend(ctx context.Context, req *proto.ChannelMessageSendRequest) (*proto.ChannelMessageSendResponse, error) {
-	message, err := h.Helper.ChannelMessageSend(req.ChannelId, req.Content)
+func (h *GRPCServer) ChannelMessageSend(ctx context.Context, req *proto.ChannelMessageSendRequest) (*proto.ChannelMessageSendResponse, error) {
+	message, err := h.Impl.ChannelMessageSend(req.ChannelId, req.Content)
 	if err != nil {
 		return nil, err
 	}
@@ -44,9 +36,9 @@ func (h *HelperServer) ChannelMessageSend(ctx context.Context, req *proto.Channe
 }
 
 // ChannelMessageSendComplex handles sending a complex message with attachments, embeds, etc.
-func (h *HelperServer) ChannelMessageSendComplex(ctx context.Context, req *proto.ChannelMessageSendComplexRequest) (*proto.ChannelMessageSendComplexResponse, error) {
+func (h *GRPCServer) ChannelMessageSendComplex(ctx context.Context, req *proto.ChannelMessageSendComplexRequest) (*proto.ChannelMessageSendComplexResponse, error) {
 	data := buf2struct.MessageSend(req.Data)
-	message, err := h.Helper.ChannelMessageSendComplex(req.ChannelId, data)
+	message, err := h.Impl.ChannelMessageSendComplex(req.ChannelId, data)
 	if err != nil {
 		return nil, err
 	}
@@ -57,9 +49,9 @@ func (h *HelperServer) ChannelMessageSendComplex(ctx context.Context, req *proto
 }
 
 // ChannelMessageSendEmbed handles sending a message with a single embed.
-func (h *HelperServer) ChannelMessageSendEmbed(ctx context.Context, req *proto.ChannelMessageSendEmbedRequest) (*proto.ChannelMessageSendEmbedResponse, error) {
+func (h *GRPCServer) ChannelMessageSendEmbed(ctx context.Context, req *proto.ChannelMessageSendEmbedRequest) (*proto.ChannelMessageSendEmbedResponse, error) {
 	embed := buf2struct.MessageEmbed(req.Embed)
-	message, err := h.Helper.ChannelMessageSendEmbed(req.ChannelId, embed)
+	message, err := h.Impl.ChannelMessageSendEmbed(req.ChannelId, embed)
 	if err != nil {
 		return nil, err
 	}
@@ -70,13 +62,13 @@ func (h *HelperServer) ChannelMessageSendEmbed(ctx context.Context, req *proto.C
 }
 
 // ChannelMessageSendEmbeds handles sending a message with multiple embeds.
-func (h *HelperServer) ChannelMessageSendEmbeds(ctx context.Context, req *proto.ChannelMessageSendEmbedsRequest) (*proto.ChannelMessageSendEmbedsResponse, error) {
+func (h *GRPCServer) ChannelMessageSendEmbeds(ctx context.Context, req *proto.ChannelMessageSendEmbedsRequest) (*proto.ChannelMessageSendEmbedsResponse, error) {
 	embeds := make([]*discordgo.MessageEmbed, 0, len(req.Embeds))
 	for _, embed := range req.Embeds {
 		embeds = append(embeds, buf2struct.MessageEmbed(embed))
 	}
 
-	message, err := h.Helper.ChannelMessageSendEmbeds(req.ChannelId, embeds)
+	message, err := h.Impl.ChannelMessageSendEmbeds(req.ChannelId, embeds)
 	if err != nil {
 		return nil, err
 	}
@@ -87,8 +79,8 @@ func (h *HelperServer) ChannelMessageSendEmbeds(ctx context.Context, req *proto.
 }
 
 // ChannelMessageEdit handles editing a message with simple text content.
-func (h *HelperServer) ChannelMessageEdit(ctx context.Context, req *proto.ChannelMessageEditRequest) (*proto.ChannelMessageEditResponse, error) {
-	message, err := h.Helper.ChannelMessageEdit(req.ChannelId, req.MessageId, req.Content)
+func (h *GRPCServer) ChannelMessageEdit(ctx context.Context, req *proto.ChannelMessageEditRequest) (*proto.ChannelMessageEditResponse, error) {
+	message, err := h.Impl.ChannelMessageEdit(req.ChannelId, req.MessageId, req.Content)
 	if err != nil {
 		return nil, err
 	}
@@ -99,9 +91,9 @@ func (h *HelperServer) ChannelMessageEdit(ctx context.Context, req *proto.Channe
 }
 
 // ChannelMessageEditComplex handles editing a message with complex data.
-func (h *HelperServer) ChannelMessageEditComplex(ctx context.Context, req *proto.ChannelMessageEditComplexRequest) (*proto.ChannelMessageEditComplexResponse, error) {
+func (h *GRPCServer) ChannelMessageEditComplex(ctx context.Context, req *proto.ChannelMessageEditComplexRequest) (*proto.ChannelMessageEditComplexResponse, error) {
 	messageEdit := buf2struct.MessageEdit(req.MessageEdit)
-	message, err := h.Helper.ChannelMessageEditComplex(messageEdit)
+	message, err := h.Impl.ChannelMessageEditComplex(messageEdit)
 	if err != nil {
 		return nil, err
 	}
@@ -112,8 +104,8 @@ func (h *HelperServer) ChannelMessageEditComplex(ctx context.Context, req *proto
 }
 
 // ChannelMessageDelete handles deleting a message from a channel.
-func (h *HelperServer) ChannelMessageDelete(ctx context.Context, req *proto.ChannelMessageDeleteRequest) (*proto_common.Empty, error) {
-	err := h.Helper.ChannelMessageDelete(req.ChannelId, req.MessageId)
+func (h *GRPCServer) ChannelMessageDelete(ctx context.Context, req *proto.ChannelMessageDeleteRequest) (*proto_common.Empty, error) {
+	err := h.Impl.ChannelMessageDelete(req.ChannelId, req.MessageId)
 	if err != nil {
 		return nil, err
 	}
@@ -122,8 +114,8 @@ func (h *HelperServer) ChannelMessageDelete(ctx context.Context, req *proto.Chan
 }
 
 // ChannelMessages handles retrieving multiple messages from a channel.
-func (h *HelperServer) ChannelMessages(ctx context.Context, req *proto.ChannelMessagesRequest) (*proto.ChannelMessagesResponse, error) {
-	messages, err := h.Helper.ChannelMessages(req.ChannelId, int(req.Limit), req.BeforeId, req.AfterId, req.AroundId)
+func (h *GRPCServer) ChannelMessages(ctx context.Context, req *proto.ChannelMessagesRequest) (*proto.ChannelMessagesResponse, error) {
+	messages, err := h.Impl.ChannelMessages(req.ChannelId, int(req.Limit), req.BeforeId, req.AfterId, req.AroundId)
 	if err != nil {
 		return nil, err
 	}
@@ -139,8 +131,8 @@ func (h *HelperServer) ChannelMessages(ctx context.Context, req *proto.ChannelMe
 }
 
 // ChannelMessage handles retrieving a single message from a channel.
-func (h *HelperServer) ChannelMessage(ctx context.Context, req *proto.ChannelMessageRequest) (*proto.ChannelMessageResponse, error) {
-	message, err := h.Helper.ChannelMessage(req.ChannelId, req.MessageId)
+func (h *GRPCServer) ChannelMessage(ctx context.Context, req *proto.ChannelMessageRequest) (*proto.ChannelMessageResponse, error) {
+	message, err := h.Impl.ChannelMessage(req.ChannelId, req.MessageId)
 	if err != nil {
 		return nil, err
 	}

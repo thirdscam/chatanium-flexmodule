@@ -30,7 +30,10 @@ func (p *Plugin) GRPCServer(broker *plugin.GRPCBroker, s *grpc.Server) error {
 }
 
 func (p *Plugin) GRPCClient(ctx context.Context, broker *plugin.GRPCBroker, c *grpc.ClientConn) (interface{}, error) {
-	return nil, nil
+	return &GRPCClient{
+		client: proto.NewHelperClient(c),
+		broker: broker,
+	}, nil
 }
 
 var _ plugin.GRPCPlugin = &Plugin{}
