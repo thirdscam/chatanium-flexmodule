@@ -2,7 +2,6 @@ package module
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/bwmarrin/discordgo"
 	plugin "github.com/hashicorp/go-plugin"
@@ -190,10 +189,6 @@ func (h *HelperClientImpl) ChannelTyping(channelID string) error {
 	return err
 }
 
-// ================================================
-// Operations not implemented in proto - stub implementations
-// ================================================
-
 // Guild retrieves information about a guild.
 func (h *HelperClientImpl) Guild(guildID string) (*discordgo.Guild, error) {
 	resp, err := h.client.Guild(context.Background(), &proto.GuildRequest{
@@ -208,132 +203,327 @@ func (h *HelperClientImpl) Guild(guildID string) (*discordgo.Guild, error) {
 
 // GuildChannels retrieves all channels in a guild.
 func (h *HelperClientImpl) GuildChannels(guildID string) ([]*discordgo.Channel, error) {
-	return nil, fmt.Errorf("GuildChannels operation not implemented in gRPC proto")
+	resp, err := h.client.GuildChannels(context.Background(), &proto.GuildChannelsRequest{
+		GuildId: guildID,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	var channels []*discordgo.Channel
+	for _, protoChannel := range resp.Channels {
+		channels = append(channels, buf2struct.Channel(protoChannel))
+	}
+
+	return channels, nil
 }
 
 // GuildMembers retrieves guild members.
 func (h *HelperClientImpl) GuildMembers(guildID string, after string, limit int) ([]*discordgo.Member, error) {
-	return nil, fmt.Errorf("GuildMembers operation not implemented in gRPC proto")
+	resp, err := h.client.GuildMembers(context.Background(), &proto.GuildMembersRequest{
+		GuildId: guildID,
+		After:   after,
+		Limit:   int32(limit),
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	var members []*discordgo.Member
+	for _, protoMember := range resp.Members {
+		members = append(members, buf2struct.Member(protoMember))
+	}
+
+	return members, nil
 }
 
 // GuildMember retrieves a specific guild member.
 func (h *HelperClientImpl) GuildMember(guildID, userID string) (*discordgo.Member, error) {
-	return nil, fmt.Errorf("GuildMember operation not implemented in gRPC proto")
+	resp, err := h.client.GuildMember(context.Background(), &proto.GuildMemberRequest{
+		GuildId: guildID,
+		UserId:  userID,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return buf2struct.Member(resp.Member), nil
 }
 
 // GuildRoles retrieves all roles in a guild.
 func (h *HelperClientImpl) GuildRoles(guildID string) ([]*discordgo.Role, error) {
-	return nil, fmt.Errorf("GuildRoles operation not implemented in gRPC proto")
+	resp, err := h.client.GuildRoles(context.Background(), &proto.GuildRolesRequest{
+		GuildId: guildID,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	var roles []*discordgo.Role
+	for _, protoRole := range resp.Roles {
+		roles = append(roles, buf2struct.Role(protoRole))
+	}
+
+	return roles, nil
 }
 
 // User retrieves information about a user.
 func (h *HelperClientImpl) User(userID string) (*discordgo.User, error) {
-	return nil, fmt.Errorf("User operation not implemented in gRPC proto")
+	resp, err := h.client.User(context.Background(), &proto.UserRequest{
+		UserId: userID,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return buf2struct.User(resp.User), nil
 }
 
 // UserChannelCreate creates a DM channel with a user.
 func (h *HelperClientImpl) UserChannelCreate(recipientID string) (*discordgo.Channel, error) {
-	return nil, fmt.Errorf("UserChannelCreate operation not implemented in gRPC proto")
+	resp, err := h.client.UserChannelCreate(context.Background(), &proto.UserChannelCreateRequest{
+		RecipientId: recipientID,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return buf2struct.Channel(resp.Channel), nil
 }
 
 // InteractionRespond responds to an interaction.
 func (h *HelperClientImpl) InteractionRespond(interaction *discordgo.Interaction, resp *discordgo.InteractionResponse) error {
-	return fmt.Errorf("InteractionRespond operation not implemented in gRPC proto")
+	_, err := h.client.InteractionRespond(context.Background(), &proto.InteractionRespondRequest{
+		Interaction: struct2buf.Interaction(interaction),
+		Response:    struct2buf.InteractionResponse(resp),
+	})
+	return err
 }
 
 // InteractionResponseEdit edits an interaction response.
 func (h *HelperClientImpl) InteractionResponseEdit(interaction *discordgo.Interaction, newresp *discordgo.WebhookEdit) (*discordgo.Message, error) {
-	return nil, fmt.Errorf("InteractionResponseEdit operation not implemented in gRPC proto")
+	resp, err := h.client.InteractionResponseEdit(context.Background(), &proto.InteractionResponseEditRequest{
+		Interaction: struct2buf.Interaction(interaction),
+		WebhookEdit: struct2buf.WebhookEdit(newresp),
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return buf2struct.Message(resp.Message), nil
 }
 
 // ApplicationCommandCreate creates a new application command.
 func (h *HelperClientImpl) ApplicationCommandCreate(appID string, guildID string, cmd *discordgo.ApplicationCommand) (*discordgo.ApplicationCommand, error) {
-	return nil, fmt.Errorf("ApplicationCommandCreate operation not implemented in gRPC proto")
+	resp, err := h.client.ApplicationCommandCreate(context.Background(), &proto.ApplicationCommandCreateRequest{
+		AppId:   appID,
+		GuildId: guildID,
+		Command: struct2buf.ApplicationCommand(cmd),
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return buf2struct.ApplicationCommand(resp.Command), nil
 }
 
 // ApplicationCommandEdit edits an existing application command.
 func (h *HelperClientImpl) ApplicationCommandEdit(appID, guildID, cmdID string, cmd *discordgo.ApplicationCommand) (*discordgo.ApplicationCommand, error) {
-	return nil, fmt.Errorf("ApplicationCommandEdit operation not implemented in gRPC proto")
+	resp, err := h.client.ApplicationCommandEdit(context.Background(), &proto.ApplicationCommandEditRequest{
+		AppId:   appID,
+		GuildId: guildID,
+		CmdId:   cmdID,
+		Command: struct2buf.ApplicationCommand(cmd),
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return buf2struct.ApplicationCommand(resp.Command), nil
 }
 
 // ApplicationCommandDelete deletes an application command.
 func (h *HelperClientImpl) ApplicationCommandDelete(appID, guildID, cmdID string) error {
-	return fmt.Errorf("ApplicationCommandDelete operation not implemented in gRPC proto")
+	_, err := h.client.ApplicationCommandDelete(context.Background(), &proto.ApplicationCommandDeleteRequest{
+		AppId:   appID,
+		GuildId: guildID,
+		CmdId:   cmdID,
+	})
+	return err
 }
 
 // ApplicationCommands retrieves all application commands.
 func (h *HelperClientImpl) ApplicationCommands(appID, guildID string) ([]*discordgo.ApplicationCommand, error) {
-	return nil, fmt.Errorf("ApplicationCommands operation not implemented in gRPC proto")
+	resp, err := h.client.ApplicationCommands(context.Background(), &proto.ApplicationCommandsRequest{
+		AppId:   appID,
+		GuildId: guildID,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	var commands []*discordgo.ApplicationCommand
+	for _, protoCmd := range resp.Commands {
+		commands = append(commands, buf2struct.ApplicationCommand(protoCmd))
+	}
+
+	return commands, nil
 }
 
 // MessageReactionAdd adds a reaction to a message.
 func (h *HelperClientImpl) MessageReactionAdd(channelID, messageID, emojiID string) error {
-	return fmt.Errorf("MessageReactionAdd operation not implemented in gRPC proto")
+	_, err := h.client.MessageReactionAdd(context.Background(), &proto.MessageReactionAddRequest{
+		ChannelId: channelID,
+		MessageId: messageID,
+		EmojiId:   emojiID,
+	})
+	return err
 }
 
 // MessageReactionRemove removes a reaction from a message.
 func (h *HelperClientImpl) MessageReactionRemove(channelID, messageID, emojiID, userID string) error {
-	return fmt.Errorf("MessageReactionRemove operation not implemented in gRPC proto")
+	_, err := h.client.MessageReactionRemove(context.Background(), &proto.MessageReactionRemoveRequest{
+		ChannelId: channelID,
+		MessageId: messageID,
+		EmojiId:   emojiID,
+		UserId:    userID,
+	})
+	return err
 }
 
 // MessageReactionsRemoveAll removes all reactions from a message.
 func (h *HelperClientImpl) MessageReactionsRemoveAll(channelID, messageID string) error {
-	return fmt.Errorf("MessageReactionsRemoveAll operation not implemented in gRPC proto")
+	_, err := h.client.MessageReactionsRemoveAll(context.Background(), &proto.MessageReactionsRemoveAllRequest{
+		ChannelId: channelID,
+		MessageId: messageID,
+	})
+	return err
 }
 
 // ThreadStart creates a new thread.
 func (h *HelperClientImpl) ThreadStart(channelID, name string, typ discordgo.ChannelType, archiveDuration int) (*discordgo.Channel, error) {
-	return nil, fmt.Errorf("ThreadStart operation not implemented in gRPC proto")
+	resp, err := h.client.ThreadStart(context.Background(), &proto.ThreadStartRequest{
+		ChannelId:       channelID,
+		Name:            name,
+		Type:            int32(typ),
+		ArchiveDuration: int32(archiveDuration),
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return buf2struct.Channel(resp.Channel), nil
 }
 
 // ThreadJoin joins a thread.
 func (h *HelperClientImpl) ThreadJoin(threadID string) error {
-	return fmt.Errorf("ThreadJoin operation not implemented in gRPC proto")
+	_, err := h.client.ThreadJoin(context.Background(), &proto.ThreadJoinRequest{
+		ThreadId: threadID,
+	})
+	return err
 }
 
 // ThreadLeave leaves a thread.
 func (h *HelperClientImpl) ThreadLeave(threadID string) error {
-	return fmt.Errorf("ThreadLeave operation not implemented in gRPC proto")
+	_, err := h.client.ThreadLeave(context.Background(), &proto.ThreadLeaveRequest{
+		ThreadId: threadID,
+	})
+	return err
 }
 
 // ThreadMemberAdd adds a member to a thread.
 func (h *HelperClientImpl) ThreadMemberAdd(threadID, memberID string) error {
-	return fmt.Errorf("ThreadMemberAdd operation not implemented in gRPC proto")
+	_, err := h.client.ThreadMemberAdd(context.Background(), &proto.ThreadMemberAddRequest{
+		ThreadId: threadID,
+		MemberId: memberID,
+	})
+	return err
 }
 
 // ThreadMemberRemove removes a member from a thread.
 func (h *HelperClientImpl) ThreadMemberRemove(threadID, memberID string) error {
-	return fmt.Errorf("ThreadMemberRemove operation not implemented in gRPC proto")
+	_, err := h.client.ThreadMemberRemove(context.Background(), &proto.ThreadMemberRemoveRequest{
+		ThreadId: threadID,
+		MemberId: memberID,
+	})
+	return err
 }
 
 // VoiceRegions retrieves available voice regions.
 func (h *HelperClientImpl) VoiceRegions() ([]*discordgo.VoiceRegion, error) {
-	return nil, fmt.Errorf("VoiceRegions operation not implemented in gRPC proto")
+	resp, err := h.client.VoiceRegions(context.Background(), &proto.VoiceRegionsRequest{})
+	if err != nil {
+		return nil, err
+	}
+
+	var regions []*discordgo.VoiceRegion
+	for _, protoRegion := range resp.Regions {
+		regions = append(regions, buf2struct.VoiceRegion(protoRegion))
+	}
+
+	return regions, nil
 }
 
 // WebhookCreate creates a new webhook.
 func (h *HelperClientImpl) WebhookCreate(channelID, name, avatar string) (*discordgo.Webhook, error) {
-	return nil, fmt.Errorf("WebhookCreate operation not implemented in gRPC proto")
+	resp, err := h.client.WebhookCreate(context.Background(), &proto.WebhookCreateRequest{
+		ChannelId: channelID,
+		Name:      name,
+		Avatar:    avatar,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return buf2struct.Webhook(resp.Webhook), nil
 }
 
 // WebhookExecute executes a webhook.
 func (h *HelperClientImpl) WebhookExecute(webhookID, token string, wait bool, data *discordgo.WebhookParams) (*discordgo.Message, error) {
-	return nil, fmt.Errorf("WebhookExecute operation not implemented in gRPC proto")
+	resp, err := h.client.WebhookExecute(context.Background(), &proto.WebhookExecuteRequest{
+		WebhookId: webhookID,
+		Token:     token,
+		Wait:      wait,
+		Data:      struct2buf.WebhookParams(data),
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return buf2struct.Message(resp.Message), nil
 }
 
 // UserChannelPermissions retrieves user permissions for a channel.
 func (h *HelperClientImpl) UserChannelPermissions(userID, channelID string) (int64, error) {
-	return 0, fmt.Errorf("UserChannelPermissions operation not implemented in gRPC proto")
+	resp, err := h.client.UserChannelPermissions(context.Background(), &proto.UserChannelPermissionsRequest{
+		UserId:    userID,
+		ChannelId: channelID,
+	})
+	if err != nil {
+		return 0, err
+	}
+
+	return resp.Permissions, nil
 }
 
 // Gateway retrieves gateway URL.
 func (h *HelperClientImpl) Gateway() (string, error) {
-	return "", fmt.Errorf("Gateway operation not implemented in gRPC proto")
+	resp, err := h.client.Gateway(context.Background(), &proto.GatewayRequest{})
+	if err != nil {
+		return "", err
+	}
+
+	return resp.Url, nil
 }
 
 // GatewayBot retrieves gateway bot information.
 func (h *HelperClientImpl) GatewayBot() (*discordgo.GatewayBotResponse, error) {
-	return nil, fmt.Errorf("GatewayBot operation not implemented in gRPC proto")
+	resp, err := h.client.GatewayBot(context.Background(), &proto.GatewayBotRequest{})
+	if err != nil {
+		return nil, err
+	}
+
+	return buf2struct.GatewayBotResponse(resp), nil
 }
 
 // Ensure HelperClientImpl implements the Helper interface

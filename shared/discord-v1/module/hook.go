@@ -29,7 +29,7 @@ func (m *GRPCServer) OnInit(ctx context.Context, req *proto_common.Empty) (*prot
 
 	interactions := make([]*proto.ApplicationCommand, 0)
 	for _, v := range resp.Interactions {
-		interactions = append(interactions, struct2buf.ApplicationCommmand(v))
+		interactions = append(interactions, struct2buf.ApplicationCommand(v))
 	}
 
 	return &proto.InitResponse{

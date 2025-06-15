@@ -13,7 +13,7 @@ import (
 // and some object conversion functions may not be available if a session is not provided.
 var DiscordSession *discordgo.Session
 
-func ApplicationCommmand(s *discordgo.ApplicationCommand) *proto.ApplicationCommand {
+func ApplicationCommand(s *discordgo.ApplicationCommand) *proto.ApplicationCommand {
 	if s == nil {
 		return nil
 	}
@@ -300,4 +300,80 @@ func ModalSubmitInteractionData(s *discordgo.ModalSubmitInteractionData) *proto.
 		CustomId:   s.CustomID,
 		Components: nil, // TODO(discord/bufstruct): implements Components
 	}
+}
+
+// InteractionResponse converts discordgo InteractionResponse to proto InteractionResponse
+func InteractionResponse(s *discordgo.InteractionResponse) *proto.InteractionResponse {
+	if s == nil {
+		return nil
+	}
+
+	return &proto.InteractionResponse{
+		Type: proto.InteractionResponseType(s.Type),
+		Data: nil, // TODO: implement InteractionResponseData conversion
+	}
+}
+
+// WebhookEdit converts discordgo WebhookEdit to proto WebhookEdit
+func WebhookEdit(s *discordgo.WebhookEdit) *proto.WebhookEdit {
+	if s == nil {
+		return nil
+	}
+
+	edit := &proto.WebhookEdit{}
+	if s.Content != nil {
+		edit.Content = s.Content
+	}
+	// Add more fields as needed for embeds, components, etc.
+
+	return edit
+}
+
+// WebhookParams converts discordgo WebhookParams to protobuf WebhookParams
+func WebhookParams(s *discordgo.WebhookParams) *proto.WebhookParams {
+	if s == nil {
+		return nil
+	}
+
+	params := &proto.WebhookParams{}
+
+	if s.Content != "" {
+		params.Content = &s.Content
+	}
+	if s.Username != "" {
+		params.Username = &s.Username
+	}
+	if s.AvatarURL != "" {
+		params.AvatarUrl = &s.AvatarURL
+	}
+	if s.TTS {
+		params.Tts = &s.TTS
+	}
+	if s.ThreadName != "" {
+		params.ThreadName = &s.ThreadName
+	}
+
+	// Convert embeds
+	for _, embed := range s.Embeds {
+		if embed != nil {
+			params.Embeds = append(params.Embeds, MessageEmbed(embed))
+		}
+	}
+
+	// Convert attachments
+	for _, attachment := range s.Attachments {
+		if attachment != nil {
+			params.Attachments = append(params.Attachments, MessageAttachment(attachment))
+		}
+	}
+
+	// Convert allowed mentions
+	if s.AllowedMentions != nil {
+		params.AllowedMentions = MessageAllowedMentions(s.AllowedMentions)
+	}
+
+	// Note: Files and Components are complex and would need special handling
+	// For now, we'll leave them empty as they're not commonly used in simple webhook calls
+
+	return params
 }

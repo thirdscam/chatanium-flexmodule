@@ -300,3 +300,29 @@ func MessageEdit(s *discordgo.MessageEdit) *proto.MessageEdit {
 		// Flags:      proto.MessageFlags(s.Flags),
 	}
 }
+
+// MessageAllowedMentions converts discordgo MessageAllowedMentions to protobuf MessageAllowedMentions
+func MessageAllowedMentions(s *discordgo.MessageAllowedMentions) *proto.MessageAllowedMentions {
+	if s == nil {
+		return nil
+	}
+
+	var parse []proto.AllowedMentionType
+	for _, p := range s.Parse {
+		switch p {
+		case discordgo.AllowedMentionTypeRoles:
+			parse = append(parse, proto.AllowedMentionType_ALLOWED_MENTION_TYPE_ROLES)
+		case discordgo.AllowedMentionTypeUsers:
+			parse = append(parse, proto.AllowedMentionType_ALLOWED_MENTION_TYPE_USERS)
+		case discordgo.AllowedMentionTypeEveryone:
+			parse = append(parse, proto.AllowedMentionType_ALLOWED_MENTION_TYPE_EVERYONE)
+		}
+	}
+
+	return &proto.MessageAllowedMentions{
+		Parse:       parse,
+		Roles:       s.Roles,
+		Users:       s.Users,
+		RepliedUser: s.RepliedUser,
+	}
+}

@@ -261,3 +261,37 @@ func ChannelEdit(s *discordgo.ChannelEdit) *proto.ChannelEdit {
 
 	return edit
 }
+
+// VoiceRegion converts discordgo VoiceRegion to protobuf VoiceRegion
+func VoiceRegion(s *discordgo.VoiceRegion) *proto.VoiceRegion {
+	if s == nil {
+		return nil
+	}
+	return &proto.VoiceRegion{
+		Id:   s.ID,
+		Name: s.Name,
+	}
+}
+
+// Webhook converts discordgo Webhook to protobuf Webhook
+func Webhook(s *discordgo.Webhook) *proto.Webhook {
+	if s == nil {
+		return nil
+	}
+	webhook := &proto.Webhook{
+		Id:        s.ID,
+		Type:      proto.WebhookType(s.Type),
+		GuildId:   s.GuildID,
+		ChannelId: s.ChannelID,
+		Name:      s.Name,
+		Avatar:    s.Avatar,
+		Token:     s.Token,
+	}
+	if s.User != nil {
+		webhook.User = User(s.User)
+	}
+	if s.ApplicationID != "" {
+		webhook.ApplicationId = &s.ApplicationID
+	}
+	return webhook
+}

@@ -243,3 +243,180 @@ func ChannelEdit(buf *proto.ChannelEdit) *discordgo.ChannelEdit {
 
 	return edit
 }
+
+// Guild converts proto Guild to discordgo Guild
+func Guild(buf *proto.Guild) *discordgo.Guild {
+	if buf == nil {
+		return nil
+	}
+
+	features := make([]discordgo.GuildFeature, 0, len(buf.Features))
+	for _, feature := range buf.Features {
+		features = append(features, discordgo.GuildFeature(feature))
+	}
+
+	roles := make([]*discordgo.Role, 0, len(buf.Roles))
+	for _, role := range buf.Roles {
+		roles = append(roles, Role(role))
+	}
+
+	emojis := make([]*discordgo.Emoji, 0, len(buf.Emojis))
+	for _, emoji := range buf.Emojis {
+		emojis = append(emojis, Emoji(emoji))
+	}
+
+	stickers := make([]*discordgo.Sticker, 0, len(buf.Stickers))
+	for _, sticker := range buf.Stickers {
+		stickers = append(stickers, &discordgo.Sticker{
+			ID:          sticker.Id,
+			Name:        sticker.Name,
+			Description: sticker.Description,
+			Tags:        sticker.Tags,
+			Type:        discordgo.StickerType(sticker.Type),
+			FormatType:  discordgo.StickerFormat(sticker.FormatType),
+			Available:   sticker.Available,
+			GuildID:     sticker.GuildId,
+			User:        User(sticker.User),
+			SortValue:   int(sticker.SortValue),
+			PackID:      sticker.PackId,
+		})
+	}
+
+	members := make([]*discordgo.Member, 0, len(buf.Members))
+	for _, member := range buf.Members {
+		members = append(members, Member(member))
+	}
+
+	presences := make([]*discordgo.Presence, 0, len(buf.Presences))
+	for _, presence := range buf.Presences {
+		presences = append(presences, &discordgo.Presence{
+			User:   User(presence.User),
+			Status: discordgo.Status(presence.Status),
+			Activities: func() []*discordgo.Activity {
+				activities := make([]*discordgo.Activity, 0, len(presence.Activities))
+				for _, activity := range presence.Activities {
+					activities = append(activities, &discordgo.Activity{
+						Name:          activity.Name,
+						Type:          discordgo.ActivityType(activity.Type),
+						URL:           activity.Url,
+						CreatedAt:     activity.CreatedAt.AsTime(),
+						ApplicationID: activity.ApplicationId,
+						State:         activity.State,
+						Details:       activity.Details,
+						Timestamps: discordgo.TimeStamps{
+							StartTimestamp: activity.Timestamps.StartTimestamp,
+							EndTimestamp:   activity.Timestamps.EndTimestamp,
+						},
+						Emoji: *Emoji(activity.Emoji),
+					})
+				}
+				return activities
+			}(),
+		})
+	}
+
+	// Basic implementation - more fields can be added as needed
+	return &discordgo.Guild{
+		// Basic guild information
+		ID:                          buf.Id,
+		Name:                        buf.Name,
+		Icon:                        buf.Icon,
+		Region:                      buf.Region,
+		AfkChannelID:                buf.AfkChannelId,
+		AfkTimeout:                  int(buf.AfkTimeout),
+		OwnerID:                     buf.OwnerId,
+		VerificationLevel:           discordgo.VerificationLevel(buf.VerificationLevel),
+		DefaultMessageNotifications: discordgo.MessageNotifications(buf.DefaultMessageNotifications),
+		ExplicitContentFilter:       discordgo.ExplicitContentFilterLevel(buf.ExplicitContentFilter),
+		Features:                    features,
+		Description:                 buf.Description,
+		Splash:                      buf.Splash,
+		Banner:                      buf.Banner,
+		Owner:                       buf.Owner,
+		JoinedAt:                    buf.JoinedAt.AsTime(),
+		DiscoverySplash:             buf.DiscoverySplash,
+		MemberCount:                 int(buf.MemberCount),
+		Large:                       buf.Large,
+		Roles:                       roles,
+		Emojis:                      emojis,
+		Stickers:                    stickers,
+		Members:                     members,
+		Presences:                   presences,
+		MaxPresences:                int(buf.MaxPresences),
+		MaxMembers:                  int(buf.MaxMembers),
+		Channels:                    nil, // TODO: Mapping state-enabled fields (#1)
+		Threads:                     nil, // TODO: Mapping state-enabled fields (#1)
+		VoiceStates:                 nil, // TODO: Mapping state-enabled fields (#1)
+		Unavailable:                 buf.Unavailable,
+		NSFWLevel:                   discordgo.GuildNSFWLevel(buf.NsfwLevel),
+		MfaLevel:                    discordgo.MfaLevel(buf.MfaLevel),
+		ApplicationID:               buf.ApplicationId,
+		SystemChannelID:             buf.SystemChannelId,
+		SystemChannelFlags:          discordgo.SystemChannelFlag(buf.SystemChannelFlags),
+		RulesChannelID:              buf.RulesChannelId,
+		PublicUpdatesChannelID:      buf.PublicUpdatesChannelId,
+		PreferredLocale:             buf.PreferredLocale,
+		WidgetEnabled:               buf.WidgetEnabled,
+		WidgetChannelID:             buf.WidgetChannelId,
+		VanityURLCode:               buf.VanityUrlCode,
+		PremiumTier:                 discordgo.PremiumTier(buf.PremiumTier),
+		PremiumSubscriptionCount:    int(buf.PremiumSubscriptionCount),
+		MaxVideoChannelUsers:        int(buf.MaxVideoChannelUsers),
+		ApproximateMemberCount:      int(buf.ApproximateMemberCount),
+		ApproximatePresenceCount:    int(buf.ApproximatePresenceCount),
+		Permissions:                 buf.Permissions,
+		StageInstances:              nil, // TODO: Mapping state-enabled fields (#1)
+		// ... other fields handled elsewhere or not mapped
+	}
+}
+
+// VoiceRegion converts protobuf VoiceRegion to discordgo VoiceRegion
+func VoiceRegion(buf *proto.VoiceRegion) *discordgo.VoiceRegion {
+	if buf == nil {
+		return nil
+	}
+	return &discordgo.VoiceRegion{
+		ID:   buf.Id,
+		Name: buf.Name,
+	}
+}
+
+// Webhook converts protobuf Webhook to discordgo Webhook
+func Webhook(buf *proto.Webhook) *discordgo.Webhook {
+	if buf == nil {
+		return nil
+	}
+	webhook := &discordgo.Webhook{
+		ID:        buf.Id,
+		Type:      discordgo.WebhookType(buf.Type),
+		GuildID:   buf.GuildId,
+		ChannelID: buf.ChannelId,
+		Name:      buf.Name,
+		Avatar:    buf.Avatar,
+		Token:     buf.Token,
+	}
+	if buf.User != nil {
+		webhook.User = User(buf.User)
+	}
+	if buf.ApplicationId != nil {
+		webhook.ApplicationID = *buf.ApplicationId
+	}
+	return webhook
+}
+
+// GatewayBotResponse converts protobuf GatewayBotResponse to discordgo GatewayBotResponse
+func GatewayBotResponse(buf *proto.GatewayBotResponse) *discordgo.GatewayBotResponse {
+	if buf == nil {
+		return nil
+	}
+	return &discordgo.GatewayBotResponse{
+		URL:    buf.Url,
+		Shards: int(buf.Shards),
+		SessionStartLimit: discordgo.SessionInformation{
+			Total:          int(buf.SessionStartLimit.Total),
+			Remaining:      int(buf.SessionStartLimit.Remaining),
+			ResetAfter:     int(buf.SessionStartLimit.ResetAfter),
+			MaxConcurrency: int(buf.SessionStartLimit.MaxConcurrency),
+		},
+	}
+}
