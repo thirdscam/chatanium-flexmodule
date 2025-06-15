@@ -215,3 +215,29 @@ func ModalSubmitInteractionData(buf *proto.ModalSubmitInteractionData) *discordg
 		Components: nil, // TODO(discord/bufstruct): implements Components
 	}
 }
+
+// InteractionResponse converts proto InteractionResponse to discordgo InteractionResponse
+func InteractionResponse(buf *proto.InteractionResponse) *discordgo.InteractionResponse {
+	if buf == nil {
+		return nil
+	}
+
+	return &discordgo.InteractionResponse{
+		Type: discordgo.InteractionResponseType(buf.Type),
+		Data: nil, // TODO: implement InteractionResponseData conversion
+	}
+}
+
+// WebhookEdit converts proto WebhookEdit to discordgo WebhookEdit
+func WebhookEdit(buf *proto.WebhookEdit) *discordgo.WebhookEdit {
+	if buf == nil {
+		return nil
+	}
+
+	// Basic implementation - more fields can be added as needed
+	edit := &discordgo.WebhookEdit{}
+	if buf.Content != nil {
+		edit.Content = buf.Content
+	}
+	return edit
+}

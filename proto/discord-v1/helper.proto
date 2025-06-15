@@ -22,6 +22,53 @@ service Helper {
     rpc ChannelEdit(ChannelEditRequest) returns (ChannelEditResponse);
     rpc ChannelDelete(ChannelDeleteRequest) returns (ChannelDeleteResponse);
     rpc ChannelTyping(ChannelTypingRequest) returns (common.Empty);
+    
+    // Guild operations
+    rpc Guild(GuildRequest) returns (GuildResponse);
+    rpc GuildChannels(GuildChannelsRequest) returns (GuildChannelsResponse);
+    rpc GuildMembers(GuildMembersRequest) returns (GuildMembersResponse);
+    rpc GuildMember(GuildMemberRequest) returns (GuildMemberResponse);
+    rpc GuildRoles(GuildRolesRequest) returns (GuildRolesResponse);
+    
+    // User operations
+    rpc User(UserRequest) returns (UserResponse);
+    rpc UserChannelCreate(UserChannelCreateRequest) returns (UserChannelCreateResponse);
+    
+    // Interaction operations
+    rpc InteractionRespond(InteractionRespondRequest) returns (common.Empty);
+    rpc InteractionResponseEdit(InteractionResponseEditRequest) returns (InteractionResponseEditResponse);
+    
+    // Application Command operations
+    rpc ApplicationCommandCreate(ApplicationCommandCreateRequest) returns (ApplicationCommandCreateResponse);
+    rpc ApplicationCommandEdit(ApplicationCommandEditRequest) returns (ApplicationCommandEditResponse);
+    rpc ApplicationCommandDelete(ApplicationCommandDeleteRequest) returns (common.Empty);
+    rpc ApplicationCommands(ApplicationCommandsRequest) returns (ApplicationCommandsResponse);
+    
+    // Reaction operations
+    rpc MessageReactionAdd(MessageReactionAddRequest) returns (common.Empty);
+    rpc MessageReactionRemove(MessageReactionRemoveRequest) returns (common.Empty);
+    rpc MessageReactionsRemoveAll(MessageReactionsRemoveAllRequest) returns (common.Empty);
+    
+    // Thread operations
+    rpc ThreadStart(ThreadStartRequest) returns (ThreadStartResponse);
+    rpc ThreadJoin(ThreadJoinRequest) returns (common.Empty);
+    rpc ThreadLeave(ThreadLeaveRequest) returns (common.Empty);
+    rpc ThreadMemberAdd(ThreadMemberAddRequest) returns (common.Empty);
+    rpc ThreadMemberRemove(ThreadMemberRemoveRequest) returns (common.Empty);
+    
+    // Voice operations
+    rpc VoiceRegions(VoiceRegionsRequest) returns (VoiceRegionsResponse);
+    
+    // Webhook operations
+    rpc WebhookCreate(WebhookCreateRequest) returns (WebhookCreateResponse);
+    rpc WebhookExecute(WebhookExecuteRequest) returns (WebhookExecuteResponse);
+    
+    // Permission operations
+    rpc UserChannelPermissions(UserChannelPermissionsRequest) returns (UserChannelPermissionsResponse);
+    
+    // Utility operations
+    rpc Gateway(GatewayRequest) returns (GatewayResponse);
+    rpc GatewayBot(GatewayBotRequest) returns (GatewayBotResponse);
 }
 
 // Message operation messages
@@ -116,6 +163,26 @@ message ChannelResponse {
     Channel channel = 1;
 }
 
+// ChannelEdit message for channel editing operations
+message ChannelEdit {
+    optional string name = 1;
+    optional string topic = 2;
+    optional bool nsfw = 3;
+    optional int32 position = 4;
+    optional int32 bitrate = 5;
+    optional int32 user_limit = 6;
+    repeated PermissionOverwrite permission_overwrites = 7;
+    optional string parent_id = 8;
+    optional int32 rate_limit_per_user = 9;
+    optional int32 flags = 10;
+    optional int32 default_thread_rate_limit_per_user = 11;
+    optional bool archived = 12;
+    optional int32 auto_archive_duration = 13;
+    optional bool locked = 14;
+    optional bool invitable = 15;
+    repeated string applied_tags = 16;
+}
+
 message ChannelEditRequest {
     string channel_id = 1;
     ChannelEdit data = 2;
@@ -136,3 +203,231 @@ message ChannelDeleteResponse {
 message ChannelTypingRequest {
     string channel_id = 1;
 }
+
+// Guild operation messages
+
+message GuildRequest {
+    string guild_id = 1;
+}
+
+message GuildResponse {
+    Guild guild = 1;
+}
+
+message GuildChannelsRequest {
+    string guild_id = 1;
+}
+
+message GuildChannelsResponse {
+    repeated Channel channels = 1;
+}
+
+message GuildMembersRequest {
+    string guild_id = 1;
+    string after = 2;
+    int32 limit = 3;
+}
+
+message GuildMembersResponse {
+    repeated Member members = 1;
+}
+
+message GuildMemberRequest {
+    string guild_id = 1;
+    string user_id = 2;
+}
+
+message GuildMemberResponse {
+    Member member = 1;
+}
+
+message GuildRolesRequest {
+    string guild_id = 1;
+}
+
+message GuildRolesResponse {
+    repeated Role roles = 1;
+}
+
+// User operation messages
+
+message UserRequest {
+    string user_id = 1;
+}
+
+message UserResponse {
+    User user = 1;
+}
+
+message UserChannelCreateRequest {
+    string recipient_id = 1;
+}
+
+message UserChannelCreateResponse {
+    Channel channel = 1;
+}
+
+// Interaction operation messages
+
+message InteractionRespondRequest {
+    Interaction interaction = 1;
+    InteractionResponse response = 2;
+}
+
+message InteractionResponseEditRequest {
+    Interaction interaction = 1;
+    WebhookEdit webhook_edit = 2;
+}
+
+message InteractionResponseEditResponse {
+    Message message = 1;
+}
+
+// Application Command operation messages
+
+message ApplicationCommandCreateRequest {
+    string app_id = 1;
+    string guild_id = 2;
+    ApplicationCommand command = 3;
+}
+
+message ApplicationCommandCreateResponse {
+    ApplicationCommand command = 1;
+}
+
+message ApplicationCommandEditRequest {
+    string app_id = 1;
+    string guild_id = 2;
+    string cmd_id = 3;
+    ApplicationCommand command = 4;
+}
+
+message ApplicationCommandEditResponse {
+    ApplicationCommand command = 1;
+}
+
+message ApplicationCommandDeleteRequest {
+    string app_id = 1;
+    string guild_id = 2;
+    string cmd_id = 3;
+}
+
+message ApplicationCommandsRequest {
+    string app_id = 1;
+    string guild_id = 2;
+}
+
+message ApplicationCommandsResponse {
+    repeated ApplicationCommand commands = 1;
+}
+
+// Reaction operation messages
+
+message MessageReactionAddRequest {
+    string channel_id = 1;
+    string message_id = 2;
+    string emoji_id = 3;
+}
+
+message MessageReactionRemoveRequest {
+    string channel_id = 1;
+    string message_id = 2;
+    string emoji_id = 3;
+    string user_id = 4;
+}
+
+message MessageReactionsRemoveAllRequest {
+    string channel_id = 1;
+    string message_id = 2;
+}
+
+// Thread operation messages
+
+message ThreadStartRequest {
+    string channel_id = 1;
+    string name = 2;
+    int32 type = 3;
+    int32 archive_duration = 4;
+}
+
+message ThreadStartResponse {
+    Channel channel = 1;
+}
+
+message ThreadJoinRequest {
+    string thread_id = 1;
+}
+
+message ThreadLeaveRequest {
+    string thread_id = 1;
+}
+
+message ThreadMemberAddRequest {
+    string thread_id = 1;
+    string member_id = 2;
+}
+
+message ThreadMemberRemoveRequest {
+    string thread_id = 1;
+    string member_id = 2;
+}
+
+// Voice operation messages
+
+message VoiceRegionsRequest {
+    // Empty request
+}
+
+message VoiceRegionsResponse {
+    repeated VoiceRegion regions = 1;
+}
+
+// Webhook operation messages
+
+message WebhookCreateRequest {
+    string channel_id = 1;
+    string name = 2;
+    string avatar = 3;
+}
+
+message WebhookCreateResponse {
+    Webhook webhook = 1;
+}
+
+message WebhookExecuteRequest {
+    string webhook_id = 1;
+    string token = 2;
+    bool wait = 3;
+    WebhookParams data = 4;
+}
+
+message WebhookExecuteResponse {
+    Message message = 1;
+}
+
+// Permission operation messages
+
+message UserChannelPermissionsRequest {
+    string user_id = 1;
+    string channel_id = 2;
+}
+
+message UserChannelPermissionsResponse {
+    int64 permissions = 1;
+}
+
+// Utility operation messages
+
+message GatewayRequest {
+    // Empty request
+}
+
+message GatewayResponse {
+    string url = 1;
+}
+
+message GatewayBotRequest {
+    // Empty request
+}
+
+// GatewayBotResponse is already defined in discordgo.proto, so we use it directly

@@ -147,22 +147,47 @@ func (h *HelperClientImpl) ChannelMessage(channelID, messageID string) (*discord
 
 // Channel retrieves information about a channel.
 func (h *HelperClientImpl) Channel(channelID string) (*discordgo.Channel, error) {
-	return nil, fmt.Errorf("Channel operation not implemented in gRPC proto")
+	resp, err := h.client.Channel(context.Background(), &proto.ChannelRequest{
+		ChannelId: channelID,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return buf2struct.Channel(resp.Channel), nil
 }
 
 // ChannelEdit modifies a channel's properties.
 func (h *HelperClientImpl) ChannelEdit(channelID string, data *discordgo.ChannelEdit) (*discordgo.Channel, error) {
-	return nil, fmt.Errorf("ChannelEdit operation not implemented in gRPC proto")
+	resp, err := h.client.ChannelEdit(context.Background(), &proto.ChannelEditRequest{
+		ChannelId: channelID,
+		Data:      struct2buf.ChannelEdit(data),
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return buf2struct.Channel(resp.Channel), nil
 }
 
 // ChannelDelete deletes a channel.
 func (h *HelperClientImpl) ChannelDelete(channelID string) (*discordgo.Channel, error) {
-	return nil, fmt.Errorf("ChannelDelete operation not implemented in gRPC proto")
+	resp, err := h.client.ChannelDelete(context.Background(), &proto.ChannelDeleteRequest{
+		ChannelId: channelID,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return buf2struct.Channel(resp.Channel), nil
 }
 
 // ChannelTyping triggers typing indicator in a channel.
 func (h *HelperClientImpl) ChannelTyping(channelID string) error {
-	return fmt.Errorf("ChannelTyping operation not implemented in gRPC proto")
+	_, err := h.client.ChannelTyping(context.Background(), &proto.ChannelTypingRequest{
+		ChannelId: channelID,
+	})
+	return err
 }
 
 // ================================================
@@ -171,7 +196,14 @@ func (h *HelperClientImpl) ChannelTyping(channelID string) error {
 
 // Guild retrieves information about a guild.
 func (h *HelperClientImpl) Guild(guildID string) (*discordgo.Guild, error) {
-	return nil, fmt.Errorf("Guild operation not implemented in gRPC proto")
+	resp, err := h.client.Guild(context.Background(), &proto.GuildRequest{
+		GuildId: guildID,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return buf2struct.Guild(resp.Guild), nil
 }
 
 // GuildChannels retrieves all channels in a guild.

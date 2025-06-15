@@ -30,7 +30,6 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type HookClient interface {
-	// Runtime -> Module
 	OnInit(ctx context.Context, in *proto.Empty, opts ...grpc.CallOption) (*InitResponse, error)
 	OnCreateMessage(ctx context.Context, in *Message, opts ...grpc.CallOption) (*proto.Empty, error)
 	OnCreateInteraction(ctx context.Context, in *Interaction, opts ...grpc.CallOption) (*proto.Empty, error)
@@ -85,7 +84,6 @@ func (c *hookClient) OnEvent(ctx context.Context, in *OnEventRequest, opts ...gr
 // All implementations should embed UnimplementedHookServer
 // for forward compatibility
 type HookServer interface {
-	// Runtime -> Module
 	OnInit(context.Context, *proto.Empty) (*InitResponse, error)
 	OnCreateMessage(context.Context, *Message) (*proto.Empty, error)
 	OnCreateInteraction(context.Context, *Interaction) (*proto.Empty, error)

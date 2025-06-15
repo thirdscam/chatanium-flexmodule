@@ -144,6 +144,196 @@ func (h *HelperServerImpl) ChannelMessage(ctx context.Context, req *proto.Channe
 }
 
 // ================================================
+// Channel operations (implemented in proto)
+// ================================================
+
+// Channel handles getting a channel by ID.
+func (h *HelperServerImpl) Channel(ctx context.Context, req *proto.ChannelRequest) (*proto.ChannelResponse, error) {
+	channel, err := h.Impl.Channel(req.ChannelId)
+	if err != nil {
+		return nil, err
+	}
+
+	return &proto.ChannelResponse{
+		Channel: struct2buf.Channel(channel),
+	}, nil
+}
+
+// ChannelEdit handles editing a channel.
+func (h *HelperServerImpl) ChannelEdit(ctx context.Context, req *proto.ChannelEditRequest) (*proto.ChannelEditResponse, error) {
+	data := buf2struct.ChannelEdit(req.Data)
+	channel, err := h.Impl.ChannelEdit(req.ChannelId, data)
+	if err != nil {
+		return nil, err
+	}
+
+	return &proto.ChannelEditResponse{
+		Channel: struct2buf.Channel(channel),
+	}, nil
+}
+
+// ChannelDelete handles deleting a channel.
+func (h *HelperServerImpl) ChannelDelete(ctx context.Context, req *proto.ChannelDeleteRequest) (*proto.ChannelDeleteResponse, error) {
+	channel, err := h.Impl.ChannelDelete(req.ChannelId)
+	if err != nil {
+		return nil, err
+	}
+
+	return &proto.ChannelDeleteResponse{
+		Channel: struct2buf.Channel(channel),
+	}, nil
+}
+
+// ChannelTyping handles sending typing indicator.
+func (h *HelperServerImpl) ChannelTyping(ctx context.Context, req *proto.ChannelTypingRequest) (*proto_common.Empty, error) {
+	err := h.Impl.ChannelTyping(req.ChannelId)
+	if err != nil {
+		return nil, err
+	}
+
+	return &proto_common.Empty{}, nil
+}
+
+// ================================================
+// Guild operations (implemented in proto)
+// ================================================
+
+// Guild handles getting a guild by ID.
+func (h *HelperServerImpl) Guild(ctx context.Context, req *proto.GuildRequest) (*proto.GuildResponse, error) {
+	guild, err := h.Impl.Guild(req.GuildId)
+	if err != nil {
+		return nil, err
+	}
+
+	return &proto.GuildResponse{
+		Guild: struct2buf.Guild(guild),
+	}, nil
+}
+
+// GuildChannels handles getting channels in a guild.
+func (h *HelperServerImpl) GuildChannels(ctx context.Context, req *proto.GuildChannelsRequest) (*proto.GuildChannelsResponse, error) {
+	channels, err := h.Impl.GuildChannels(req.GuildId)
+	if err != nil {
+		return nil, err
+	}
+
+	var protoChannels []*proto.Channel
+	for _, channel := range channels {
+		protoChannels = append(protoChannels, struct2buf.Channel(channel))
+	}
+
+	return &proto.GuildChannelsResponse{
+		Channels: protoChannels,
+	}, nil
+}
+
+// GuildMembers handles getting members in a guild.
+func (h *HelperServerImpl) GuildMembers(ctx context.Context, req *proto.GuildMembersRequest) (*proto.GuildMembersResponse, error) {
+	members, err := h.Impl.GuildMembers(req.GuildId, req.After, int(req.Limit))
+	if err != nil {
+		return nil, err
+	}
+
+	var protoMembers []*proto.Member
+	for _, member := range members {
+		protoMembers = append(protoMembers, struct2buf.Member(member))
+	}
+
+	return &proto.GuildMembersResponse{
+		Members: protoMembers,
+	}, nil
+}
+
+// GuildMember handles getting a specific member in a guild.
+func (h *HelperServerImpl) GuildMember(ctx context.Context, req *proto.GuildMemberRequest) (*proto.GuildMemberResponse, error) {
+	member, err := h.Impl.GuildMember(req.GuildId, req.UserId)
+	if err != nil {
+		return nil, err
+	}
+
+	return &proto.GuildMemberResponse{
+		Member: struct2buf.Member(member),
+	}, nil
+}
+
+// GuildRoles handles getting roles in a guild.
+func (h *HelperServerImpl) GuildRoles(ctx context.Context, req *proto.GuildRolesRequest) (*proto.GuildRolesResponse, error) {
+	roles, err := h.Impl.GuildRoles(req.GuildId)
+	if err != nil {
+		return nil, err
+	}
+
+	var protoRoles []*proto.Role
+	for _, role := range roles {
+		protoRoles = append(protoRoles, struct2buf.Role(role))
+	}
+
+	return &proto.GuildRolesResponse{
+		Roles: protoRoles,
+	}, nil
+}
+
+// ================================================
+// User operations (implemented in proto)
+// ================================================
+
+// User handles getting a user by ID.
+func (h *HelperServerImpl) User(ctx context.Context, req *proto.UserRequest) (*proto.UserResponse, error) {
+	user, err := h.Impl.User(req.UserId)
+	if err != nil {
+		return nil, err
+	}
+
+	return &proto.UserResponse{
+		User: struct2buf.User(user),
+	}, nil
+}
+
+// UserChannelCreate handles creating a DM channel with a user.
+func (h *HelperServerImpl) UserChannelCreate(ctx context.Context, req *proto.UserChannelCreateRequest) (*proto.UserChannelCreateResponse, error) {
+	channel, err := h.Impl.UserChannelCreate(req.RecipientId)
+	if err != nil {
+		return nil, err
+	}
+
+	return &proto.UserChannelCreateResponse{
+		Channel: struct2buf.Channel(channel),
+	}, nil
+}
+
+// ================================================
+// Interaction operations (implemented in proto)
+// ================================================
+
+// InteractionRespond handles responding to an interaction.
+func (h *HelperServerImpl) InteractionRespond(ctx context.Context, req *proto.InteractionRespondRequest) (*proto_common.Empty, error) {
+	interaction := buf2struct.Interaction(req.Interaction)
+	response := buf2struct.InteractionResponse(req.Response)
+
+	err := h.Impl.InteractionRespond(interaction, response)
+	if err != nil {
+		return nil, err
+	}
+
+	return &proto_common.Empty{}, nil
+}
+
+// InteractionResponseEdit handles editing an interaction response.
+func (h *HelperServerImpl) InteractionResponseEdit(ctx context.Context, req *proto.InteractionResponseEditRequest) (*proto.InteractionResponseEditResponse, error) {
+	interaction := buf2struct.Interaction(req.Interaction)
+	edit := buf2struct.WebhookEdit(req.WebhookEdit)
+
+	message, err := h.Impl.InteractionResponseEdit(interaction, edit)
+	if err != nil {
+		return nil, err
+	}
+
+	return &proto.InteractionResponseEditResponse{
+		Message: struct2buf.Message(message),
+	}, nil
+}
+
+// ================================================
 // Helper Client for runtime (stub implementation for interface compliance)
 // ================================================
 

@@ -188,22 +188,76 @@ func Emoji(s *discordgo.Emoji) *proto.Emoji {
 	}
 }
 
+// Guild converts discordgo Guild to proto Guild
+func Guild(s *discordgo.Guild) *proto.Guild {
+	if s == nil {
+		return nil
+	}
+
+	// Basic implementation - more fields can be added as needed
+	return &proto.Guild{
+		Id:          s.ID,
+		Name:        s.Name,
+		Description: s.Description,
+		Icon:        s.Icon,
+		OwnerId:     s.OwnerID,
+	}
+}
+
+// Role converts discordgo Role to proto Role
 func Role(s *discordgo.Role) *proto.Role {
 	if s == nil {
 		return nil
 	}
 
 	return &proto.Role{
-		Id:           s.ID,
-		Name:         s.Name,
-		Managed:      s.Managed,
-		Mentionable:  s.Mentionable,
-		Hoist:        s.Hoist,
-		Color:        int32(s.Color),
-		Position:     int32(s.Position),
-		Permissions:  s.Permissions,
-		Icon:         s.Icon,
-		UnicodeEmoji: s.UnicodeEmoji,
-		Flags:        int32(s.Flags),
+		Id:          s.ID,
+		Name:        s.Name,
+		Managed:     s.Managed,
+		Mentionable: s.Mentionable,
+		Hoist:       s.Hoist,
+		Color:       int32(s.Color),
+		Position:    int32(s.Position),
+		Permissions: s.Permissions,
 	}
+}
+
+// ChannelEdit converts discordgo ChannelEdit to proto ChannelEdit
+func ChannelEdit(s *discordgo.ChannelEdit) *proto.ChannelEdit {
+	if s == nil {
+		return nil
+	}
+
+	edit := &proto.ChannelEdit{}
+
+	if s.Name != "" {
+		edit.Name = &s.Name
+	}
+	if s.Topic != "" {
+		edit.Topic = &s.Topic
+	}
+	if s.NSFW != nil {
+		edit.Nsfw = s.NSFW
+	}
+	if s.Position != nil {
+		pos := int32(*s.Position)
+		edit.Position = &pos
+	}
+	if s.Bitrate != 0 {
+		bitrate := int32(s.Bitrate)
+		edit.Bitrate = &bitrate
+	}
+	if s.UserLimit != 0 {
+		userLimit := int32(s.UserLimit)
+		edit.UserLimit = &userLimit
+	}
+	if s.ParentID != "" {
+		edit.ParentId = &s.ParentID
+	}
+	if s.RateLimitPerUser != nil {
+		rate := int32(*s.RateLimitPerUser)
+		edit.RateLimitPerUser = &rate
+	}
+
+	return edit
 }

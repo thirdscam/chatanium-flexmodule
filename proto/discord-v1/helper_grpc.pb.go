@@ -29,6 +29,37 @@ const (
 	Helper_ChannelMessageDelete_FullMethodName      = "/discord_v1.Helper/ChannelMessageDelete"
 	Helper_ChannelMessages_FullMethodName           = "/discord_v1.Helper/ChannelMessages"
 	Helper_ChannelMessage_FullMethodName            = "/discord_v1.Helper/ChannelMessage"
+	Helper_Channel_FullMethodName                   = "/discord_v1.Helper/Channel"
+	Helper_ChannelEdit_FullMethodName               = "/discord_v1.Helper/ChannelEdit"
+	Helper_ChannelDelete_FullMethodName             = "/discord_v1.Helper/ChannelDelete"
+	Helper_ChannelTyping_FullMethodName             = "/discord_v1.Helper/ChannelTyping"
+	Helper_Guild_FullMethodName                     = "/discord_v1.Helper/Guild"
+	Helper_GuildChannels_FullMethodName             = "/discord_v1.Helper/GuildChannels"
+	Helper_GuildMembers_FullMethodName              = "/discord_v1.Helper/GuildMembers"
+	Helper_GuildMember_FullMethodName               = "/discord_v1.Helper/GuildMember"
+	Helper_GuildRoles_FullMethodName                = "/discord_v1.Helper/GuildRoles"
+	Helper_User_FullMethodName                      = "/discord_v1.Helper/User"
+	Helper_UserChannelCreate_FullMethodName         = "/discord_v1.Helper/UserChannelCreate"
+	Helper_InteractionRespond_FullMethodName        = "/discord_v1.Helper/InteractionRespond"
+	Helper_InteractionResponseEdit_FullMethodName   = "/discord_v1.Helper/InteractionResponseEdit"
+	Helper_ApplicationCommandCreate_FullMethodName  = "/discord_v1.Helper/ApplicationCommandCreate"
+	Helper_ApplicationCommandEdit_FullMethodName    = "/discord_v1.Helper/ApplicationCommandEdit"
+	Helper_ApplicationCommandDelete_FullMethodName  = "/discord_v1.Helper/ApplicationCommandDelete"
+	Helper_ApplicationCommands_FullMethodName       = "/discord_v1.Helper/ApplicationCommands"
+	Helper_MessageReactionAdd_FullMethodName        = "/discord_v1.Helper/MessageReactionAdd"
+	Helper_MessageReactionRemove_FullMethodName     = "/discord_v1.Helper/MessageReactionRemove"
+	Helper_MessageReactionsRemoveAll_FullMethodName = "/discord_v1.Helper/MessageReactionsRemoveAll"
+	Helper_ThreadStart_FullMethodName               = "/discord_v1.Helper/ThreadStart"
+	Helper_ThreadJoin_FullMethodName                = "/discord_v1.Helper/ThreadJoin"
+	Helper_ThreadLeave_FullMethodName               = "/discord_v1.Helper/ThreadLeave"
+	Helper_ThreadMemberAdd_FullMethodName           = "/discord_v1.Helper/ThreadMemberAdd"
+	Helper_ThreadMemberRemove_FullMethodName        = "/discord_v1.Helper/ThreadMemberRemove"
+	Helper_VoiceRegions_FullMethodName              = "/discord_v1.Helper/VoiceRegions"
+	Helper_WebhookCreate_FullMethodName             = "/discord_v1.Helper/WebhookCreate"
+	Helper_WebhookExecute_FullMethodName            = "/discord_v1.Helper/WebhookExecute"
+	Helper_UserChannelPermissions_FullMethodName    = "/discord_v1.Helper/UserChannelPermissions"
+	Helper_Gateway_FullMethodName                   = "/discord_v1.Helper/Gateway"
+	Helper_GatewayBot_FullMethodName                = "/discord_v1.Helper/GatewayBot"
 )
 
 // HelperClient is the client API for Helper service.
@@ -45,6 +76,48 @@ type HelperClient interface {
 	ChannelMessageDelete(ctx context.Context, in *ChannelMessageDeleteRequest, opts ...grpc.CallOption) (*proto.Empty, error)
 	ChannelMessages(ctx context.Context, in *ChannelMessagesRequest, opts ...grpc.CallOption) (*ChannelMessagesResponse, error)
 	ChannelMessage(ctx context.Context, in *ChannelMessageRequest, opts ...grpc.CallOption) (*ChannelMessageResponse, error)
+	// Channel operations
+	Channel(ctx context.Context, in *ChannelRequest, opts ...grpc.CallOption) (*ChannelResponse, error)
+	ChannelEdit(ctx context.Context, in *ChannelEditRequest, opts ...grpc.CallOption) (*ChannelEditResponse, error)
+	ChannelDelete(ctx context.Context, in *ChannelDeleteRequest, opts ...grpc.CallOption) (*ChannelDeleteResponse, error)
+	ChannelTyping(ctx context.Context, in *ChannelTypingRequest, opts ...grpc.CallOption) (*proto.Empty, error)
+	// Guild operations
+	Guild(ctx context.Context, in *GuildRequest, opts ...grpc.CallOption) (*GuildResponse, error)
+	GuildChannels(ctx context.Context, in *GuildChannelsRequest, opts ...grpc.CallOption) (*GuildChannelsResponse, error)
+	GuildMembers(ctx context.Context, in *GuildMembersRequest, opts ...grpc.CallOption) (*GuildMembersResponse, error)
+	GuildMember(ctx context.Context, in *GuildMemberRequest, opts ...grpc.CallOption) (*GuildMemberResponse, error)
+	GuildRoles(ctx context.Context, in *GuildRolesRequest, opts ...grpc.CallOption) (*GuildRolesResponse, error)
+	// User operations
+	User(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error)
+	UserChannelCreate(ctx context.Context, in *UserChannelCreateRequest, opts ...grpc.CallOption) (*UserChannelCreateResponse, error)
+	// Interaction operations
+	InteractionRespond(ctx context.Context, in *InteractionRespondRequest, opts ...grpc.CallOption) (*proto.Empty, error)
+	InteractionResponseEdit(ctx context.Context, in *InteractionResponseEditRequest, opts ...grpc.CallOption) (*InteractionResponseEditResponse, error)
+	// Application Command operations
+	ApplicationCommandCreate(ctx context.Context, in *ApplicationCommandCreateRequest, opts ...grpc.CallOption) (*ApplicationCommandCreateResponse, error)
+	ApplicationCommandEdit(ctx context.Context, in *ApplicationCommandEditRequest, opts ...grpc.CallOption) (*ApplicationCommandEditResponse, error)
+	ApplicationCommandDelete(ctx context.Context, in *ApplicationCommandDeleteRequest, opts ...grpc.CallOption) (*proto.Empty, error)
+	ApplicationCommands(ctx context.Context, in *ApplicationCommandsRequest, opts ...grpc.CallOption) (*ApplicationCommandsResponse, error)
+	// Reaction operations
+	MessageReactionAdd(ctx context.Context, in *MessageReactionAddRequest, opts ...grpc.CallOption) (*proto.Empty, error)
+	MessageReactionRemove(ctx context.Context, in *MessageReactionRemoveRequest, opts ...grpc.CallOption) (*proto.Empty, error)
+	MessageReactionsRemoveAll(ctx context.Context, in *MessageReactionsRemoveAllRequest, opts ...grpc.CallOption) (*proto.Empty, error)
+	// Thread operations
+	ThreadStart(ctx context.Context, in *ThreadStartRequest, opts ...grpc.CallOption) (*ThreadStartResponse, error)
+	ThreadJoin(ctx context.Context, in *ThreadJoinRequest, opts ...grpc.CallOption) (*proto.Empty, error)
+	ThreadLeave(ctx context.Context, in *ThreadLeaveRequest, opts ...grpc.CallOption) (*proto.Empty, error)
+	ThreadMemberAdd(ctx context.Context, in *ThreadMemberAddRequest, opts ...grpc.CallOption) (*proto.Empty, error)
+	ThreadMemberRemove(ctx context.Context, in *ThreadMemberRemoveRequest, opts ...grpc.CallOption) (*proto.Empty, error)
+	// Voice operations
+	VoiceRegions(ctx context.Context, in *VoiceRegionsRequest, opts ...grpc.CallOption) (*VoiceRegionsResponse, error)
+	// Webhook operations
+	WebhookCreate(ctx context.Context, in *WebhookCreateRequest, opts ...grpc.CallOption) (*WebhookCreateResponse, error)
+	WebhookExecute(ctx context.Context, in *WebhookExecuteRequest, opts ...grpc.CallOption) (*WebhookExecuteResponse, error)
+	// Permission operations
+	UserChannelPermissions(ctx context.Context, in *UserChannelPermissionsRequest, opts ...grpc.CallOption) (*UserChannelPermissionsResponse, error)
+	// Utility operations
+	Gateway(ctx context.Context, in *GatewayRequest, opts ...grpc.CallOption) (*GatewayResponse, error)
+	GatewayBot(ctx context.Context, in *GatewayBotRequest, opts ...grpc.CallOption) (*GatewayBotResponse, error)
 }
 
 type helperClient struct {
@@ -136,6 +209,285 @@ func (c *helperClient) ChannelMessage(ctx context.Context, in *ChannelMessageReq
 	return out, nil
 }
 
+func (c *helperClient) Channel(ctx context.Context, in *ChannelRequest, opts ...grpc.CallOption) (*ChannelResponse, error) {
+	out := new(ChannelResponse)
+	err := c.cc.Invoke(ctx, Helper_Channel_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ChannelEdit(ctx context.Context, in *ChannelEditRequest, opts ...grpc.CallOption) (*ChannelEditResponse, error) {
+	out := new(ChannelEditResponse)
+	err := c.cc.Invoke(ctx, Helper_ChannelEdit_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ChannelDelete(ctx context.Context, in *ChannelDeleteRequest, opts ...grpc.CallOption) (*ChannelDeleteResponse, error) {
+	out := new(ChannelDeleteResponse)
+	err := c.cc.Invoke(ctx, Helper_ChannelDelete_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ChannelTyping(ctx context.Context, in *ChannelTypingRequest, opts ...grpc.CallOption) (*proto.Empty, error) {
+	out := new(proto.Empty)
+	err := c.cc.Invoke(ctx, Helper_ChannelTyping_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) Guild(ctx context.Context, in *GuildRequest, opts ...grpc.CallOption) (*GuildResponse, error) {
+	out := new(GuildResponse)
+	err := c.cc.Invoke(ctx, Helper_Guild_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) GuildChannels(ctx context.Context, in *GuildChannelsRequest, opts ...grpc.CallOption) (*GuildChannelsResponse, error) {
+	out := new(GuildChannelsResponse)
+	err := c.cc.Invoke(ctx, Helper_GuildChannels_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) GuildMembers(ctx context.Context, in *GuildMembersRequest, opts ...grpc.CallOption) (*GuildMembersResponse, error) {
+	out := new(GuildMembersResponse)
+	err := c.cc.Invoke(ctx, Helper_GuildMembers_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) GuildMember(ctx context.Context, in *GuildMemberRequest, opts ...grpc.CallOption) (*GuildMemberResponse, error) {
+	out := new(GuildMemberResponse)
+	err := c.cc.Invoke(ctx, Helper_GuildMember_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) GuildRoles(ctx context.Context, in *GuildRolesRequest, opts ...grpc.CallOption) (*GuildRolesResponse, error) {
+	out := new(GuildRolesResponse)
+	err := c.cc.Invoke(ctx, Helper_GuildRoles_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) User(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error) {
+	out := new(UserResponse)
+	err := c.cc.Invoke(ctx, Helper_User_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) UserChannelCreate(ctx context.Context, in *UserChannelCreateRequest, opts ...grpc.CallOption) (*UserChannelCreateResponse, error) {
+	out := new(UserChannelCreateResponse)
+	err := c.cc.Invoke(ctx, Helper_UserChannelCreate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) InteractionRespond(ctx context.Context, in *InteractionRespondRequest, opts ...grpc.CallOption) (*proto.Empty, error) {
+	out := new(proto.Empty)
+	err := c.cc.Invoke(ctx, Helper_InteractionRespond_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) InteractionResponseEdit(ctx context.Context, in *InteractionResponseEditRequest, opts ...grpc.CallOption) (*InteractionResponseEditResponse, error) {
+	out := new(InteractionResponseEditResponse)
+	err := c.cc.Invoke(ctx, Helper_InteractionResponseEdit_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ApplicationCommandCreate(ctx context.Context, in *ApplicationCommandCreateRequest, opts ...grpc.CallOption) (*ApplicationCommandCreateResponse, error) {
+	out := new(ApplicationCommandCreateResponse)
+	err := c.cc.Invoke(ctx, Helper_ApplicationCommandCreate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ApplicationCommandEdit(ctx context.Context, in *ApplicationCommandEditRequest, opts ...grpc.CallOption) (*ApplicationCommandEditResponse, error) {
+	out := new(ApplicationCommandEditResponse)
+	err := c.cc.Invoke(ctx, Helper_ApplicationCommandEdit_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ApplicationCommandDelete(ctx context.Context, in *ApplicationCommandDeleteRequest, opts ...grpc.CallOption) (*proto.Empty, error) {
+	out := new(proto.Empty)
+	err := c.cc.Invoke(ctx, Helper_ApplicationCommandDelete_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ApplicationCommands(ctx context.Context, in *ApplicationCommandsRequest, opts ...grpc.CallOption) (*ApplicationCommandsResponse, error) {
+	out := new(ApplicationCommandsResponse)
+	err := c.cc.Invoke(ctx, Helper_ApplicationCommands_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) MessageReactionAdd(ctx context.Context, in *MessageReactionAddRequest, opts ...grpc.CallOption) (*proto.Empty, error) {
+	out := new(proto.Empty)
+	err := c.cc.Invoke(ctx, Helper_MessageReactionAdd_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) MessageReactionRemove(ctx context.Context, in *MessageReactionRemoveRequest, opts ...grpc.CallOption) (*proto.Empty, error) {
+	out := new(proto.Empty)
+	err := c.cc.Invoke(ctx, Helper_MessageReactionRemove_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) MessageReactionsRemoveAll(ctx context.Context, in *MessageReactionsRemoveAllRequest, opts ...grpc.CallOption) (*proto.Empty, error) {
+	out := new(proto.Empty)
+	err := c.cc.Invoke(ctx, Helper_MessageReactionsRemoveAll_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ThreadStart(ctx context.Context, in *ThreadStartRequest, opts ...grpc.CallOption) (*ThreadStartResponse, error) {
+	out := new(ThreadStartResponse)
+	err := c.cc.Invoke(ctx, Helper_ThreadStart_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ThreadJoin(ctx context.Context, in *ThreadJoinRequest, opts ...grpc.CallOption) (*proto.Empty, error) {
+	out := new(proto.Empty)
+	err := c.cc.Invoke(ctx, Helper_ThreadJoin_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ThreadLeave(ctx context.Context, in *ThreadLeaveRequest, opts ...grpc.CallOption) (*proto.Empty, error) {
+	out := new(proto.Empty)
+	err := c.cc.Invoke(ctx, Helper_ThreadLeave_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ThreadMemberAdd(ctx context.Context, in *ThreadMemberAddRequest, opts ...grpc.CallOption) (*proto.Empty, error) {
+	out := new(proto.Empty)
+	err := c.cc.Invoke(ctx, Helper_ThreadMemberAdd_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) ThreadMemberRemove(ctx context.Context, in *ThreadMemberRemoveRequest, opts ...grpc.CallOption) (*proto.Empty, error) {
+	out := new(proto.Empty)
+	err := c.cc.Invoke(ctx, Helper_ThreadMemberRemove_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) VoiceRegions(ctx context.Context, in *VoiceRegionsRequest, opts ...grpc.CallOption) (*VoiceRegionsResponse, error) {
+	out := new(VoiceRegionsResponse)
+	err := c.cc.Invoke(ctx, Helper_VoiceRegions_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) WebhookCreate(ctx context.Context, in *WebhookCreateRequest, opts ...grpc.CallOption) (*WebhookCreateResponse, error) {
+	out := new(WebhookCreateResponse)
+	err := c.cc.Invoke(ctx, Helper_WebhookCreate_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) WebhookExecute(ctx context.Context, in *WebhookExecuteRequest, opts ...grpc.CallOption) (*WebhookExecuteResponse, error) {
+	out := new(WebhookExecuteResponse)
+	err := c.cc.Invoke(ctx, Helper_WebhookExecute_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) UserChannelPermissions(ctx context.Context, in *UserChannelPermissionsRequest, opts ...grpc.CallOption) (*UserChannelPermissionsResponse, error) {
+	out := new(UserChannelPermissionsResponse)
+	err := c.cc.Invoke(ctx, Helper_UserChannelPermissions_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) Gateway(ctx context.Context, in *GatewayRequest, opts ...grpc.CallOption) (*GatewayResponse, error) {
+	out := new(GatewayResponse)
+	err := c.cc.Invoke(ctx, Helper_Gateway_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *helperClient) GatewayBot(ctx context.Context, in *GatewayBotRequest, opts ...grpc.CallOption) (*GatewayBotResponse, error) {
+	out := new(GatewayBotResponse)
+	err := c.cc.Invoke(ctx, Helper_GatewayBot_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // HelperServer is the server API for Helper service.
 // All implementations should embed UnimplementedHelperServer
 // for forward compatibility
@@ -150,6 +502,48 @@ type HelperServer interface {
 	ChannelMessageDelete(context.Context, *ChannelMessageDeleteRequest) (*proto.Empty, error)
 	ChannelMessages(context.Context, *ChannelMessagesRequest) (*ChannelMessagesResponse, error)
 	ChannelMessage(context.Context, *ChannelMessageRequest) (*ChannelMessageResponse, error)
+	// Channel operations
+	Channel(context.Context, *ChannelRequest) (*ChannelResponse, error)
+	ChannelEdit(context.Context, *ChannelEditRequest) (*ChannelEditResponse, error)
+	ChannelDelete(context.Context, *ChannelDeleteRequest) (*ChannelDeleteResponse, error)
+	ChannelTyping(context.Context, *ChannelTypingRequest) (*proto.Empty, error)
+	// Guild operations
+	Guild(context.Context, *GuildRequest) (*GuildResponse, error)
+	GuildChannels(context.Context, *GuildChannelsRequest) (*GuildChannelsResponse, error)
+	GuildMembers(context.Context, *GuildMembersRequest) (*GuildMembersResponse, error)
+	GuildMember(context.Context, *GuildMemberRequest) (*GuildMemberResponse, error)
+	GuildRoles(context.Context, *GuildRolesRequest) (*GuildRolesResponse, error)
+	// User operations
+	User(context.Context, *UserRequest) (*UserResponse, error)
+	UserChannelCreate(context.Context, *UserChannelCreateRequest) (*UserChannelCreateResponse, error)
+	// Interaction operations
+	InteractionRespond(context.Context, *InteractionRespondRequest) (*proto.Empty, error)
+	InteractionResponseEdit(context.Context, *InteractionResponseEditRequest) (*InteractionResponseEditResponse, error)
+	// Application Command operations
+	ApplicationCommandCreate(context.Context, *ApplicationCommandCreateRequest) (*ApplicationCommandCreateResponse, error)
+	ApplicationCommandEdit(context.Context, *ApplicationCommandEditRequest) (*ApplicationCommandEditResponse, error)
+	ApplicationCommandDelete(context.Context, *ApplicationCommandDeleteRequest) (*proto.Empty, error)
+	ApplicationCommands(context.Context, *ApplicationCommandsRequest) (*ApplicationCommandsResponse, error)
+	// Reaction operations
+	MessageReactionAdd(context.Context, *MessageReactionAddRequest) (*proto.Empty, error)
+	MessageReactionRemove(context.Context, *MessageReactionRemoveRequest) (*proto.Empty, error)
+	MessageReactionsRemoveAll(context.Context, *MessageReactionsRemoveAllRequest) (*proto.Empty, error)
+	// Thread operations
+	ThreadStart(context.Context, *ThreadStartRequest) (*ThreadStartResponse, error)
+	ThreadJoin(context.Context, *ThreadJoinRequest) (*proto.Empty, error)
+	ThreadLeave(context.Context, *ThreadLeaveRequest) (*proto.Empty, error)
+	ThreadMemberAdd(context.Context, *ThreadMemberAddRequest) (*proto.Empty, error)
+	ThreadMemberRemove(context.Context, *ThreadMemberRemoveRequest) (*proto.Empty, error)
+	// Voice operations
+	VoiceRegions(context.Context, *VoiceRegionsRequest) (*VoiceRegionsResponse, error)
+	// Webhook operations
+	WebhookCreate(context.Context, *WebhookCreateRequest) (*WebhookCreateResponse, error)
+	WebhookExecute(context.Context, *WebhookExecuteRequest) (*WebhookExecuteResponse, error)
+	// Permission operations
+	UserChannelPermissions(context.Context, *UserChannelPermissionsRequest) (*UserChannelPermissionsResponse, error)
+	// Utility operations
+	Gateway(context.Context, *GatewayRequest) (*GatewayResponse, error)
+	GatewayBot(context.Context, *GatewayBotRequest) (*GatewayBotResponse, error)
 }
 
 // UnimplementedHelperServer should be embedded to have forward compatible implementations.
@@ -182,6 +576,99 @@ func (UnimplementedHelperServer) ChannelMessages(context.Context, *ChannelMessag
 }
 func (UnimplementedHelperServer) ChannelMessage(context.Context, *ChannelMessageRequest) (*ChannelMessageResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ChannelMessage not implemented")
+}
+func (UnimplementedHelperServer) Channel(context.Context, *ChannelRequest) (*ChannelResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Channel not implemented")
+}
+func (UnimplementedHelperServer) ChannelEdit(context.Context, *ChannelEditRequest) (*ChannelEditResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChannelEdit not implemented")
+}
+func (UnimplementedHelperServer) ChannelDelete(context.Context, *ChannelDeleteRequest) (*ChannelDeleteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChannelDelete not implemented")
+}
+func (UnimplementedHelperServer) ChannelTyping(context.Context, *ChannelTypingRequest) (*proto.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChannelTyping not implemented")
+}
+func (UnimplementedHelperServer) Guild(context.Context, *GuildRequest) (*GuildResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Guild not implemented")
+}
+func (UnimplementedHelperServer) GuildChannels(context.Context, *GuildChannelsRequest) (*GuildChannelsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GuildChannels not implemented")
+}
+func (UnimplementedHelperServer) GuildMembers(context.Context, *GuildMembersRequest) (*GuildMembersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GuildMembers not implemented")
+}
+func (UnimplementedHelperServer) GuildMember(context.Context, *GuildMemberRequest) (*GuildMemberResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GuildMember not implemented")
+}
+func (UnimplementedHelperServer) GuildRoles(context.Context, *GuildRolesRequest) (*GuildRolesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GuildRoles not implemented")
+}
+func (UnimplementedHelperServer) User(context.Context, *UserRequest) (*UserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method User not implemented")
+}
+func (UnimplementedHelperServer) UserChannelCreate(context.Context, *UserChannelCreateRequest) (*UserChannelCreateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UserChannelCreate not implemented")
+}
+func (UnimplementedHelperServer) InteractionRespond(context.Context, *InteractionRespondRequest) (*proto.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InteractionRespond not implemented")
+}
+func (UnimplementedHelperServer) InteractionResponseEdit(context.Context, *InteractionResponseEditRequest) (*InteractionResponseEditResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InteractionResponseEdit not implemented")
+}
+func (UnimplementedHelperServer) ApplicationCommandCreate(context.Context, *ApplicationCommandCreateRequest) (*ApplicationCommandCreateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ApplicationCommandCreate not implemented")
+}
+func (UnimplementedHelperServer) ApplicationCommandEdit(context.Context, *ApplicationCommandEditRequest) (*ApplicationCommandEditResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ApplicationCommandEdit not implemented")
+}
+func (UnimplementedHelperServer) ApplicationCommandDelete(context.Context, *ApplicationCommandDeleteRequest) (*proto.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ApplicationCommandDelete not implemented")
+}
+func (UnimplementedHelperServer) ApplicationCommands(context.Context, *ApplicationCommandsRequest) (*ApplicationCommandsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ApplicationCommands not implemented")
+}
+func (UnimplementedHelperServer) MessageReactionAdd(context.Context, *MessageReactionAddRequest) (*proto.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method MessageReactionAdd not implemented")
+}
+func (UnimplementedHelperServer) MessageReactionRemove(context.Context, *MessageReactionRemoveRequest) (*proto.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method MessageReactionRemove not implemented")
+}
+func (UnimplementedHelperServer) MessageReactionsRemoveAll(context.Context, *MessageReactionsRemoveAllRequest) (*proto.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method MessageReactionsRemoveAll not implemented")
+}
+func (UnimplementedHelperServer) ThreadStart(context.Context, *ThreadStartRequest) (*ThreadStartResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ThreadStart not implemented")
+}
+func (UnimplementedHelperServer) ThreadJoin(context.Context, *ThreadJoinRequest) (*proto.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ThreadJoin not implemented")
+}
+func (UnimplementedHelperServer) ThreadLeave(context.Context, *ThreadLeaveRequest) (*proto.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ThreadLeave not implemented")
+}
+func (UnimplementedHelperServer) ThreadMemberAdd(context.Context, *ThreadMemberAddRequest) (*proto.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ThreadMemberAdd not implemented")
+}
+func (UnimplementedHelperServer) ThreadMemberRemove(context.Context, *ThreadMemberRemoveRequest) (*proto.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ThreadMemberRemove not implemented")
+}
+func (UnimplementedHelperServer) VoiceRegions(context.Context, *VoiceRegionsRequest) (*VoiceRegionsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method VoiceRegions not implemented")
+}
+func (UnimplementedHelperServer) WebhookCreate(context.Context, *WebhookCreateRequest) (*WebhookCreateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method WebhookCreate not implemented")
+}
+func (UnimplementedHelperServer) WebhookExecute(context.Context, *WebhookExecuteRequest) (*WebhookExecuteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method WebhookExecute not implemented")
+}
+func (UnimplementedHelperServer) UserChannelPermissions(context.Context, *UserChannelPermissionsRequest) (*UserChannelPermissionsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UserChannelPermissions not implemented")
+}
+func (UnimplementedHelperServer) Gateway(context.Context, *GatewayRequest) (*GatewayResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Gateway not implemented")
+}
+func (UnimplementedHelperServer) GatewayBot(context.Context, *GatewayBotRequest) (*GatewayBotResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GatewayBot not implemented")
 }
 
 // UnsafeHelperServer may be embedded to opt out of forward compatibility for this service.
@@ -357,6 +844,564 @@ func _Helper_ChannelMessage_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Helper_Channel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).Channel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_Channel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).Channel(ctx, req.(*ChannelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ChannelEdit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelEditRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ChannelEdit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ChannelEdit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ChannelEdit(ctx, req.(*ChannelEditRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ChannelDelete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelDeleteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ChannelDelete(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ChannelDelete_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ChannelDelete(ctx, req.(*ChannelDeleteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ChannelTyping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChannelTypingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ChannelTyping(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ChannelTyping_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ChannelTyping(ctx, req.(*ChannelTypingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_Guild_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).Guild(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_Guild_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).Guild(ctx, req.(*GuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_GuildChannels_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GuildChannelsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).GuildChannels(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_GuildChannels_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).GuildChannels(ctx, req.(*GuildChannelsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_GuildMembers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GuildMembersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).GuildMembers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_GuildMembers_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).GuildMembers(ctx, req.(*GuildMembersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_GuildMember_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GuildMemberRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).GuildMember(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_GuildMember_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).GuildMember(ctx, req.(*GuildMemberRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_GuildRoles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GuildRolesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).GuildRoles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_GuildRoles_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).GuildRoles(ctx, req.(*GuildRolesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_User_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).User(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_User_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).User(ctx, req.(*UserRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_UserChannelCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserChannelCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).UserChannelCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_UserChannelCreate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).UserChannelCreate(ctx, req.(*UserChannelCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_InteractionRespond_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InteractionRespondRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).InteractionRespond(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_InteractionRespond_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).InteractionRespond(ctx, req.(*InteractionRespondRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_InteractionResponseEdit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InteractionResponseEditRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).InteractionResponseEdit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_InteractionResponseEdit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).InteractionResponseEdit(ctx, req.(*InteractionResponseEditRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ApplicationCommandCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApplicationCommandCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ApplicationCommandCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ApplicationCommandCreate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ApplicationCommandCreate(ctx, req.(*ApplicationCommandCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ApplicationCommandEdit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApplicationCommandEditRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ApplicationCommandEdit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ApplicationCommandEdit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ApplicationCommandEdit(ctx, req.(*ApplicationCommandEditRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ApplicationCommandDelete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApplicationCommandDeleteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ApplicationCommandDelete(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ApplicationCommandDelete_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ApplicationCommandDelete(ctx, req.(*ApplicationCommandDeleteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ApplicationCommands_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApplicationCommandsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ApplicationCommands(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ApplicationCommands_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ApplicationCommands(ctx, req.(*ApplicationCommandsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_MessageReactionAdd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MessageReactionAddRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).MessageReactionAdd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_MessageReactionAdd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).MessageReactionAdd(ctx, req.(*MessageReactionAddRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_MessageReactionRemove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MessageReactionRemoveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).MessageReactionRemove(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_MessageReactionRemove_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).MessageReactionRemove(ctx, req.(*MessageReactionRemoveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_MessageReactionsRemoveAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MessageReactionsRemoveAllRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).MessageReactionsRemoveAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_MessageReactionsRemoveAll_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).MessageReactionsRemoveAll(ctx, req.(*MessageReactionsRemoveAllRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ThreadStart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ThreadStartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ThreadStart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ThreadStart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ThreadStart(ctx, req.(*ThreadStartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ThreadJoin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ThreadJoinRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ThreadJoin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ThreadJoin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ThreadJoin(ctx, req.(*ThreadJoinRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ThreadLeave_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ThreadLeaveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ThreadLeave(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ThreadLeave_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ThreadLeave(ctx, req.(*ThreadLeaveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ThreadMemberAdd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ThreadMemberAddRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ThreadMemberAdd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ThreadMemberAdd_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ThreadMemberAdd(ctx, req.(*ThreadMemberAddRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_ThreadMemberRemove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ThreadMemberRemoveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).ThreadMemberRemove(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_ThreadMemberRemove_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).ThreadMemberRemove(ctx, req.(*ThreadMemberRemoveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_VoiceRegions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VoiceRegionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).VoiceRegions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_VoiceRegions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).VoiceRegions(ctx, req.(*VoiceRegionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_WebhookCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WebhookCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).WebhookCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_WebhookCreate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).WebhookCreate(ctx, req.(*WebhookCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_WebhookExecute_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WebhookExecuteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).WebhookExecute(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_WebhookExecute_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).WebhookExecute(ctx, req.(*WebhookExecuteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_UserChannelPermissions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserChannelPermissionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).UserChannelPermissions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_UserChannelPermissions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).UserChannelPermissions(ctx, req.(*UserChannelPermissionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_Gateway_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GatewayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).Gateway(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_Gateway_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).Gateway(ctx, req.(*GatewayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Helper_GatewayBot_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GatewayBotRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServer).GatewayBot(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Helper_GatewayBot_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServer).GatewayBot(ctx, req.(*GatewayBotRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Helper_ServiceDesc is the grpc.ServiceDesc for Helper service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -399,6 +1444,130 @@ var Helper_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ChannelMessage",
 			Handler:    _Helper_ChannelMessage_Handler,
+		},
+		{
+			MethodName: "Channel",
+			Handler:    _Helper_Channel_Handler,
+		},
+		{
+			MethodName: "ChannelEdit",
+			Handler:    _Helper_ChannelEdit_Handler,
+		},
+		{
+			MethodName: "ChannelDelete",
+			Handler:    _Helper_ChannelDelete_Handler,
+		},
+		{
+			MethodName: "ChannelTyping",
+			Handler:    _Helper_ChannelTyping_Handler,
+		},
+		{
+			MethodName: "Guild",
+			Handler:    _Helper_Guild_Handler,
+		},
+		{
+			MethodName: "GuildChannels",
+			Handler:    _Helper_GuildChannels_Handler,
+		},
+		{
+			MethodName: "GuildMembers",
+			Handler:    _Helper_GuildMembers_Handler,
+		},
+		{
+			MethodName: "GuildMember",
+			Handler:    _Helper_GuildMember_Handler,
+		},
+		{
+			MethodName: "GuildRoles",
+			Handler:    _Helper_GuildRoles_Handler,
+		},
+		{
+			MethodName: "User",
+			Handler:    _Helper_User_Handler,
+		},
+		{
+			MethodName: "UserChannelCreate",
+			Handler:    _Helper_UserChannelCreate_Handler,
+		},
+		{
+			MethodName: "InteractionRespond",
+			Handler:    _Helper_InteractionRespond_Handler,
+		},
+		{
+			MethodName: "InteractionResponseEdit",
+			Handler:    _Helper_InteractionResponseEdit_Handler,
+		},
+		{
+			MethodName: "ApplicationCommandCreate",
+			Handler:    _Helper_ApplicationCommandCreate_Handler,
+		},
+		{
+			MethodName: "ApplicationCommandEdit",
+			Handler:    _Helper_ApplicationCommandEdit_Handler,
+		},
+		{
+			MethodName: "ApplicationCommandDelete",
+			Handler:    _Helper_ApplicationCommandDelete_Handler,
+		},
+		{
+			MethodName: "ApplicationCommands",
+			Handler:    _Helper_ApplicationCommands_Handler,
+		},
+		{
+			MethodName: "MessageReactionAdd",
+			Handler:    _Helper_MessageReactionAdd_Handler,
+		},
+		{
+			MethodName: "MessageReactionRemove",
+			Handler:    _Helper_MessageReactionRemove_Handler,
+		},
+		{
+			MethodName: "MessageReactionsRemoveAll",
+			Handler:    _Helper_MessageReactionsRemoveAll_Handler,
+		},
+		{
+			MethodName: "ThreadStart",
+			Handler:    _Helper_ThreadStart_Handler,
+		},
+		{
+			MethodName: "ThreadJoin",
+			Handler:    _Helper_ThreadJoin_Handler,
+		},
+		{
+			MethodName: "ThreadLeave",
+			Handler:    _Helper_ThreadLeave_Handler,
+		},
+		{
+			MethodName: "ThreadMemberAdd",
+			Handler:    _Helper_ThreadMemberAdd_Handler,
+		},
+		{
+			MethodName: "ThreadMemberRemove",
+			Handler:    _Helper_ThreadMemberRemove_Handler,
+		},
+		{
+			MethodName: "VoiceRegions",
+			Handler:    _Helper_VoiceRegions_Handler,
+		},
+		{
+			MethodName: "WebhookCreate",
+			Handler:    _Helper_WebhookCreate_Handler,
+		},
+		{
+			MethodName: "WebhookExecute",
+			Handler:    _Helper_WebhookExecute_Handler,
+		},
+		{
+			MethodName: "UserChannelPermissions",
+			Handler:    _Helper_UserChannelPermissions_Handler,
+		},
+		{
+			MethodName: "Gateway",
+			Handler:    _Helper_Gateway_Handler,
+		},
+		{
+			MethodName: "GatewayBot",
+			Handler:    _Helper_GatewayBot_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

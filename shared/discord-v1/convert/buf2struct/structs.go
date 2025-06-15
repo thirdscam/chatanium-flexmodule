@@ -205,3 +205,41 @@ func Role(buf *proto.Role) *discordgo.Role {
 		Flags:        discordgo.RoleFlags(buf.Flags),
 	}
 }
+
+// ChannelEdit converts proto ChannelEdit to discordgo ChannelEdit
+func ChannelEdit(buf *proto.ChannelEdit) *discordgo.ChannelEdit {
+	if buf == nil {
+		return nil
+	}
+
+	edit := &discordgo.ChannelEdit{}
+
+	if buf.Name != nil {
+		edit.Name = *buf.Name
+	}
+	if buf.Topic != nil {
+		edit.Topic = *buf.Topic
+	}
+	if buf.Nsfw != nil {
+		edit.NSFW = buf.Nsfw
+	}
+	if buf.Position != nil {
+		pos := int(*buf.Position)
+		edit.Position = &pos
+	}
+	if buf.Bitrate != nil {
+		edit.Bitrate = int(*buf.Bitrate)
+	}
+	if buf.UserLimit != nil {
+		edit.UserLimit = int(*buf.UserLimit)
+	}
+	if buf.ParentId != nil {
+		edit.ParentID = *buf.ParentId
+	}
+	if buf.RateLimitPerUser != nil {
+		rate := int(*buf.RateLimitPerUser)
+		edit.RateLimitPerUser = &rate
+	}
+
+	return edit
+}
