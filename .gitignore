@@ -2,3 +2,4 @@
 /logs
 private.env
 /.vscode
+/helper-service

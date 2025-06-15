@@ -16,6 +16,12 @@ type Hook interface {
 	OnEvent(event string) error
 }
 
+// RuntimeClients represents the client interfaces for runtime
+type RuntimeClients interface {
+	GetHook() Hook
+	GetHelper() Helper
+}
+
 type Helper interface {
 	// Message operations
 	ChannelMessageSend(channelID string, content string) (*discordgo.Message, error)

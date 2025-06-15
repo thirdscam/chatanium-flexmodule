@@ -12,6 +12,7 @@ import (
 	"github.com/thirdscam/chatanium-flexmodule/shared"
 	"github.com/thirdscam/chatanium-flexmodule/shared/core-v1"
 	"github.com/thirdscam/chatanium-flexmodule/shared/discord-v1"
+	discordRuntime "github.com/thirdscam/chatanium-flexmodule/shared/discord-v1/runtime"
 
 	"github.com/joho/godotenv"
 	_ "github.com/joho/godotenv/autoload"
@@ -57,10 +58,16 @@ func main() {
 
 	dgSession.Open()
 
+	// Create Discord helper
+	discordHelper := discordRuntime.NewDiscordHelper(dgSession)
+
+	// Create runtime plugin map with Discord helper
+	runtimePluginMap := shared.CreateRuntimePluginMap(discordHelper)
+
 	// We're a host. Start by launching the plugin process.
 	client := plugin.NewClient(&plugin.ClientConfig{
 		HandshakeConfig: shared.Handshake,
-		Plugins:         shared.RuntimePluginMap,
+		Plugins:         runtimePluginMap,
 		Cmd:             exec.Command("sh", "-c", os.Getenv("PLUGIN_PATH")),
 		Logger:          log.ResetNamed("Module").Named("TestModule"),
 		AllowedProtocols: []plugin.Protocol{
@@ -130,14 +137,18 @@ func RunDiscordV1(client plugin.ClientProtocol) {
 		os.Exit(1)
 	}
 
-	// Getting the plugin symbol
-	hook, ok := raw.(discord.Hook)
+	// Getting the plugin symbol (RuntimeClients)
+	runtimeClients, ok := raw.(discord.RuntimeClients)
 	if !ok {
 		log.Error("Discord", "error", "Plugin has no 'discord-v1' plugin symbol")
 		os.Exit(1)
 	}
 
-	resp := hook.OnInit(nil)
+	// Get hook client to call module functions
+	hook := runtimeClients.GetHook()
+	helper := runtimeClients.GetHelper()
+
+	resp := hook.OnInit(helper)
 	log.Debug("Discord", "initresp", hclog.Fmt("%+v", resp))
 	if len(resp.Interactions) != 0 {
 		for _, i := range resp.Interactions {

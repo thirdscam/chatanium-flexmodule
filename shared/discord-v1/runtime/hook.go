@@ -15,7 +15,7 @@ import (
 // `runtime/client.go` implements the gRPC client for making calls to the module.
 //
 // This part works on the runtime-side and is the gRPC client implementation for the module.
-type GRPCClient struct {
+type HookClient struct {
 	broker *plugin.GRPCBroker
 	client proto.HookClient
 }
@@ -25,7 +25,7 @@ type GRPCClient struct {
 // ================================================
 
 // OnInit calls the OnInit RPC method and returns the initialization response.
-func (m *GRPCClient) OnInit() shared.InitResponse {
+func (m *HookClient) OnInit(helper shared.Helper) shared.InitResponse {
 	resp, err := m.client.OnInit(context.Background(), &proto_common.Empty{})
 	if err != nil {
 		return shared.InitResponse{}
@@ -45,7 +45,7 @@ func (m *GRPCClient) OnInit() shared.InitResponse {
 }
 
 // OnCreateChatMessage sends a message to the plugin via RPC.
-func (m *GRPCClient) OnCreateChatMessage(message *discordgo.Message) error {
+func (m *HookClient) OnCreateChatMessage(message *discordgo.Message) error {
 	_, err := m.client.OnCreateMessage(
 		context.Background(),
 		struct2buf.Message(message),
@@ -54,7 +54,7 @@ func (m *GRPCClient) OnCreateChatMessage(message *discordgo.Message) error {
 }
 
 // OnCreateInteraction sends an interaction to the plugin via RPC.
-func (m *GRPCClient) OnCreateInteraction(interaction *discordgo.Interaction) error {
+func (m *HookClient) OnCreateInteraction(interaction *discordgo.Interaction) error {
 	_, err := m.client.OnCreateInteraction(
 		context.Background(),
 		struct2buf.Interaction(interaction),
@@ -63,7 +63,7 @@ func (m *GRPCClient) OnCreateInteraction(interaction *discordgo.Interaction) err
 }
 
 // OnEvent sends an event to the plugin via RPC.
-func (m *GRPCClient) OnEvent(event string) error {
+func (m *HookClient) OnEvent(event string) error {
 	_, err := m.client.OnEvent(
 		context.Background(),
 		&proto.OnEventRequest{Event: event},
