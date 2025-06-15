@@ -194,13 +194,117 @@ func Guild(s *discordgo.Guild) *proto.Guild {
 		return nil
 	}
 
-	// Basic implementation - more fields can be added as needed
+	features := make([]string, 0, len(s.Features))
+	for _, feature := range s.Features {
+		features = append(features, string(feature))
+	}
+
+	roles := make([]*proto.Role, 0, len(s.Roles))
+	for _, role := range s.Roles {
+		roles = append(roles, Role(role))
+	}
+
+	emojis := make([]*proto.Emoji, 0, len(s.Emojis))
+	for _, emoji := range s.Emojis {
+		emojis = append(emojis, Emoji(emoji))
+	}
+
+	stickers := make([]*proto.Sticker, 0, len(s.Stickers))
+	for _, sticker := range s.Stickers {
+		stickers = append(stickers, &proto.Sticker{
+			Id:          sticker.ID,
+			Name:        sticker.Name,
+			Description: sticker.Description,
+			Tags:        sticker.Tags,
+			Type:        int32(sticker.Type),
+			FormatType:  int32(sticker.FormatType),
+			Available:   sticker.Available,
+			GuildId:     sticker.GuildID,
+			User:        User(sticker.User),
+			SortValue:   int32(sticker.SortValue),
+			PackId:      sticker.PackID,
+		})
+	}
+
+	members := make([]*proto.Member, 0, len(s.Members))
+	for _, member := range s.Members {
+		members = append(members, Member(member))
+	}
+
+	presences := make([]*proto.Presence, 0, len(s.Presences))
+	for _, presence := range s.Presences {
+		presences = append(presences, Presence(presence))
+	}
+
+	channels := make([]*proto.Channel, 0, len(s.Channels))
+	for _, channel := range s.Channels {
+		channels = append(channels, Channel(channel))
+	}
+
+	threads := make([]*proto.Channel, 0, len(s.Threads))
+	for _, thread := range s.Threads {
+		threads = append(threads, Channel(thread))
+	}
+
+	voiceStates := make([]*proto.VoiceState, 0, len(s.VoiceStates))
+	for _, state := range s.VoiceStates {
+		voiceStates = append(voiceStates, VoiceState(state))
+	}
+
+	stageInstances := make([]*proto.StageInstance, 0, len(s.StageInstances))
+	for _, instance := range s.StageInstances {
+		stageInstances = append(stageInstances, StageInstance(instance))
+	}
+
 	return &proto.Guild{
-		Id:          s.ID,
-		Name:        s.Name,
-		Description: s.Description,
-		Icon:        s.Icon,
-		OwnerId:     s.OwnerID,
+		Id:                          s.ID,
+		Name:                        s.Name,
+		Icon:                        s.Icon,
+		Region:                      s.Region,
+		AfkChannelId:                s.AfkChannelID,
+		AfkTimeout:                  int32(s.AfkTimeout),
+		OwnerId:                     s.OwnerID,
+		VerificationLevel:           int32(s.VerificationLevel),
+		DefaultMessageNotifications: int32(s.DefaultMessageNotifications),
+		ExplicitContentFilter:       int32(s.ExplicitContentFilter),
+		Features:                    features,
+		Description:                 s.Description,
+		Splash:                      s.Splash,
+		Banner:                      s.Banner,
+		Owner:                       s.Owner,
+		JoinedAt:                    timestamppb.New(s.JoinedAt),
+		DiscoverySplash:             s.DiscoverySplash,
+		MemberCount:                 int32(s.MemberCount),
+		Large:                       s.Large,
+		Roles:                       roles,
+		Emojis:                      emojis,
+		Stickers:                    stickers,
+		Members:                     members,
+		Presences:                   presences,
+		MaxPresences:                int32(s.MaxPresences),
+		MaxMembers:                  int32(s.MaxMembers),
+		Channels:                    channels,
+		Threads:                     threads,
+		VoiceStates:                 voiceStates,
+		Unavailable:                 s.Unavailable,
+		NsfwLevel:                   int32(s.NSFWLevel),
+		MfaLevel:                    int32(s.MfaLevel),
+		ApplicationId:               s.ApplicationID,
+		SystemChannelId:             s.SystemChannelID,
+		SystemChannelFlags:          int32(s.SystemChannelFlags),
+		RulesChannelId:              s.RulesChannelID,
+		PublicUpdatesChannelId:      s.PublicUpdatesChannelID,
+		PreferredLocale:             s.PreferredLocale,
+		WidgetEnabled:               s.WidgetEnabled,
+		WidgetChannelId:             s.WidgetChannelID,
+		VanityUrlCode:               s.VanityURLCode,
+		PremiumTier:                 int32(s.PremiumTier),
+		PremiumSubscriptionCount:    int32(s.PremiumSubscriptionCount),
+		MaxVideoChannelUsers:        int32(s.MaxVideoChannelUsers),
+		ApproximateMemberCount:      int32(s.ApproximateMemberCount),
+		ApproximatePresenceCount:    int32(s.ApproximatePresenceCount),
+		Permissions:                 s.Permissions,
+		StageInstances:              stageInstances,
 	}
 }
 
@@ -211,14 +315,17 @@ func Role(s *discordgo.Role) *proto.Role {
 	}
 
 	return &proto.Role{
-		Id:          s.ID,
-		Name:        s.Name,
-		Managed:     s.Managed,
-		Mentionable: s.Mentionable,
-		Hoist:       s.Hoist,
-		Color:       int32(s.Color),
-		Position:    int32(s.Position),
-		Permissions: s.Permissions,
+		Id:           s.ID,
+		Name:         s.Name,
+		Managed:      s.Managed,
+		Mentionable:  s.Mentionable,
+		Hoist:        s.Hoist,
+		Color:        int32(s.Color),
+		Position:     int32(s.Position),
+		Permissions:  s.Permissions,
+		Icon:         s.Icon,
+		UnicodeEmoji: s.UnicodeEmoji,
+		Flags:        int32(s.Flags),
 	}
 }
 
@@ -260,6 +367,97 @@ func ChannelEdit(s *discordgo.ChannelEdit) *proto.ChannelEdit {
 	}
 
 	return edit
+}
+
+// Presence converts discordgo Presence to proto Presence
+func Presence(s *discordgo.Presence) *proto.Presence {
+	if s == nil {
+		return nil
+	}
+
+	activities := make([]*proto.Activity, 0, len(s.Activities))
+	for _, activity := range s.Activities {
+		activities = append(activities, &proto.Activity{
+			Name:          activity.Name,
+			Type:          int32(activity.Type),
+			Url:           activity.URL,
+			CreatedAt:     timestamppb.New(activity.CreatedAt),
+			ApplicationId: activity.ApplicationID,
+			State:         activity.State,
+			Details:       activity.Details,
+			Timestamps: &proto.TimeStamps{
+				StartTimestamp: activity.Timestamps.StartTimestamp,
+				EndTimestamp:   activity.Timestamps.EndTimestamp,
+			},
+			Emoji: Emoji(&activity.Emoji),
+		})
+	}
+
+	var since int32
+	if s.Since != nil {
+		since = int32(*s.Since)
+	}
+
+	return &proto.Presence{
+		User:         User(s.User),
+		Status:       string(s.Status),
+		Activities:   activities,
+		Since:        since,
+		ClientStatus: ClientStatus(&s.ClientStatus),
+	}
+}
+
+// ClientStatus converts discordgo ClientStatus to proto ClientStatus
+func ClientStatus(s *discordgo.ClientStatus) *proto.ClientStatus {
+	if s == nil {
+		return nil
+	}
+
+	return &proto.ClientStatus{
+		Desktop: string(s.Desktop),
+		Mobile:  string(s.Mobile),
+		Web:     string(s.Web),
+	}
+}
+
+// VoiceState converts discordgo VoiceState to proto VoiceState
+func VoiceState(s *discordgo.VoiceState) *proto.VoiceState {
+	if s == nil {
+		return nil
+	}
+
+	return &proto.VoiceState{
+		GuildId:                 s.GuildID,
+		ChannelId:               s.ChannelID,
+		UserId:                  s.UserID,
+		Member:                  Member(s.Member),
+		SessionId:               s.SessionID,
+		Deaf:                    s.Deaf,
+		Mute:                    s.Mute,
+		SelfDeaf:                s.SelfDeaf,
+		SelfMute:                s.SelfMute,
+		SelfStream:              s.SelfStream,
+		SelfVideo:               s.SelfVideo,
+		Suppress:                s.Suppress,
+		RequestToSpeakTimestamp: util.AsTimePtrToPbTimestamp(s.RequestToSpeakTimestamp),
+	}
+}
+
+// StageInstance converts discordgo StageInstance to proto StageInstance
+func StageInstance(s *discordgo.StageInstance) *proto.StageInstance {
+	if s == nil {
+		return nil
+	}
+
+	return &proto.StageInstance{
+		Id:                    s.ID,
+		GuildId:               s.GuildID,
+		ChannelId:             s.ChannelID,
+		Topic:                 s.Topic,
+		PrivacyLevel:          int32(s.PrivacyLevel),
+		DiscoverableDisabled:  s.DiscoverableDisabled,
+		GuildScheduledEventId: s.GuildScheduledEventID,
+	}
 }
 
 // VoiceRegion converts discordgo VoiceRegion to protobuf VoiceRegion

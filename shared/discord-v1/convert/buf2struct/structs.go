@@ -244,6 +244,94 @@ func ChannelEdit(buf *proto.ChannelEdit) *discordgo.ChannelEdit {
 	return edit
 }
 
+func Presence(buf *proto.Presence) *discordgo.Presence {
+	if buf == nil {
+		return nil
+	}
+
+	activities := make([]*discordgo.Activity, 0, len(buf.Activities))
+	for _, activity := range buf.Activities {
+		activities = append(activities, &discordgo.Activity{
+			Name:          activity.Name,
+			Type:          discordgo.ActivityType(activity.Type),
+			URL:           activity.Url,
+			CreatedAt:     activity.CreatedAt.AsTime(),
+			ApplicationID: activity.ApplicationId,
+			State:         activity.State,
+			Details:       activity.Details,
+			Timestamps: discordgo.TimeStamps{
+				StartTimestamp: activity.Timestamps.StartTimestamp,
+				EndTimestamp:   activity.Timestamps.EndTimestamp,
+			},
+			Emoji: *Emoji(activity.Emoji),
+		})
+	}
+
+	var sincePtr *int
+	if buf.Since != 0 {
+		since := int(buf.Since)
+		sincePtr = &since
+	}
+
+	return &discordgo.Presence{
+		User:         User(buf.User),
+		Status:       discordgo.Status(buf.Status),
+		Activities:   activities,
+		Since:        sincePtr,
+		ClientStatus: *ClientStatus(buf.ClientStatus),
+	}
+}
+
+func ClientStatus(buf *proto.ClientStatus) *discordgo.ClientStatus {
+	if buf == nil {
+		return nil
+	}
+
+	return &discordgo.ClientStatus{
+		Desktop: discordgo.Status(buf.Desktop),
+		Mobile:  discordgo.Status(buf.Mobile),
+		Web:     discordgo.Status(buf.Web),
+	}
+}
+
+func VoiceState(buf *proto.VoiceState) *discordgo.VoiceState {
+	if buf == nil {
+		return nil
+	}
+
+	return &discordgo.VoiceState{
+		GuildID:                 buf.GuildId,
+		ChannelID:               buf.ChannelId,
+		UserID:                  buf.UserId,
+		Member:                  Member(buf.Member),
+		SessionID:               buf.SessionId,
+		Deaf:                    buf.Deaf,
+		Mute:                    buf.Mute,
+		SelfDeaf:                buf.SelfDeaf,
+		SelfMute:                buf.SelfMute,
+		SelfStream:              buf.SelfStream,
+		SelfVideo:               buf.SelfVideo,
+		Suppress:                buf.Suppress,
+		RequestToSpeakTimestamp: util.PbTimestamp2AsTimePtr(buf.RequestToSpeakTimestamp),
+	}
+}
+
+func StageInstance(buf *proto.StageInstance) *discordgo.StageInstance {
+	if buf == nil {
+		return nil
+	}
+
+	return &discordgo.StageInstance{
+		ID:                    buf.Id,
+		GuildID:               buf.GuildId,
+		ChannelID:             buf.ChannelId,
+		Topic:                 buf.Topic,
+		PrivacyLevel:          discordgo.StageInstancePrivacyLevel(buf.PrivacyLevel),
+		DiscoverableDisabled:  buf.DiscoverableDisabled,
+		GuildScheduledEventID: buf.GuildScheduledEventId,
+	}
+}
+
 // Guild converts proto Guild to discordgo Guild
 func Guild(buf *proto.Guild) *discordgo.Guild {
 	if buf == nil {
@@ -289,30 +377,27 @@ func Guild(buf *proto.Guild) *discordgo.Guild {
 
 	presences := make([]*discordgo.Presence, 0, len(buf.Presences))
 	for _, presence := range buf.Presences {
-		presences = append(presences, &discordgo.Presence{
-			User:   User(presence.User),
-			Status: discordgo.Status(presence.Status),
-			Activities: func() []*discordgo.Activity {
-				activities := make([]*discordgo.Activity, 0, len(presence.Activities))
-				for _, activity := range presence.Activities {
-					activities = append(activities, &discordgo.Activity{
-						Name:          activity.Name,
-						Type:          discordgo.ActivityType(activity.Type),
-						URL:           activity.Url,
-						CreatedAt:     activity.CreatedAt.AsTime(),
-						ApplicationID: activity.ApplicationId,
-						State:         activity.State,
-						Details:       activity.Details,
-						Timestamps: discordgo.TimeStamps{
-							StartTimestamp: activity.Timestamps.StartTimestamp,
-							EndTimestamp:   activity.Timestamps.EndTimestamp,
-						},
-						Emoji: *Emoji(activity.Emoji),
-					})
-				}
-				return activities
-			}(),
-		})
+		presences = append(presences, Presence(presence))
+	}
+
+	channels := make([]*discordgo.Channel, 0, len(buf.Channels))
+	for _, channel := range buf.Channels {
+		channels = append(channels, Channel(channel))
+	}
+
+	threads := make([]*discordgo.Channel, 0, len(buf.Threads))
+	for _, thread := range buf.Threads {
+		threads = append(threads, Channel(thread))
+	}
+
+	voiceStates := make([]*discordgo.VoiceState, 0, len(buf.VoiceStates))
+	for _, state := range buf.VoiceStates {
+		voiceStates = append(voiceStates, VoiceState(state))
+	}
+
+	stageInstances := make([]*discordgo.StageInstance, 0, len(buf.StageInstances))
+	for _, instance := range buf.StageInstances {
+		stageInstances = append(stageInstances, StageInstance(instance))
 	}
 
 	// Basic implementation - more fields can be added as needed
@@ -344,9 +429,9 @@ func Guild(buf *proto.Guild) *discordgo.Guild {
 		Presences:                   presences,
 		MaxPresences:                int(buf.MaxPresences),
 		MaxMembers:                  int(buf.MaxMembers),
-		Channels:                    nil, // TODO: Mapping state-enabled fields (#1)
-		Threads:                     nil, // TODO: Mapping state-enabled fields (#1)
-		VoiceStates:                 nil, // TODO: Mapping state-enabled fields (#1)
+		Channels:                    channels,
+		Threads:                     threads,
+		VoiceStates:                 voiceStates,
 		Unavailable:                 buf.Unavailable,
 		NSFWLevel:                   discordgo.GuildNSFWLevel(buf.NsfwLevel),
 		MfaLevel:                    discordgo.MfaLevel(buf.MfaLevel),
@@ -365,8 +450,7 @@ func Guild(buf *proto.Guild) *discordgo.Guild {
 		ApproximateMemberCount:      int(buf.ApproximateMemberCount),
 		ApproximatePresenceCount:    int(buf.ApproximatePresenceCount),
 		Permissions:                 buf.Permissions,
-		StageInstances:              nil, // TODO: Mapping state-enabled fields (#1)
-		// ... other fields handled elsewhere or not mapped
+		StageInstances:              stageInstances,
 	}
 }
 
