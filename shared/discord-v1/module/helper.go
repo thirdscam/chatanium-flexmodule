@@ -10,9 +10,9 @@ import (
 	"github.com/thirdscam/chatanium-flexmodule/shared/discord-v1/convert/struct2buf"
 )
 
-// GRPCClient implements the Helper interface for module-side operations.
+// HelperClient implements the Helper interface for module-side operations.
 // This client communicates with the runtime server to perform Discord operations.
-type GRPCClient struct {
+type HelperClient struct {
 	broker *plugin.GRPCBroker
 	client proto.HelperClient
 }
@@ -22,7 +22,7 @@ type GRPCClient struct {
 // ================================================
 
 // ChannelMessageSend sends a simple text message to a channel.
-func (h *GRPCClient) ChannelMessageSend(channelID string, content string) (*discordgo.Message, error) {
+func (h *HelperClient) ChannelMessageSend(channelID string, content string) (*discordgo.Message, error) {
 	resp, err := h.client.ChannelMessageSend(context.Background(), &proto.ChannelMessageSendRequest{
 		ChannelId: channelID,
 		Content:   content,
@@ -34,7 +34,7 @@ func (h *GRPCClient) ChannelMessageSend(channelID string, content string) (*disc
 }
 
 // ChannelMessageSendComplex sends a complex message with attachments, embeds, etc.
-func (h *GRPCClient) ChannelMessageSendComplex(channelID string, data *discordgo.MessageSend) (*discordgo.Message, error) {
+func (h *HelperClient) ChannelMessageSendComplex(channelID string, data *discordgo.MessageSend) (*discordgo.Message, error) {
 	resp, err := h.client.ChannelMessageSendComplex(context.Background(), &proto.ChannelMessageSendComplexRequest{
 		ChannelId: channelID,
 		Data:      struct2buf.MessageSend(data),
@@ -46,7 +46,7 @@ func (h *GRPCClient) ChannelMessageSendComplex(channelID string, data *discordgo
 }
 
 // ChannelMessageSendEmbed sends a message with a single embed.
-func (h *GRPCClient) ChannelMessageSendEmbed(channelID string, embed *discordgo.MessageEmbed) (*discordgo.Message, error) {
+func (h *HelperClient) ChannelMessageSendEmbed(channelID string, embed *discordgo.MessageEmbed) (*discordgo.Message, error) {
 	resp, err := h.client.ChannelMessageSendEmbed(context.Background(), &proto.ChannelMessageSendEmbedRequest{
 		ChannelId: channelID,
 		Embed:     struct2buf.MessageEmbed(embed),
@@ -58,7 +58,7 @@ func (h *GRPCClient) ChannelMessageSendEmbed(channelID string, embed *discordgo.
 }
 
 // ChannelMessageSendEmbeds sends a message with multiple embeds.
-func (h *GRPCClient) ChannelMessageSendEmbeds(channelID string, embeds []*discordgo.MessageEmbed) (*discordgo.Message, error) {
+func (h *HelperClient) ChannelMessageSendEmbeds(channelID string, embeds []*discordgo.MessageEmbed) (*discordgo.Message, error) {
 	protoEmbeds := make([]*proto.MessageEmbed, 0, len(embeds))
 	for _, embed := range embeds {
 		protoEmbeds = append(protoEmbeds, struct2buf.MessageEmbed(embed))
@@ -75,7 +75,7 @@ func (h *GRPCClient) ChannelMessageSendEmbeds(channelID string, embeds []*discor
 }
 
 // ChannelMessageEdit edits a message with simple text content.
-func (h *GRPCClient) ChannelMessageEdit(channelID, messageID, content string) (*discordgo.Message, error) {
+func (h *HelperClient) ChannelMessageEdit(channelID, messageID, content string) (*discordgo.Message, error) {
 	resp, err := h.client.ChannelMessageEdit(context.Background(), &proto.ChannelMessageEditRequest{
 		ChannelId: channelID,
 		MessageId: messageID,
@@ -88,7 +88,7 @@ func (h *GRPCClient) ChannelMessageEdit(channelID, messageID, content string) (*
 }
 
 // ChannelMessageEditComplex edits a message with complex data.
-func (h *GRPCClient) ChannelMessageEditComplex(m *discordgo.MessageEdit) (*discordgo.Message, error) {
+func (h *HelperClient) ChannelMessageEditComplex(m *discordgo.MessageEdit) (*discordgo.Message, error) {
 	resp, err := h.client.ChannelMessageEditComplex(context.Background(), &proto.ChannelMessageEditComplexRequest{
 		MessageEdit: struct2buf.MessageEdit(m),
 	})
@@ -99,7 +99,7 @@ func (h *GRPCClient) ChannelMessageEditComplex(m *discordgo.MessageEdit) (*disco
 }
 
 // ChannelMessageDelete deletes a message from a channel.
-func (h *GRPCClient) ChannelMessageDelete(channelID, messageID string) error {
+func (h *HelperClient) ChannelMessageDelete(channelID, messageID string) error {
 	_, err := h.client.ChannelMessageDelete(context.Background(), &proto.ChannelMessageDeleteRequest{
 		ChannelId: channelID,
 		MessageId: messageID,
@@ -108,7 +108,7 @@ func (h *GRPCClient) ChannelMessageDelete(channelID, messageID string) error {
 }
 
 // ChannelMessages retrieves multiple messages from a channel.
-func (h *GRPCClient) ChannelMessages(channelID string, limit int, beforeID, afterID, aroundID string) ([]*discordgo.Message, error) {
+func (h *HelperClient) ChannelMessages(channelID string, limit int, beforeID, afterID, aroundID string) ([]*discordgo.Message, error) {
 	resp, err := h.client.ChannelMessages(context.Background(), &proto.ChannelMessagesRequest{
 		ChannelId: channelID,
 		Limit:     int32(limit),
@@ -128,7 +128,7 @@ func (h *GRPCClient) ChannelMessages(channelID string, limit int, beforeID, afte
 }
 
 // ChannelMessage retrieves a single message from a channel.
-func (h *GRPCClient) ChannelMessage(channelID, messageID string) (*discordgo.Message, error) {
+func (h *HelperClient) ChannelMessage(channelID, messageID string) (*discordgo.Message, error) {
 	resp, err := h.client.ChannelMessage(context.Background(), &proto.ChannelMessageRequest{
 		ChannelId: channelID,
 		MessageId: messageID,

@@ -74,7 +74,7 @@ type discord struct {
 	Discord.AbstractHooks
 }
 
-func (u *discord) OnInit() Discord.InitResponse {
+func (u *discord) OnInit(h Discord.Helper) Discord.InitResponse {
 	return Discord.InitResponse{
 		Interactions: []*discordgo.ApplicationCommand{
 			{

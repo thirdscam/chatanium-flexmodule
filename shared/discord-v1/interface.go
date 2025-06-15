@@ -10,7 +10,7 @@ type InitResponse struct {
 }
 
 type Hook interface {
-	OnInit() InitResponse
+	OnInit(h Helper) InitResponse
 	OnCreateChatMessage(message *discordgo.Message) error
 	OnCreateInteraction(interaction *discordgo.Interaction) error
 	OnEvent(event string) error

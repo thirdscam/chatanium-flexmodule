@@ -137,7 +137,7 @@ func RunDiscordV1(client plugin.ClientProtocol) {
 		os.Exit(1)
 	}
 
-	resp := hook.OnInit()
+	resp := hook.OnInit(nil)
 	log.Debug("Discord", "initresp", hclog.Fmt("%+v", resp))
 	if len(resp.Interactions) != 0 {
 		for _, i := range resp.Interactions {
