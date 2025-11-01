@@ -4,4 +4,6 @@ private.env
 /.vscode
 /helper-service
 /.claude
+/.serena
 .mcp.json
+CLAUDE.md
