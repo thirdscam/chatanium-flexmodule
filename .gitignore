@@ -3,3 +3,5 @@
 private.env
 /.vscode
 /helper-service
+/.claude
+.mcp.json
