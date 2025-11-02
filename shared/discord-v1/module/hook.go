@@ -2,6 +2,7 @@ package module
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/bwmarrin/discordgo"
 	plugin "github.com/hashicorp/go-plugin"
@@ -23,9 +24,22 @@ type GRPCServer struct {
 }
 
 // OnInit is called when the discord plugin is initialized.
-func (m *GRPCServer) OnInit(ctx context.Context, req *proto_common.Empty) (*proto.InitResponse, error) {
-	// Pass helper service to hook implementation
-	resp := m.Impl.OnInit(m.helper)
+func (m *GRPCServer) OnInit(ctx context.Context, req *proto.InitRequest) (*proto.InitResponse, error) {
+	// Dial the broker server using the helper server ID provided by runtime
+	conn, err := m.broker.Dial(req.HelperServerId)
+	if err != nil {
+		return nil, fmt.Errorf("failed to dial runtime helper server (ID %d): %w", req.HelperServerId, err)
+	}
+
+	// Create Helper client using the connection to runtime's Helper server
+	helperClient := &HelperClientImpl{
+		client: proto.NewHelperClient(conn),
+		broker: m.broker,
+	}
+
+	// Store helper for later use and pass to hook implementation
+	m.helper = helperClient
+	resp := m.Impl.OnInit(helperClient)
 
 	interactions := make([]*proto.ApplicationCommand, 0)
 	for _, v := range resp.Interactions {
@@ -71,7 +85,11 @@ type HookClient struct {
 
 // OnInit calls the runtime's OnInit hook function
 func (h *HookClient) OnInit(helper shared.Helper) shared.InitResponse {
-	resp, err := h.client.OnInit(context.Background(), &proto_common.Empty{})
+	// Note: HookClient is for module->runtime calls (not our primary use case)
+	// Pass helperServerId=0 since modules don't provide helpers to runtime
+	resp, err := h.client.OnInit(context.Background(), &proto.InitRequest{
+		HelperServerId: 0,
+	})
 	if err != nil {
 		// Return empty response on error
 		return shared.InitResponse{

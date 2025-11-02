@@ -5,7 +5,6 @@ import (
 
 	"github.com/bwmarrin/discordgo"
 	plugin "github.com/hashicorp/go-plugin"
-	proto_common "github.com/thirdscam/chatanium-flexmodule/proto"
 	proto "github.com/thirdscam/chatanium-flexmodule/proto/discord-v1"
 	shared "github.com/thirdscam/chatanium-flexmodule/shared/discord-v1"
 	"github.com/thirdscam/chatanium-flexmodule/shared/discord-v1/convert/buf2struct"
@@ -16,8 +15,9 @@ import (
 //
 // This part works on the runtime-side and is the gRPC client implementation for the module.
 type HookClient struct {
-	broker *plugin.GRPCBroker
-	client proto.HookClient
+	broker         *plugin.GRPCBroker
+	client         proto.HookClient
+	helperServerID uint32 // Broker server ID for Helper service
 }
 
 // ================================================
@@ -26,7 +26,10 @@ type HookClient struct {
 
 // OnInit calls the OnInit RPC method and returns the initialization response.
 func (m *HookClient) OnInit(helper shared.Helper) shared.InitResponse {
-	resp, err := m.client.OnInit(context.Background(), &proto_common.Empty{})
+	// Pass the helper server ID to the module so it can dial the broker server
+	resp, err := m.client.OnInit(context.Background(), &proto.InitRequest{
+		HelperServerId: m.helperServerID,
+	})
 	if err != nil {
 		return shared.InitResponse{}
 	}

@@ -460,17 +460,6 @@ func StageInstance(s *discordgo.StageInstance) *proto.StageInstance {
 	}
 }
 
-// VoiceRegion converts discordgo VoiceRegion to protobuf VoiceRegion
-func VoiceRegion(s *discordgo.VoiceRegion) *proto.VoiceRegion {
-	if s == nil {
-		return nil
-	}
-	return &proto.VoiceRegion{
-		Id:   s.ID,
-		Name: s.Name,
-	}
-}
-
 // Webhook converts discordgo Webhook to protobuf Webhook
 func Webhook(s *discordgo.Webhook) *proto.Webhook {
 	if s == nil {

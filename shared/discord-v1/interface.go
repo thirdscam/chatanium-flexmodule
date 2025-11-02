@@ -94,7 +94,7 @@ type Helper interface {
 // implement a subset of the hook Interface.
 type AbstractHooks struct{}
 
-func (u *AbstractHooks) OnInit() InitResponse {
+func (u *AbstractHooks) OnInit(h Helper) InitResponse {
 	return InitResponse{}
 }
 

@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+
 	"github.com/bwmarrin/discordgo"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/go-plugin"
@@ -79,6 +81,30 @@ func (u *discord) OnInit(h Discord.Helper) Discord.InitResponse {
 	// Store helper for later use
 	u.helper = h
 
+	// Start goroutine to send messages every 2 seconds
+	// This demonstrates that the module can call helper functions persistently
+	// go func() {
+	// 	channelID := "1154789841654009886"
+	// 	counter := 0
+		
+	// 	for {
+	// 		time.Sleep(2 * time.Second)
+	// 		counter++
+			
+	// 		message := fmt.Sprintf("🤖 Persistent Helper Test #%d - Called from module goroutine at %s", 
+	// 			counter, time.Now().Format("15:04:05"))
+			
+	// 		_, err := u.helper.ChannelMessageSend(channelID, message)
+	// 		if err != nil {
+	// 			log.Error("Failed to send periodic message", "error", err, "counter", counter)
+	// 		} else {
+	// 			log.Info("Periodic message sent successfully", "counter", counter)
+	// 		}
+	// 	}
+	// }()
+
+	log.Info("Discord module initialized with persistent helper connection")
+
 	return Discord.InitResponse{
 		Interactions: []*discordgo.ApplicationCommand{
 			{
@@ -116,6 +142,7 @@ func (u *discord) OnCreateChatMessage(m *discordgo.Message) error {
 			Title:       "Hello from Plugin!",
 			Description: "This is a response from the test plugin using helper functions.",
 			Color:       0x00ff00,
+			Type:       "rich",
 			Fields: []*discordgo.MessageEmbedField{
 				{
 					Name:   "Plugin Status",
@@ -195,6 +222,7 @@ func main() {
 		Name:       "TestModule",
 		Level:      hclog.LevelFromString("DEBUG"),
 		JSONFormat: true,
+		Output:     os.Stderr, // Use stderr to avoid conflicting with go-plugin's stdout handshake
 	})
 
 	broker.ServeToRuntime(map[string]plugin.Plugin{

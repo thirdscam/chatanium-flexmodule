@@ -24,10 +24,11 @@ type Plugin struct {
 
 func (p *Plugin) GRPCServer(broker *plugin.GRPCBroker, s *grpc.Server) error {
 	// Register Hook server (receives calls from runtime)
+	// Helper will be passed via OnInit call from runtime, not created here
 	proto.RegisterHookServer(s, &GRPCServer{
 		Impl:   p.Impl,
 		broker: broker,
-		helper: p.Helper, // Pass helper service to hook server
+		helper: nil, // Will be set when OnInit is called by runtime
 	})
 
 	return nil

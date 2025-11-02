@@ -32,10 +32,22 @@ func (p *Plugin) GRPCServer(broker *plugin.GRPCBroker, s *grpc.Server) error {
 }
 
 func (p *Plugin) GRPCClient(ctx context.Context, broker *plugin.GRPCBroker, c *grpc.ClientConn) (interface{}, error) {
+	// Start a broker server for Helper service so module can call runtime's helpers
+	var helperServerID uint32 = 1 // Use a fixed ID for the helper server
+	go broker.AcceptAndServe(helperServerID, func(opts []grpc.ServerOption) *grpc.Server {
+		s := grpc.NewServer(opts...)
+		proto.RegisterHelperServer(s, &HelperServerImpl{
+			Impl:   p.Helper,
+			broker: broker,
+		})
+		return s
+	})
+
 	// Create Hook client to call module's hook functions
 	hookClient := &HookClient{
-		client: proto.NewHookClient(c),
-		broker: broker,
+		client:         proto.NewHookClient(c),
+		broker:         broker,
+		helperServerID: helperServerID, // Pass server ID to hook client
 	}
 
 	// Create Helper client (for completeness, though runtime usually provides helpers)

@@ -455,16 +455,6 @@ func Guild(buf *proto.Guild) *discordgo.Guild {
 }
 
 // VoiceRegion converts protobuf VoiceRegion to discordgo VoiceRegion
-func VoiceRegion(buf *proto.VoiceRegion) *discordgo.VoiceRegion {
-	if buf == nil {
-		return nil
-	}
-	return &discordgo.VoiceRegion{
-		ID:   buf.Id,
-		Name: buf.Name,
-	}
-}
-
 // Webhook converts protobuf Webhook to discordgo Webhook
 func Webhook(buf *proto.Webhook) *discordgo.Webhook {
 	if buf == nil {
@@ -488,19 +478,3 @@ func Webhook(buf *proto.Webhook) *discordgo.Webhook {
 	return webhook
 }
 
-// GatewayBotResponse converts protobuf GatewayBotResponse to discordgo GatewayBotResponse
-func GatewayBotResponse(buf *proto.GatewayBotResponse) *discordgo.GatewayBotResponse {
-	if buf == nil {
-		return nil
-	}
-	return &discordgo.GatewayBotResponse{
-		URL:    buf.Url,
-		Shards: int(buf.Shards),
-		SessionStartLimit: discordgo.SessionInformation{
-			Total:          int(buf.SessionStartLimit.Total),
-			Remaining:      int(buf.SessionStartLimit.Remaining),
-			ResetAfter:     int(buf.SessionStartLimit.ResetAfter),
-			MaxConcurrency: int(buf.SessionStartLimit.MaxConcurrency),
-		},
-	}
-}

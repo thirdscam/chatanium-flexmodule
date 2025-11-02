@@ -30,7 +30,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type HookClient interface {
-	OnInit(ctx context.Context, in *proto.Empty, opts ...grpc.CallOption) (*InitResponse, error)
+	OnInit(ctx context.Context, in *InitRequest, opts ...grpc.CallOption) (*InitResponse, error)
 	OnCreateMessage(ctx context.Context, in *Message, opts ...grpc.CallOption) (*proto.Empty, error)
 	OnCreateInteraction(ctx context.Context, in *Interaction, opts ...grpc.CallOption) (*proto.Empty, error)
 	OnEvent(ctx context.Context, in *OnEventRequest, opts ...grpc.CallOption) (*proto.Empty, error)
@@ -44,7 +44,7 @@ func NewHookClient(cc grpc.ClientConnInterface) HookClient {
 	return &hookClient{cc}
 }
 
-func (c *hookClient) OnInit(ctx context.Context, in *proto.Empty, opts ...grpc.CallOption) (*InitResponse, error) {
+func (c *hookClient) OnInit(ctx context.Context, in *InitRequest, opts ...grpc.CallOption) (*InitResponse, error) {
 	out := new(InitResponse)
 	err := c.cc.Invoke(ctx, Hook_OnInit_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -84,7 +84,7 @@ func (c *hookClient) OnEvent(ctx context.Context, in *OnEventRequest, opts ...gr
 // All implementations should embed UnimplementedHookServer
 // for forward compatibility
 type HookServer interface {
-	OnInit(context.Context, *proto.Empty) (*InitResponse, error)
+	OnInit(context.Context, *InitRequest) (*InitResponse, error)
 	OnCreateMessage(context.Context, *Message) (*proto.Empty, error)
 	OnCreateInteraction(context.Context, *Interaction) (*proto.Empty, error)
 	OnEvent(context.Context, *OnEventRequest) (*proto.Empty, error)
@@ -94,7 +94,7 @@ type HookServer interface {
 type UnimplementedHookServer struct {
 }
 
-func (UnimplementedHookServer) OnInit(context.Context, *proto.Empty) (*InitResponse, error) {
+func (UnimplementedHookServer) OnInit(context.Context, *InitRequest) (*InitResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method OnInit not implemented")
 }
 func (UnimplementedHookServer) OnCreateMessage(context.Context, *Message) (*proto.Empty, error) {
@@ -119,7 +119,7 @@ func RegisterHookServer(s grpc.ServiceRegistrar, srv HookServer) {
 }
 
 func _Hook_OnInit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(proto.Empty)
+	in := new(InitRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -131,7 +131,7 @@ func _Hook_OnInit_Handler(srv interface{}, ctx context.Context, dec func(interfa
 		FullMethod: Hook_OnInit_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HookServer).OnInit(ctx, req.(*proto.Empty))
+		return srv.(HookServer).OnInit(ctx, req.(*InitRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

@@ -1,6 +1,8 @@
 package struct2buf
 
 import (
+	"fmt"
+
 	"github.com/bwmarrin/discordgo"
 	proto "github.com/thirdscam/chatanium-flexmodule/proto/discord-v1"
 	"github.com/thirdscam/chatanium-flexmodule/util"
@@ -112,7 +114,7 @@ func MessageEmbed(s *discordgo.MessageEmbed) *proto.MessageEmbed {
 	case discordgo.EmbedTypeLink:
 		embedType = 5
 	default:
-		panic("StructToBuf::MessageEmbed > unknown embed type")
+		panic(fmt.Sprintf("unknown embed type (type: %s)", s.Type))
 	}
 
 	return &proto.MessageEmbed{

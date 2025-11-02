@@ -9,12 +9,16 @@ message OnEventRequest {
     string event = 1;
 }
 
+message InitRequest {
+    uint32 helper_server_id = 1;
+}
+
 message InitResponse {
     repeated ApplicationCommand interactions = 1;
 }
 
 service Hook {
-    rpc OnInit(common.Empty) returns (InitResponse);
+    rpc OnInit(InitRequest) returns (InitResponse);
     rpc OnCreateMessage(Message) returns (common.Empty);
     rpc OnCreateInteraction(Interaction) returns (common.Empty);
     rpc OnEvent(OnEventRequest) returns (common.Empty);

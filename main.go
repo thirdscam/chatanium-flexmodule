@@ -68,7 +68,7 @@ func main() {
 	client := plugin.NewClient(&plugin.ClientConfig{
 		HandshakeConfig: shared.Handshake,
 		Plugins:         runtimePluginMap,
-		Cmd:             exec.Command("sh", "-c", os.Getenv("PLUGIN_PATH")),
+		Cmd:             exec.Command(os.Getenv("PLUGIN_PATH")),
 		Logger:          log.ResetNamed("Module").Named("TestModule"),
 		AllowedProtocols: []plugin.Protocol{
 			plugin.ProtocolGRPC,
@@ -84,7 +84,7 @@ func main() {
 	}
 
 	RunCoreV1(rpcClient)
-	RunDiscordV1(rpcClient)
+	RunDiscordV1(rpcClient, discordHelper)
 
 	dgSession.Close()
 }
@@ -129,7 +129,7 @@ func RunCoreV1(client plugin.ClientProtocol) {
 	log.Debug("Core", "status", hclog.Fmt("%+v", status))
 }
 
-func RunDiscordV1(client plugin.ClientProtocol) {
+func RunDiscordV1(client plugin.ClientProtocol, discordHelper discord.Helper) {
 	// Request the plugin
 	raw, err := client.Dispense("discord-v1")
 	if err != nil {
@@ -146,9 +146,9 @@ func RunDiscordV1(client plugin.ClientProtocol) {
 
 	// Get hook client to call module functions
 	hook := runtimeClients.GetHook()
-	helper := runtimeClients.GetHelper()
 
-	resp := hook.OnInit(helper)
+	// Use the runtime's Discord helper, not the module's helper client
+	resp := hook.OnInit(discordHelper)
 	log.Debug("Discord", "initresp", hclog.Fmt("%+v", resp))
 	if len(resp.Interactions) != 0 {
 		for _, i := range resp.Interactions {
