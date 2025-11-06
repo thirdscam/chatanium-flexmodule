@@ -61,14 +61,17 @@ func main() {
 	// Create Discord helper
 	discordHelper := discordRuntime.NewDiscordHelper(dgSession)
 
-	// Create runtime plugin map with Discord helper
-	runtimePluginMap := shared.CreateRuntimePluginMap(discordHelper)
+	// Create Voice helper
+	voiceHelper := discordRuntime.NewVoiceHelper(dgSession, log)
+
+	// Create runtime plugin map with Discord helper and voice helper
+	runtimePluginMap := shared.CreateRuntimePluginMap(discordHelper, voiceHelper)
 
 	// We're a host. Start by launching the plugin process.
 	client := plugin.NewClient(&plugin.ClientConfig{
 		HandshakeConfig: shared.Handshake,
 		Plugins:         runtimePluginMap,
-		Cmd:             exec.Command(os.Getenv("PLUGIN_PATH")),
+		Cmd:             exec.Command("./bin/voice-player-module"),
 		Logger:          log.ResetNamed("Module").Named("TestModule"),
 		AllowedProtocols: []plugin.Protocol{
 			plugin.ProtocolGRPC,

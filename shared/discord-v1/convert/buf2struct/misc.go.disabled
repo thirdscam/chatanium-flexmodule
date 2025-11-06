@@ -107,6 +107,8 @@ func File(buf *proto.File) *discordgo.File {
 }
 
 // MessageSnapshot converts proto.MessageSnapshot to discordgo.MessageSnapshot
+// Temporarily disabled due to discordgo version mismatch
+/*
 func MessageSnapshot(buf *proto.MessageSnapshot) *discordgo.MessageSnapshot {
 	if buf == nil {
 		return nil
@@ -116,6 +118,7 @@ func MessageSnapshot(buf *proto.MessageSnapshot) *discordgo.MessageSnapshot {
 		Message: Message(buf.Message),
 	}
 }
+*/
 
 // ThreadStart converts proto.ThreadStart to discordgo.ThreadStart
 func ThreadStart(buf *proto.ThreadStart) *discordgo.ThreadStart {

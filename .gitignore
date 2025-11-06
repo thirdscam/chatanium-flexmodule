@@ -7,3 +7,5 @@ private.env
 /.serena
 .mcp.json
 CLAUDE.md
+*.log
+claudedocs/*.md

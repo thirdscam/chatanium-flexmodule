@@ -2,6 +2,7 @@ package discord
 
 import (
 	"github.com/bwmarrin/discordgo"
+	pb "github.com/thirdscam/chatanium-flexmodule/proto/discord-v1"
 )
 
 type InitResponse struct {
@@ -20,6 +21,7 @@ type Hook interface {
 type RuntimeClients interface {
 	GetHook() Hook
 	GetHelper() Helper
+	GetVoiceStream() pb.VoiceStreamClient
 }
 
 type Helper interface {

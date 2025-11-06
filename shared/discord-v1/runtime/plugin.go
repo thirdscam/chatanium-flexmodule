@@ -18,8 +18,9 @@ import (
 type Plugin struct {
 	plugin.NetRPCUnsupportedPlugin
 
-	Helper shared.Helper // The implementation of the Helper interface (runtime side)
-	Hook   shared.Hook   // Hook client to call module's hook functions
+	Helper      shared.Helper      // The implementation of the Helper interface (runtime side)
+	Hook        shared.Hook        // Hook client to call module's hook functions
+	VoiceHelper *VoiceHelper       // Voice streaming helper
 }
 
 func (p *Plugin) GRPCServer(broker *plugin.GRPCBroker, s *grpc.Server) error {
@@ -28,6 +29,12 @@ func (p *Plugin) GRPCServer(broker *plugin.GRPCBroker, s *grpc.Server) error {
 		Impl:   p.Helper,
 		broker: broker,
 	})
+
+	// Register VoiceStream server if available
+	if p.VoiceHelper != nil {
+		proto.RegisterVoiceStreamServer(s, p.VoiceHelper)
+	}
+
 	return nil
 }
 
@@ -36,10 +43,18 @@ func (p *Plugin) GRPCClient(ctx context.Context, broker *plugin.GRPCBroker, c *g
 	var helperServerID uint32 = 1 // Use a fixed ID for the helper server
 	go broker.AcceptAndServe(helperServerID, func(opts []grpc.ServerOption) *grpc.Server {
 		s := grpc.NewServer(opts...)
+		
+		// Register Helper server
 		proto.RegisterHelperServer(s, &HelperServerImpl{
 			Impl:   p.Helper,
 			broker: broker,
 		})
+		
+		// Register VoiceStream server if available
+		if p.VoiceHelper != nil {
+			proto.RegisterVoiceStreamServer(s, p.VoiceHelper)
+		}
+		
 		return s
 	})
 
@@ -56,17 +71,22 @@ func (p *Plugin) GRPCClient(ctx context.Context, broker *plugin.GRPCBroker, c *g
 		broker: broker,
 	}
 
+	// Create VoiceStream client
+	voiceClient := proto.NewVoiceStreamClient(c)
+
 	// Return both clients as a combined interface
 	return &RuntimeClients{
-		Hook:   hookClient,
-		Helper: helperClient,
+		Hook:        hookClient,
+		Helper:      helperClient,
+		VoiceStream: voiceClient,
 	}, nil
 }
 
 // RuntimeClients wraps both Hook and Helper clients for runtime
 type RuntimeClients struct {
-	Hook   shared.Hook
-	Helper shared.Helper
+	Hook        shared.Hook
+	Helper      shared.Helper
+	VoiceStream proto.VoiceStreamClient
 }
 
 // GetHook returns the Hook client
@@ -77,6 +97,11 @@ func (r *RuntimeClients) GetHook() shared.Hook {
 // GetHelper returns the Helper client
 func (r *RuntimeClients) GetHelper() shared.Helper {
 	return r.Helper
+}
+
+// GetVoiceStream returns the VoiceStream client
+func (r *RuntimeClients) GetVoiceStream() proto.VoiceStreamClient {
+	return r.VoiceStream
 }
 
 var (

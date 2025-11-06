@@ -30,12 +30,13 @@ var ModulePluginMap = map[string]plugin.Plugin{
 	"discord-v1": &discord_module.Plugin{},
 }
 
-// CreateRuntimePluginMap creates a runtime plugin map with the given Discord helper
-func CreateRuntimePluginMap(discordHelper discord_shared.Helper) map[string]plugin.Plugin {
+// CreateRuntimePluginMap creates a runtime plugin map with the given Discord helper and voice helper
+func CreateRuntimePluginMap(discordHelper discord_shared.Helper, voiceHelper *discord_runtime.VoiceHelper) map[string]plugin.Plugin {
 	return map[string]plugin.Plugin{
 		"core-v1": &core_runtime.Plugin{},
 		"discord-v1": &discord_runtime.Plugin{
-			Helper: discordHelper,
+			Helper:      discordHelper,
+			VoiceHelper: voiceHelper,
 		},
 	}
 }

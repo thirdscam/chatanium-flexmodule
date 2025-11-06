@@ -108,6 +108,8 @@ func File(s *discordgo.File) *proto.File {
 }
 
 // MessageSnapshot converts discordgo.MessageSnapshot to proto.MessageSnapshot
+// Temporarily disabled due to discordgo version mismatch
+/*
 func MessageSnapshot(s *discordgo.MessageSnapshot) *proto.MessageSnapshot {
 	if s == nil {
 		return nil
@@ -117,6 +119,7 @@ func MessageSnapshot(s *discordgo.MessageSnapshot) *proto.MessageSnapshot {
 		Message: Message(s.Message),
 	}
 }
+*/
 
 // ThreadStart converts discordgo.ThreadStart to proto.ThreadStart
 func ThreadStart(s *discordgo.ThreadStart) *proto.ThreadStart {

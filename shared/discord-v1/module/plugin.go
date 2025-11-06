@@ -47,17 +47,27 @@ func (p *Plugin) GRPCClient(ctx context.Context, broker *plugin.GRPCBroker, c *g
 		broker: broker,
 	}
 
-	// Return both clients as a combined interface
+	// Create VoiceStream client to call runtime's voice streaming service
+	voiceClient := proto.NewVoiceStreamClient(c)
+
+	// Return all clients as a combined interface
 	return &ModuleClients{
-		Helper: helperClient,
-		Hook:   hookClient,
+		Helper:      helperClient,
+		Hook:        hookClient,
+		VoiceStream: voiceClient,
 	}, nil
 }
 
 // ModuleClients wraps both Helper and Hook clients
 type ModuleClients struct {
-	Helper shared.Helper
-	Hook   shared.Hook
+	Helper      shared.Helper
+	Hook        shared.Hook
+	VoiceStream proto.VoiceStreamClient
+}
+
+// GetVoiceStream returns the VoiceStream client
+func (m *ModuleClients) GetVoiceStream() proto.VoiceStreamClient {
+	return m.VoiceStream
 }
 
 var _ plugin.GRPCPlugin = &Plugin{}

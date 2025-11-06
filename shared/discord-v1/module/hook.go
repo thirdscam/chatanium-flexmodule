@@ -37,8 +37,22 @@ func (m *GRPCServer) OnInit(ctx context.Context, req *proto.InitRequest) (*proto
 		broker: m.broker,
 	}
 
+	// Create VoiceStream client using the same connection
+	// (runtime registers VoiceStreamServer in the same gRPC server)
+	voiceStreamClient := proto.NewVoiceStreamClient(conn)
+
 	// Store helper for later use and pass to hook implementation
 	m.helper = helperClient
+
+	// Check if the module implements VoiceStreamAware interface
+	// If so, pass the VoiceStream client to it
+	type VoiceStreamAware interface {
+		SetVoiceStream(proto.VoiceStreamClient)
+	}
+	if vsAware, ok := m.Impl.(VoiceStreamAware); ok {
+		vsAware.SetVoiceStream(voiceStreamClient)
+	}
+
 	resp := m.Impl.OnInit(helperClient)
 
 	interactions := make([]*proto.ApplicationCommand, 0)
